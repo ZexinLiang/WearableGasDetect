@@ -204,7 +204,7 @@ void get_sensor_altitude(uint16_t *altitude)//读取海拔
 
 void set_ambient_pressure(uint16_t *pressure_set)//设置环境压力 
 {
-    uint16_t word = pressure_set/100;
+    uint16_t word = (*pressure_set)/100;
     uint8_t byte[2];
     byte[0] = (uint8_t)(word>>8);
     byte[1] = (uint8_t)word;
@@ -228,9 +228,12 @@ void set_ambient_pressure(uint16_t *pressure_set)//设置环境压力
 }
 
 
-#warning "data input required"
-void  perform_forced_recalibration(uint16_t *correction)//执行强制校验标准
+void  perform_forced_recalibration(uint16_t *correction,int16_t *frc_c)//执行强制校验标准
 {
+    uint8_t byte[2] ={0};
+    byte[0] = (uint8_t)(*correction>>8);
+    byte[1] = (uint8_t)(*correction);
+    uint8_t crc = CRC_Cal(byte, 2);
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -240,13 +243,11 @@ void  perform_forced_recalibration(uint16_t *correction)//执行强制校验标准
     I2C_SendByte(&i2c0, 0x2f);
     I2C_WaitAck(&i2c0);
     
-    DelayMs(400);//延时函数
-    
-    I2C_SendByte(&i2c0),     //写入设置的指令
+    I2C_SendByte(&i2c0,byte[0]);     //写入设置的指令
     I2C_WaitAck(&i2c0);//等待从机响应
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,byte[1]);
     I2C_WaitAck(&i2c0);
-    uint8_t crc = I2C_SendByte(&i2c0);
+    I2C_SendByte(&i2c0,crc);
     I2C_WaitAck(&i2c0);
     
     DelayMs(400);//延时函数
@@ -258,20 +259,16 @@ void  perform_forced_recalibration(uint16_t *correction)//执行强制校验标准
     I2C_SendACK(&i2c0, 1);
     uint8_t temp2 = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);//主机发送收到响应ACK
-    uint8_t crc = I2C_RecvByte(&i2c0);
+    uint8_t crc2 = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
-    *correction = (temp1<<8)|temp2;
-    
-    I2C_Stop(&i2c0);
+    uint16_t returnfrcori = (temp1<<8)|temp2;
+    *frc_c = returnfrcori - 0x8000;
 } 
 
-
-
-#warning "data input required"
-
-void set_automatic_self_calibration_enabled(void)//设置自动自校准启用
+void set_automatic_self_calibration_enabled(uint8_t ASC_en)//设置自动自校准启用
 {
+    uint8_t crc = CRC_Cal(&ASC_en, 1);
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -280,19 +277,14 @@ void set_automatic_self_calibration_enabled(void)//设置自动自校准启用
     I2C_WaitAck(&i2c0);
     I2C_SendByte(&i2c0, 0x16);
     I2C_WaitAck(&i2c0);
-    
-    DelayMs(1);//延时函数
-    
     //写入,1=ASC enabled; 0=ASC disabled
     I2C_Start(&i2c0);
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,0),
     I2C_WaitAck(&i2c0);//等待从机响应
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,ASC_en),
     I2C_WaitAck(&i2c0);
-    
-    uint8_t crc = I2C_SendByte(&i2c0);
+    I2C_SendByte(&i2c0,crc);
     I2C_WaitAck(&i2c0);
-    
     I2C_Stop(&i2c0);
 }
 
@@ -341,7 +333,7 @@ void start_low_power_periodic_measurement(void) //启动低功耗定期测量
 
 
 
-void get_data_ready_status (uint16_t *ready_state)//获取数据就绪状态
+void get_data_ready_status (uint8_t *ready_state)//获取数据就绪状态
 {
     I2C_Start(&i2c0);//起始信号
     I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
@@ -365,7 +357,9 @@ void get_data_ready_status (uint16_t *ready_state)//获取数据就绪状态
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
     
-    *ready_state = (temp1<<8)|temp2;
+    uint16_t word = (temp1<<8)|temp2;
+    if(word & 0b0000011111111111) *ready_state = 1;
+    else *ready_state =0;
 }
 
 
@@ -385,35 +379,35 @@ void persist_settings(void) //保存设置
 
 
 
-#warning "need persist data"
-void get_serial_number (uint16_t *number)//获取序列号
-{
-    I2C_Start(&i2c0);//起始信号
-    I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
-    I2C_WaitAck(&i2c0);//等待从机响应
-    //发送16位指令
-    I2C_SendByte(&i2c0, 0x36);
-    I2C_WaitAck(&i2c0);
-    I2C_SendByte(&i2c0, 0x82);
-    I2C_WaitAck(&i2c0);
-
-    DelayMs(1);//延时函数
-
-    I2C_Start(&i2c0);
-    I2C_SendByte(&i2c0, 0x62<<1|0x01);//从机地址，1：读指令
-    I2C_WaitAck(&i2c0);
-    uint16_t temp1 = I2C_RecvByte(&i2c0);
-    I2C_SendACK(&i2c0, 1);
-    uint16_t temp2 = I2C_RecvByte(&i2c0);
-    I2C_SendACK(&i2c0, 1);//主机发送收到响应ACK
-    uint16_t temp3 = I2C_RecvByte(&i2c0);
-    I2C_SendACK(&i2c0, 1);
-    uint8_t crc = I2C_RecvByte(&i2c0);
-    I2C_SendACK(&i2c0, 0);//NACK
-    I2C_Stop(&i2c0);
-    
-    *number = (temp1<<32)|(temp2<<16)|(temp3);
-}
+//#warning "need persist data"
+//void get_serial_number (uint16_t *number)//获取序列号
+//{
+//    I2C_Start(&i2c0);//起始信号
+//    I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
+//    I2C_WaitAck(&i2c0);//等待从机响应
+//    //发送16位指令
+//    I2C_SendByte(&i2c0, 0x36);
+//    I2C_WaitAck(&i2c0);
+//    I2C_SendByte(&i2c0, 0x82);
+//    I2C_WaitAck(&i2c0);
+//
+//    DelayMs(1);//延时函数
+//
+//    I2C_Start(&i2c0);
+//    I2C_SendByte(&i2c0, 0x62<<1|0x01);//从机地址，1：读指令
+//    I2C_WaitAck(&i2c0);
+//    uint16_t temp1 = I2C_RecvByte(&i2c0);
+//    I2C_SendACK(&i2c0, 1);
+//    uint16_t temp2 = I2C_RecvByte(&i2c0);
+//    I2C_SendACK(&i2c0, 1);//主机发送收到响应ACK
+//    uint16_t temp3 = I2C_RecvByte(&i2c0);
+//    I2C_SendACK(&i2c0, 1);
+//    uint8_t crc = I2C_RecvByte(&i2c0);
+//    I2C_SendACK(&i2c0, 0);//NACK
+//    I2C_Stop(&i2c0);
+//
+//    *number = (temp1<<32)|(temp2<<16)|(temp3);
+//}
 
 
 
