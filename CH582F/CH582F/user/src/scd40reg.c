@@ -2,6 +2,26 @@
 
 extern softI2C_TypeDef i2c0;
 
+#define CRC8_POLYNOMIAL 0x31
+#define CRC8_INIT 0xFF
+
+uint8_t CRC_Cal(const uint8_t* data, uint16_t count) {
+    uint16_t current_byte;
+    uint8_t crc = CRC8_INIT;
+    uint8_t crc_bit;
+    /* calculates 8-Bit checksum with given polynomial */
+    for (current_byte = 0; current_byte < count; ++current_byte) {
+        crc ^= (data[current_byte]);
+        for (crc_bit = 8; crc_bit > 0; --crc_bit) {
+            if (crc & 0x80)
+                crc = (crc << 1) ^ CRC8_POLYNOMIAL;
+            else
+                crc = (crc << 1);
+        }
+    }
+    return crc;
+}
+
 void start_periodic_measurement(void)//开始定期测量
 {
 	I2C_Start(&i2c0);//起始信号
@@ -15,9 +35,9 @@ void start_periodic_measurement(void)//开始定期测量
     I2C_Stop(&i2c0);
 } 
 
-void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_umidity)//3.5.2读取传感器输出
+void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_humidity)//3.5.2读取传感器输出
 {
-    uint16_t temp1,temp2,crc,value;
+    uint16_t temp1,temp2,crc,value1,value2,value3;
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -26,13 +46,10 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_umi
     I2C_WaitAck(&i2c0);
     I2C_SendByte(&i2c0, 0x05);
     I2C_WaitAck(&i2c0);
-    
     DelayMs(1);//延时函数
-    
     I2C_Start(&i2c0);
     I2C_SendByte(&i2c0, 0x62<<1|0x01);//从机地址，1：读指令
     I2C_WaitAck(&i2c0);
-
     //接受CO2数据
     temp1 = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
@@ -40,8 +57,7 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_umi
     I2C_SendACK(&i2c0, 1);
     crc = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
-    value = (temp1<<8)|temp2;
-    *CO2 = value;
+    value1 = (temp1<<8)|temp2;
     //接受温度数据
     temp1 = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
@@ -49,8 +65,7 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_umi
     I2C_SendACK(&i2c0, 1);
     crc = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
-    value = (temp1<<8)|temp2;
-    *Temperature = (uint16_t)(-45 + 175.f*(float)value/65536.f);
+    value2 = (temp1<<8)|temp2;
     //接受湿度数据
     temp1 = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
@@ -58,18 +73,19 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_umi
     I2C_SendACK(&i2c0, 1);
     crc = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
-    value = (temp1<<8)|temp2;
-    *Relative_umidity =
-
+    value3 = (temp1<<8)|temp2;
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
+    *CO2 = value1;
+    *Temperature = (uint16_t)(-45 + 175.f*(float)value2/65536.f);
+    *Relative_humidity = (uint16_t)(100.f*(float)value3/65536.f);
 }
 
 
 
 void stop_periodic_measurement(void) //停止测量
 {
-	2C_Start(&i2c0);//起始信号
+	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
 	//发送16位指令
@@ -80,11 +96,13 @@ void stop_periodic_measurement(void) //停止测量
     I2C_Stop(&i2c0);
 }
 
-
-
-#warning "data input required"
-void set_sensor_offset(uint16_t *offset_set)//设置温度偏移量 
+void set_sensor_offset(float *offset_set)//设置温度偏移量
 {
+    uint16_t word  = (uint16_t)(*offset_set*65535/175);
+    uint8_t byte[2];
+    byte[0] = (uint8_t)(word>>8);
+    byte[1] = (uint8_t)word;
+    uint8_t crc = CRC_Cal(byte, 2);
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -94,23 +112,16 @@ void set_sensor_offset(uint16_t *offset_set)//设置温度偏移量
     I2C_SendByte(&i2c0, 0x1d);
     I2C_WaitAck(&i2c0);
     
-    DelayMs(1);//延时函数
-     
-    I2C_Start(&i2c0);
-    I2C_SendByte(&i2c0),     //写入设置的海拔
+    I2C_SendByte(&i2c0,byte[0]);   //写入设置的海拔
     I2C_WaitAck(&i2c0);//等待从机响应
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,byte[1]);
     I2C_WaitAck(&i2c0);
-    uint8_t crc = I2C_SendByte(&i2c0);
+    I2C_SendByte(&i2c0,crc);
     I2C_WaitAck(&i2c0);
-    
     I2C_Stop(&i2c0);
 }
 
-
-
-
-void get_temperature_offset(uint16_t *offset)//读取温度偏移量
+void get_temperature_offset(float *offset)//读取温度偏移量
 {
     I2C_Start(&i2c0);//起始信号
     I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
@@ -133,14 +144,17 @@ void get_temperature_offset(uint16_t *offset)//读取温度偏移量
     uint8_t crc = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
-    *offset = (temp1<<8)|temp2;
+    uint16_t word = (temp1<<8)|temp2;
+    *offset = (float)word*175.f/65535.f;
 }
 
 
-
-#warning "data input required"
 void set_sensor_altitude(uint16_t *altitude_set)//设置海拔 
 {
+    uint8_t byte[2];
+    byte[0] = (uint8_t)*altitude_set>>8;
+    byte[1] = (uint8_t)*altitude_set;
+    uint8_t crc = CRC_Cal(byte, 2);
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -149,15 +163,11 @@ void set_sensor_altitude(uint16_t *altitude_set)//设置海拔
     I2C_WaitAck(&i2c0);
     I2C_SendByte(&i2c0, 0x27);
     I2C_WaitAck(&i2c0);
-    
-    DelayMs(1);//延时函数
-     
-    I2C_Start(&i2c0);
-    I2C_SendByte(&i2c0),     //写入设置的海拔指令
+    I2C_SendByte(&i2c0,byte[0]);     //写入设置的海拔指令
     I2C_WaitAck(&i2c0);//等待从机响应
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,byte[1]);
     I2C_WaitAck(&i2c0);
-    uint8_t crc = I2C_SendByte(&i2c0);
+    I2C_SendByte(&i2c0,crc);
     I2C_WaitAck(&i2c0);
     
     I2C_Stop(&i2c0);
@@ -192,9 +202,13 @@ void get_sensor_altitude(uint16_t *altitude)//读取海拔
 }
 
 
-#warning "data input required"
 void set_ambient_pressure(uint16_t *pressure_set)//设置环境压力 
 {
+    uint16_t word = pressure_set/100;
+    uint8_t byte[2];
+    byte[0] = (uint8_t)(word>>8);
+    byte[1] = (uint8_t)word;
+    uint8_t crc = CRC_Cal(byte, 2);
 	I2C_Start(&i2c0);//起始信号
 	I2C_SendByte(&i2c0, 0x62<<1);//从机地址，0：写指令
 	I2C_WaitAck(&i2c0);//等待从机响应
@@ -203,15 +217,11 @@ void set_ambient_pressure(uint16_t *pressure_set)//设置环境压力
     I2C_WaitAck(&i2c0);
     I2C_SendByte(&i2c0, 0x00);
     I2C_WaitAck(&i2c0);
-    
-    DelayMs(1);//延时函数
-     
-    I2C_Start(&i2c0);
-    I2C_SendByte(&i2c0),     //写入设置的压力指令
+    I2C_SendByte(&i2c0,byte[0]);
     I2C_WaitAck(&i2c0);//等待从机响应
-    I2C_SendByte(&i2c0),
+    I2C_SendByte(&i2c0,byte[1]);
     I2C_WaitAck(&i2c0);
-    uint8_t crc = I2C_SendByte(&i2c0);
+    I2C_SendByte(&i2c0,crc);
     I2C_WaitAck(&i2c0);
     
     I2C_Stop(&i2c0);
@@ -449,9 +459,6 @@ void  perform_factory_reset(void) //执行恢复出厂设置
     I2C_WaitAck(&i2c0);
     I2C_Stop(&i2c0);
 } 
-
-
-
 
 void reinit(void)//重新初始化
 {
