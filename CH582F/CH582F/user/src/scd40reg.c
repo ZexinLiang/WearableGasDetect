@@ -1,4 +1,4 @@
-#include "i2c.h"
+#include "scd40reg.h"
 
 extern softI2C_TypeDef i2c0;
 
@@ -76,12 +76,13 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_hum
     value3 = (temp1<<8)|temp2;
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
+//        *CO2 = 30;
+//        *Temperature = 40;
+//        *Relative_humidity = 50;
     *CO2 = value1;
     *Temperature = (uint16_t)(-45 + 175.f*(float)value2/65536.f);
     *Relative_humidity = (uint16_t)(100.f*(float)value3/65536.f);
 }
-
-
 
 void stop_periodic_measurement(void) //停止测量
 {
@@ -482,8 +483,7 @@ void measure_single_shot(void)//执行单次测量
     I2C_Stop(&i2c0);
 } 
 
-
-
+//Only for scd41
 void measure_single_shot_rht_only(void)//仅执行温湿度单次测量
 {
 	I2C_Start(&i2c0);//起始信号

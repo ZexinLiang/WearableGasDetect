@@ -175,6 +175,7 @@ uint8_t I2C_WaitAck(softI2C_TypeDef* I2C)  //返回为:=1有ACK,=0无ACK
     if(I2C_SDA_READ(I2C))//再次判断SDA是否拉低
     {
         I2C_SCL_L(I2C);
+        printf("errorInAck");
         return 0;//从机应答失败，返回0
     }
     I2C_delay();//延时保证时钟频率低于40K，

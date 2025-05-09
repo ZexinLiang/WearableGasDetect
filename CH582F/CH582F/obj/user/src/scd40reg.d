@@ -1,4 +1,5 @@
 user/src/scd40reg.o: ../user/src/scd40reg.c \
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH583SFR.h \
@@ -17,6 +18,8 @@ user/src/scd40reg.o: ../user/src/scd40reg.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_usbdev.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_usbhost.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/ISP583.h
+
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h:
 

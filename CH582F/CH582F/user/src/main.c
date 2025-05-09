@@ -20,8 +20,7 @@
 #include "task.h"
 #include "jed.h"
 #include "bmeInRegis.h"
-#include "scd4x_i2c.h"
-#include "sensirion_common.h"
+#include "scd40reg.h"
 
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
@@ -90,59 +89,25 @@ int main()
     //BME688InitInReg();
 
     //SCD40
-    // 1. 初始化传感器
-    scd4x_init(0x62);
+    uint16_t CO2=50;
+    uint16_t Temperature=100;
+    uint16_t Relative_humidity=200;
 
-    // 2. 可选 - 停止之前的测量（确保干净状态）
-    scd4x_stop_periodic_measurement();
+    DelayMs(500);
 
-    // 3. 配置传感器（可选）
-    scd4x_set_temperature_offset_raw(0);       // 设置温度偏移
-    scd4x_set_ambient_pressure(101300);       // 设置环境压力（帕斯卡）
+    DelayMs(500);
 
-    // 4. 启动周期测量模式
-    int16_t error = scd4x_start_periodic_measurement();
-    if (error != NO_ERROR) {
-        PRINT("SETEEEEEERROR1\n");
-        // 处理错误
-    }
-    else {
-        PRINT("OK1");
-    }
+    DelayMs(500);
 
-    while(1) {
-        // 5. 检查数据是否就绪
-        bool data_ready = false;
-        error = scd4x_get_data_ready_status(&data_ready);
-        if (error != NO_ERROR) {
-            PRINT("SETEEEEEERROR2\n");
-            // 处理错误
-        }
+    DelayMs(500);
+    start_periodic_measurement();
 
-        if (data_ready) {
-            // 6. 读取测量数据
-            uint16_t co2;
-            int32_t temperature_mc;
-            int32_t humidity_mp;
-            error = scd4x_read_measurement(&co2, &temperature_mc, &humidity_mp);
-
-            if (error == NO_ERROR) {
-                // 7. 转换数据格式
-                float temperature = temperature_mc / 1000.0f;  // 转换为摄氏度
-                float humidity = humidity_mp / 1000.0f;        // 转换为%RH
-
-                printf("CO2: %u ppm\n", co2);
-                printf("Temperature: %.2f C\n", temperature);
-                printf("Humidity: %.2f %%RH\n", humidity);
-            }
-        }
-
-        // 8. 等待5秒（SCD4x的测量周期）
-        DelayMs(5000);
+    while(1){
+        read_measurement(&CO2,&Temperature,&Relative_humidity);
+        printf("CO2:%d,T:%d,H:%d",CO2,Temperature,Relative_humidity);
+        DelayMs(100);
     }
 
-    return 0;
-    while(1){}
     taskInit();//测量任务初始化
 
     while(1)

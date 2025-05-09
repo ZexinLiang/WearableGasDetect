@@ -33,9 +33,7 @@ user/src/main.o: ../user/src/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd4x_i2c.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/sensirion_config.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/sensirion_common.h
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h:
 
@@ -105,8 +103,4 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h:
 
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd4x_i2c.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/sensirion_config.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/sensirion_common.h:
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
