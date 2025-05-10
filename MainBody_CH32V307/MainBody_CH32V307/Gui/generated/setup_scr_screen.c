@@ -13,7 +13,7 @@
 #include "events_init.h"
 #include "widgets_init.h"
 #include "custom.h"
-
+#include "src/widgets/lv_textprogress.h"
 
 
 void setup_scr_screen(lv_ui *ui)
