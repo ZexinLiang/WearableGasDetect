@@ -36,10 +36,10 @@ int main(void)
     LCD_Init();
     ch9142_Init();
     m780eg_Init();
-    powerMagage_Init();
+   // powerMagage_Init();
 
     //Software Init
-    TIM2_Trigger_Init(50000-1, 96-1);//50ms
+    //TIM2_Trigger_Init(50000-1, 96-1);//50ms
 
     //Lvgl Init
 	POINT_COLOR=RED;
@@ -50,10 +50,12 @@ int main(void)
 
     while(1)
     {
+        USART_SendData(USART2, 0x78);
+        USART_SendData(USART1, 0x78);
         lv_tick_inc(1);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(1);
+        Delay_Ms(60);
     }
 }
 
