@@ -52,7 +52,6 @@ int main(void)
 	lv_port_indev_init();
 	setup_ui(&guider_ui);
 	events_init(&guider_ui);
-	events_init_screen(&guider_ui);
     while(1)
     {
         USART_SendData(USART2, 0x78);
