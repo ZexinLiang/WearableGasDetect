@@ -41,15 +41,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  12 .debug_ranges 0000c270  00000000  00000000  001492a0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   000a0757  00000000  00000000  00155510  2**0
+ 13 .debug_line   000a3a19  00000000  00000000  00155510  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00013890  00000000  00000000  001f5c67  2**0
+ 14 .debug_str    000138a6  00000000  00000000  001f8f29  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      00000033  00000000  00000000  002094f7  2**0
+ 15 .comment      00000033  00000000  00000000  0020c7cf  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  0000be40  00000000  00000000  0020952c  2**2
+ 16 .debug_frame  0000be40  00000000  00000000  0020c804  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_loc    0005349e  00000000  00000000  0021536c  2**0
+ 17 .debug_loc    0005349e  00000000  00000000  00218644  2**0
                   CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 00000000 l    d  .init	00000000 .init
@@ -3302,22 +3302,22 @@ Disassembly of section .text:
     13ee:	450d                	li	a0,3
     13f0:	02a7c7b3          	div	a5,a5,a0
     13f4:	6685                	lui	a3,0x1
-    13f6:	91c68693          	addi	a3,a3,-1764 # 91c <LCD_Init+0x7c>
+    13f6:	b4a68693          	addi	a3,a3,-1206 # b4a <LCD_Init+0x2aa>
     13fa:	873e                	mv	a4,a5
     13fc:	07c2                	slli	a5,a5,0x10
     13fe:	83c1                	srli	a5,a5,0x10
     1400:	00d7f363          	bgeu	a5,a3,1406 <getVolInPercent+0x2e>
     1404:	8736                	mv	a4,a3
     1406:	77fd                	lui	a5,0xfffff
-    1408:	6e478793          	addi	a5,a5,1764 # fffff6e4 <_eusrstack+0xdffef6e4>
+    1408:	4b678793          	addi	a5,a5,1206 # fffff4b6 <_eusrstack+0xdffef4b6>
     140c:	97ba                	add	a5,a5,a4
     140e:	07c2                	slli	a5,a5,0x10
     1410:	83c1                	srli	a5,a5,0x10
-    1412:	6c700713          	li	a4,1735
+    1412:	24200713          	li	a4,578
     1416:	20000437          	lui	s0,0x20000
     141a:	853e                	mv	a0,a5
     141c:	00f77463          	bgeu	a4,a5,1424 <getVolInPercent+0x4c>
-    1420:	6c700513          	li	a0,1735
+    1420:	24200513          	li	a0,578
     1424:	0542                	slli	a0,a0,0x10
     1426:	8141                	srli	a0,a0,0x10
     1428:	6652f0ef          	jal	ra,3128c <__floatunsisf>
@@ -73487,7 +73487,7 @@ Disassembly of section .text:
 	...
    32db0:	0000 1800 0000 0060 4000 0000 0040 2000     ......`..@..@.. 
    32dc0:	0000 0010 0800 0000 0004 0400 0000 000c     ................
-   32dd0:	1000 0000 e000 44d8 0000 42c8 3178 003a     .......D...Bx1:.
+   32dd0:	1000 0000 8000 4410 0000 42c8 3178 003a     .......D...Bx1:.
    32de0:	3179 003a 3278 003a 3279 003a 3378 003a     y1:.x2:.y2:.x3:.
    32df0:	3379 003a 3478 003a 3479 003a 6166 2063     y3:.x4:.y4:.fac 
    32e00:	7369 003a 0000 3f00 6666 6666 6666 3fee     is:....?ffffff.?

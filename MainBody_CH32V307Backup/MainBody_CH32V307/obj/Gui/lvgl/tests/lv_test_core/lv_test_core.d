@@ -5,7 +5,7 @@ Gui/lvgl/tests/lv_test_core/lv_test_core.o: \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/lv_log.h \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/../lv_conf_internal.h \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/../lv_conf_kconfig.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307\MainBody_CH32V307\Gui/lv_conf.h \
+ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lv_conf.h \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/lv_task.h \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/lv_mem.h \
  ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/lv_log.h \
@@ -171,7 +171,7 @@ Gui/lvgl/tests/lv_test_core/lv_test_core.o: \
 
 ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/../lv_conf_kconfig.h:
 
-C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307\MainBody_CH32V307\Gui/lv_conf.h:
+c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lv_conf.h:
 
 ../Gui/lvgl/tests/lv_test_core/../../src/lv_misc/lv_task.h:
 

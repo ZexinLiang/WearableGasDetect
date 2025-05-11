@@ -3,7 +3,7 @@ Gui/lvgl/src/lv_widgets/lv_switch.o: \
  ../Gui/lvgl/src/lv_widgets/lv_switch.h \
  ../Gui/lvgl/src/lv_widgets/../lv_conf_internal.h \
  ../Gui/lvgl/src/lv_widgets/../lv_conf_kconfig.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307\MainBody_CH32V307\Gui/lv_conf.h \
+ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lv_conf.h \
  ../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h \
  ../Gui/lvgl/src/lv_widgets/../lv_core/../lv_conf_internal.h \
  ../Gui/lvgl/src/lv_widgets/../lv_core/lv_style.h \
@@ -104,7 +104,7 @@ Gui/lvgl/src/lv_widgets/lv_switch.o: \
 
 ../Gui/lvgl/src/lv_widgets/../lv_conf_kconfig.h:
 
-C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307\MainBody_CH32V307\Gui/lv_conf.h:
+c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lv_conf.h:
 
 ../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h:
 

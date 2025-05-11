@@ -1,8 +1,7 @@
 ################################################################################
-# MRS Version: 1.9.2
-# 自动生成的文件。不要编辑！
+# MRS Version: 2.1.0
+# Automatically-generated file. Do not edit!
 ################################################################################
-
 -include ../makefile.init
 
 RM := rm -rf
@@ -76,17 +75,17 @@ RM := rm -rf
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(ASM_UPPER_DEPS)),)
--include $(ASM_UPPER_DEPS)
-endif
-ifneq ($(strip $(ASM_DEPS)),)
--include $(ASM_DEPS)
-endif
 ifneq ($(strip $(S_DEPS)),)
 -include $(S_DEPS)
 endif
 ifneq ($(strip $(S_UPPER_DEPS)),)
 -include $(S_UPPER_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(ASM_UPPER_DEPS)),)
+-include $(ASM_UPPER_DEPS)
 endif
 ifneq ($(strip $(C_DEPS)),)
 -include $(C_DEPS)
@@ -106,26 +105,26 @@ SECONDARY_SIZE += \
 MainBody_CH32V307.siz \
 
 
-# 所有目标
-all: MainBody_CH32V307.elf secondary-outputs
+# All Target
+all: 
+	$(MAKE) --no-print-directory main-build 
 
-# 工具调用
+main-build: MainBody_CH32V307.elf secondary-outputs
+
+# Tool invocations
 MainBody_CH32V307.elf: $(OBJS) $(USER_OBJS)
-	@	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -T "C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307\MainBody_CH32V307\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"MainBody_CH32V307.map" --specs=nano.specs --specs=nosys.specs -o "MainBody_CH32V307.elf" $(OBJS) $(USER_OBJS) $(LIBS)
-	@	@
+	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized -g -T "c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Ld/Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"MainBody_CH32V307.map" --specs=nano.specs --specs=nosys.specs -o "MainBody_CH32V307.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 MainBody_CH32V307.hex: MainBody_CH32V307.elf
-	@	riscv-none-embed-objcopy -O ihex "MainBody_CH32V307.elf"  "MainBody_CH32V307.hex"
-	@	@
+	@	riscv-none-embed-objcopy -O ihex "MainBody_CH32V307.elf" "MainBody_CH32V307.hex"
 MainBody_CH32V307.lst: MainBody_CH32V307.elf
 	@	riscv-none-embed-objdump --all-headers --demangle --disassemble -M xw "MainBody_CH32V307.elf" > "MainBody_CH32V307.lst"
-	@	@
 MainBody_CH32V307.siz: MainBody_CH32V307.elf
-	@	riscv-none-embed-size --format=berkeley "MainBody_CH32V307.elf"
-	@	@
-# 其他目标
+	riscv-none-embed-size --format=berkeley "MainBody_CH32V307.elf"
+
+# Other Targets
 clean:
-	-$(RM) $(ASM_UPPER_DEPS)$(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS) MainBody_CH32V307.elf
-	-@
+	-$(RM) $(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(S_DEPS)$(S_UPPER_DEPS)$(ASM_DEPS)$(ASM_UPPER_DEPS)$(C_DEPS) MainBody_CH32V307.elf
+
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_LIST) $(SECONDARY_SIZE)
 
 .PHONY: all clean dependents
