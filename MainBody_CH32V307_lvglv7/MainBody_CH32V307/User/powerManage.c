@@ -6,6 +6,7 @@
  */
 
 #include "powerManage.h"
+#include "buzzer.h"
 
 void ADC1_2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
@@ -37,6 +38,9 @@ void powerOn_Init_Execute(void){
     for(uint8_t i = 0;i<100;i++)
         Delay_Ms(10);
     GPIO_SetBits(GPIOB,GPIO_Pin_0);//IO拉高，维持开机状态
+    BuzzerChange( 100-1, 480-1, 40 );
+    Delay_Ms(50);
+    BuzzerChange( 100-1, 480-1, 0 );
 }
 
 void powerMagage_Init(void){

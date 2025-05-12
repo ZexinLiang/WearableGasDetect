@@ -23,6 +23,7 @@
 #include "powerManage.h"
 #include "events_init.h"
 #include "gui_guider.h"
+#include "buzzer.h"
 
 extern _m_tp_dev tp_dev;
 lv_ui guider_ui;
@@ -33,13 +34,14 @@ int main(void)
 	SystemCoreClockUpdate();
 	Delay_Init();
 
-	//powerOn_Init_Execute();
+	powerOn_Init_Execute();
 
 	//device Init
     LCD_Init();
     ch9142_Init();
     m780eg_Init();
     powerMagage_Init();
+
 
     //Software Init
     TIM2_Trigger_Init(50000-1, 96-1);//50ms

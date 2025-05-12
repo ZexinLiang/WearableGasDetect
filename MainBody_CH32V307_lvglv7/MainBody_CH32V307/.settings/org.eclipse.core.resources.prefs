@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
 encoding//Gui/lvgl/src/lv_misc/lv_txt.c=UTF-8
+encoding//Peripheral/src/ch32v30x_tim.c=UTF-8

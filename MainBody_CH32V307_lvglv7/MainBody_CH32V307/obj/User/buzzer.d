@@ -1,4 +1,4 @@
-User/powerManage.o: ../User/powerManage.c ../User/powerManage.h \
+User/buzzer.o: ../User/buzzer.c ../User/buzzer.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Core/core_riscv.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User/system_ch32v30x.h \
@@ -28,9 +28,9 @@ User/powerManage.o: ../User/powerManage.c ../User/powerManage.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User/ch32v30x_it.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug/debug.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x_misc.h \
- ../User/ch32v30x_conf.h ../User/buzzer.h
+ ../User/ch32v30x_conf.h
 
-../User/powerManage.h:
+../User/buzzer.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x.h:
 
@@ -91,5 +91,3 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x_misc.h:
 
 ../User/ch32v30x_conf.h:
-
-../User/buzzer.h:

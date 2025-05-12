@@ -101,7 +101,7 @@ int main()
 
     DelayMs(500);
     start_periodic_measurement();
-
+    DelayMs(6000);
     while(1){
         read_measurement(&CO2,&Temperature,&Relative_humidity);
         printf("CO2:%d,T:%d,H:%d",CO2,Temperature,Relative_humidity);

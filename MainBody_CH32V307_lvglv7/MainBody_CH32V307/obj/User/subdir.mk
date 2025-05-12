@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../User/buzzer.c \
 ../User/ch32v30x_it.c \
 ../User/ch9142.c \
 ../User/lcd.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 ../User/touch.c 
 
 OBJS += \
+./User/buzzer.o \
 ./User/ch32v30x_it.o \
 ./User/ch9142.o \
 ./User/lcd.o \
@@ -27,6 +29,7 @@ OBJS += \
 ./User/touch.o 
 
 C_DEPS += \
+./User/buzzer.d \
 ./User/ch32v30x_it.d \
 ./User/ch9142.d \
 ./User/lcd.d \
