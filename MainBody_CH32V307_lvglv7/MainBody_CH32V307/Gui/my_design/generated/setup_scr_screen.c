@@ -23,7 +23,7 @@ static void kb_event_cb(lv_obj_t * event_kb, lv_event_t event)
 	}
 }
 
-static void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
+void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
 {
 	if (event == LV_EVENT_FOCUSED || event == LV_EVENT_CLICKED)
 	{

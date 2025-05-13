@@ -1557,6 +1557,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen.o
  .data          0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen.o
  .bss           0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen.o
+ .text.text_area_event_cb
+                0x0000000000000000       0x7e ./Gui/my_design/generated/setup_scr_screen.o
  .text          0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen_1.o
  .data          0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen_1.o
  .bss           0x0000000000000000        0x0 ./Gui/my_design/generated/setup_scr_screen_1.o
@@ -9698,7 +9700,7 @@ END GROUP
                 0x0000000020010000                PROVIDE (_eusrstack = .)
 OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000    0xb2c3d
+.debug_info     0x0000000000000000    0xb2cf5
  .debug_info    0x0000000000000000      0xffd ./User/buzzer.o
  .debug_info    0x0000000000000ffd      0xbc0 ./User/ch32v30x_it.o
  .debug_info    0x0000000000001bbd     0x1528 ./User/ch9142.o
@@ -9721,54 +9723,54 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_info    0x00000000000186c8     0x13ce ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .debug_info    0x0000000000019a96     0x1d41 ./Gui/my_design/generated/events_init.o
  .debug_info    0x000000000001b7d7     0x17ad ./Gui/my_design/generated/gui_guider.o
- .debug_info    0x000000000001cf84     0x1fe1 ./Gui/my_design/generated/setup_scr_screen.o
- .debug_info    0x000000000001ef65     0x3ab9 ./Gui/my_design/generated/setup_scr_screen_1.o
- .debug_info    0x0000000000022a1e     0x408c ./Gui/lvgl/src/lv_widgets/lv_bar.o
- .debug_info    0x0000000000026aaa     0x5c97 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- .debug_info    0x000000000002c741     0x429e ./Gui/lvgl/src/lv_widgets/lv_cont.o
- .debug_info    0x00000000000309df     0x4c96 ./Gui/lvgl/src/lv_widgets/lv_img.o
- .debug_info    0x0000000000035675     0x2a96 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- .debug_info    0x000000000003810b     0x5f9d ./Gui/lvgl/src/lv_widgets/lv_label.o
- .debug_info    0x000000000003e0a8     0x65b8 ./Gui/lvgl/src/lv_widgets/lv_page.o
- .debug_info    0x0000000000044660     0x874f ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- .debug_info    0x000000000004cdaf     0x20a2 ./Gui/lvgl/src/lv_themes/lv_theme.o
- .debug_info    0x000000000004ee51     0xc7b0 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
- .debug_info    0x000000000005b601     0x1c9c ./Gui/lvgl/src/lv_misc/lv_anim.o
- .debug_info    0x000000000005d29d     0x15a3 ./Gui/lvgl/src/lv_misc/lv_area.o
- .debug_info    0x000000000005e840      0x615 ./Gui/lvgl/src/lv_misc/lv_color.o
- .debug_info    0x000000000005ee55      0xc0c ./Gui/lvgl/src/lv_misc/lv_debug.o
- .debug_info    0x000000000005fa61     0x1d55 ./Gui/lvgl/src/lv_misc/lv_fs.o
- .debug_info    0x00000000000617b6     0x11fa ./Gui/lvgl/src/lv_misc/lv_gc.o
- .debug_info    0x00000000000629b0     0x15a0 ./Gui/lvgl/src/lv_misc/lv_ll.o
- .debug_info    0x0000000000063f50      0xcf2 ./Gui/lvgl/src/lv_misc/lv_math.o
- .debug_info    0x0000000000064c42     0x1a2c ./Gui/lvgl/src/lv_misc/lv_mem.o
- .debug_info    0x000000000006666e     0x16bb ./Gui/lvgl/src/lv_misc/lv_task.o
- .debug_info    0x0000000000067d29     0x1e86 ./Gui/lvgl/src/lv_misc/lv_txt.o
- .debug_info    0x0000000000069baf      0xd8e ./Gui/lvgl/src/lv_misc/lv_utils.o
- .debug_info    0x000000000006a93d     0x2a89 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
- .debug_info    0x000000000006d3c6     0x2417 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
- .debug_info    0x000000000006f7dd      0x159 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
- .debug_info    0x000000000006f936      0xcba ./Gui/lvgl/src/lv_font/lv_font.o
- .debug_info    0x00000000000705f0     0x215f ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_info    0x000000000007274f     0x13ca ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- .debug_info    0x0000000000073b19     0x2f9a ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_info    0x0000000000076ab3     0x36c8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_info    0x000000000007a17b     0x332d ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_info    0x000000000007d4a8     0x2dac ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_info    0x0000000000080254     0x2a98 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_info    0x0000000000082cec     0x52a2 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_info    0x0000000000087f8e     0x20c1 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_info    0x000000000008a04f     0x1607 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_info    0x000000000008b656     0x2c4b ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_info    0x000000000008e2a1     0x2db5 ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_info    0x0000000000091056     0x28c5 ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_info    0x000000000009391b     0x434d ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_info    0x0000000000097c68    0x1000f ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_info    0x00000000000a7c77     0x3b25 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_info    0x00000000000ab79c     0x2d67 ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_info    0x00000000000ae503     0x15a2 ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_info    0x00000000000afaa5     0x224e ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_info    0x00000000000b1cf3      0xf4a ./Debug/debug.o
+ .debug_info    0x000000000001cf84     0x2099 ./Gui/my_design/generated/setup_scr_screen.o
+ .debug_info    0x000000000001f01d     0x3ab9 ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_info    0x0000000000022ad6     0x408c ./Gui/lvgl/src/lv_widgets/lv_bar.o
+ .debug_info    0x0000000000026b62     0x5c97 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ .debug_info    0x000000000002c7f9     0x429e ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ .debug_info    0x0000000000030a97     0x4c96 ./Gui/lvgl/src/lv_widgets/lv_img.o
+ .debug_info    0x000000000003572d     0x2a96 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ .debug_info    0x00000000000381c3     0x5f9d ./Gui/lvgl/src/lv_widgets/lv_label.o
+ .debug_info    0x000000000003e160     0x65b8 ./Gui/lvgl/src/lv_widgets/lv_page.o
+ .debug_info    0x0000000000044718     0x874f ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ .debug_info    0x000000000004ce67     0x20a2 ./Gui/lvgl/src/lv_themes/lv_theme.o
+ .debug_info    0x000000000004ef09     0xc7b0 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+ .debug_info    0x000000000005b6b9     0x1c9c ./Gui/lvgl/src/lv_misc/lv_anim.o
+ .debug_info    0x000000000005d355     0x15a3 ./Gui/lvgl/src/lv_misc/lv_area.o
+ .debug_info    0x000000000005e8f8      0x615 ./Gui/lvgl/src/lv_misc/lv_color.o
+ .debug_info    0x000000000005ef0d      0xc0c ./Gui/lvgl/src/lv_misc/lv_debug.o
+ .debug_info    0x000000000005fb19     0x1d55 ./Gui/lvgl/src/lv_misc/lv_fs.o
+ .debug_info    0x000000000006186e     0x11fa ./Gui/lvgl/src/lv_misc/lv_gc.o
+ .debug_info    0x0000000000062a68     0x15a0 ./Gui/lvgl/src/lv_misc/lv_ll.o
+ .debug_info    0x0000000000064008      0xcf2 ./Gui/lvgl/src/lv_misc/lv_math.o
+ .debug_info    0x0000000000064cfa     0x1a2c ./Gui/lvgl/src/lv_misc/lv_mem.o
+ .debug_info    0x0000000000066726     0x16bb ./Gui/lvgl/src/lv_misc/lv_task.o
+ .debug_info    0x0000000000067de1     0x1e86 ./Gui/lvgl/src/lv_misc/lv_txt.o
+ .debug_info    0x0000000000069c67      0xd8e ./Gui/lvgl/src/lv_misc/lv_utils.o
+ .debug_info    0x000000000006a9f5     0x2a89 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_info    0x000000000006d47e     0x2417 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_info    0x000000000006f895      0x159 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_info    0x000000000006f9ee      0xcba ./Gui/lvgl/src/lv_font/lv_font.o
+ .debug_info    0x00000000000706a8     0x215f ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_info    0x0000000000072807     0x13ca ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ .debug_info    0x0000000000073bd1     0x2f9a ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_info    0x0000000000076b6b     0x36c8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_info    0x000000000007a233     0x332d ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_info    0x000000000007d560     0x2dac ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_info    0x000000000008030c     0x2a98 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_info    0x0000000000082da4     0x52a2 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_info    0x0000000000088046     0x20c1 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_info    0x000000000008a107     0x1607 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_info    0x000000000008b70e     0x2c4b ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_info    0x000000000008e359     0x2db5 ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_info    0x000000000009110e     0x28c5 ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_info    0x00000000000939d3     0x434d ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_info    0x0000000000097d20    0x1000f ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_info    0x00000000000a7d2f     0x3b25 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_info    0x00000000000ab854     0x2d67 ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_info    0x00000000000ae5bb     0x15a2 ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_info    0x00000000000afb5d     0x224e ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_info    0x00000000000b1dab      0xf4a ./Debug/debug.o
 
 .debug_abbrev   0x0000000000000000    0x11352
  .debug_abbrev  0x0000000000000000      0x280 ./User/buzzer.o
@@ -9842,7 +9844,7 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_abbrev  0x0000000000010ccb      0x392 ./Gui/lvgl/examples/porting/lv_port_indev.o
  .debug_abbrev  0x000000000001105d      0x2f5 ./Debug/debug.o
 
-.debug_loc      0x0000000000000000    0x3b825
+.debug_loc      0x0000000000000000    0x3b872
  .debug_loc     0x0000000000000000       0x63 ./User/buzzer.o
  .debug_loc     0x0000000000000063       0xda ./User/ch9142.o
  .debug_loc     0x000000000000013d     0x1390 ./User/lcd.o
@@ -9860,54 +9862,54 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_loc     0x0000000000005c96      0x779 ./Peripheral/src/ch32v30x_usart.o
  .debug_loc     0x000000000000640f       0xc9 ./Gui/my_design/generated/events_init.o
  .debug_loc     0x00000000000064d8       0x45 ./Gui/my_design/generated/gui_guider.o
- .debug_loc     0x000000000000651d      0x10b ./Gui/my_design/generated/setup_scr_screen.o
- .debug_loc     0x0000000000006628      0xebf ./Gui/my_design/generated/setup_scr_screen_1.o
- .debug_loc     0x00000000000074e7     0x18ad ./Gui/lvgl/src/lv_widgets/lv_bar.o
- .debug_loc     0x0000000000008d94     0x1dfb ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- .debug_loc     0x000000000000ab8f     0x1415 ./Gui/lvgl/src/lv_widgets/lv_cont.o
- .debug_loc     0x000000000000bfa4     0x1231 ./Gui/lvgl/src/lv_widgets/lv_img.o
- .debug_loc     0x000000000000d1d5      0x537 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- .debug_loc     0x000000000000d70c     0x26c2 ./Gui/lvgl/src/lv_widgets/lv_label.o
- .debug_loc     0x000000000000fdce     0x2308 ./Gui/lvgl/src/lv_widgets/lv_page.o
- .debug_loc     0x00000000000120d6     0x2de3 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- .debug_loc     0x0000000000014eb9      0x124 ./Gui/lvgl/src/lv_themes/lv_theme.o
- .debug_loc     0x0000000000014fdd     0x5de7 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
- .debug_loc     0x000000000001adc4      0x7bb ./Gui/lvgl/src/lv_misc/lv_anim.o
- .debug_loc     0x000000000001b57f      0xb54 ./Gui/lvgl/src/lv_misc/lv_area.o
- .debug_loc     0x000000000001c0d3      0x7ae ./Gui/lvgl/src/lv_misc/lv_color.o
- .debug_loc     0x000000000001c881      0x19f ./Gui/lvgl/src/lv_misc/lv_debug.o
- .debug_loc     0x000000000001ca20      0xc7e ./Gui/lvgl/src/lv_misc/lv_fs.o
- .debug_loc     0x000000000001d69e      0x7c2 ./Gui/lvgl/src/lv_misc/lv_ll.o
- .debug_loc     0x000000000001de60      0x620 ./Gui/lvgl/src/lv_misc/lv_math.o
- .debug_loc     0x000000000001e480      0xf08 ./Gui/lvgl/src/lv_misc/lv_mem.o
- .debug_loc     0x000000000001f388      0x498 ./Gui/lvgl/src/lv_misc/lv_task.o
- .debug_loc     0x000000000001f820     0x1303 ./Gui/lvgl/src/lv_misc/lv_txt.o
- .debug_loc     0x0000000000020b23      0x1e8 ./Gui/lvgl/src/lv_misc/lv_utils.o
- .debug_loc     0x0000000000020d0b      0x441 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
- .debug_loc     0x000000000002114c      0x148 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
- .debug_loc     0x0000000000021294       0x6d ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
- .debug_loc     0x0000000000021301      0x15d ./Gui/lvgl/src/lv_font/lv_font.o
- .debug_loc     0x000000000002145e     0x1142 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_loc     0x00000000000225a0     0x1f9f ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_loc     0x000000000002453f     0x14b7 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_loc     0x00000000000259f6     0x1c06 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_loc     0x00000000000275fc      0xdcd ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_loc     0x00000000000283c9     0x246b ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_loc     0x000000000002a834     0x27b7 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_loc     0x000000000002cfeb     0x1589 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_loc     0x000000000002e574      0x2ea ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_loc     0x000000000002e85e     0x1350 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_loc     0x000000000002fbae      0xa8a ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_loc     0x0000000000030638      0x7cb ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_loc     0x0000000000030e03      0xd1b ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_loc     0x0000000000031b1e     0x7198 ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_loc     0x0000000000038cb6     0x1185 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_loc     0x0000000000039e3b     0x167a ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_loc     0x000000000003b4b5      0x19d ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_loc     0x000000000003b652       0x5c ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_loc     0x000000000003b6ae      0x177 ./Debug/debug.o
+ .debug_loc     0x000000000000651d      0x158 ./Gui/my_design/generated/setup_scr_screen.o
+ .debug_loc     0x0000000000006675      0xebf ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_loc     0x0000000000007534     0x18ad ./Gui/lvgl/src/lv_widgets/lv_bar.o
+ .debug_loc     0x0000000000008de1     0x1dfb ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ .debug_loc     0x000000000000abdc     0x1415 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ .debug_loc     0x000000000000bff1     0x1231 ./Gui/lvgl/src/lv_widgets/lv_img.o
+ .debug_loc     0x000000000000d222      0x537 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ .debug_loc     0x000000000000d759     0x26c2 ./Gui/lvgl/src/lv_widgets/lv_label.o
+ .debug_loc     0x000000000000fe1b     0x2308 ./Gui/lvgl/src/lv_widgets/lv_page.o
+ .debug_loc     0x0000000000012123     0x2de3 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ .debug_loc     0x0000000000014f06      0x124 ./Gui/lvgl/src/lv_themes/lv_theme.o
+ .debug_loc     0x000000000001502a     0x5de7 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+ .debug_loc     0x000000000001ae11      0x7bb ./Gui/lvgl/src/lv_misc/lv_anim.o
+ .debug_loc     0x000000000001b5cc      0xb54 ./Gui/lvgl/src/lv_misc/lv_area.o
+ .debug_loc     0x000000000001c120      0x7ae ./Gui/lvgl/src/lv_misc/lv_color.o
+ .debug_loc     0x000000000001c8ce      0x19f ./Gui/lvgl/src/lv_misc/lv_debug.o
+ .debug_loc     0x000000000001ca6d      0xc7e ./Gui/lvgl/src/lv_misc/lv_fs.o
+ .debug_loc     0x000000000001d6eb      0x7c2 ./Gui/lvgl/src/lv_misc/lv_ll.o
+ .debug_loc     0x000000000001dead      0x620 ./Gui/lvgl/src/lv_misc/lv_math.o
+ .debug_loc     0x000000000001e4cd      0xf08 ./Gui/lvgl/src/lv_misc/lv_mem.o
+ .debug_loc     0x000000000001f3d5      0x498 ./Gui/lvgl/src/lv_misc/lv_task.o
+ .debug_loc     0x000000000001f86d     0x1303 ./Gui/lvgl/src/lv_misc/lv_txt.o
+ .debug_loc     0x0000000000020b70      0x1e8 ./Gui/lvgl/src/lv_misc/lv_utils.o
+ .debug_loc     0x0000000000020d58      0x441 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_loc     0x0000000000021199      0x148 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_loc     0x00000000000212e1       0x6d ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_loc     0x000000000002134e      0x15d ./Gui/lvgl/src/lv_font/lv_font.o
+ .debug_loc     0x00000000000214ab     0x1142 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_loc     0x00000000000225ed     0x1f9f ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_loc     0x000000000002458c     0x14b7 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_loc     0x0000000000025a43     0x1c06 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_loc     0x0000000000027649      0xdcd ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_loc     0x0000000000028416     0x246b ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_loc     0x000000000002a881     0x27b7 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_loc     0x000000000002d038     0x1589 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_loc     0x000000000002e5c1      0x2ea ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_loc     0x000000000002e8ab     0x1350 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_loc     0x000000000002fbfb      0xa8a ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_loc     0x0000000000030685      0x7cb ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_loc     0x0000000000030e50      0xd1b ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_loc     0x0000000000031b6b     0x7198 ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_loc     0x0000000000038d03     0x1185 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_loc     0x0000000000039e88     0x167a ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_loc     0x000000000003b502      0x19d ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_loc     0x000000000003b69f       0x5c ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_loc     0x000000000003b6fb      0x177 ./Debug/debug.o
 
-.debug_aranges  0x0000000000000000     0x2890
+.debug_aranges  0x0000000000000000     0x2898
  .debug_aranges
                 0x0000000000000000       0x20 ./User/buzzer.o
  .debug_aranges
@@ -9953,103 +9955,103 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000b40       0x28 ./Gui/my_design/generated/gui_guider.o
  .debug_aranges
-                0x0000000000000b68       0x28 ./Gui/my_design/generated/setup_scr_screen.o
+                0x0000000000000b68       0x30 ./Gui/my_design/generated/setup_scr_screen.o
  .debug_aranges
-                0x0000000000000b90       0x38 ./Gui/my_design/generated/setup_scr_screen_1.o
+                0x0000000000000b98       0x38 ./Gui/my_design/generated/setup_scr_screen_1.o
  .debug_aranges
-                0x0000000000000bc8       0xb0 ./Gui/lvgl/src/lv_widgets/lv_bar.o
+                0x0000000000000bd0       0xb0 ./Gui/lvgl/src/lv_widgets/lv_bar.o
  .debug_aranges
-                0x0000000000000c78       0xf8 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+                0x0000000000000c80       0xf8 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
  .debug_aranges
-                0x0000000000000d70       0x78 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+                0x0000000000000d78       0x78 ./Gui/lvgl/src/lv_widgets/lv_cont.o
  .debug_aranges
-                0x0000000000000de8       0xb8 ./Gui/lvgl/src/lv_widgets/lv_img.o
+                0x0000000000000df0       0xb8 ./Gui/lvgl/src/lv_widgets/lv_img.o
  .debug_aranges
-                0x0000000000000ea0       0x78 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000000ea8       0x78 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .debug_aranges
-                0x0000000000000f18      0x110 ./Gui/lvgl/src/lv_widgets/lv_label.o
+                0x0000000000000f20      0x110 ./Gui/lvgl/src/lv_widgets/lv_label.o
  .debug_aranges
-                0x0000000000001028      0x130 ./Gui/lvgl/src/lv_widgets/lv_page.o
+                0x0000000000001030      0x130 ./Gui/lvgl/src/lv_widgets/lv_page.o
  .debug_aranges
-                0x0000000000001158      0x1b0 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+                0x0000000000001160      0x1b0 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
  .debug_aranges
-                0x0000000000001308       0x88 ./Gui/lvgl/src/lv_themes/lv_theme.o
+                0x0000000000001310       0x88 ./Gui/lvgl/src/lv_themes/lv_theme.o
  .debug_aranges
-                0x0000000000001390       0x60 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+                0x0000000000001398       0x60 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
  .debug_aranges
-                0x00000000000013f0       0xa8 ./Gui/lvgl/src/lv_misc/lv_anim.o
+                0x00000000000013f8       0xa8 ./Gui/lvgl/src/lv_misc/lv_anim.o
  .debug_aranges
-                0x0000000000001498       0x78 ./Gui/lvgl/src/lv_misc/lv_area.o
+                0x00000000000014a0       0x78 ./Gui/lvgl/src/lv_misc/lv_area.o
  .debug_aranges
-                0x0000000000001510       0x50 ./Gui/lvgl/src/lv_misc/lv_color.o
+                0x0000000000001518       0x50 ./Gui/lvgl/src/lv_misc/lv_color.o
  .debug_aranges
-                0x0000000000001560       0x38 ./Gui/lvgl/src/lv_misc/lv_debug.o
+                0x0000000000001568       0x38 ./Gui/lvgl/src/lv_misc/lv_debug.o
  .debug_aranges
-                0x0000000000001598       0xd8 ./Gui/lvgl/src/lv_misc/lv_fs.o
+                0x00000000000015a0       0xd8 ./Gui/lvgl/src/lv_misc/lv_fs.o
  .debug_aranges
-                0x0000000000001670       0x20 ./Gui/lvgl/src/lv_misc/lv_gc.o
+                0x0000000000001678       0x20 ./Gui/lvgl/src/lv_misc/lv_gc.o
  .debug_aranges
-                0x0000000000001690       0x98 ./Gui/lvgl/src/lv_misc/lv_ll.o
+                0x0000000000001698       0x98 ./Gui/lvgl/src/lv_misc/lv_ll.o
  .debug_aranges
-                0x0000000000001728       0x48 ./Gui/lvgl/src/lv_misc/lv_math.o
+                0x0000000000001730       0x48 ./Gui/lvgl/src/lv_misc/lv_math.o
  .debug_aranges
-                0x0000000000001770       0xa8 ./Gui/lvgl/src/lv_misc/lv_mem.o
+                0x0000000000001778       0xa8 ./Gui/lvgl/src/lv_misc/lv_mem.o
  .debug_aranges
-                0x0000000000001818       0x90 ./Gui/lvgl/src/lv_misc/lv_task.o
+                0x0000000000001820       0x90 ./Gui/lvgl/src/lv_misc/lv_task.o
  .debug_aranges
-                0x00000000000018a8       0x90 ./Gui/lvgl/src/lv_misc/lv_txt.o
+                0x00000000000018b0       0x90 ./Gui/lvgl/src/lv_misc/lv_txt.o
  .debug_aranges
-                0x0000000000001938       0x28 ./Gui/lvgl/src/lv_misc/lv_utils.o
+                0x0000000000001940       0x28 ./Gui/lvgl/src/lv_misc/lv_utils.o
  .debug_aranges
-                0x0000000000001960       0xc8 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+                0x0000000000001968       0xc8 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
  .debug_aranges
-                0x0000000000001a28       0x40 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+                0x0000000000001a30       0x40 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
  .debug_aranges
-                0x0000000000001a68       0x30 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+                0x0000000000001a70       0x30 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
  .debug_aranges
-                0x0000000000001a98       0x30 ./Gui/lvgl/src/lv_font/lv_font.o
+                0x0000000000001aa0       0x30 ./Gui/lvgl/src/lv_font/lv_font.o
  .debug_aranges
-                0x0000000000001ac8       0x68 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+                0x0000000000001ad0       0x68 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
  .debug_aranges
-                0x0000000000001b30       0x18 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+                0x0000000000001b38       0x18 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
  .debug_aranges
-                0x0000000000001b48       0x40 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+                0x0000000000001b50       0x40 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
  .debug_aranges
-                0x0000000000001b88       0x60 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+                0x0000000000001b90       0x60 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
  .debug_aranges
-                0x0000000000001be8       0x30 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+                0x0000000000001bf0       0x30 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
  .debug_aranges
-                0x0000000000001c18       0x28 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+                0x0000000000001c20       0x28 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
  .debug_aranges
-                0x0000000000001c40       0xa8 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+                0x0000000000001c48       0xa8 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
  .debug_aranges
-                0x0000000000001ce8       0x50 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+                0x0000000000001cf0       0x50 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
  .debug_aranges
-                0x0000000000001d38       0x80 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+                0x0000000000001d40       0x80 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
  .debug_aranges
-                0x0000000000001db8       0x38 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+                0x0000000000001dc0       0x38 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
  .debug_aranges
-                0x0000000000001df0       0x90 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+                0x0000000000001df8       0x90 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
  .debug_aranges
-                0x0000000000001e80       0xa8 ./Gui/lvgl/src/lv_core/lv_disp.o
+                0x0000000000001e88       0xa8 ./Gui/lvgl/src/lv_core/lv_disp.o
  .debug_aranges
-                0x0000000000001f28       0xd8 ./Gui/lvgl/src/lv_core/lv_group.o
+                0x0000000000001f30       0xd8 ./Gui/lvgl/src/lv_core/lv_group.o
  .debug_aranges
-                0x0000000000002000       0xf0 ./Gui/lvgl/src/lv_core/lv_indev.o
+                0x0000000000002008       0xf0 ./Gui/lvgl/src/lv_core/lv_indev.o
  .debug_aranges
-                0x00000000000020f0      0x538 ./Gui/lvgl/src/lv_core/lv_obj.o
+                0x00000000000020f8      0x538 ./Gui/lvgl/src/lv_core/lv_obj.o
  .debug_aranges
-                0x0000000000002628       0x78 ./Gui/lvgl/src/lv_core/lv_refr.o
+                0x0000000000002630       0x78 ./Gui/lvgl/src/lv_core/lv_refr.o
  .debug_aranges
-                0x00000000000026a0      0x140 ./Gui/lvgl/src/lv_core/lv_style.o
+                0x00000000000026a8      0x140 ./Gui/lvgl/src/lv_core/lv_style.o
  .debug_aranges
-                0x00000000000027e0       0x38 ./Gui/lvgl/examples/porting/lv_port_disp.o
+                0x00000000000027e8       0x38 ./Gui/lvgl/examples/porting/lv_port_disp.o
  .debug_aranges
-                0x0000000000002818       0x28 ./Gui/lvgl/examples/porting/lv_port_indev.o
+                0x0000000000002820       0x28 ./Gui/lvgl/examples/porting/lv_port_indev.o
  .debug_aranges
-                0x0000000000002840       0x50 ./Debug/debug.o
+                0x0000000000002848       0x50 ./Debug/debug.o
 
-.debug_ranges   0x0000000000000000     0x8ca0
+.debug_ranges   0x0000000000000000     0x8ca8
  .debug_ranges  0x0000000000000000       0x10 ./User/buzzer.o
  .debug_ranges  0x0000000000000010       0x18 ./User/ch32v30x_it.o
  .debug_ranges  0x0000000000000028       0x30 ./User/ch9142.o
@@ -10070,55 +10072,55 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_ranges  0x0000000000000970       0xe0 ./Peripheral/src/ch32v30x_usart.o
  .debug_ranges  0x0000000000000a50       0x20 ./Gui/my_design/generated/events_init.o
  .debug_ranges  0x0000000000000a70       0x18 ./Gui/my_design/generated/gui_guider.o
- .debug_ranges  0x0000000000000a88       0x18 ./Gui/my_design/generated/setup_scr_screen.o
- .debug_ranges  0x0000000000000aa0       0x40 ./Gui/my_design/generated/setup_scr_screen_1.o
- .debug_ranges  0x0000000000000ae0      0x3d8 ./Gui/lvgl/src/lv_widgets/lv_bar.o
- .debug_ranges  0x0000000000000eb8      0x610 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- .debug_ranges  0x00000000000014c8      0x400 ./Gui/lvgl/src/lv_widgets/lv_cont.o
- .debug_ranges  0x00000000000018c8      0x380 ./Gui/lvgl/src/lv_widgets/lv_img.o
- .debug_ranges  0x0000000000001c48       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- .debug_ranges  0x0000000000001cf8      0x890 ./Gui/lvgl/src/lv_widgets/lv_label.o
- .debug_ranges  0x0000000000002588      0x508 ./Gui/lvgl/src/lv_widgets/lv_page.o
- .debug_ranges  0x0000000000002a90      0x960 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- .debug_ranges  0x00000000000033f0       0x98 ./Gui/lvgl/src/lv_themes/lv_theme.o
- .debug_ranges  0x0000000000003488      0xbc8 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
- .debug_ranges  0x0000000000004050      0x128 ./Gui/lvgl/src/lv_misc/lv_anim.o
- .debug_ranges  0x0000000000004178      0x390 ./Gui/lvgl/src/lv_misc/lv_area.o
- .debug_ranges  0x0000000000004508       0x78 ./Gui/lvgl/src/lv_misc/lv_color.o
- .debug_ranges  0x0000000000004580       0x28 ./Gui/lvgl/src/lv_misc/lv_debug.o
- .debug_ranges  0x00000000000045a8       0xc8 ./Gui/lvgl/src/lv_misc/lv_fs.o
- .debug_ranges  0x0000000000004670       0x10 ./Gui/lvgl/src/lv_misc/lv_gc.o
- .debug_ranges  0x0000000000004680       0xc0 ./Gui/lvgl/src/lv_misc/lv_ll.o
- .debug_ranges  0x0000000000004740       0x38 ./Gui/lvgl/src/lv_misc/lv_math.o
- .debug_ranges  0x0000000000004778       0xe0 ./Gui/lvgl/src/lv_misc/lv_mem.o
- .debug_ranges  0x0000000000004858       0xb0 ./Gui/lvgl/src/lv_misc/lv_task.o
- .debug_ranges  0x0000000000004908      0x1a8 ./Gui/lvgl/src/lv_misc/lv_txt.o
- .debug_ranges  0x0000000000004ab0       0x30 ./Gui/lvgl/src/lv_misc/lv_utils.o
- .debug_ranges  0x0000000000004ae0       0xd0 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
- .debug_ranges  0x0000000000004bb0       0x30 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
- .debug_ranges  0x0000000000004be0       0x20 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
- .debug_ranges  0x0000000000004c00       0x20 ./Gui/lvgl/src/lv_font/lv_font.o
- .debug_ranges  0x0000000000004c20      0x1d0 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_ranges  0x0000000000004df0      0x3e8 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_ranges  0x00000000000051d8      0x338 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_ranges  0x0000000000005510      0x228 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_ranges  0x0000000000005738      0x148 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_ranges  0x0000000000005880      0x3c8 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_ranges  0x0000000000005c48      0xb10 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_ranges  0x0000000000006758      0x130 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_ranges  0x0000000000006888       0x40 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_ranges  0x00000000000068c8      0x1b8 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_ranges  0x0000000000006a80      0x2d8 ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_ranges  0x0000000000006d58      0x110 ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_ranges  0x0000000000006e68      0x348 ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_ranges  0x00000000000071b0     0x13c8 ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_ranges  0x0000000000008578      0x448 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_ranges  0x00000000000089c0      0x200 ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_ranges  0x0000000000008bc0       0x58 ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_ranges  0x0000000000008c18       0x48 ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_ranges  0x0000000000008c60       0x40 ./Debug/debug.o
+ .debug_ranges  0x0000000000000a88       0x20 ./Gui/my_design/generated/setup_scr_screen.o
+ .debug_ranges  0x0000000000000aa8       0x40 ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_ranges  0x0000000000000ae8      0x3d8 ./Gui/lvgl/src/lv_widgets/lv_bar.o
+ .debug_ranges  0x0000000000000ec0      0x610 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ .debug_ranges  0x00000000000014d0      0x400 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ .debug_ranges  0x00000000000018d0      0x380 ./Gui/lvgl/src/lv_widgets/lv_img.o
+ .debug_ranges  0x0000000000001c50       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ .debug_ranges  0x0000000000001d00      0x890 ./Gui/lvgl/src/lv_widgets/lv_label.o
+ .debug_ranges  0x0000000000002590      0x508 ./Gui/lvgl/src/lv_widgets/lv_page.o
+ .debug_ranges  0x0000000000002a98      0x960 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ .debug_ranges  0x00000000000033f8       0x98 ./Gui/lvgl/src/lv_themes/lv_theme.o
+ .debug_ranges  0x0000000000003490      0xbc8 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+ .debug_ranges  0x0000000000004058      0x128 ./Gui/lvgl/src/lv_misc/lv_anim.o
+ .debug_ranges  0x0000000000004180      0x390 ./Gui/lvgl/src/lv_misc/lv_area.o
+ .debug_ranges  0x0000000000004510       0x78 ./Gui/lvgl/src/lv_misc/lv_color.o
+ .debug_ranges  0x0000000000004588       0x28 ./Gui/lvgl/src/lv_misc/lv_debug.o
+ .debug_ranges  0x00000000000045b0       0xc8 ./Gui/lvgl/src/lv_misc/lv_fs.o
+ .debug_ranges  0x0000000000004678       0x10 ./Gui/lvgl/src/lv_misc/lv_gc.o
+ .debug_ranges  0x0000000000004688       0xc0 ./Gui/lvgl/src/lv_misc/lv_ll.o
+ .debug_ranges  0x0000000000004748       0x38 ./Gui/lvgl/src/lv_misc/lv_math.o
+ .debug_ranges  0x0000000000004780       0xe0 ./Gui/lvgl/src/lv_misc/lv_mem.o
+ .debug_ranges  0x0000000000004860       0xb0 ./Gui/lvgl/src/lv_misc/lv_task.o
+ .debug_ranges  0x0000000000004910      0x1a8 ./Gui/lvgl/src/lv_misc/lv_txt.o
+ .debug_ranges  0x0000000000004ab8       0x30 ./Gui/lvgl/src/lv_misc/lv_utils.o
+ .debug_ranges  0x0000000000004ae8       0xd0 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_ranges  0x0000000000004bb8       0x30 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_ranges  0x0000000000004be8       0x20 ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_ranges  0x0000000000004c08       0x20 ./Gui/lvgl/src/lv_font/lv_font.o
+ .debug_ranges  0x0000000000004c28      0x1d0 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_ranges  0x0000000000004df8      0x3e8 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_ranges  0x00000000000051e0      0x338 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_ranges  0x0000000000005518      0x228 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_ranges  0x0000000000005740      0x148 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_ranges  0x0000000000005888      0x3c8 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_ranges  0x0000000000005c50      0xb10 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_ranges  0x0000000000006760      0x130 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_ranges  0x0000000000006890       0x40 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_ranges  0x00000000000068d0      0x1b8 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_ranges  0x0000000000006a88      0x2d8 ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_ranges  0x0000000000006d60      0x110 ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_ranges  0x0000000000006e70      0x348 ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_ranges  0x00000000000071b8     0x13c8 ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_ranges  0x0000000000008580      0x448 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_ranges  0x00000000000089c8      0x200 ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_ranges  0x0000000000008bc8       0x58 ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_ranges  0x0000000000008c20       0x48 ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_ranges  0x0000000000008c68       0x40 ./Debug/debug.o
 
-.debug_line     0x0000000000000000    0x7589a
+.debug_line     0x0000000000000000    0x75929
  .debug_line    0x0000000000000000      0x4b6 ./User/buzzer.o
  .debug_line    0x00000000000004b6      0x2e2 ./User/ch32v30x_it.o
  .debug_line    0x0000000000000798      0xa87 ./User/ch9142.o
@@ -10141,54 +10143,54 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_line    0x0000000000011750      0x517 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .debug_line    0x0000000000011c67      0x626 ./Gui/my_design/generated/events_init.o
  .debug_line    0x000000000001228d      0x661 ./Gui/my_design/generated/gui_guider.o
- .debug_line    0x00000000000128ee      0x7cd ./Gui/my_design/generated/setup_scr_screen.o
- .debug_line    0x00000000000130bb      0xf48 ./Gui/my_design/generated/setup_scr_screen_1.o
- .debug_line    0x0000000000014003     0x287d ./Gui/lvgl/src/lv_widgets/lv_bar.o
- .debug_line    0x0000000000016880     0x3e28 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- .debug_line    0x000000000001a6a8     0x25d0 ./Gui/lvgl/src/lv_widgets/lv_cont.o
- .debug_line    0x000000000001cc78     0x303f ./Gui/lvgl/src/lv_widgets/lv_img.o
- .debug_line    0x000000000001fcb7     0x1353 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- .debug_line    0x000000000002100a     0x493e ./Gui/lvgl/src/lv_widgets/lv_label.o
- .debug_line    0x0000000000025948     0x4768 ./Gui/lvgl/src/lv_widgets/lv_page.o
- .debug_line    0x000000000002a0b0     0x5513 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- .debug_line    0x000000000002f5c3      0xbac ./Gui/lvgl/src/lv_themes/lv_theme.o
- .debug_line    0x000000000003016f     0x86bb ./Gui/lvgl/src/lv_themes/lv_theme_material.o
- .debug_line    0x000000000003882a     0x1407 ./Gui/lvgl/src/lv_misc/lv_anim.o
- .debug_line    0x0000000000039c31     0x119c ./Gui/lvgl/src/lv_misc/lv_area.o
- .debug_line    0x000000000003adcd      0xa95 ./Gui/lvgl/src/lv_misc/lv_color.o
- .debug_line    0x000000000003b862      0x468 ./Gui/lvgl/src/lv_misc/lv_debug.o
- .debug_line    0x000000000003bcca     0x18cc ./Gui/lvgl/src/lv_misc/lv_fs.o
- .debug_line    0x000000000003d596      0x379 ./Gui/lvgl/src/lv_misc/lv_gc.o
- .debug_line    0x000000000003d90f      0xc27 ./Gui/lvgl/src/lv_misc/lv_ll.o
- .debug_line    0x000000000003e536      0x984 ./Gui/lvgl/src/lv_misc/lv_math.o
- .debug_line    0x000000000003eeba     0x1a6a ./Gui/lvgl/src/lv_misc/lv_mem.o
- .debug_line    0x0000000000040924      0xf37 ./Gui/lvgl/src/lv_misc/lv_task.o
- .debug_line    0x000000000004185b     0x1b2f ./Gui/lvgl/src/lv_misc/lv_txt.o
- .debug_line    0x000000000004338a      0x4c9 ./Gui/lvgl/src/lv_misc/lv_utils.o
- .debug_line    0x0000000000043853     0x10ca ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
- .debug_line    0x000000000004491d      0x8c6 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
- .debug_line    0x00000000000451e3      0x22c ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
- .debug_line    0x000000000004540f      0x314 ./Gui/lvgl/src/lv_font/lv_font.o
- .debug_line    0x0000000000045723     0x169b ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_line    0x0000000000046dbe      0x47b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- .debug_line    0x0000000000047239     0x22f6 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_line    0x000000000004952f     0x209d ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_line    0x000000000004b5cc     0x251c ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_line    0x000000000004dae8     0x19e7 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_line    0x000000000004f4cf     0x3624 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_line    0x0000000000052af3     0x585a ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_line    0x000000000005834d     0x2526 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_line    0x000000000005a873      0x94a ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_line    0x000000000005b1bd     0x1f17 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_line    0x000000000005d0d4     0x15bb ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_line    0x000000000005e68f     0x1378 ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_line    0x000000000005fa07     0x3c2e ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_line    0x0000000000063635     0xbd7b ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_line    0x000000000006f3b0     0x24e9 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_line    0x0000000000071899     0x264c ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_line    0x0000000000073ee5      0x96f ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_line    0x0000000000074854      0x8a9 ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_line    0x00000000000750fd      0x79d ./Debug/debug.o
+ .debug_line    0x00000000000128ee      0x85c ./Gui/my_design/generated/setup_scr_screen.o
+ .debug_line    0x000000000001314a      0xf48 ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_line    0x0000000000014092     0x287d ./Gui/lvgl/src/lv_widgets/lv_bar.o
+ .debug_line    0x000000000001690f     0x3e28 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ .debug_line    0x000000000001a737     0x25d0 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ .debug_line    0x000000000001cd07     0x303f ./Gui/lvgl/src/lv_widgets/lv_img.o
+ .debug_line    0x000000000001fd46     0x1353 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ .debug_line    0x0000000000021099     0x493e ./Gui/lvgl/src/lv_widgets/lv_label.o
+ .debug_line    0x00000000000259d7     0x4768 ./Gui/lvgl/src/lv_widgets/lv_page.o
+ .debug_line    0x000000000002a13f     0x5513 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ .debug_line    0x000000000002f652      0xbac ./Gui/lvgl/src/lv_themes/lv_theme.o
+ .debug_line    0x00000000000301fe     0x86bb ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+ .debug_line    0x00000000000388b9     0x1407 ./Gui/lvgl/src/lv_misc/lv_anim.o
+ .debug_line    0x0000000000039cc0     0x119c ./Gui/lvgl/src/lv_misc/lv_area.o
+ .debug_line    0x000000000003ae5c      0xa95 ./Gui/lvgl/src/lv_misc/lv_color.o
+ .debug_line    0x000000000003b8f1      0x468 ./Gui/lvgl/src/lv_misc/lv_debug.o
+ .debug_line    0x000000000003bd59     0x18cc ./Gui/lvgl/src/lv_misc/lv_fs.o
+ .debug_line    0x000000000003d625      0x379 ./Gui/lvgl/src/lv_misc/lv_gc.o
+ .debug_line    0x000000000003d99e      0xc27 ./Gui/lvgl/src/lv_misc/lv_ll.o
+ .debug_line    0x000000000003e5c5      0x984 ./Gui/lvgl/src/lv_misc/lv_math.o
+ .debug_line    0x000000000003ef49     0x1a6a ./Gui/lvgl/src/lv_misc/lv_mem.o
+ .debug_line    0x00000000000409b3      0xf37 ./Gui/lvgl/src/lv_misc/lv_task.o
+ .debug_line    0x00000000000418ea     0x1b2f ./Gui/lvgl/src/lv_misc/lv_txt.o
+ .debug_line    0x0000000000043419      0x4c9 ./Gui/lvgl/src/lv_misc/lv_utils.o
+ .debug_line    0x00000000000438e2     0x10ca ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_line    0x00000000000449ac      0x8c6 ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_line    0x0000000000045272      0x22c ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_line    0x000000000004549e      0x314 ./Gui/lvgl/src/lv_font/lv_font.o
+ .debug_line    0x00000000000457b2     0x169b ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_line    0x0000000000046e4d      0x47b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ .debug_line    0x00000000000472c8     0x22f6 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_line    0x00000000000495be     0x209d ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_line    0x000000000004b65b     0x251c ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_line    0x000000000004db77     0x19e7 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_line    0x000000000004f55e     0x3624 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_line    0x0000000000052b82     0x585a ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_line    0x00000000000583dc     0x2526 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_line    0x000000000005a902      0x94a ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_line    0x000000000005b24c     0x1f17 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_line    0x000000000005d163     0x15bb ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_line    0x000000000005e71e     0x1378 ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_line    0x000000000005fa96     0x3c2e ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_line    0x00000000000636c4     0xbd7b ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_line    0x000000000006f43f     0x24e9 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_line    0x0000000000071928     0x264c ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_line    0x0000000000073f74      0x96f ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_line    0x00000000000748e3      0x8a9 ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_line    0x000000000007518c      0x79d ./Debug/debug.o
 
 .debug_str      0x0000000000000000    0x104b7
  .debug_str     0x0000000000000000      0x99f ./User/buzzer.o
@@ -10235,9 +10237,9 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
                                        0x1430 (size before relaxing)
  .debug_str     0x0000000000004e92      0x118 ./Gui/my_design/generated/gui_guider.o
                                         0xfa3 (size before relaxing)
- .debug_str     0x0000000000004faa      0xa95 ./Gui/my_design/generated/setup_scr_screen.o
-                                       0x1f33 (size before relaxing)
- .debug_str     0x0000000000005a3f      0x3c2 ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_str     0x0000000000004faa      0xaef ./Gui/my_design/generated/setup_scr_screen.o
+                                       0x1f8d (size before relaxing)
+ .debug_str     0x0000000000005a99      0x368 ./Gui/my_design/generated/setup_scr_screen_1.o
                                        0x2204 (size before relaxing)
  .debug_str     0x0000000000005e01      0xf39 ./Gui/lvgl/src/lv_widgets/lv_bar.o
                                        0x28f6 (size before relaxing)
@@ -10404,7 +10406,7 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .comment       0x0000000000000033       0x34 ./Gui/lvgl/examples/porting/lv_port_indev.o
  .comment       0x0000000000000033       0x34 ./Debug/debug.o
 
-.debug_frame    0x0000000000000000     0x8cd8
+.debug_frame    0x0000000000000000     0x8cf8
  .debug_frame   0x0000000000000000       0x38 ./User/buzzer.o
  .debug_frame   0x0000000000000038       0x30 ./User/ch32v30x_it.o
  .debug_frame   0x0000000000000068       0xcc ./User/ch9142.o
@@ -10424,77 +10426,77 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_frame   0x00000000000016b0      0x1e4 ./Peripheral/src/ch32v30x_usart.o
  .debug_frame   0x0000000000001894       0x5c ./Gui/my_design/generated/events_init.o
  .debug_frame   0x00000000000018f0       0x40 ./Gui/my_design/generated/gui_guider.o
- .debug_frame   0x0000000000001930       0x54 ./Gui/my_design/generated/setup_scr_screen.o
- .debug_frame   0x0000000000001984       0x90 ./Gui/my_design/generated/setup_scr_screen_1.o
- .debug_frame   0x0000000000001a14      0x2ac ./Gui/lvgl/src/lv_widgets/lv_bar.o
- .debug_frame   0x0000000000001cc0      0x468 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- .debug_frame   0x0000000000002128      0x1e8 ./Gui/lvgl/src/lv_widgets/lv_cont.o
- .debug_frame   0x0000000000002310      0x34c ./Gui/lvgl/src/lv_widgets/lv_img.o
- .debug_frame   0x000000000000265c      0x1b4 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- .debug_frame   0x0000000000002810      0x520 ./Gui/lvgl/src/lv_widgets/lv_label.o
- .debug_frame   0x0000000000002d30      0x590 ./Gui/lvgl/src/lv_widgets/lv_page.o
- .debug_frame   0x00000000000032c0      0x7dc ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- .debug_frame   0x0000000000003a9c      0x128 ./Gui/lvgl/src/lv_themes/lv_theme.o
- .debug_frame   0x0000000000003bc4      0x158 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
- .debug_frame   0x0000000000003d1c      0x254 ./Gui/lvgl/src/lv_misc/lv_anim.o
- .debug_frame   0x0000000000003f70      0x130 ./Gui/lvgl/src/lv_misc/lv_area.o
- .debug_frame   0x00000000000040a0       0xb4 ./Gui/lvgl/src/lv_misc/lv_color.o
- .debug_frame   0x0000000000004154       0x6c ./Gui/lvgl/src/lv_misc/lv_debug.o
- .debug_frame   0x00000000000041c0      0x344 ./Gui/lvgl/src/lv_misc/lv_fs.o
- .debug_frame   0x0000000000004504       0x2c ./Gui/lvgl/src/lv_misc/lv_gc.o
- .debug_frame   0x0000000000004530      0x1c4 ./Gui/lvgl/src/lv_misc/lv_ll.o
- .debug_frame   0x00000000000046f4       0x70 ./Gui/lvgl/src/lv_misc/lv_math.o
- .debug_frame   0x0000000000004764      0x1dc ./Gui/lvgl/src/lv_misc/lv_mem.o
- .debug_frame   0x0000000000004940      0x1d0 ./Gui/lvgl/src/lv_misc/lv_task.o
- .debug_frame   0x0000000000004b10      0x2a4 ./Gui/lvgl/src/lv_misc/lv_txt.o
- .debug_frame   0x0000000000004db4       0x4c ./Gui/lvgl/src/lv_misc/lv_utils.o
- .debug_frame   0x0000000000004e00      0x214 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
- .debug_frame   0x0000000000005014       0xac ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
- .debug_frame   0x00000000000050c0       0x4c ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
- .debug_frame   0x000000000000510c       0x6c ./Gui/lvgl/src/lv_font/lv_font.o
- .debug_frame   0x0000000000005178      0x18c ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .debug_frame   0x0000000000005304       0xe8 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_frame   0x00000000000053ec      0x134 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_frame   0x0000000000005520       0x84 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_frame   0x00000000000055a4       0x88 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_frame   0x000000000000562c      0x29c ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_frame   0x00000000000058c8      0x144 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_frame   0x0000000000005a0c      0x210 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_frame   0x0000000000005c1c       0xc4 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_frame   0x0000000000005ce0      0x210 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_frame   0x0000000000005ef0      0x260 ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_frame   0x0000000000006150      0x294 ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_frame   0x00000000000063e4      0x2f0 ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_frame   0x00000000000066d4     0x17d8 ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_frame   0x0000000000007eac      0x1ec ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_frame   0x0000000000008098      0x564 ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_frame   0x00000000000085fc       0x84 ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_frame   0x0000000000008680       0x40 ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_frame   0x00000000000086c0       0xb8 ./Debug/debug.o
- .debug_frame   0x0000000000008778       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o)
- .debug_frame   0x00000000000087bc       0x48 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-e_sqrt.o)
- .debug_frame   0x0000000000008804       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
- .debug_frame   0x0000000000008824       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(adddf3.o)
- .debug_frame   0x0000000000008868       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
- .debug_frame   0x00000000000088b8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(gedf2.o)
- .debug_frame   0x00000000000088d8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(ledf2.o)
- .debug_frame   0x00000000000088f8       0x54 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
- .debug_frame   0x000000000000894c       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subdf3.o)
- .debug_frame   0x0000000000008990       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(unorddf2.o)
- .debug_frame   0x00000000000089b0       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunsdfsi.o)
- .debug_frame   0x00000000000089d0       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
- .debug_frame   0x0000000000008a08       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
- .debug_frame   0x0000000000008a48       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
- .debug_frame   0x0000000000008a98       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
- .debug_frame   0x0000000000008ae8       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
- .debug_frame   0x0000000000008b24       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
- .debug_frame   0x0000000000008b44       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
- .debug_frame   0x0000000000008b64       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
- .debug_frame   0x0000000000008b9c       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
- .debug_frame   0x0000000000008be0       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
- .debug_frame   0x0000000000008c18       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
- .debug_frame   0x0000000000008c38       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000008c58       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000008c78       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x0000000000008c98       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000008cb8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)
+ .debug_frame   0x0000000000001930       0x74 ./Gui/my_design/generated/setup_scr_screen.o
+ .debug_frame   0x00000000000019a4       0x90 ./Gui/my_design/generated/setup_scr_screen_1.o
+ .debug_frame   0x0000000000001a34      0x2ac ./Gui/lvgl/src/lv_widgets/lv_bar.o
+ .debug_frame   0x0000000000001ce0      0x468 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ .debug_frame   0x0000000000002148      0x1e8 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ .debug_frame   0x0000000000002330      0x34c ./Gui/lvgl/src/lv_widgets/lv_img.o
+ .debug_frame   0x000000000000267c      0x1b4 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ .debug_frame   0x0000000000002830      0x520 ./Gui/lvgl/src/lv_widgets/lv_label.o
+ .debug_frame   0x0000000000002d50      0x590 ./Gui/lvgl/src/lv_widgets/lv_page.o
+ .debug_frame   0x00000000000032e0      0x7dc ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ .debug_frame   0x0000000000003abc      0x128 ./Gui/lvgl/src/lv_themes/lv_theme.o
+ .debug_frame   0x0000000000003be4      0x158 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+ .debug_frame   0x0000000000003d3c      0x254 ./Gui/lvgl/src/lv_misc/lv_anim.o
+ .debug_frame   0x0000000000003f90      0x130 ./Gui/lvgl/src/lv_misc/lv_area.o
+ .debug_frame   0x00000000000040c0       0xb4 ./Gui/lvgl/src/lv_misc/lv_color.o
+ .debug_frame   0x0000000000004174       0x6c ./Gui/lvgl/src/lv_misc/lv_debug.o
+ .debug_frame   0x00000000000041e0      0x344 ./Gui/lvgl/src/lv_misc/lv_fs.o
+ .debug_frame   0x0000000000004524       0x2c ./Gui/lvgl/src/lv_misc/lv_gc.o
+ .debug_frame   0x0000000000004550      0x1c4 ./Gui/lvgl/src/lv_misc/lv_ll.o
+ .debug_frame   0x0000000000004714       0x70 ./Gui/lvgl/src/lv_misc/lv_math.o
+ .debug_frame   0x0000000000004784      0x1dc ./Gui/lvgl/src/lv_misc/lv_mem.o
+ .debug_frame   0x0000000000004960      0x1d0 ./Gui/lvgl/src/lv_misc/lv_task.o
+ .debug_frame   0x0000000000004b30      0x2a4 ./Gui/lvgl/src/lv_misc/lv_txt.o
+ .debug_frame   0x0000000000004dd4       0x4c ./Gui/lvgl/src/lv_misc/lv_utils.o
+ .debug_frame   0x0000000000004e20      0x214 ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+ .debug_frame   0x0000000000005034       0xac ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+ .debug_frame   0x00000000000050e0       0x4c ./Gui/lvgl/src/lv_hal/lv_hal_tick.o
+ .debug_frame   0x000000000000512c       0x6c ./Gui/lvgl/src/lv_font/lv_font.o
+ .debug_frame   0x0000000000005198      0x18c ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .debug_frame   0x0000000000005324       0xe8 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_frame   0x000000000000540c      0x134 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_frame   0x0000000000005540       0x84 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_frame   0x00000000000055c4       0x88 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_frame   0x000000000000564c      0x29c ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_frame   0x00000000000058e8      0x144 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_frame   0x0000000000005a2c      0x210 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_frame   0x0000000000005c3c       0xc4 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_frame   0x0000000000005d00      0x210 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_frame   0x0000000000005f10      0x260 ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_frame   0x0000000000006170      0x294 ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_frame   0x0000000000006404      0x2f0 ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_frame   0x00000000000066f4     0x17d8 ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_frame   0x0000000000007ecc      0x1ec ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_frame   0x00000000000080b8      0x564 ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_frame   0x000000000000861c       0x84 ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_frame   0x00000000000086a0       0x40 ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_frame   0x00000000000086e0       0xb8 ./Debug/debug.o
+ .debug_frame   0x0000000000008798       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o)
+ .debug_frame   0x00000000000087dc       0x48 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-e_sqrt.o)
+ .debug_frame   0x0000000000008824       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
+ .debug_frame   0x0000000000008844       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(adddf3.o)
+ .debug_frame   0x0000000000008888       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
+ .debug_frame   0x00000000000088d8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(gedf2.o)
+ .debug_frame   0x00000000000088f8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(ledf2.o)
+ .debug_frame   0x0000000000008918       0x54 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
+ .debug_frame   0x000000000000896c       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subdf3.o)
+ .debug_frame   0x00000000000089b0       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(unorddf2.o)
+ .debug_frame   0x00000000000089d0       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunsdfsi.o)
+ .debug_frame   0x00000000000089f0       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
+ .debug_frame   0x0000000000008a28       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
+ .debug_frame   0x0000000000008a68       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
+ .debug_frame   0x0000000000008ab8       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
+ .debug_frame   0x0000000000008b08       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
+ .debug_frame   0x0000000000008b44       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
+ .debug_frame   0x0000000000008b64       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
+ .debug_frame   0x0000000000008b84       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
+ .debug_frame   0x0000000000008bbc       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
+ .debug_frame   0x0000000000008c00       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
+ .debug_frame   0x0000000000008c38       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000008c58       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000008c78       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000008c98       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x0000000000008cb8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
+ .debug_frame   0x0000000000008cd8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)

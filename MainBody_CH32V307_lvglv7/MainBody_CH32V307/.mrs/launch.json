@@ -5,7 +5,7 @@
 			"type": "mrs-debugger",
 			"request": "launch",
 			"name": "MainBody_CH32V307",
-			"cwd": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307Backup\\MainBody_CH32V307",
+			"cwd": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307_lvglv7\\MainBody_CH32V307",
 			"openOCDCfg": {
 				"useLocalOpenOCD": true,
 				"executable": "h:/MounRiver/MounRiver_Studio2/resources/app/resources/win32/components/WCH/OpenOCD/OpenOCD/bin/openocd.exe",
@@ -39,8 +39,8 @@
 					"additionalCommands": []
 				},
 				"loadedFiles": {
-					"executableFile": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307Backup\\MainBody_CH32V307\\obj\\MainBody_CH32V307.elf",
-					"symbolFile": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307Backup\\MainBody_CH32V307\\obj\\MainBody_CH32V307.elf",
+					"executableFile": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307_lvglv7\\MainBody_CH32V307\\obj\\MainBody_CH32V307.elf",
+					"symbolFile": "c:\\Users\\86135\\Desktop\\WearableGasDetect\\MainBody_CH32V307_lvglv7\\MainBody_CH32V307\\obj\\MainBody_CH32V307.elf",
 					"executableFileOffset": 0,
 					"symbolFileOffset": 0
 				},
