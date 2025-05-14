@@ -9437,7 +9437,7 @@ END GROUP
  *fill*         0x00000000200001e6        0x2 
                 0x00000000200001e8                PROVIDE (_edata = .)
 
-.bss            0x00000000200001e8     0x9948 load address 0x0000000000030cb8
+.bss            0x00000000200001e8     0xa028 load address 0x0000000000030cb8
                 0x00000000200001e8                . = ALIGN (0x4)
                 0x00000000200001e8                PROVIDE (_sbss = .)
  *(.sbss*)
@@ -9677,18 +9677,18 @@ END GROUP
  .bss.work_mem_int.3000
                 0x000000002000056c     0x8000 ./Gui/lvgl/src/lv_misc/lv_mem.o
  .bss.blend_buf
-                0x000000002000856c      0x1e0 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+                0x000000002000856c      0x280 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
  .bss.opa_table.6130
-                0x000000002000874c      0x100 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+                0x00000000200087ec      0x100 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
  .bss.draw_buf_1.12896
-                0x000000002000884c     0x12c0 ./Gui/lvgl/examples/porting/lv_port_disp.o
+                0x00000000200088ec     0x1900 ./Gui/lvgl/examples/porting/lv_port_disp.o
  .bss.draw_buf_dsc_1.12895
-                0x0000000020009b0c       0x24 ./Gui/lvgl/examples/porting/lv_port_disp.o
+                0x000000002000a1ec       0x24 ./Gui/lvgl/examples/porting/lv_port_disp.o
  *(.gnu.linkonce.b.*)
  *(COMMON*)
-                0x0000000020009b30                . = ALIGN (0x4)
-                0x0000000020009b30                PROVIDE (_ebss = .)
-                0x0000000020009b30                PROVIDE (_end = _ebss)
+                0x000000002000a210                . = ALIGN (0x4)
+                0x000000002000a210                PROVIDE (_ebss = .)
+                0x000000002000a210                PROVIDE (_end = _ebss)
                 [!provide]                        PROVIDE (end = .)
 
 .stack          0x000000002000f800      0x800
@@ -9700,7 +9700,7 @@ END GROUP
                 0x0000000020010000                PROVIDE (_eusrstack = .)
 OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000    0xb2cf5
+.debug_info     0x0000000000000000    0xb2cf6
  .debug_info    0x0000000000000000      0xffd ./User/buzzer.o
  .debug_info    0x0000000000000ffd      0xbc0 ./User/ch32v30x_it.o
  .debug_info    0x0000000000001bbd     0x1528 ./User/ch9142.o
@@ -9753,26 +9753,26 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_info    0x000000000006f9ee      0xcba ./Gui/lvgl/src/lv_font/lv_font.o
  .debug_info    0x00000000000706a8     0x215f ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
  .debug_info    0x0000000000072807     0x13ca ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- .debug_info    0x0000000000073bd1     0x2f9a ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_info    0x0000000000076b6b     0x36c8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_info    0x000000000007a233     0x332d ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_info    0x000000000007d560     0x2dac ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_info    0x000000000008030c     0x2a98 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_info    0x0000000000082da4     0x52a2 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_info    0x0000000000088046     0x20c1 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_info    0x000000000008a107     0x1607 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_info    0x000000000008b70e     0x2c4b ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_info    0x000000000008e359     0x2db5 ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_info    0x000000000009110e     0x28c5 ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_info    0x00000000000939d3     0x434d ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_info    0x0000000000097d20    0x1000f ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_info    0x00000000000a7d2f     0x3b25 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_info    0x00000000000ab854     0x2d67 ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_info    0x00000000000ae5bb     0x15a2 ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_info    0x00000000000afb5d     0x224e ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_info    0x00000000000b1dab      0xf4a ./Debug/debug.o
+ .debug_info    0x0000000000073bd1     0x2f9b ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_info    0x0000000000076b6c     0x36c8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_info    0x000000000007a234     0x332d ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_info    0x000000000007d561     0x2dac ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_info    0x000000000008030d     0x2a98 ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_info    0x0000000000082da5     0x52a2 ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_info    0x0000000000088047     0x20c1 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_info    0x000000000008a108     0x1607 ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_info    0x000000000008b70f     0x2c4b ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_info    0x000000000008e35a     0x2db5 ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_info    0x000000000009110f     0x28c5 ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_info    0x00000000000939d4     0x434d ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_info    0x0000000000097d21    0x1000f ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_info    0x00000000000a7d30     0x3b25 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_info    0x00000000000ab855     0x2d67 ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_info    0x00000000000ae5bc     0x15a2 ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_info    0x00000000000afb5e     0x224e ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_info    0x00000000000b1dac      0xf4a ./Debug/debug.o
 
-.debug_abbrev   0x0000000000000000    0x11352
+.debug_abbrev   0x0000000000000000    0x1135b
  .debug_abbrev  0x0000000000000000      0x280 ./User/buzzer.o
  .debug_abbrev  0x0000000000000280      0x22c ./User/ch32v30x_it.o
  .debug_abbrev  0x00000000000004ac      0x2fd ./User/ch9142.o
@@ -9825,24 +9825,24 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_abbrev  0x000000000000b283      0x259 ./Gui/lvgl/src/lv_font/lv_font.o
  .debug_abbrev  0x000000000000b4dc      0x535 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
  .debug_abbrev  0x000000000000ba11      0x23f ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- .debug_abbrev  0x000000000000bc50      0x4e5 ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
- .debug_abbrev  0x000000000000c135      0x565 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- .debug_abbrev  0x000000000000c69a      0x4e8 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
- .debug_abbrev  0x000000000000cb82      0x451 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
- .debug_abbrev  0x000000000000cfd3      0x4ff ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
- .debug_abbrev  0x000000000000d4d2      0x55a ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
- .debug_abbrev  0x000000000000da2c      0x4a7 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .debug_abbrev  0x000000000000ded3      0x35d ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- .debug_abbrev  0x000000000000e230      0x5a9 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
- .debug_abbrev  0x000000000000e7d9      0x4e1 ./Gui/lvgl/src/lv_core/lv_disp.o
- .debug_abbrev  0x000000000000ecba      0x4bd ./Gui/lvgl/src/lv_core/lv_group.o
- .debug_abbrev  0x000000000000f177      0x5d5 ./Gui/lvgl/src/lv_core/lv_indev.o
- .debug_abbrev  0x000000000000f74c      0x6a5 ./Gui/lvgl/src/lv_core/lv_obj.o
- .debug_abbrev  0x000000000000fdf1      0x5f4 ./Gui/lvgl/src/lv_core/lv_refr.o
- .debug_abbrev  0x00000000000103e5      0x57e ./Gui/lvgl/src/lv_core/lv_style.o
- .debug_abbrev  0x0000000000010963      0x368 ./Gui/lvgl/examples/porting/lv_port_disp.o
- .debug_abbrev  0x0000000000010ccb      0x392 ./Gui/lvgl/examples/porting/lv_port_indev.o
- .debug_abbrev  0x000000000001105d      0x2f5 ./Debug/debug.o
+ .debug_abbrev  0x000000000000bc50      0x4ee ./Gui/lvgl/src/lv_draw/lv_draw_blend.o
+ .debug_abbrev  0x000000000000c13e      0x565 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ .debug_abbrev  0x000000000000c6a3      0x4e8 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+ .debug_abbrev  0x000000000000cb8b      0x451 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+ .debug_abbrev  0x000000000000cfdc      0x4ff ./Gui/lvgl/src/lv_draw/lv_draw_mask.o
+ .debug_abbrev  0x000000000000d4db      0x55a ./Gui/lvgl/src/lv_draw/lv_draw_rect.o
+ .debug_abbrev  0x000000000000da35      0x4a7 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .debug_abbrev  0x000000000000dedc      0x35d ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ .debug_abbrev  0x000000000000e239      0x5a9 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .debug_abbrev  0x000000000000e7e2      0x4e1 ./Gui/lvgl/src/lv_core/lv_disp.o
+ .debug_abbrev  0x000000000000ecc3      0x4bd ./Gui/lvgl/src/lv_core/lv_group.o
+ .debug_abbrev  0x000000000000f180      0x5d5 ./Gui/lvgl/src/lv_core/lv_indev.o
+ .debug_abbrev  0x000000000000f755      0x6a5 ./Gui/lvgl/src/lv_core/lv_obj.o
+ .debug_abbrev  0x000000000000fdfa      0x5f4 ./Gui/lvgl/src/lv_core/lv_refr.o
+ .debug_abbrev  0x00000000000103ee      0x57e ./Gui/lvgl/src/lv_core/lv_style.o
+ .debug_abbrev  0x000000000001096c      0x368 ./Gui/lvgl/examples/porting/lv_port_disp.o
+ .debug_abbrev  0x0000000000010cd4      0x392 ./Gui/lvgl/examples/porting/lv_port_indev.o
+ .debug_abbrev  0x0000000000011066      0x2f5 ./Debug/debug.o
 
 .debug_loc      0x0000000000000000    0x3b872
  .debug_loc     0x0000000000000000       0x63 ./User/buzzer.o
