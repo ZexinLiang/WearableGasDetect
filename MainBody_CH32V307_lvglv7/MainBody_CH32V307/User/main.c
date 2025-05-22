@@ -51,10 +51,10 @@ int main(void)
 	TP_Init();
 	lv_init();
 	lv_port_disp_init();
-	lv_demo_widgets();
+	//lv_demo_widgets();
 	lv_port_indev_init();
-	//setup_ui(&guider_ui);
-	//events_init(&guider_ui);
+	setup_ui(&guider_ui);
+	events_init(&guider_ui);
     while(1)
     {
         USART_SendData(USART2, 0x78);
