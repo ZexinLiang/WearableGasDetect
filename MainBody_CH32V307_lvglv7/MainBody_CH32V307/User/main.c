@@ -48,20 +48,21 @@ int main(void)
 
     //Lvgl Init
 	POINT_COLOR=RED;
+	TP_Init();
 	lv_init();
 	lv_port_disp_init();
-	//lv_demo_widgets();
+	lv_demo_widgets();
 	lv_port_indev_init();
-	setup_ui(&guider_ui);
-	events_init(&guider_ui);
+	//setup_ui(&guider_ui);
+	//events_init(&guider_ui);
     while(1)
     {
         USART_SendData(USART2, 0x78);
         USART_SendData(USART1, 0x78);
-        lv_tick_inc(1);
+        lv_tick_inc(20);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(60);
+        Delay_Ms(20);
     }
 }
 

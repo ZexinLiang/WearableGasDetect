@@ -20,9 +20,9 @@
 //IO操作
 #define TCS(x)  GPIO_WriteBit(GPIOD,GPIO_Pin_7,x)
 #define TCLK(x) GPIO_WriteBit(GPIOB,GPIO_Pin_3,x)
-#define TDIN(x) GPIO_WriteBit(GPIOB,GPIO_Pin_5,x)
+#define TDIN(x) GPIO_WriteBit(GPIOB,GPIO_Pin_4,x)
 
-#define DOUT  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_4)
+#define DOUT  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_5)
 #define TPEN  GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_15)
 
 #define TP_PRES_DOWN 0x80  //触屏被按下
