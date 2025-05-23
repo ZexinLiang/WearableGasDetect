@@ -1,0 +1,23 @@
+/*
+ * Copyright 2025 NXP
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "lvgl/lvgl.h"
+#include <stdio.h>
+#include "gui_guider.h"
+
+
+void init_scr_del_flag(lv_ui *ui){
+	ui->Black_del = true;
+	ui->PreScreen_del = true;
+}
+
+void setup_ui(lv_ui *ui){
+	LV_THEME_DEFAULT_INIT(LV_THEME_DEFAULT_COLOR_PRIMARY, LV_THEME_DEFAULT_COLOR_SECONDARY, 
+		LV_THEME_MATERIAL_FLAG_LIGHT, LV_THEME_DEFAULT_FONT_SMALL,  LV_THEME_DEFAULT_FONT_NORMAL, 
+		LV_THEME_DEFAULT_FONT_SUBTITLE, LV_THEME_DEFAULT_FONT_TITLE);
+	init_scr_del_flag(ui);
+	setup_scr_Black(ui);
+	lv_scr_load(ui->Black);
+}

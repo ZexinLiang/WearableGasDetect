@@ -2941,13 +2941,13 @@ Disassembly of section .text:
     12ca:	07800593          	li	a1,120
     12ce:	8526                	mv	a0,s1
     12d0:	4df010ef          	jal	ra,2fae <USART_SendData>
-    12d4:	4551                	li	a0,20
+    12d4:	4505                	li	a0,1
     12d6:	28e110ef          	jal	ra,12564 <lv_tick_inc>
     12da:	5a2100ef          	jal	ra,1187c <lv_task_handler>
     12de:	405c                	lw	a5,4(s0)
     12e0:	4501                	li	a0,0
     12e2:	9782                	jalr	a5
-    12e4:	4551                	li	a0,20
+    12e4:	4505                	li	a0,1
     12e6:	69a1f0ef          	jal	ra,20980 <Delay_Ms>
     12ea:	bfd9                	j	12c0 <main+0x6a>
 

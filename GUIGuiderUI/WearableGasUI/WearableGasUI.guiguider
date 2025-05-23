@@ -1,0 +1,546 @@
+{
+	"projectName": "WearableGasUI",
+	"lvglVersion": "v7",
+	"Optimizations": "Balance",
+	"boardPlatformSettings": {
+		"id": 68,
+		"name": "Simulator",
+		"version": "v1.0.0",
+		"description": "Simulator",
+		"lvgl_version_major": 7,
+		"lvgl_version_minor": 10,
+		"lvgl_version_micro": 1,
+		"author": "NXP",
+		"file": "",
+		"checksum": "",
+		"images": [
+			"D:\\NXP\\GUI-Guider-1.5.0-GA\\environment\\template\\board\\v7\\Simulator\\images\\simulator.png"
+		],
+		"type": "Simulator",
+		"configuration": {
+			"OS": "Windows/Linux/Darwin",
+			"mcu": "Simulator",
+			"BuildStatus": {
+				"enable_pxp": false,
+				"supportPXP": false
+			},
+			"color_depth": [
+				16,
+				24
+			],
+			"Optimizations": "Balance",
+			"display_panels": [
+				{
+					"width": 480,
+					"height": 272,
+					"display_panel_name": "Simulator",
+					"display_part_number": "Simulator"
+				},
+				{
+					"width": 392,
+					"height": 392,
+					"display_panel_name": "Simulator",
+					"display_part_number": "Simulator"
+				},
+				{
+					"width": 320,
+					"height": 240,
+					"display_panel_name": "Simulator",
+					"display_part_number": "Simulator"
+				},
+				{
+					"width": 800,
+					"height": 480,
+					"display_panel_name": "Simulator",
+					"display_part_number": "Simulator"
+				},
+				{
+					"width": 720,
+					"height": 1280,
+					"display_panel_name": "Simulator",
+					"display_part_number": "Simulator"
+				}
+			],
+			"mcuxpresso_config": {
+				"CMAKE_BUILD_TYPE": "null"
+			}
+		},
+		"originType": "builtIn"
+	},
+	"demoTemplateSettings": {
+		"id": 23,
+		"name": "EmptyUI",
+		"version": "v1.0.0",
+		"description": "An empty UI template",
+		"lvgl_version_major": 7,
+		"lvgl_version_minor": 10,
+		"lvgl_version_micro": 1,
+		"author": "NXP",
+		"file": "1.4.0/application/EmptyUI/v7/EmptyUI_v1.0.0.zip",
+		"checksum": "9ea6bcd7c79f6508b195f3c1b590e2b7",
+		"images": [
+			"D:\\NXP\\GUI-Guider-1.4.1-GA\\environment\\template\\application\\v7\\EmptyUI\\images\\simulator.png"
+		],
+		"support_board": [
+			"Simulator",
+			"MIMXRT1052xxxxB",
+			"MIMXRT1062xxxxA",
+			"MIMXRT1064xxxxA",
+			"LPC54S018",
+			"LPC54S018J4M",
+			"LPC54628",
+			"LPC55S69",
+			"LPC55S28",
+			"LPC55S16",
+			"MIMXRT595S",
+			"MIMXRT1166xxxxx",
+			"MIMXRT1176xxxxx",
+			"MIMXRT1011xxxxx",
+			"MIMXRT1021xxxxx",
+			"MIMXRT1024xxxxx",
+			"MIMXRT1015xxxxx"
+		],
+		"originType": "builtIn"
+	},
+	"BuildStatus": {
+		"enable_pxp": false,
+		"supportPXP": false
+	},
+	"version": "1.5.0-GA",
+	"lvConf": {
+		"LV_HOR_RES_MAX": "(320)",
+		"LV_VER_RES_MAX": "(240)",
+		"LV_COLOR_DEPTH": 16,
+		"LV_COLOR_16_SWAP": false,
+		"LV_MEM_CUSTOM": false,
+		"LV_MEM_SIZE": "320",
+		"LV_MEM_ADR": false,
+		"LV_MEM_AUTO_DEFRAG": true,
+		"LV_MEM_CUSTOM_INCLUDE": "<stdlib.h>",
+		"LV_MEM_CUSTOM_ALLOC": "malloc",
+		"LV_MEM_CUSTOM_FREE": "free",
+		"LV_USE_GPU": true,
+		"LV_USE_GPU_NXP_PXP": "~~",
+		"LV_USE_GPU_NXP_PXP_AUTO_INIT": "~~",
+		"LV_USE_GPU_NXP_VG_LITE": "~~",
+		"LV_ATTRIBUTE_MEM_ALIGN_SIZE": "~~",
+		"LV_ATTRIBUTE_MEM_ALIGN": "~~",
+		"LV_DISP_DEF_REFR_PERIOD": "30",
+		"LV_USE_PERF_MONITOR": false
+	},
+	"ImportFonts": {
+		"simsun": "font\\simsun.woff",
+		"montserratMedium": "font\\Montserrat-medium.ttf",
+		"arial": "font\\ARIAL.TTF",
+		"Abel_regular": "font\\abel-regular.ttf",
+		"Acme_Regular": "font\\Acme-Regular.ttf",
+		"Adventpro_regular": "font\\adventpro-regular.ttf",
+		"AguafinaScript_Regular": "font\\AguafinaScript-Regular.ttf",
+		"Alatsi_Regular": "font\\Alatsi-Regular.ttf",
+		"AlexBrush_Regular": "font\\AlexBrush-Regular.ttf",
+		"AmaticSC_Regular": "font\\AmaticSC-Regular.ttf",
+		"Amiko_Regular": "font\\Amiko-Regular.ttf",
+		"Antonio_Regular": "font\\Antonio-Regular.ttf",
+		"ArchitectsDaughter": "font\\ArchitectsDaughter.ttf"
+	},
+	"FrontJson": [
+		{
+			"name": "Black",
+			"id": "vqx0op59",
+			"version": 5,
+			"width": 480,
+			"height": 272,
+			"list": [
+				{
+					"name": "canvas_1",
+					"id": "693g1m51",
+					"type": "canvas",
+					"left": 0,
+					"top": 0,
+					"is_move_animation": false,
+					"desX": 0,
+					"desY": 0,
+					"path_type": "linear",
+					"duration": 1000,
+					"width": "320",
+					"height": 240,
+					"default_style": false,
+					"style": [
+						{
+							"part": "LV_CANVAS_PART_MAIN",
+							"state": "LV_STATE_DEFAULT",
+							"desc": "main",
+							"disable": false,
+							"image_recolor": "#000000",
+							"image_recolor_opa": 255,
+							"shadow_color": "#2195f6",
+							"shadow_opa": 255,
+							"shadow_width": 0,
+							"shadow_spread": 0,
+							"shadow_ofs_x": 0,
+							"shadow_ofs_y": 0
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"trigger": "screen_loaded",
+					"dst": "defaultScreen",
+					"action": {
+						"bg_color": {
+							"ische": false,
+							"value": "#000000"
+						},
+						"grad_color": {
+							"ische": false,
+							"value": "#000000"
+						},
+						"bg_opa": {
+							"ische": false,
+							"value": 255
+						},
+						"width": {
+							"ische": false,
+							"value": 50
+						},
+						"height": {
+							"ische": false,
+							"value": 50
+						},
+						"set_text": {
+							"ische": false,
+							"value": "default",
+							"font": 12,
+							"font_family": "simsun"
+						},
+						"position": {
+							"ische": false,
+							"value_x": 0,
+							"value_y": 0
+						},
+						"hidden": {
+							"ische": false
+						},
+						"customer_code": {
+							"ische": false,
+							"inc_c": "",
+							"code_c": "",
+							"inc_py": "",
+							"code_py": ""
+						},
+						"move": {
+							"ische": false,
+							"value_x": 0,
+							"value_y": 0,
+							"duration": 1000,
+							"path_type": "linear"
+						},
+						"load_screen": {
+							"ische": true,
+							"duration": 200,
+							"delay": 1000,
+							"anim_type": "LV_SCR_LOAD_ANIM_OVER_TOP",
+							"is_clean": true,
+							"is_del": true
+						}
+					}
+				}
+			],
+			"style": [
+				{
+					"part": "LV_OBJ_PART_MAIN",
+					"state": "LV_STATE_DEFAULT",
+					"disable": false,
+					"bg_color": "#ffffff",
+					"bg_opa": 0
+				}
+			]
+		},
+		{
+			"name": "PreScreen",
+			"id": "defaultScreen",
+			"version": 5,
+			"width": 480,
+			"height": 272,
+			"list": [
+				{
+					"name": "img_1",
+					"id": "h7i732lc",
+					"type": "img",
+					"left": 73.5,
+					"top": 92,
+					"is_move_animation": false,
+					"desX": 0,
+					"desY": 0,
+					"path_type": "linear",
+					"duration": 1000,
+					"width": 173,
+					"height": 56,
+					"default_style": false,
+					"img_path": "C:\\Users\\86135\\Desktop\\WearableGasDetect\\GUIGuiderUI\\WearableGasUI\\import\\image\\WCHLogo.jpg",
+					"rotate": 0,
+					"x": 50,
+					"y": 50,
+					"color_format": "true-color-alpha",
+					"style": [
+						{
+							"part": "LV_IMG_PART_MAIN",
+							"state": "LV_STATE_DEFAULT",
+							"desc": "main",
+							"disable": false,
+							"image_recolor": "#ffffff",
+							"image_recolor_opa": 0,
+							"image_opa": 255
+						}
+					]
+				},
+				{
+					"name": "canvas_1",
+					"id": "pyem6dfi",
+					"type": "canvas",
+					"left": 0,
+					"top": 0,
+					"is_move_animation": false,
+					"desX": 0,
+					"desY": 0,
+					"path_type": "linear",
+					"duration": 1000,
+					"width": "320",
+					"height": 240,
+					"default_style": false,
+					"style": [
+						{
+							"part": "LV_CANVAS_PART_MAIN",
+							"state": "LV_STATE_DEFAULT",
+							"desc": "main",
+							"disable": false,
+							"image_recolor": "#000000",
+							"image_recolor_opa": 255,
+							"shadow_color": "#2195f6",
+							"shadow_opa": 255,
+							"shadow_width": 0,
+							"shadow_spread": 0,
+							"shadow_ofs_x": 0,
+							"shadow_ofs_y": 0
+						}
+					]
+				}
+			],
+			"event": [],
+			"style": [
+				{
+					"part": "LV_OBJ_PART_MAIN",
+					"state": "LV_STATE_DEFAULT",
+					"disable": false,
+					"bg_color": "#000000",
+					"bg_opa": 0
+				}
+			]
+		}
+	],
+	"FrontStatus": {},
+	"Application": {
+		"name": "testingJson",
+		"size": {
+			"width": "320",
+			"height": "240"
+		},
+		"version": "test_v1",
+		"default_scr": "Black",
+		"theme": "LV_THEME_MATERIAL_FLAG_LIGHT",
+		"screen": [
+			{
+				"name": "Black",
+				"id": "vqx0op59",
+				"version": 5,
+				"width": 480,
+				"height": 272,
+				"style": [
+					{
+						"part": "LV_OBJ_PART_MAIN",
+						"state": "LV_STATE_DEFAULT",
+						"disable": false,
+						"bg_color": "#ffffff",
+						"bg_opa": 0
+					}
+				],
+				"widgets": [
+					{
+						"name": "Black_canvas_1",
+						"id": "693g1m51",
+						"type": "canvas",
+						"pos": [
+							0,
+							0
+						],
+						"size": [
+							"320",
+							240
+						],
+						"is_move_animation": false,
+						"path_type": "linear",
+						"move_animation": {
+							"des_pos": [
+								0,
+								0
+							],
+							"duration": 1000
+						},
+						"default_style": false,
+						"fill_color": "#000000",
+						"opacity": 255,
+						"style": [
+							{
+								"part": "LV_CANVAS_PART_MAIN",
+								"state": "LV_STATE_DEFAULT",
+								"desc": "main",
+								"disable": false,
+								"image_recolor": "#000000",
+								"image_recolor_opa": 255,
+								"shadow_color": "#2195f6",
+								"shadow_opa": 255,
+								"shadow_width": 0,
+								"shadow_spread": 0,
+								"shadow_ofs_x": 0,
+								"shadow_ofs_y": 0
+							}
+						]
+					}
+				],
+				"type": "scr"
+			},
+			{
+				"name": "PreScreen",
+				"id": "defaultScreen",
+				"version": 5,
+				"width": 480,
+				"height": 272,
+				"style": [
+					{
+						"part": "LV_OBJ_PART_MAIN",
+						"state": "LV_STATE_DEFAULT",
+						"disable": false,
+						"bg_color": "#000000",
+						"bg_opa": 0
+					}
+				],
+				"widgets": [
+					{
+						"name": "PreScreen_canvas_1",
+						"id": "pyem6dfi",
+						"type": "canvas",
+						"pos": [
+							0,
+							0
+						],
+						"size": [
+							"320",
+							240
+						],
+						"is_move_animation": false,
+						"path_type": "linear",
+						"move_animation": {
+							"des_pos": [
+								0,
+								0
+							],
+							"duration": 1000
+						},
+						"default_style": false,
+						"fill_color": "#000000",
+						"opacity": 255,
+						"style": [
+							{
+								"part": "LV_CANVAS_PART_MAIN",
+								"state": "LV_STATE_DEFAULT",
+								"desc": "main",
+								"disable": false,
+								"image_recolor": "#000000",
+								"image_recolor_opa": 255,
+								"shadow_color": "#2195f6",
+								"shadow_opa": 255,
+								"shadow_width": 0,
+								"shadow_spread": 0,
+								"shadow_ofs_x": 0,
+								"shadow_ofs_y": 0
+							}
+						]
+					},
+					{
+						"name": "PreScreen_img_1",
+						"id": "h7i732lc",
+						"type": "img",
+						"pos": [
+							73.5,
+							92
+						],
+						"size": [
+							173,
+							56
+						],
+						"is_move_animation": false,
+						"path_type": "linear",
+						"move_animation": {
+							"des_pos": [
+								0,
+								0
+							],
+							"duration": 1000
+						},
+						"default_style": false,
+						"img_path": "C:\\Users\\86135\\Desktop\\WearableGasDetect\\GUIGuiderUI\\WearableGasUI\\import\\image\\WCHLogo.jpg",
+						"color_format": "true-color-alpha",
+						"rotate": 0,
+						"pivot": "50,50",
+						"img_flash_path": "F:/WCHLogo.jpg",
+						"img_sd_path": "S://WCHLogo.jpg",
+						"style": [
+							{
+								"part": "LV_IMG_PART_MAIN",
+								"state": "LV_STATE_DEFAULT",
+								"desc": "main",
+								"disable": false,
+								"image_recolor": "#ffffff",
+								"image_recolor_opa": 0,
+								"image_opa": 255
+							}
+						]
+					}
+				],
+				"type": "scr"
+			}
+		],
+		"event": [
+			{
+				"src": "Black",
+				"trigger": "screen_load_start",
+				"dst": "PreScreen",
+				"action": "load_screen",
+				"duration": 200,
+				"delay": 1000,
+				"anim_type": "LV_SCR_LOAD_ANIM_OVER_TOP",
+				"is_clean": true,
+				"is_del": true
+			}
+		]
+	},
+	"projectSettings": {
+		"resolution": {
+			"width": "320",
+			"height": "240"
+		},
+		"name": "Simulator",
+		"panel_name": "Simulator",
+		"color_depth": 16,
+		"display_part_number": [
+			"Simulator"
+		],
+		"mcuxpresso_config": {
+			"CMAKE_BUILD_TYPE": "null"
+		},
+		"OS": "Windows/Linux",
+		"mcu": "Simulator",
+		"Optimizations": "Balance"
+	}
+}

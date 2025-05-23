@@ -59,10 +59,10 @@ int main(void)
     {
         USART_SendData(USART2, 0x78);
         USART_SendData(USART1, 0x78);
-        lv_tick_inc(20);
+        lv_tick_inc(1);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(20);
+        Delay_Ms(1);
     }
 }
 
