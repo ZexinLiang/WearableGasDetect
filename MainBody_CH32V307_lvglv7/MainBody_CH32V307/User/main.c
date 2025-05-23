@@ -28,6 +28,17 @@
 extern _m_tp_dev tp_dev;
 lv_ui guider_ui;
 
+void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str)
+{
+    uint8_t i = 0;
+    do
+    {
+       USART_SendData(pUSARTx, *(str+i));
+       i++;
+    }while(*(str+i) != '\0');
+    while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) == RESET);
+}
+
 int main(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
