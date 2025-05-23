@@ -57,12 +57,12 @@ int main(void)
 	events_init(&guider_ui);
     while(1)
     {
-        USART_SendData(USART2, 0x78);
-        USART_SendData(USART1, 0x78);
-        lv_tick_inc(1);
+        //USART_SendData(USART3, 0x78);
+        //USART_SendData(USART1, 0x78);
+        lv_tick_inc(30);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(1);
+        Delay_Ms(30);
     }
 }
 

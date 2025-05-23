@@ -60,7 +60,7 @@ void m780eg_Init(void){
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);
-    GPIO_SetBits(GPIOB,GPIO_Pin_13);
+    GPIO_ResetBits(GPIOB,GPIO_Pin_13);//下拉不复位
 }
 
 void USART3_DataProcess(uint8_t* data, uint16_t len){
