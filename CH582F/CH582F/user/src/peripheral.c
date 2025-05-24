@@ -20,6 +20,7 @@
 #include "devinfoservice.h"
 #include "gattprofile.h"
 #include "peripheral.h"
+#include "scd40reg.h"
 
 /*********************************************************************
  * MACROS
@@ -75,6 +76,9 @@ uint8_t heatCnt = 0;
  * EXTERNAL VARIABLES
  */
 extern uint16_t gasPPM[2];
+extern uint16_t CO2;
+extern uint16_t Temperature;
+extern uint16_t Relative_humidity;
 /*********************************************************************
  * EXTERNAL FUNCTIONS
  */
@@ -653,6 +657,7 @@ static void peripheralStateNotificationCB(gapRole_States_t newState, gapRoleEven
  *
  * @return  none
  */
+uint8_t taskCnt = 0;
 static void performPeriodicTask(void)//蓝牙广播
 {
     //uint8_t notiData[SIMPLEPROFILE_CHAR4_LEN] = {0x88};
@@ -660,23 +665,30 @@ static void performPeriodicTask(void)//蓝牙广播
     //uint8_t helloMsg[] = "hello\r\n";
     //peripheralChar4Notify(helloMsg, sizeof(helloMsg) - 1);
     uint8_t sendMsg[20]={0};
-    if(!heatCnt){
-        GPIOB_SetBits(GPIO_Pin_7);//使能传感器加热
+//    if(!heatCnt){
+//        GPIOB_SetBits(GPIO_Pin_7);//使能传感器加热
+//    }
+//    if(heatCnt<120){
+//        sprintf(sendMsg,"Heating sensors...\n");
+//        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
+//        heatCnt++;
+//    }
+//    else if(heatCnt==120){
+//        sprintf(sendMsg,"Heating completed\n");
+//        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
+//        heatCnt++;
+//    }
+//    else {
+//        sprintf(sendMsg,"0:%6d 1:%6d\r\n",gasPPM[0],gasPPM[1]);
+//        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
+//    }
+    taskCnt++;
+    switch(taskCnt%5){
+    case 1:sprintf(sendMsg,"CO2:%6d\r\n",CO2);break;
+    case 2:sprintf(sendMsg,"T:%3d\r\n",Temperature);break;
+    case 3:sprintf(sendMsg,"H:%3d\r\n",Relative_humidity);break;
     }
-    if(heatCnt<120){
-        sprintf(sendMsg,"Heating sensors...\n");
-        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
-        heatCnt++;
-    }
-    else if(heatCnt==120){
-        sprintf(sendMsg,"Heating completed\n");
-        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
-        heatCnt++;
-    }
-    else {
-        sprintf(sendMsg,"0:%6d 1:%6d\r\n",gasPPM[0],gasPPM[1]);
-        peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
-    }
+    peripheralChar4Notify(sendMsg,sizeof(sendMsg)-1);
 }
 
 /*********************************************************************

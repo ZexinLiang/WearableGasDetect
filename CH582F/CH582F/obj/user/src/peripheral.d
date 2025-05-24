@@ -20,7 +20,9 @@ user/src/peripheral.o: ../user/src/peripheral.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/ISP583.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/devinfoservice.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h \
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h \
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\HAL\include/CONFIG.h:
 
@@ -65,3 +67,7 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/devinfose
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h:
+
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
+
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h:

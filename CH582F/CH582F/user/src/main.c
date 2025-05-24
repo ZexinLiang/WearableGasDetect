@@ -39,7 +39,9 @@ uint8_t dev_addr = 0x77;
 uint16_t gasPPM[2]={0};
 
 //SCD40
-
+uint16_t CO2=50;
+uint16_t Temperature=0;
+uint16_t Relative_humidity=0;
 
 //两个软件IIC接口
 softI2C_TypeDef i2c0={
@@ -89,9 +91,6 @@ int main()
     //BME688InitInReg();
 
     //SCD40
-    uint16_t CO2=50;
-    uint16_t Temperature=0;
-    uint16_t Relative_humidity=0;
     DelayMs(2000);
     stop_periodic_measurement();
     DelayMs(2000);
@@ -99,18 +98,20 @@ int main()
     DelayMs(2000);
     start_periodic_measurement();
     DelayMs(2000);
-    uint8_t status = 0;
-    while(1){
-        //最好5s触发就够了
-        get_data_ready_status(&status);
-        if(status)
-        {
-            read_measurement(&CO2,&Temperature,&Relative_humidity);
-            printf("CO2:%d,T:%d,H:%d\r\n",CO2,Temperature,Relative_humidity);
-        }
-        //printf("1\n");
-        DelayMs(2000);
-    }
+
+
+//    uint8_t status = 0;
+//    while(1){
+//        //最好5s触发就够了
+//        get_data_ready_status(&status);
+//        if(status)
+//        {
+//            read_measurement(&CO2,&Temperature,&Relative_humidity);
+//            printf("CO2:%d,T:%d,H:%d\r\n",CO2,Temperature,Relative_humidity);
+//        }
+//        //printf("1\n");
+//        DelayMs(2000);
+//    }
 
     taskInit();//测量任务初始化
 
