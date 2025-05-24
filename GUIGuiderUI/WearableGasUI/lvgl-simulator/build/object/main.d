@@ -164,8 +164,6 @@ build/object/main.o: main.c SDL2\i686-w64-mingw32\include/SDL2/SDL.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_roller.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_textarea.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_canvas.h \
- c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src\lv_widgets\lv_img.h \
- c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src\lv_draw\lv_draw_img.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_win.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_tabview.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_tileview.h \
@@ -526,10 +524,6 @@ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_w
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_textarea.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_canvas.h:
-
-c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src\lv_widgets\lv_img.h:
-
-c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src\lv_draw\lv_draw_img.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\lvgl\src/lv_widgets/lv_win.h:
 

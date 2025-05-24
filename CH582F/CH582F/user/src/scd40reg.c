@@ -1,4 +1,11 @@
 #include "scd40reg.h"
+/******************************
+ * 注意：
+ * 1.SCD40接受时记得多接受一位，否则会造成时序错误
+ * 2.SCD40不能已经开启的功能不能再开启，否则传感器不应答，依旧产生IIC时序错误
+ * 3.SCD40采集完的数据只能读取一次，读取前判断，5s一周期，否则全是0
+ *****************************/
+
 
 extern softI2C_TypeDef i2c0;
 
@@ -74,11 +81,11 @@ void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_hum
     crc = I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 1);
     value3 = (temp1<<8)|temp2;
+    I2C_SendACK(&i2c0, 1);
+    I2C_RecvByte(&i2c0);
     I2C_SendACK(&i2c0, 0);//NACK
     I2C_Stop(&i2c0);
-//        *CO2 = 30;
-//        *Temperature = 40;
-//        *Relative_humidity = 50;
+
     *CO2 = value1;
     *Temperature = (uint16_t)(-45 + 175.f*(float)value2/65536.f);
     *Relative_humidity = (uint16_t)(100.f*(float)value3/65536.f);

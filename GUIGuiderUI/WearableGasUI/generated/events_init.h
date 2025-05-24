@@ -13,6 +13,7 @@ extern "C" {
 #include "gui_guider.h"
 
 void events_init(lv_ui *ui);
+void events_init_PreScreen(lv_ui *ui);
 void events_init_Black(lv_ui *ui);
 
 #ifdef __cplusplus

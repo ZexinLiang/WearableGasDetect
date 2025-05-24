@@ -218,7 +218,7 @@ typedef void * lv_font_user_data_t;
 #define LV_CALENDAR_WEEK_STARTS_MONDAY 0
 #endif /* LV_USE_CALENDAR */
 
-#define LV_USE_CANVAS 1
+#define LV_USE_CANVAS 0
 #define LV_USE_CHECKBOX 0
 #define LV_USE_CHART 0
 

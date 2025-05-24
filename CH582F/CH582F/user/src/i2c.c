@@ -163,6 +163,7 @@ uint8_t I2C_WaitAck(softI2C_TypeDef* I2C)  //返回为:=1有ACK,=0无ACK
     uint16_t i=0;
     I2C_SDA_H(I2C);//释放SDA
     I2C_SCL_H(I2C);//SCL拉高进行采样
+    I2C_delay();
     while(I2C_SDA_READ(I2C))//等待SDA拉低
     {
         i++;//等待计数
@@ -193,13 +194,13 @@ uint8_t I2C_RecvByte(softI2C_TypeDef* I2C) //数据从高位到低位//
     I2C_delay(); //延时给从机准备SDA时间
     for (i=0; i<8; i++)//8位计数器
     {
-        ReceiveByte <<= 1;
+        I2C_SCL_L(I2C);//拉低时钟线，处理接收到的数据
+        I2C_delay();   //延时给从机准备SDA时间
         I2C_SCL_H(I2C);//拉高时钟线，采样从机SDA
+        ReceiveByte <<= 1;
         if(I2C_SDA_READ(I2C)) //读数据
             ReceiveByte |=0x01;
         I2C_delay();//延时保持I2C时钟频率
-        I2C_SCL_L(I2C);//拉低时钟线，处理接收到的数据
-        I2C_delay();   //延时给从机准备SDA时间
     }
     return ReceiveByte;
 }
@@ -224,10 +225,12 @@ void I2C_delay(void)
 }
 void I2C_SendACK(softI2C_TypeDef* I2C,uint8_t i)
 {
-    if(i==1)
+    I2C_SCL_L(I2C);
+    if(i==0)
         I2C_SDA_H(I2C);
     else
         I2C_SDA_L(I2C);
+    I2C_delay();
     I2C_SCL_H(I2C);
     I2C_delay();
     I2C_SCL_L(I2C);
