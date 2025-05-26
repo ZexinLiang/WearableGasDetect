@@ -31,7 +31,8 @@ void taskInit(void){
     tmos_start_task( TASK_ID, E5000MS_EVENT, 8000 );
 }
 
-
+extern uint16_t centralCharHdl;
+extern uint16_t centralConnHandle;
 uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
 {
     if (events & SYS_EVENT_MSG)
@@ -67,6 +68,20 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
         //gasPPM[1] = JED_I2C_Read_Byte(&i2c1);
         //sprintf(gasMsg,"gas0:%6dppm    gas1:%6dppm",gasPPM[0],gasPPM[1]);
         //UART1_SendString(gasMsg,sizeof(gasMsg));
+        attWriteReq_t req;
+        uint8_t data[] = {0x55, 0xAA};  // 要发送的两个字节
+
+        req.handle = centralCharHdl;         // 你在特征发现阶段记录的句柄
+        req.len = sizeof(data);
+        memcpy(req.pValue, data, req.len);
+
+        bStatus_t status = GATT_WriteNoRsp(centralConnHandle, &req);
+
+        if (status == SUCCESS) {
+            printf("Sent data to CH9142.\r\n");
+        } else {
+            printf("Write failed: %d\r\n", status);
+        }
 
         tmos_start_task(TASK_ID, E1000MS_EVENT, 1600); // 3200 * 0.625ms执行一次  1000MS
         return (events ^ E1000MS_EVENT);

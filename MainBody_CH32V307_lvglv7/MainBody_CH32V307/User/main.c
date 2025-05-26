@@ -66,12 +66,12 @@ int main(void)
 	lv_port_indev_init();
 	setup_ui(&guider_ui);
 	events_init(&guider_ui);
-	GPIO_SetBits(GPIOA,GPIO_Pin_5);
-	    delay_ms(3000);
-	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
-	delay_ms(3000);
-	uint8_t *str = "AT+VER\r\n";
-	USARTx_SendStr(USART1,str);
+//	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+//	    delay_ms(3000);
+//	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+//	delay_ms(3000);
+//	uint8_t *str = "AT+VER\r\n";
+//	USARTx_SendStr(USART1,str);
     while(1)
     {
         //USART_SendData(USART3, 0x78);
