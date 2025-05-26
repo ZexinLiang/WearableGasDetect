@@ -16,6 +16,7 @@
 #include "CH58xBLE_LIB.h"
 #include "gattprofile.h"
 #include "peripheral.h"
+#include "central.h"
 #include "i2c.h"
 #include "task.h"
 #include "jed.h"
@@ -79,8 +80,10 @@ int main()
 
     CH58X_BLEInit();
     HAL_Init();
-    GAPRole_PeripheralInit();
-    Peripheral_Init();
+    GAPRole_CentralInit();
+    Central_Init();
+    //GAPRole_PeripheralInit();
+    //Peripheral_Init();
 
     I2CInit(&i2c0);//≈‰÷√»Ìº˛IIC
     I2CInit(&i2c1);
