@@ -22,6 +22,7 @@
 #include "jed.h"
 #include "bmeInRegis.h"
 #include "scd40reg.h"
+#include "central.h"
 
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
@@ -117,7 +118,6 @@ int main()
 //    }
 
     taskInit();//测量任务初始化
-
     while(1)
     {
         TMOS_SystemProcess();//TMOS任务调度

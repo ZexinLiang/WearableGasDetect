@@ -54,7 +54,7 @@ extern void Central_Init(void);
  * Task Event Processor for the BLE Application
  */
 extern uint16_t Central_ProcessEvent(uint8_t task_id, uint16_t events);
-
+void Central_WriteToCH9142(uint8_t *data, uint8_t len);
 /*********************************************************************
 *********************************************************************/
 

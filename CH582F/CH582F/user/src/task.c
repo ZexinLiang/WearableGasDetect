@@ -8,6 +8,7 @@
 #include "i2c.h"
 #include "jed.h"
 #include "scd40reg.h"
+#include "central.h"
 
 #define READ_BAT_EVENT   1
 #define READ_UART_EVENT  2
@@ -83,7 +84,6 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
 //        } else {
 //            printf("Write failed: %d\r\n", status);
 //        }
-
         tmos_start_task(TASK_ID, E1000MS_EVENT, 1600); // 3200 * 0.625ms÷¥––“ª¥Œ  1000MS
         return (events ^ E1000MS_EVENT);
     }
