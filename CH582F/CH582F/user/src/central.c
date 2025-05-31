@@ -18,94 +18,43 @@
 #include "CONFIG.h"
 #include "gattprofile.h"
 #include "central.h"
+#include <string.h>
 
 /*********************************************************************
  * MACROS
  */
-
-// Length of bd addr as a string
-#define B_ADDR_STR_LEN                      15
-
-/*********************************************************************
- * CONSTANTS
- */
-// Maximum number of scan responses
+#define CH9142_SERVICE_UUID  0xFFF0
+#define CH9142_NOTIFY_UUID   0xFFF1
+#define CH9142_WRITE_UUID    0xFFF2
 #define DEFAULT_MAX_SCAN_RES                10
-
-// Scan duration in 0.625ms
 #define DEFAULT_SCAN_DURATION               2400
-
-// Connection min interval in 1.25ms
 #define DEFAULT_MIN_CONNECTION_INTERVAL     20
-
-// Connection max interval in 1.25ms
 #define DEFAULT_MAX_CONNECTION_INTERVAL     100
-
-// Connection supervision timeout in 10ms
 #define DEFAULT_CONNECTION_TIMEOUT          100
-
-// Discovey mode (limited, general, all)
 #define DEFAULT_DISCOVERY_MODE              DEVDISC_MODE_ALL
-
-// TRUE to use active scan
 #define DEFAULT_DISCOVERY_ACTIVE_SCAN       TRUE
-
-// TRUE to use white list during discovery
 #define DEFAULT_DISCOVERY_WHITE_LIST        FALSE
-
-// TRUE to use high scan duty cycle when creating link
 #define DEFAULT_LINK_HIGH_DUTY_CYCLE        FALSE
-
-// TRUE to use white list when creating link
 #define DEFAULT_LINK_WHITE_LIST             FALSE
-
-// Default read RSSI period in 0.625ms
 #define DEFAULT_RSSI_PERIOD                 2400
-
-// Minimum connection interval (units of 1.25ms)
 #define DEFAULT_UPDATE_MIN_CONN_INTERVAL    20
-
-// Maximum connection interval (units of 1.25ms)
 #define DEFAULT_UPDATE_MAX_CONN_INTERVAL    100
-
-// Slave latency to use parameter update
 #define DEFAULT_UPDATE_SLAVE_LATENCY        0
-
-// Supervision timeout value (units of 10ms)
 #define DEFAULT_UPDATE_CONN_TIMEOUT         600
-
-// Default passcode
 #define DEFAULT_PASSCODE                    0
-
-// Default GAP pairing mode
 #define DEFAULT_PAIRING_MODE                GAPBOND_PAIRING_MODE_WAIT_FOR_REQ
-
-// Default MITM mode (TRUE to require passcode or OOB when pairing)
 #define DEFAULT_MITM_MODE                   TRUE
-
-// Default bonding mode, TRUE to bond, max bonding 6 devices
 #define DEFAULT_BONDING_MODE                TRUE
-
-// Default GAP bonding I/O capabilities
 #define DEFAULT_IO_CAPABILITIES             GAPBOND_IO_CAP_NO_INPUT_NO_OUTPUT
-
-// Default service discovery timer delay in 0.625ms
 #define DEFAULT_SVC_DISCOVERY_DELAY         1600
-
-// Default parameter update delay in 0.625ms
 #define DEFAULT_PARAM_UPDATE_DELAY          3200
-
-// Default phy update delay in 0.625ms
 #define DEFAULT_PHY_UPDATE_DELAY            2400
-
-// Default read or write timer delay in 0.625ms
 #define DEFAULT_READ_OR_WRITE_DELAY         1600
-
-// Default write CCCD delay in 0.625ms
 #define DEFAULT_WRITE_CCCD_DELAY            1600
-
-// Establish link timeout in 0.625ms
 #define ESTABLISH_LINK_TIMEOUT              3200
+
+#define SEND_DATA_TO_CH9142_EVT             0x0400
+#define ENABLE_NOTIFY_EVT                   0x0800
 
 // Application states
 enum
@@ -124,77 +73,27 @@ enum
     BLE_DISC_STATE_CHAR, // Characteristic discovery
     BLE_DISC_STATE_CCCD  // client characteristic configuration discovery
 };
-/*********************************************************************
- * TYPEDEFS
- */
 
-/*********************************************************************
- * GLOBAL VARIABLES
- */
-
-/*********************************************************************
- * EXTERNAL VARIABLES
- */
-
-/*********************************************************************
- * EXTERNAL FUNCTIONS
- */
-
-/*********************************************************************
- * LOCAL VARIABLES
- */
-
-// Task ID for internal task/event processing
 static uint8_t centralTaskId;
-
-// Number of scan results
 static uint8_t centralScanRes;
-
-// Scan result list
 static gapDevRec_t centralDevList[DEFAULT_MAX_SCAN_RES];
-
-// Peer device address
 static uint8_t PeerAddrDef[B_ADDR_LEN] = {0x48, 0x0E, 0xBD, 0xA7, 0x14, 0x54};
-
-// RSSI polling state
 static uint8_t centralRssi = TRUE;
-
-// Parameter update state
 static uint8_t centralParamUpdate = TRUE;
-
-// Phy update state
 static uint8_t centralPhyUpdate = FALSE;
-
-// Connection handle of current connection
 static uint16_t centralConnHandle = GAP_CONNHANDLE_INIT;
-
-// Application state
 static uint8_t centralState = BLE_STATE_IDLE;
-
-// Discovery state
 static uint8_t centralDiscState = BLE_DISC_STATE_IDLE;
-
-// Discovered service start and end handle
 static uint16_t centralSvcStartHdl = 0;
 static uint16_t centralSvcEndHdl = 0;
-
-// Discovered characteristic handle
 static uint16_t centralCharHdl = 0;
-
-// Discovered Client Characteristic Configuration handle
 static uint16_t centralCCCDHdl = 0;
-
-// Value to write
+static uint16_t centralReadCharHdl = 0;
+static uint16_t centralWriteCharHdl = 0;
 static uint8_t centralCharVal = 0x5A;
-
-// Value read/write toggle
 static uint8_t centralDoWrite = TRUE;
-
-// GATT read/write procedure state
 static uint8_t centralProcedureInProgress = FALSE;
-/*********************************************************************
- * LOCAL FUNCTIONS
- */
+
 static void centralProcessGATTMsg(gattMsgEvent_t *pMsg);
 static void centralRssiCB(uint16_t connHandle, int8_t rssi);
 static void centralEventCB(gapRoleEvent_t *pEvent);
@@ -288,43 +187,37 @@ void Central_Init()
  */
 uint16_t Central_ProcessEvent(uint8_t task_id, uint16_t events)
 {
-    if(events & SYS_EVENT_MSG)
+    if (events & SYS_EVENT_MSG)
     {
         uint8_t *pMsg;
-
-        if((pMsg = tmos_msg_receive(centralTaskId)) != NULL)
+        if ((pMsg = tmos_msg_receive(centralTaskId)) != NULL)
         {
             central_ProcessTMOSMsg((tmos_event_hdr_t *)pMsg);
-            // Release the TMOS message
             tmos_msg_deallocate(pMsg);
         }
-        // return unprocessed events
         return (events ^ SYS_EVENT_MSG);
     }
 
-    if(events & START_DEVICE_EVT)
+    if (events & START_DEVICE_EVT)
     {
-        // Start the Device
         GAPRole_CentralStartDevice(centralTaskId, &centralBondCB, &centralRoleCB);
         return (events ^ START_DEVICE_EVT);
     }
 
-    if(events & ESTABLISH_LINK_TIMEOUT_EVT)
+    if (events & ESTABLISH_LINK_TIMEOUT_EVT)
     {
         GAPRole_TerminateLink(INVALID_CONNHANDLE);
         return (events ^ ESTABLISH_LINK_TIMEOUT_EVT);
     }
 
-    if(events & START_SVC_DISCOVERY_EVT)
+    if (events & START_SVC_DISCOVERY_EVT)
     {
-        // start service discovery
         centralStartDiscovery();
         return (events ^ START_SVC_DISCOVERY_EVT);
     }
 
-    if(events & START_PARAM_UPDATE_EVT)
+    if (events & START_PARAM_UPDATE_EVT)
     {
-        // start connect parameter update
         GAPRole_UpdateLink(centralConnHandle,
                            DEFAULT_UPDATE_MIN_CONN_INTERVAL,
                            DEFAULT_UPDATE_MAX_CONN_INTERVAL,
@@ -333,106 +226,53 @@ uint16_t Central_ProcessEvent(uint8_t task_id, uint16_t events)
         return (events ^ START_PARAM_UPDATE_EVT);
     }
 
-    if(events & START_PHY_UPDATE_EVT)
+    if (events & START_PHY_UPDATE_EVT)
     {
-        // start phy update
-        PRINT("PHY Update %x...\n", GAPRole_UpdatePHY(centralConnHandle, 0, 
-                    GAP_PHY_BIT_LE_2M, GAP_PHY_BIT_LE_2M, GAP_PHY_OPTIONS_NOPRE));
-
+        PRINT("PHY Update %x...\n", GAPRole_UpdatePHY(centralConnHandle, 0,
+              GAP_PHY_BIT_LE_2M, GAP_PHY_BIT_LE_2M, GAP_PHY_OPTIONS_NOPRE));
         return (events ^ START_PHY_UPDATE_EVT);
     }
 
-    if(events & START_READ_OR_WRITE_EVT)
-    {
-//        if(centralProcedureInProgress == FALSE)
+//    if (events & START_READ_OR_WRITE_EVT)
+//    {
+//        if (centralProcedureInProgress == FALSE)
 //        {
-//            if(centralDoWrite)
+//            if (centralDoWrite)
 //            {
-//                // Do a write
-//                attWriteReq_t req;
-//
-//                req.cmd = FALSE;
-//                req.sig = FALSE;
-//                req.handle = centralCharHdl;
-//                req.len = 1;
-//                req.pValue = GATT_bm_alloc(centralConnHandle, ATT_WRITE_REQ, req.len, NULL, 0);
-//                if(req.pValue != NULL)
-//                {
-//                    *req.pValue = centralCharVal;
-//
-//                    if(GATT_WriteCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
-//                    {
-//                        centralProcedureInProgress = TRUE;
-//                        centralDoWrite = !centralDoWrite;
-//                        tmos_start_task(centralTaskId, START_READ_OR_WRITE_EVT, DEFAULT_READ_OR_WRITE_DELAY);
-//                    }
-//                    else
-//                    {
-//                        GATT_bm_free((gattMsg_t *)&req, ATT_WRITE_REQ);
-//                    }
-//                }
+//                uint8_t msg[] = "HiCH9142";
+//                Central_SendDataToCH9142();
+//                centralDoWrite = !centralDoWrite;
 //            }
 //            else
 //            {
-//                // Do a read
 //                attReadReq_t req;
-//
-//                req.handle = centralCharHdl;
-//                if(GATT_ReadCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
+//                req.handle = centralReadCharHdl;
+//                if (GATT_ReadCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
 //                {
 //                    centralProcedureInProgress = TRUE;
 //                    centralDoWrite = !centralDoWrite;
 //                }
 //            }
+//            tmos_start_task(centralTaskId, START_READ_OR_WRITE_EVT, DEFAULT_READ_OR_WRITE_DELAY);
 //        }
 //        return (events ^ START_READ_OR_WRITE_EVT);
+//    }
+
+    if (events & START_WRITE_CCCD_EVT)
+    {
         if (centralProcedureInProgress == FALSE)
         {
-            if (centralDoWrite)
-            {
-                //写操作：调用封装好的写函数
-                uint8_t msg[] = "HiCH9142";
-                Central_WriteToCH9142(msg, sizeof(msg) - 1);
-                centralDoWrite = !centralDoWrite;  // 切换为读
-            }
-            else
-            {
-                //保留读操作
-                attReadReq_t req;
-                req.handle = centralCharHdl;
-
-                if (GATT_ReadCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
-                {
-                    centralProcedureInProgress = TRUE;
-                    centralDoWrite = !centralDoWrite;  // 切换为写
-                }
-            }
-
-            // 启动下一轮读写
-            tmos_start_task(centralTaskId, START_READ_OR_WRITE_EVT, DEFAULT_READ_OR_WRITE_DELAY);
-        }
-
-        return (events ^ START_READ_OR_WRITE_EVT);
-    }
-
-    if(events & START_WRITE_CCCD_EVT)
-    {
-        if(centralProcedureInProgress == FALSE)
-        {
-            // Do a write
             attWriteReq_t req;
-
             req.cmd = FALSE;
             req.sig = FALSE;
             req.handle = centralCCCDHdl;
             req.len = 2;
             req.pValue = GATT_bm_alloc(centralConnHandle, ATT_WRITE_REQ, req.len, NULL, 0);
-            if(req.pValue != NULL)
+            if (req.pValue != NULL)
             {
                 req.pValue[0] = 1;
                 req.pValue[1] = 0;
-
-                if(GATT_WriteCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
+                if (GATT_WriteCharValue(centralConnHandle, &req, centralTaskId) == SUCCESS)
                 {
                     centralProcedureInProgress = TRUE;
                 }
@@ -445,14 +285,25 @@ uint16_t Central_ProcessEvent(uint8_t task_id, uint16_t events)
         return (events ^ START_WRITE_CCCD_EVT);
     }
 
-    if(events & START_READ_RSSI_EVT)
+    if (events & START_READ_RSSI_EVT)
     {
         GAPRole_ReadRssiCmd(centralConnHandle);
         tmos_start_task(centralTaskId, START_READ_RSSI_EVT, DEFAULT_RSSI_PERIOD);
         return (events ^ START_READ_RSSI_EVT);
     }
 
-    // Discard unknown events
+    if (events & ENABLE_NOTIFY_EVT)
+    {
+        Central_EnableNotify();
+        return (events ^ ENABLE_NOTIFY_EVT);
+    }
+
+    if (events & SEND_DATA_TO_CH9142_EVT)
+    {
+        Central_SendDataToCH9142();
+        return (events ^ SEND_DATA_TO_CH9142_EVT);
+    }
+
     return 0;
 }
 
@@ -484,75 +335,66 @@ static void central_ProcessTMOSMsg(tmos_event_hdr_t *pMsg)
  */
 static void centralProcessGATTMsg(gattMsgEvent_t *pMsg)
 {
-    if(centralState != BLE_STATE_CONNECTED)
+    if (centralState != BLE_STATE_CONNECTED)
     {
-        // In case a GATT message came after a connection has dropped,
-        // ignore the message
         GATT_bm_free(&pMsg->msg, pMsg->method);
         return;
     }
 
-    if((pMsg->method == ATT_EXCHANGE_MTU_RSP) ||
-       ((pMsg->method == ATT_ERROR_RSP) &&
-        (pMsg->msg.errorRsp.reqOpcode == ATT_EXCHANGE_MTU_REQ)))
+    if ((pMsg->method == ATT_EXCHANGE_MTU_RSP) ||
+        ((pMsg->method == ATT_ERROR_RSP) &&
+         (pMsg->msg.errorRsp.reqOpcode == ATT_EXCHANGE_MTU_REQ)))
     {
-        if(pMsg->method == ATT_ERROR_RSP)
+        if (pMsg->method == ATT_ERROR_RSP)
         {
             uint8_t status = pMsg->msg.errorRsp.errCode;
-
             PRINT("Exchange MTU Error: %x\n", status);
         }
         centralProcedureInProgress = FALSE;
     }
-
-    if(pMsg->method == ATT_MTU_UPDATED_EVENT)
+    else if (pMsg->method == ATT_MTU_UPDATED_EVENT)
     {
         PRINT("MTU: %d\n", pMsg->msg.mtuEvt.MTU);
     }
-
-    if((pMsg->method == ATT_READ_RSP) ||
-       ((pMsg->method == ATT_ERROR_RSP) &&
-        (pMsg->msg.errorRsp.reqOpcode == ATT_READ_REQ)))
+    else if ((pMsg->method == ATT_READ_RSP) ||
+             ((pMsg->method == ATT_ERROR_RSP) &&
+              (pMsg->msg.errorRsp.reqOpcode == ATT_READ_REQ)))
     {
-        if(pMsg->method == ATT_ERROR_RSP)
+        if (pMsg->method == ATT_ERROR_RSP)
         {
             uint8_t status = pMsg->msg.errorRsp.errCode;
-
             PRINT("Read Error: %x\n", status);
         }
         else
         {
-            // After a successful read, display the read value
             PRINT("Read rsp: %x\n", *pMsg->msg.readRsp.pValue);
         }
         centralProcedureInProgress = FALSE;
     }
-    else if((pMsg->method == ATT_WRITE_RSP) ||
-            ((pMsg->method == ATT_ERROR_RSP) &&
-             (pMsg->msg.errorRsp.reqOpcode == ATT_WRITE_REQ)))
+    else if ((pMsg->method == ATT_WRITE_RSP) ||
+             ((pMsg->method == ATT_ERROR_RSP) &&
+              (pMsg->msg.errorRsp.reqOpcode == ATT_WRITE_REQ)))
     {
-        if(pMsg->method == ATT_ERROR_RSP)
+        if (pMsg->method == ATT_ERROR_RSP)
         {
             uint8_t status = pMsg->msg.errorRsp.errCode;
-
             PRINT("Write Error: %x\n", status);
         }
         else
         {
-            // Write success
-            PRINT("Write success \n");
+            PRINT("Write success\n");
         }
-
         centralProcedureInProgress = FALSE;
     }
-    else if(pMsg->method == ATT_HANDLE_VALUE_NOTI)
+    else if (pMsg->method == ATT_HANDLE_VALUE_NOTI)
     {
-        PRINT("Receive noti: %x\n", *pMsg->msg.handleValueNoti.pValue);
+        HandleNotifyEvent(pMsg);
     }
-    else if(centralDiscState != BLE_DISC_STATE_IDLE)
+    else if (centralDiscState != BLE_DISC_STATE_IDLE)
     {
         centralGATTDiscoveryEvent(pMsg);
     }
+
     GATT_bm_free(&pMsg->msg, pMsg->method);
 }
 
@@ -855,147 +697,116 @@ static void centralStartDiscovery(void)
  *
  * @return  none
  */
-//static void centralGATTDiscoveryEvent(gattMsgEvent_t *pMsg)
-//{
-//    attReadByTypeReq_t req;
-//
-//    if(centralDiscState == BLE_DISC_STATE_SVC)
-//    {
-//        // Service found, store handles
-//        if(pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP &&
-//           pMsg->msg.findByTypeValueRsp.numInfo > 0)
-//        {
-//            centralSvcStartHdl = ATT_ATTR_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
-//            centralSvcEndHdl = ATT_GRP_END_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
-//
-//            // Display Profile Service handle range
-//            PRINT("Found Profile Service handle : %x ~ %x \n", centralSvcStartHdl, centralSvcEndHdl);
-//        }
-//        // If procedure complete
-//        if((pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP &&
-//            pMsg->hdr.status == bleProcedureComplete) ||
-//           (pMsg->method == ATT_ERROR_RSP))
-//        {
-//            if(centralSvcStartHdl != 0)
-//            {
-//                // Discover characteristic
-//                centralDiscState = BLE_DISC_STATE_CHAR;
-//                req.startHandle = centralSvcStartHdl;
-//                req.endHandle = centralSvcEndHdl;
-//                req.type.len = ATT_BT_UUID_SIZE;
-//                req.type.uuid[0] = LO_UINT16(SIMPLEPROFILE_CHAR1_UUID);
-//                req.type.uuid[1] = HI_UINT16(SIMPLEPROFILE_CHAR1_UUID);
-//
-//                GATT_ReadUsingCharUUID(centralConnHandle, &req, centralTaskId);
-//            }
-//        }
-//    }
-//    else if(centralDiscState == BLE_DISC_STATE_CHAR)
-//    {
-//        // Characteristic found, store handle
-//        if(pMsg->method == ATT_READ_BY_TYPE_RSP &&
-//           pMsg->msg.readByTypeRsp.numPairs > 0)
-//        {
-//            centralCharHdl = BUILD_UINT16(pMsg->msg.readByTypeRsp.pDataList[0],
-//                                          pMsg->msg.readByTypeRsp.pDataList[1]);
-//
-//            // Start do read or write
-//            tmos_start_task(centralTaskId, START_READ_OR_WRITE_EVT, DEFAULT_READ_OR_WRITE_DELAY);
-//
-//            // Display Characteristic 1 handle
-//            PRINT("Found Characteristic 1 handle : %x \n", centralCharHdl);
-//        }
-//        if((pMsg->method == ATT_READ_BY_TYPE_RSP &&
-//            pMsg->hdr.status == bleProcedureComplete) ||
-//           (pMsg->method == ATT_ERROR_RSP))
-//        {
-//            // Discover characteristic
-//            centralDiscState = BLE_DISC_STATE_CCCD;
-//            req.startHandle = centralSvcStartHdl;
-//            req.endHandle = centralSvcEndHdl;
-//            req.type.len = ATT_BT_UUID_SIZE;
-//            req.type.uuid[0] = LO_UINT16(GATT_CLIENT_CHAR_CFG_UUID);
-//            req.type.uuid[1] = HI_UINT16(GATT_CLIENT_CHAR_CFG_UUID);
-//
-//            GATT_ReadUsingCharUUID(centralConnHandle, &req, centralTaskId);
-//        }
-//    }
-//    else if(centralDiscState == BLE_DISC_STATE_CCCD)
-//    {
-//        // Characteristic found, store handle
-//        if(pMsg->method == ATT_READ_BY_TYPE_RSP &&
-//           pMsg->msg.readByTypeRsp.numPairs > 0)
-//        {
-//            centralCCCDHdl = BUILD_UINT16(pMsg->msg.readByTypeRsp.pDataList[0],
-//                                          pMsg->msg.readByTypeRsp.pDataList[1]);
-//            centralProcedureInProgress = FALSE;
-//
-//            // Start do write CCCD
-//            tmos_start_task(centralTaskId, START_WRITE_CCCD_EVT, DEFAULT_WRITE_CCCD_DELAY);
-//
-//            // Display Characteristic 1 handle
-//            PRINT("Found client characteristic configuration handle : %x \n", centralCCCDHdl);
-//        }
-//        centralDiscState = BLE_DISC_STATE_IDLE;
-//    }
-//}
 static void centralGATTDiscoveryEvent(gattMsgEvent_t *pMsg)
 {
     attReadByTypeReq_t req;
 
     if (centralDiscState == BLE_DISC_STATE_SVC)
     {
-        // Service found
+        // 服务发现成功
         if (pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP &&
             pMsg->msg.findByTypeValueRsp.numInfo > 0)
         {
             centralSvcStartHdl = ATT_ATTR_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
             centralSvcEndHdl = ATT_GRP_END_HANDLE(pMsg->msg.findByTypeValueRsp.pHandlesInfo, 0);
-
-            PRINT("Found Service handle: %x ~ %x\n", centralSvcStartHdl, centralSvcEndHdl);
+            PRINT("发现CH9142服务: 起始句柄=0x%04X, 结束句柄=0x%04X\n",
+                  centralSvcStartHdl, centralSvcEndHdl);
         }
 
+        // 服务发现完成
         if ((pMsg->method == ATT_FIND_BY_TYPE_VALUE_RSP &&
              pMsg->hdr.status == bleProcedureComplete) ||
             (pMsg->method == ATT_ERROR_RSP))
         {
             if (centralSvcStartHdl != 0)
             {
-                // Discover FFF2 characteristic (write)
+                // 开始发现特征
                 centralDiscState = BLE_DISC_STATE_CHAR;
+
+                // 设置发现所有特征
                 req.startHandle = centralSvcStartHdl;
                 req.endHandle = centralSvcEndHdl;
                 req.type.len = ATT_BT_UUID_SIZE;
-                req.type.uuid[0] = LO_UINT16(0xFFF2);
-                req.type.uuid[1] = HI_UINT16(0xFFF2);
+                req.type.uuid[0] = LO_UINT16(GATT_CHARACTER_UUID);
+                req.type.uuid[1] = HI_UINT16(GATT_CHARACTER_UUID);
 
+                PRINT("开始发现特征...\n");
                 GATT_ReadUsingCharUUID(centralConnHandle, &req, centralTaskId);
+            }
+            else
+            {
+                PRINT("错误: 未找到CH9142服务\n");
+                centralDiscState = BLE_DISC_STATE_IDLE;
             }
         }
     }
     else if (centralDiscState == BLE_DISC_STATE_CHAR)
     {
-        // FFF2 characteristic found
+        // 处理特征发现响应
         if (pMsg->method == ATT_READ_BY_TYPE_RSP &&
             pMsg->msg.readByTypeRsp.numPairs > 0)
         {
-            centralCharHdl = BUILD_UINT16(pMsg->msg.readByTypeRsp.pDataList[0],
-                                          pMsg->msg.readByTypeRsp.pDataList[1]);
+            uint8_t *pData = pMsg->msg.readByTypeRsp.pDataList;
+            uint8_t pairLen = pMsg->msg.readByTypeRsp.len;
 
-            PRINT("Found FFF2 Write Char handle: %x\n", centralCharHdl);
+            for (uint8_t i = 0; i < pMsg->msg.readByTypeRsp.numPairs; i++, pData += pairLen)
+            {
+                uint16_t charHandle = BUILD_UINT16(pData[0], pData[1]);
+                uint8_t  properties = pData[2];
+                uint16_t charUuid = BUILD_UINT16(pData[5], pData[6]);
 
-            // 发现完成，准备写数据
-            centralProcedureInProgress = FALSE;
-
-            // 启动写数据事件（或你可以自己手动调用写函数）
-            tmos_start_task(centralTaskId, START_READ_OR_WRITE_EVT, DEFAULT_READ_OR_WRITE_DELAY);
+                // 检查是否是目标特征
+                if (charUuid == CH9142_NOTIFY_UUID)  // 通知特征
+                {
+                    centralReadCharHdl = charHandle;
+                    PRINT("发现通知特征(FFF1): 句柄=0x%04X, 属性=0x%02X\n",
+                          charHandle, properties);
+                }
+                else if (charUuid == CH9142_WRITE_UUID)  // 写入特征
+                {
+                    centralWriteCharHdl = charHandle;
+                    PRINT("发现写入特征(FFF2): 句柄=0x%04X, 属性=0x%02X\n",
+                          charHandle, properties);
+                }
+            }
         }
 
-        // 不再去找 CCCD
-        centralDiscState = BLE_DISC_STATE_IDLE;
+        // 特征发现完成
+        if ((pMsg->method == ATT_READ_BY_TYPE_RSP &&
+             pMsg->hdr.status == bleProcedureComplete) ||
+            (pMsg->method == ATT_ERROR_RSP))
+        {
+            // 检查是否找到写入特征（必须）
+            if (centralWriteCharHdl != 0)
+            {
+                PRINT("特征发现完成，准备数据传输\n");
+
+                // 如果找到通知特征，假设其CCCD句柄为特征值句柄+1
+                if (centralReadCharHdl != 0) {
+                    centralCCCDHdl = centralReadCharHdl + 1;
+                    PRINT("假设CCCD句柄为0x%04X\n", centralCCCDHdl);
+                }
+
+                // 立即发送数据
+                tmos_set_event(centralTaskId, SEND_DATA_TO_CH9142_EVT);
+
+                // 如果找到通知特征，启用通知
+                if (centralReadCharHdl != 0)
+                {
+                    PRINT("启用通知特征\n");
+                    tmos_set_event(centralTaskId, ENABLE_NOTIFY_EVT);
+                }
+            }
+            else
+            {
+                PRINT("错误: 未找到写入特征(FFF2)\n");
+            }
+
+            centralDiscState = BLE_DISC_STATE_IDLE;
+            centralProcedureInProgress = FALSE;
+        }
     }
 }
-
 /*********************************************************************
  * @fn      centralAddDeviceInfo
  *
@@ -1034,35 +845,115 @@ static void centralAddDeviceInfo(uint8_t *pAddr, uint8_t addrType)
     }
 }
 
-void Central_WriteToCH9142(uint8_t *data, uint8_t len)
+void Central_SendDataToCH9142(void)
 {
-    if (centralCharHdl == 0)
+    if (centralWriteCharHdl == 0 || centralState != BLE_STATE_CONNECTED)
     {
-        PRINT("Char handle invalid\n");
+        PRINT("写入失败: 未连接或无效句柄\n");
         return;
     }
 
+    // 实际数据发送逻辑
+    uint8_t payload[] = "Hello CH9142"; // 测试数据
+    uint16_t len = sizeof(payload) - 1; // 不包含结尾的0
+
     attWriteReq_t req;
-    req.cmd = TRUE;  // 无响应写
+    req.cmd = TRUE; // 无响应写入
     req.sig = FALSE;
-    req.handle = centralCharHdl;
+    req.handle = centralWriteCharHdl;
     req.len = len;
 
     req.pValue = GATT_bm_alloc(centralConnHandle, ATT_WRITE_CMD, len, NULL, 0);
     if (req.pValue)
     {
-        tmos_memcpy(req.pValue, data, len);
+        memcpy(req.pValue, payload, len);
         if (GATT_WriteNoRsp(centralConnHandle, &req) != SUCCESS)
         {
             GATT_bm_free((gattMsg_t *)&req, ATT_WRITE_CMD);
-            PRINT("WriteNoRsp failed\n");
+            PRINT("写入失败\n");
         }
         else
         {
-            PRINT("WriteNoRsp OK len=%d\n", len);
+            PRINT("数据发送成功: %s\n", payload);
+        }
+    }
+    else
+    {
+        PRINT("内存分配失败\n");
+    }
+}
+
+void Central_EnableNotify(void)
+{
+    if (centralCCCDHdl == 0 || centralState != BLE_STATE_CONNECTED)
+    {
+        PRINT("CCCD not ready or not connected\n");
+        return;
+    }
+
+    uint8_t val[2] = {0x01, 0x00}; // Enable notify
+    attWriteReq_t req;
+    req.cmd = FALSE;
+    req.sig = FALSE;
+    req.handle = centralCCCDHdl;
+    req.len = 2;
+    req.pValue = GATT_bm_alloc(centralConnHandle, ATT_WRITE_REQ, 2, NULL, 0);
+    if (req.pValue)
+    {
+        memcpy(req.pValue, val, 2);
+        if (GATT_WriteCharValue(centralConnHandle, &req, centralTaskId) != SUCCESS)
+        {
+            GATT_bm_free((gattMsg_t *)&req, ATT_WRITE_REQ);
+            PRINT("Enable notify failed\n");
+        }
+        else
+        {
+            PRINT("Notify enabled\n");
+        }
+    }
+    else
+    {
+        PRINT("GATT_bm_alloc failed for CCCD\n");
+    }
+}
+
+void HandleCharDiscovery(attReadByTypeRsp_t *pRsp)
+{
+    for (uint8_t i = 0; i < pRsp->numPairs; i++)
+    {
+        uint8_t *pData = pRsp->pDataList + i * pRsp->len;
+        uint16_t handle = BUILD_UINT16(pData[0], pData[1]);
+        uint16_t charUuid = BUILD_UINT16(pData[5], pData[6]);
+
+        if (charUuid == 0xFFF1)
+        {
+            centralReadCharHdl = handle;
+            PRINT("Found FFF1 (notify) handle: 0x%04X\n", handle);
+        }
+        else if (charUuid == 0xFFF2)
+        {
+            centralWriteCharHdl = handle;
+            PRINT("Found FFF2 (write) handle: 0x%04X\n", handle);
+            tmos_start_task(centralTaskId, SEND_DATA_TO_CH9142_EVT, 100);
         }
     }
 }
 
+void HandleNotifyEvent(gattMsgEvent_t *pMsg)
+{
+    if (pMsg->method == ATT_HANDLE_VALUE_NOTI) {
+        uint8_t len = pMsg->msg.handleValueNoti.len;
+        uint8_t *data = pMsg->msg.handleValueNoti.pValue;
 
+        // 实际数据处理逻辑
+        PRINT("收到通知数据(%d字节): ", len);
+        for (uint8_t i = 0; i < len; i++) {
+            PRINT("%02X ", data[i]);
+        }
+        PRINT("\n");
+
+        // 可以在这里添加数据处理代码
+        // 例如: processCH9142Data(data, len);
+    }
+}
 /************************ endfile @ central **************************/
