@@ -18,6 +18,7 @@
 #include "lv_demo_widgets.h"
 #include "touch.h"
 #include "ch9142.h"
+#include "ch9142cmd.h"
 #include "m780eg.h"
 #include "periodicalTask.h"
 #include "powerManage.h"
@@ -39,6 +40,8 @@ void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str)
     }while(*(str+i) != '\0');
 }
 
+
+#define CH9142_Config 0
 int main(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
@@ -66,17 +69,41 @@ int main(void)
 	lv_port_indev_init();
 	setup_ui(&guider_ui);
 	events_init(&guider_ui);
+
+#if CH9142_Config
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);
 	GPIO_SetBits(GPIOA,GPIO_Pin_5);
-	    delay_ms(3000);
+	delay_ms(1000);
+	GPIO_ResetBits(GPIOA,GPIO_Pin_4);
 	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
-	delay_ms(3000);
-	uint8_t *str = "AT+VER\r\n";
-	USARTx_SendStr(USART2,str);
-    while(1)
-    {
-        lv_tick_inc(30);
-        lv_task_handler();
-        tp_dev.scan(0);
+	delay_ms(1000);
+	USARTx_SendStr(USART1,"AT...\r\n");
+	USARTx_SendStr(USART2,"AT...\r\n");
+	delay_ms(500);
+	USARTx_SendStr(USART1,"AT+BLEMODE=2\r\n");
+	USARTx_SendStr(USART2,"AT+BLEMODE=1\r\n");
+	delay_ms(500);
+    //USARTx_SendStr(USART1,"AT+UXMOD=0\r\n");
+    USARTx_SendStr(USART2,"AT+CONADD=E9:99:5F:72:AB:3C,000000\r\n");
+    delay_ms(500);
+    USARTx_SendStr(USART1,"AT+NAME=CH9142_UART0\r\n");
+    USARTx_SendStr(USART2,"AT+NAME=CH9142_UART1\r\n");
+    delay_ms(500);
+    USARTx_SendStr(USART1,"AT+UART=115200,8,1,0,50\r\n");
+    USARTx_SendStr(USART2,"AT+UART=115200,8,1,0,50\r\n");
+    delay_ms(500);
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);
+	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+#endif
+
+    while(1){
+//        lv_tick_inc(30);
+//        lv_task_handler();
+//        tp_dev.scan(0);
+
+        delay_ms(500);
+        USART_SendData(USART1, 0x88);
+        USART_SendData(USART2, 0x88);
+
     }
 }
-

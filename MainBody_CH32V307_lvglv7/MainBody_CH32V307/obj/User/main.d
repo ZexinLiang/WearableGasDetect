@@ -184,7 +184,8 @@ User/main.o: ../User/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\examples\porting/lv_port_indev.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl_app\src\lv_demo_widgets/lv_demo_widgets.h \
  ../User/touch.h ../User/ch32v30x_conf.h ../User/ch9142.h \
- ../User/m780eg.h ../User/periodicalTask.h ../User/powerManage.h \
+ ../User/ch9142cmd.h ../User/m780eg.h ../User/periodicalTask.h \
+ ../User/powerManage.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/events_init.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h \
@@ -563,6 +564,8 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../User/ch32v30x_conf.h:
 
 ../User/ch9142.h:
+
+../User/ch9142cmd.h:
 
 ../User/m780eg.h:
 
