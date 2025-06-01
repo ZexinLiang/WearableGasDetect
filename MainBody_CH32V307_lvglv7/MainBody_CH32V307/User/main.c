@@ -33,10 +33,10 @@ void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str)
     uint8_t i = 0;
     do
     {
+       while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) == RESET);
        USART_SendData(pUSARTx, *(str+i));
        i++;
     }while(*(str+i) != '\0');
-    while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) == RESET);
 }
 
 int main(void)
@@ -66,20 +66,17 @@ int main(void)
 	lv_port_indev_init();
 	setup_ui(&guider_ui);
 	events_init(&guider_ui);
-//	GPIO_SetBits(GPIOA,GPIO_Pin_5);
-//	    delay_ms(3000);
-//	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
-//	delay_ms(3000);
-//	uint8_t *str = "AT+VER\r\n";
-//	USARTx_SendStr(USART1,str);
+	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	    delay_ms(3000);
+	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+	delay_ms(3000);
+	uint8_t *str = "AT+VER\r\n";
+	USARTx_SendStr(USART2,str);
     while(1)
     {
-        //USART_SendData(USART3, 0x78);
-        //USART_SendData(USART1, 0x78);
         lv_tick_inc(30);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(30);
     }
 }
 

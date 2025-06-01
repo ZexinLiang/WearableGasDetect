@@ -8,6 +8,7 @@ C_SRCS += \
 ../User/buzzer.c \
 ../User/ch32v30x_it.c \
 ../User/ch9142.c \
+../User/ch9142cmd.c \
 ../User/lcd.c \
 ../User/m780eg.c \
 ../User/main.c \
@@ -20,6 +21,7 @@ OBJS += \
 ./User/buzzer.o \
 ./User/ch32v30x_it.o \
 ./User/ch9142.o \
+./User/ch9142cmd.o \
 ./User/lcd.o \
 ./User/m780eg.o \
 ./User/main.o \
@@ -32,6 +34,7 @@ C_DEPS += \
 ./User/buzzer.d \
 ./User/ch32v30x_it.d \
 ./User/ch9142.d \
+./User/ch9142cmd.d \
 ./User/lcd.d \
 ./User/m780eg.d \
 ./User/main.d \
