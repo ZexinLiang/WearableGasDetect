@@ -17,20 +17,11 @@
 extern "C" {
 #endif
 
-/*********************************************************************
- * INCLUDES
- */
-
-/*********************************************************************
- * CONSTANTS
- */
 
 // Profile Parameters
 #define SIMPLEPROFILE_CHAR1         0           // RW uint8_t - Profile Characteristic 1 value
 #define SIMPLEPROFILE_CHAR2         1           // RW uint8_t - Profile Characteristic 2 value
 #define SIMPLEPROFILE_CHAR3         2           // RW uint8_t - Profile Characteristic 3 value
-#define SIMPLEPROFILE_CHAR4         3           // RW uint8_t - Profile Characteristic 4 value
-#define SIMPLEPROFILE_CHAR5         4           // RW uint8_t - Profile Characteristic 4 value
 
 // Simple Profile Service UUID
 #define SIMPLEPROFILE_SERV_UUID     0xFFF0
@@ -39,8 +30,6 @@ extern "C" {
 #define SIMPLEPROFILE_CHAR1_UUID    0xFFF1
 #define SIMPLEPROFILE_CHAR2_UUID    0xFFF2
 #define SIMPLEPROFILE_CHAR3_UUID    0xFFF3
-#define SIMPLEPROFILE_CHAR4_UUID    0xFFF4
-#define SIMPLEPROFILE_CHAR5_UUID    0xFFF5
 
 // Simple Keys Profile Services bit fields
 #define SIMPLEPROFILE_SERVICE       0x00000001
@@ -48,24 +37,11 @@ extern "C" {
 // Length of characteristic in bytes ( Default MTU is 23 )
 #define SIMPLEPROFILE_CHAR1_LEN     20
 #define SIMPLEPROFILE_CHAR2_LEN     20
-#define SIMPLEPROFILE_CHAR3_LEN     1
-#define SIMPLEPROFILE_CHAR4_LEN     20
-#define SIMPLEPROFILE_CHAR5_LEN     5
+#define SIMPLEPROFILE_CHAR3_LEN     20
 
-/*********************************************************************
- * TYPEDEFS
- */
-
-/*********************************************************************
- * MACROS
- */
-
-/*********************************************************************
- * Profile Callbacks
- */
 
 // Callback when a characteristic value has changed
-typedef void (*simpleProfileChange_t)(uint8_t paramID, uint8_t *pValue, uint16_t len);
+typedef void (*simpleProfileChange_t)(uint8_t paramID, uint8_t *value);
 
 typedef struct
 {
@@ -84,7 +60,7 @@ typedef struct
  *                     contain more than one service.
  */
 
-extern bStatus_t SimpleProfile_AddService(uint32_t services);
+extern bStatus_t SimpleProfile_AddService(void);
 
 /*
  * SimpleProfile_RegisterAppCBs - Registers the application callback function.
@@ -104,7 +80,7 @@ extern bStatus_t SimpleProfile_RegisterAppCBs(simpleProfileCBs_t *appCallbacks);
  *          data type (example: data type of uint16_t will be cast to
  *          uint16_t pointer).
  */
-extern bStatus_t SimpleProfile_SetParameter(uint8_t param, uint16_t len, void *value);
+extern bStatus_t SimpleProfile_SetParameter(uint8_t param, uint8_t len, void *value);
 
 /*
  * SimpleProfile_GetParameter - Get a Simple GATT Profile parameter.
@@ -123,7 +99,7 @@ extern bStatus_t SimpleProfile_GetParameter(uint8_t param, void *value);
  *    connHandle - connect handle
  *    pNoti - pointer to structure to notify.
  */
-extern bStatus_t simpleProfile_Notify(uint16_t connHandle, attHandleValueNoti_t *pNoti);
+bStatus_t SimpleProfile_Notify(uint8_t charIndex, uint16_t connHandle, uint8_t *data, uint8_t len)
 
 /*********************************************************************
 *********************************************************************/
