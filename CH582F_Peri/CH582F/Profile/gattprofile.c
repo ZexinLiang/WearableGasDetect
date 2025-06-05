@@ -50,12 +50,12 @@ static simpleProfileCBs_t *simpleProfile_AppCBs = NULL;
 static const gattAttrType_t simpleProfileService = {ATT_BT_UUID_SIZE, simpleProfileServUUID};
 
 // Characteristic 1 (Write) Properties - Only WRITE for CH9142 TX
-static uint8_t simpleProfileChar1Props = GATT_PROP_WRITE;
+static uint8_t simpleProfileChar1Props = GATT_PROP_WRITE_NO_RSP;
 static uint8_t simpleProfileChar1[SIMPLEPROFILE_CHAR1_LEN] = {0};
 static uint8_t simpleProfileChar1UserDesp[] = "Write Characteristic (CH9142 TX)\0";
 
 // Characteristic 4 (Notify) Properties - NOTIFY for CH582 TX
-static uint8_t simpleProfileChar4Props = GATT_PROP_NOTIFY;
+static uint8_t simpleProfileChar4Props = GATT_PROP_NOTIFY|GATT_PROP_READ;
 static uint8_t simpleProfileChar4[SIMPLEPROFILE_CHAR4_LEN] = {0};
 static gattCharCfg_t simpleProfileChar4Config[PERIPHERAL_MAX_CONNECTION];
 static uint8_t simpleProfileChar4UserDesp[] = "Notify Characteristic (CH582 TX)\0";
@@ -281,7 +281,18 @@ static bStatus_t simpleProfile_WriteAttrCB(uint16_t connHandle, gattAttribute_t 
     } else {
         status = ATT_ERR_INVALID_HANDLE;
     }
-
+    if (pAttr->type.len == ATT_BT_UUID_SIZE) {
+        uint16_t uuid = BUILD_UINT16(pAttr->type.uuid[0], pAttr->type.uuid[1]);
+        switch (uuid) {
+            // ... 其他特征处理 ...
+            
+            case GATT_CLIENT_CHAR_CFG_UUID: // CCCD 写入
+                PRINT("CCCD Write: len=%d, data=%02X %02X\n", len, pValue[0], len > 1 ? pValue[1] : 0);
+                status = GATTServApp_ProcessCCCWriteReq(connHandle, pAttr, pValue, len,
+                                                        offset, GATT_CLIENT_CFG_NOTIFY);
+                break;
+        }
+    }
     if (notifyApp != 0xFF && simpleProfile_AppCBs && simpleProfile_AppCBs->pfnSimpleProfileChange) {
         simpleProfile_AppCBs->pfnSimpleProfileChange(notifyApp, pValue, len);
     }

@@ -27,8 +27,8 @@ extern "C" {
 
 // Profile Parameters
 #define SIMPLEPROFILE_CHAR1         0           // RW uint8_t - Profile Characteristic 1 value
-#define SIMPLEPROFILE_CHAR2         1           // RW uint8_t - Profile Characteristic 2 value
-#define SIMPLEPROFILE_CHAR3         2           // RW uint8_t - Profile Characteristic 3 value
+#define SIMPLEPROFILE_CHAR2         2           // RW uint8_t - Profile Characteristic 2 value
+#define SIMPLEPROFILE_CHAR3         1          // RW uint8_t - Profile Characteristic 3 value
 #define SIMPLEPROFILE_CHAR4         3           // RW uint8_t - Profile Characteristic 4 value
 #define SIMPLEPROFILE_CHAR5         4           // RW uint8_t - Profile Characteristic 4 value
 
@@ -46,7 +46,7 @@ extern "C" {
 #define SIMPLEPROFILE_SERVICE       0x00000001
 
 // Length of characteristic in bytes ( Default MTU is 23 )
-#define SIMPLEPROFILE_CHAR1_LEN     1
+#define SIMPLEPROFILE_CHAR1_LEN     20
 #define SIMPLEPROFILE_CHAR2_LEN     1
 #define SIMPLEPROFILE_CHAR3_LEN     1
 #define SIMPLEPROFILE_CHAR4_LEN     20
