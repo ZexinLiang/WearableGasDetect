@@ -7,6 +7,7 @@
 C_SRCS += \
 ../User/buzzer.c \
 ../User/ch32v30x_it.c \
+../User/ch582inn.c \
 ../User/ch9142.c \
 ../User/ch9142cmd.c \
 ../User/lcd.c \
@@ -20,6 +21,7 @@ C_SRCS += \
 OBJS += \
 ./User/buzzer.o \
 ./User/ch32v30x_it.o \
+./User/ch582inn.o \
 ./User/ch9142.o \
 ./User/ch9142cmd.o \
 ./User/lcd.o \
@@ -33,6 +35,7 @@ OBJS += \
 C_DEPS += \
 ./User/buzzer.d \
 ./User/ch32v30x_it.d \
+./User/ch582inn.d \
 ./User/ch9142.d \
 ./User/ch9142cmd.d \
 ./User/lcd.d \

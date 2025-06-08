@@ -25,6 +25,7 @@
 #include "events_init.h"
 #include "gui_guider.h"
 #include "buzzer.h"
+#include "ch582inn.h"
 
 extern _m_tp_dev tp_dev;
 lv_ui guider_ui;
@@ -55,7 +56,7 @@ int main(void)
     ch9142_Init();
     m780eg_Init();
     powerMagage_Init();
-
+    CH582_Com_Init();
 
     //Software Init
     TIM2_Trigger_Init(50000-1, 96-1);//50ms

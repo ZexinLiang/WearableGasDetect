@@ -189,7 +189,7 @@ User/main.o: ../User/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/events_init.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h \
- ../User/buzzer.h
+ ../User/buzzer.h ../User/ch582inn.h
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug/debug.h:
 
@@ -580,3 +580,5 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h:
 
 ../User/buzzer.h:
+
+../User/ch582inn.h:
