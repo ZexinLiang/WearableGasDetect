@@ -520,7 +520,10 @@ static void centralProcessGATTMsg(gattMsgEvent_t *pMsg)
     }
     else if(pMsg->method == ATT_HANDLE_VALUE_NOTI)
     {
-        PRINT("Receive noti: %x\n", *pMsg->msg.handleValueNoti.pValue);
+        PRINT("Receive noti:");
+        for(int i = 0;i < pMsg->msg.handleValueNoti.len;i++)
+            PRINT("%c", *(pMsg->msg.handleValueNoti.pValue+i));
+        PRINT("\r\n");
     }
     else if(centralDiscState != BLE_DISC_STATE_IDLE)
     {
