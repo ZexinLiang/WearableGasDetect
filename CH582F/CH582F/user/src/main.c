@@ -16,14 +16,11 @@
 #include "CH58xBLE_LIB.h"
 #include "gattprofile.h"
 #include "peripheral.h"
-#include "central.h"
 #include "i2c.h"
 #include "task.h"
 #include "jed.h"
 #include "bmeInRegis.h"
 #include "scd40reg.h"
-#include "central.h"
-
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
 uint8_t RxBuff[100];
@@ -81,10 +78,8 @@ int main()
 
     CH58X_BLEInit();
     HAL_Init();
-    GAPRole_CentralInit();
-    Central_Init();
-    //GAPRole_PeripheralInit();
-    //Peripheral_Init();
+    GAPRole_PeripheralInit();
+    Peripheral_Init();
 
     I2CInit(&i2c0);//≈‰÷√»Ìº˛IIC
     I2CInit(&i2c1);

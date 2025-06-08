@@ -9,7 +9,6 @@ C_SRCS += \
 ../user/src/bme68x.c \
 ../user/src/bmeInRegis.c \
 ../user/src/bmelink.c \
-../user/src/central.c \
 ../user/src/i2c.c \
 ../user/src/jed.c \
 ../user/src/main.c \
@@ -26,7 +25,6 @@ OBJS += \
 ./user/src/bme68x.o \
 ./user/src/bmeInRegis.o \
 ./user/src/bmelink.o \
-./user/src/central.o \
 ./user/src/i2c.o \
 ./user/src/jed.o \
 ./user/src/main.o \
@@ -43,7 +41,6 @@ C_DEPS += \
 ./user/src/bme68x.d \
 ./user/src/bmeInRegis.d \
 ./user/src/bmelink.d \
-./user/src/central.d \
 ./user/src/i2c.d \
 ./user/src/jed.d \
 ./user/src/main.d \

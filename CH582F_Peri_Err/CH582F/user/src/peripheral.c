@@ -144,9 +144,6 @@ static void peripheralChar4Notify(uint8_t *pValue, uint16_t len);
 /*********************************************************************
  * PROFILE CALLBACKS
  */
-static void peripheralStateNotificationCB(gapRole_States_t newState, gapRoleEvent_t *pEvent);
-static void peripheralRssiCB(uint16_t connHandle, int8_t rssi);
-static void peripheralParamUpdateCB(uint16_t connHandle, uint16_t connInterval,uint16_t connSlaveLatency, uint16_t connTimeout);
 
 // GAP Role Callbacks
 static gapRolesCBs_t Peripheral_PeripheralCBs = {
@@ -466,15 +463,9 @@ static void Peripheral_LinkEstablished(gapRoleEvent_t *pEvent)
         tmos_start_task(Peripheral_TaskID, SBP_READ_RSSI_EVT, SBP_READ_RSSI_EVT_PERIOD);
 
         PRINT("Conn %x - Int %x \n", event->connectionHandle, event->connInterval);
-        
-        // 请求 MTU 交换 (正确方式)
-        uint16_t mtu = 247; // 最大 MTU
-        attExchangeMTUReq_t mtuReq = {
-            .clientRxMTU = mtu
-        };
-        GATT_ExchangeMTU(peripheralConnList.connHandle, &mtuReq, Peripheral_TaskID);
     }
 }
+
 /*********************************************************************
  * @fn      Peripheral_LinkTerminated
  *
@@ -659,7 +650,7 @@ static void performPeriodicTask(void)
         case 3: sprintf((char*)sendMsg, "H:%3d\r\n", Relative_humidity); break;
         default: break;
     }
-    
+
     // 只发送非空消息
     if(sendMsg[0] != '\0') {
         peripheralChar4Notify(sendMsg, strlen((char*)sendMsg));
@@ -676,38 +667,27 @@ static void performPeriodicTask(void)
  *
  * @return  none
  */
-// 修改 peripheralChar4Notify 函数
 static void peripheralChar4Notify(uint8_t *pValue, uint16_t len)
 {
-    if (peripheralConnList.connHandle == GAP_CONNHANDLE_INIT) {
-        PRINT("No active connection, cannot send notification\n");
-        return;
-    }
-    
-    if (len == 0) {
-        PRINT("Empty data, skip notification\n");
-        return;
-    }
-    
     attHandleValueNoti_t noti;
-    noti.len = len;
-    
-    // 使用动态分配内存
-    noti.pValue = GATT_bm_alloc(peripheralConnList.connHandle, ATT_HANDLE_VALUE_NOTI, len, NULL, 0);
-    if (!noti.pValue) {
-        PRINT("Memory allocation failed for notification\n");
+    if(len > (peripheralMTU - 3))
+    {
+        PRINT("Too large noti\n");
         return;
     }
-    
-    tmos_memcpy(noti.pValue, pValue, len);
-    
-    // 直接使用 simpleProfile_Notify 函数，它会处理句柄
-    bStatus_t status = simpleProfile_Notify(peripheralConnList.connHandle, &noti);
-    if (status != SUCCESS) {
-        PRINT("Notification failed: 0x%02X\n", status);
-        GATT_bm_free((gattMsg_t *)&noti, ATT_HANDLE_VALUE_NOTI);
-    } else {
-        PRINT("Notification sent successfully, len=%d\n", len);
+    noti.len = len;
+    noti.pValue = GATT_bm_alloc(peripheralConnList.connHandle, ATT_HANDLE_VALUE_NOTI, noti.len, NULL, 0);
+    if(noti.pValue)
+    {
+        tmos_memcpy(noti.pValue, pValue, noti.len);
+        if(simpleProfile_Notify(peripheralConnList.connHandle, &noti) != SUCCESS)
+        {
+            GATT_bm_free((gattMsg_t *)&noti, ATT_HANDLE_VALUE_NOTI);
+        }
+    }
+    else
+    {
+        PRINT("Notification memory allocation failed\n");
     }
 }
 

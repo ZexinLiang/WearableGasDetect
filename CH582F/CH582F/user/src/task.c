@@ -8,7 +8,6 @@
 #include "i2c.h"
 #include "jed.h"
 #include "scd40reg.h"
-#include "central.h"
 
 #define READ_BAT_EVENT   1
 #define READ_UART_EVENT  2

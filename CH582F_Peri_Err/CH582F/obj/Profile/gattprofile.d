@@ -1,4 +1,4 @@
-user/src/central.o: ../user/src/central.c \
+Profile/gattprofile.o: ../Profile/gattprofile.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\HAL\include/CONFIG.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\LIB/CH58xBLE_LIB.H \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h \
@@ -18,8 +18,7 @@ user/src/central.o: ../user/src/central.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_usbdev.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_usbhost.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/ISP583.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/central.h
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\HAL\include/CONFIG.h:
 
@@ -60,5 +59,3 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/ISP583.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/central.h:

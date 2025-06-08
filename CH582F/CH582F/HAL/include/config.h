@@ -76,7 +76,7 @@
  * ƒ¨»œ≈‰÷√÷µ
  */
 #ifndef BLE_MAC
-#define BLE_MAC                             FALSE
+#define BLE_MAC                             TRUE
 #endif
 #ifndef DCDC_ENABLE
 #define DCDC_ENABLE                         FALSE

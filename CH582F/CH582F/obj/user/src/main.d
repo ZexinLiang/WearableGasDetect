@@ -27,7 +27,6 @@ user/src/main.o: ../user/src/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\LIB/CH58xBLE_LIB.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/central.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/task.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/RF_PHY.h \
@@ -91,8 +90,6 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\LIB/CH58xBLE_LIB.h:
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\Profile\include/gattprofile.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/central.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h:
 

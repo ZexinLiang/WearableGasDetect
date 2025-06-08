@@ -21,6 +21,9 @@
 #include "gattprofile.h"
 #include "peripheral.h"
 #include "scd40reg.h"
+/*********************************************************************
+ * MACROS
+ */
 
 /*********************************************************************
  * CONSTANTS
@@ -67,7 +70,7 @@
 /*********************************************************************
  * GLOBAL VARIABLES
  */
-uint8_t heatCnt = 0;
+
 /*********************************************************************
  * EXTERNAL VARIABLES
  */
@@ -109,7 +112,8 @@ static uint8_t scanRspData[] = {
     0 // 0dBm
 };
 
-// GAP - Advertisement data (max size = 31 bytes)
+// GAP - Advertisement data (max size = 31 bytes, though this is
+// best kept short to conserve power while advertising)
 static uint8_t advertData[] = {
     // Flags; this sets the device to use limited discoverable
     // mode (advertises for 30 seconds at a time) instead of general
@@ -118,11 +122,12 @@ static uint8_t advertData[] = {
     GAP_ADTYPE_FLAGS,
     DEFAULT_DISCOVERABLE_MODE | GAP_ADTYPE_FLAGS_BREDR_NOT_SUPPORTED,
 
-    // 服务UUID: 0xFFF0 (CH9142默认服务UUID)
+    // service UUID, to notify central devices what services are included
+    // in this peripheral
     0x03,                  // length of this data
-    GAP_ADTYPE_16BIT_MORE, // 使用16位UUID
-    LO_UINT16(0xFFF0),     // 小端模式: F0 FF
-    HI_UINT16(0xFFF0)      // 服务UUID = 0xFFF0
+    GAP_ADTYPE_16BIT_MORE, // some of the UUID's, but not all
+    LO_UINT16(SIMPLEPROFILE_SERV_UUID),
+    HI_UINT16(SIMPLEPROFILE_SERV_UUID)
 };
 
 // GAP GATT Attributes
@@ -136,9 +141,13 @@ static uint8_t peripheralMTU = ATT_MTU_SIZE;
  * LOCAL FUNCTIONS
  */
 static void Peripheral_ProcessTMOSMsg(tmos_event_hdr_t *pMsg);
+static void peripheralStateNotificationCB(gapRole_States_t newState, gapRoleEvent_t *pEvent);
 static void performPeriodicTask(void);
 static void simpleProfileChangeCB(uint8_t paramID, uint8_t *pValue, uint16_t len);
+static void peripheralParamUpdateCB(uint16_t connHandle, uint16_t connInterval,
+                                    uint16_t connSlaveLatency, uint16_t connTimeout);
 static void peripheralInitConnItem(peripheralConnItem_t *peripheralConnList);
+static void peripheralRssiCB(uint16_t connHandle, int8_t rssi);
 static void peripheralChar4Notify(uint8_t *pValue, uint16_t len);
 
 /*********************************************************************
@@ -241,11 +250,17 @@ void Peripheral_Init()
 
     // Setup the SimpleProfile Characteristic Values
     {
-        uint8_t charValue1[SIMPLEPROFILE_CHAR1_LEN] = {0};  // 写特征初始值
-        uint8_t charValue4[SIMPLEPROFILE_CHAR4_LEN] = {0};  // 通知特征初始值
+        uint8_t charValue1[SIMPLEPROFILE_CHAR1_LEN] = {1};
+        uint8_t charValue2[SIMPLEPROFILE_CHAR2_LEN] = {2};
+        uint8_t charValue3[SIMPLEPROFILE_CHAR3_LEN] = {3};
+        uint8_t charValue4[SIMPLEPROFILE_CHAR4_LEN] = {4};
+        uint8_t charValue5[SIMPLEPROFILE_CHAR5_LEN] = {1, 2, 3, 4, 5};
 
         SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR1, SIMPLEPROFILE_CHAR1_LEN, charValue1);
+        SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR2, SIMPLEPROFILE_CHAR2_LEN, charValue2);
+        SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR3, SIMPLEPROFILE_CHAR3_LEN, charValue3);
         SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR4, SIMPLEPROFILE_CHAR4_LEN, charValue4);
+        SimpleProfile_SetParameter(SIMPLEPROFILE_CHAR5, SIMPLEPROFILE_CHAR5_LEN, charValue5);
     }
 
     // Init Connection Item
@@ -293,6 +308,8 @@ static void peripheralInitConnItem(peripheralConnItem_t *peripheralConnList)
  */
 uint16_t Peripheral_ProcessEvent(uint8_t task_id, uint16_t events)
 {
+    //  VOID task_id; // TMOS required parameter that isn't used in this function
+
     if(events & SYS_EVENT_MSG)
     {
         uint8_t *pMsg;
@@ -354,6 +371,7 @@ uint16_t Peripheral_ProcessEvent(uint8_t task_id, uint16_t events)
         tmos_start_task(Peripheral_TaskID, SBP_READ_RSSI_EVT, SBP_READ_RSSI_EVT_PERIOD);
         return (events ^ SBP_READ_RSSI_EVT);
     }
+
     // Discard unknown events
     return 0;
 }
@@ -643,18 +661,18 @@ uint8_t taskCnt = 0;
 static void performPeriodicTask(void)
 {
     uint8_t sendMsg[20] = {0};
-    taskCnt++;
-    switch(taskCnt % 5) {
-        case 1: sprintf((char*)sendMsg, "CO2:%6d\r\n", CO2); break;
-        case 2: sprintf((char*)sendMsg, "T:%3d\r\n", Temperature); break;
-        case 3: sprintf((char*)sendMsg, "H:%3d\r\n", Relative_humidity); break;
-        default: break;
-    }
+        taskCnt++;
+        switch(taskCnt % 5) {
+            case 1: sprintf((char*)sendMsg, "CO2:%6d\r\n", CO2); break;
+            case 2: sprintf((char*)sendMsg, "T:%3d\r\n", Temperature); break;
+            case 3: sprintf((char*)sendMsg, "H:%3d\r\n", Relative_humidity); break;
+            default: break;
+        }
 
-    // 只发送非空消息
-    if(sendMsg[0] != '\0') {
-        peripheralChar4Notify(sendMsg, strlen((char*)sendMsg));
-    }
+        // 只发送非空消息
+        if(sendMsg[0] != '\0') {
+            peripheralChar4Notify(sendMsg, strlen((char*)sendMsg));
+        }
 }
 
 /*********************************************************************
@@ -685,10 +703,6 @@ static void peripheralChar4Notify(uint8_t *pValue, uint16_t len)
             GATT_bm_free((gattMsg_t *)&noti, ATT_HANDLE_VALUE_NOTI);
         }
     }
-    else
-    {
-        PRINT("Notification memory allocation failed\n");
-    }
 }
 
 /*********************************************************************
@@ -706,17 +720,24 @@ static void simpleProfileChangeCB(uint8_t paramID, uint8_t *pValue, uint16_t len
 {
     switch(paramID)
     {
-        case SIMPLEPROFILE_CHAR1:  // 只处理写特征（0xFF01）的数据
+        case SIMPLEPROFILE_CHAR1:
         {
-            PRINT("Received data on CHAR1 (Write): ");
-            for(int i = 0; i < len; i++) {
-                PRINT("%02X ", pValue[i]);
-            }
-            PRINT("\n");
+            uint8_t newValue[SIMPLEPROFILE_CHAR1_LEN];
+            tmos_memcpy(newValue, pValue, len);
+            PRINT("profile ChangeCB CHAR1.. \n");
+            break;
+        }
+
+        case SIMPLEPROFILE_CHAR3:
+        {
+            uint8_t newValue[SIMPLEPROFILE_CHAR3_LEN];
+            tmos_memcpy(newValue, pValue, len);
+            PRINT("profile ChangeCB CHAR3..\n");
             break;
         }
 
         default:
+            // should not reach here!
             break;
     }
 }
