@@ -12,6 +12,26 @@ extern softI2C_TypeDef i2c0;
 #define CRC8_POLYNOMIAL 0x31
 #define CRC8_INIT 0xFF
 
+//scd40初始化，2s切换执行功能，共执行3功能，交给TMOS管理
+uint8_t SCD40Init(uint8_t* cnt){
+    switch (*cnt) {
+        case 0:
+            stop_periodic_measurement();
+            break;
+        case 1:
+            reinit();
+            break;
+        case 2:
+            start_periodic_measurement();
+            break;
+        default:
+            break;
+    }
+    *cnt = *cnt + 1;
+    if(*cnt == 3) return 0;
+    else return 1;
+}
+
 uint8_t CRC_Cal(const uint8_t* data, uint16_t count) {
     uint16_t current_byte;
     uint8_t crc = CRC8_INIT;

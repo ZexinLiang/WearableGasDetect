@@ -14,6 +14,11 @@ void UART5_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 #define U5Rx_MAX_LEN 40
 uint8_t U5Rx_Buff[U5Rx_MAX_LEN]={0};
 uint16_t U5Rx_Len = 0;
+uint8_t CH582Cnned = 0;
+/* 连接功能
+ * 如果已经连接成功，直接返回数据
+ * 如果没有连接成功，返回周围可查找到的设备
+ * */
 
 void CH582_Com_Init(void){
     GPIO_InitTypeDef  GPIO_InitStructure  = {0};
@@ -51,6 +56,8 @@ void CH582_Com_Init(void){
 
     USART_Cmd(UART5, ENABLE);
 }
+
+
 
 void UART5_DataProcess(uint8_t* data, uint16_t len){
     USART_SendData(UART5, len);

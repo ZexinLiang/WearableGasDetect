@@ -76,41 +76,19 @@ int main()
     UART1_INTCfg(ENABLE, RB_IER_RECV_RDY | RB_IER_LINE_STAT);
     PFIC_EnableIRQ(UART1_IRQn);
 
+    //蓝牙部分
     CH58X_BLEInit();
     HAL_Init();
     GAPRole_PeripheralInit();
     Peripheral_Init();
-
-    I2CInit(&i2c0);//配置软件IIC
+    //配置软件IIC用于实现数据采集
+    I2CInit(&i2c0);
     I2CInit(&i2c1);
-
+    //JED系列传感器加热引脚
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//配置传感器加热电压芯片使能引脚
     GPIOB_ResetBits(GPIO_Pin_7);//默认不加热，降低功耗
 
     //BME688InitInReg();
-
-    //SCD40
-    DelayMs(2000);
-    stop_periodic_measurement();
-    DelayMs(2000);
-    reinit();
-    DelayMs(2000);
-    start_periodic_measurement();
-    DelayMs(2000);
-
-
-//    uint8_t status = 0;
-//    while(1){
-//        //最好5s触发就够了
-//        get_data_ready_status(&status);
-//        if(status)
-//        {
-//            read_measurement(&CO2,&Temperature,&Relative_humidity);
-//            printf("CO2:%d,T:%d,H:%d\r\n",CO2,Temperature,Relative_humidity);
-//        }
-//        //printf("1\n");
-//        DelayMs(2000);
-//    }
 
     taskInit();//测量任务初始化
     while(1)

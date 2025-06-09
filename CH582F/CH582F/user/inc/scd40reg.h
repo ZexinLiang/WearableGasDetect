@@ -9,6 +9,7 @@
 #define USER_INC_SCD40REG_H_
 #include "i2c.h"
 
+uint8_t SCD40Init(uint8_t* cnt);
 uint8_t CRC_Cal(const uint8_t* data, uint16_t count);
 void start_periodic_measurement(void);
 void read_measurement(uint16_t *CO2,uint16_t *Temperature,uint16_t *Relative_humidity);
