@@ -19,26 +19,21 @@ uint8_t BME688InitInReg(void){
         PRINT("ID recognition error\n");
         return 1;//失败
     }
-    DelayMs(100);
     //初始化配置
     uint8_t h_rate = 0x01;//湿度采样率1x
     uint8_t tp_rate  = (0b010<<5)|(0b101<<2);//温度采样率2x，压力采样率16x
+    rslt = i2c_write_reg(&i2c1, 0x76, 0x72, &h_rate, 1);
+    if(!rslt){
+        PRINT("Communication error:humi rate set\n");
+        return 1;//失败
+        }
     DelayMs(1);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x74, &tp_rate, 1);
     if(!rslt){
         PRINT("Communication error:temp pre rate set\n");
         return 1;//失败
-    }else{
-        PRINT("OK:temp pre rate set\r\n");
     }
-//        DelayMs(100);
-//        rslt = i2c_write_reg(&i2c1, 0x76, 0x72, &h_rate, 1);
-//        if(!rslt){
-//            PRINT("Communication error:humi rate set\n");
-//            return 1;//失败
-//        }
     uint8_t iir_flt = 0b100<<2;//IIR滤波器，滤波系数15
-    DelayMs(100);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x75, &iir_flt, 1);
     if(!rslt){
         PRINT("Communication error:iir_flt set\n");
@@ -47,7 +42,6 @@ uint8_t BME688InitInReg(void){
     // 气体传感器配置
     // 步骤1: 设置加热时间gas_wait_0 (100ms)
     uint8_t gas_wait_0 = 0x59; // 0b01011001 (64*1 + 25=89 => 89ms ≈ 100ms)
-    DelayMs(100);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x64, &gas_wait_0, 1);
     if(!rslt){
         PRINT("Communication error:gas_wait_0 set\n");
@@ -57,7 +51,6 @@ uint8_t BME688InitInReg(void){
     // 步骤2: 计算并设置目标温度电阻值res_heat_0 (假设目标温度300°C)
     // 注：实际应使用API函数计算，这里使用示例值（需根据校准参数调整）
     uint8_t res_heat_0 = 0x50; // 示例值，需根据规格书第27页公式计算
-    DelayMs(100);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x5A, &res_heat_0, 1);
     if(!rslt){
         PRINT("Communication error:res_heat_0 set\n");
@@ -66,7 +59,6 @@ uint8_t BME688InitInReg(void){
 
     // 步骤3: 选择加热步骤0，启用气体测量
     uint8_t gas_ctrl1 = (0x0 << 0) | (1 << 5); // nb_conv=0, run_gas=1
-    DelayMs(100);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x71, &gas_ctrl1, 1);
     if(!rslt){
         PRINT("Communication error:gas_ctrl1 set\n");
@@ -75,7 +67,6 @@ uint8_t BME688InitInReg(void){
 
     // 触发强制模式测量
     uint8_t mode = 0x01; // Forced Mode
-    DelayMs(100);
     rslt = i2c_write_reg(&i2c1, 0x76, 0x74, &mode, 1);
     if(!rslt){
         PRINT("Communication error:mode set\n");
@@ -101,7 +92,6 @@ uint8_t BME688InitInReg(void){
 
     // 读取原始数据（Field 0）
     uint8_t data[15];
-    DelayMs(100);
     rslt = i2c_read_reg(&i2c1, 0x76, 0x1F, data, 15);
     if(!rslt){
         PRINT("Communication error:data read\n");
@@ -125,7 +115,6 @@ uint8_t BME688InitInReg(void){
     uint8_t calib_data[5];
 
     // 读取温度校准参数寄存器组
-    DelayMs(100);
     rslt = i2c_read_reg(&i2c1, 0x76, 0xE9, calib_data, 5);  // 0xE9-0xED
     if(!rslt){
          PRINT("Communication error:reg read\n");
@@ -154,7 +143,7 @@ uint8_t BME688InitInReg(void){
     // 转换为浮点温度值
     float temperature = temp_comp / 100.0f;
     PRINT("p1:%d p2:%d p3:%d\n",par_t1,par_t2,par_t3);
-    PRINT("Compensated Temp: %.2f C\n", temperature);
+    PRINT("Compensated Temp: %f C\n", temperature);
 
     return 0;//配置成功
 }

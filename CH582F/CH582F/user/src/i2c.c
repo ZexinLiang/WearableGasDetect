@@ -84,7 +84,7 @@ uint8_t i2c_read_reg(softI2C_TypeDef* I2C, uint8_t dev_addr, uint8_t reg_addr, u
     }
     for (uint8_t i = 0; i < len; i++) {
         data[i] = I2C_RecvByte(I2C);
-        if (i <= len - 1) {
+        if (i < len - 1) {
             I2C_SendACK(I2C, 1); // ·¢ËÍACK
         } else {
             I2C_SendACK(I2C, 0); // ·¢ËÍNACK
