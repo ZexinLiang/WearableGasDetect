@@ -103,16 +103,24 @@ uint8_t i2c_write_reg(softI2C_TypeDef* I2C, uint8_t dev_addr, uint8_t reg_addr,c
         I2C_Stop(I2C);
         return 0; // 通信失败
     }
-    I2C_SendByte(I2C, reg_addr);
-    if (!I2C_WaitAck(I2C)) {
-        PRINT("W2");
-        I2C_Stop(I2C);
-        return 0; // 通信失败
-    }
-    for (uint8_t i = 0; i < len; i++) {
+//    I2C_SendByte(I2C, reg_addr);
+//    if (!I2C_WaitAck(I2C)) {
+//        PRINT("W2");
+//        I2C_Stop(I2C);
+//        return 0; // 通信失败
+//    }
+    for (uint8_t i = 0; i < len; i++) {//地址不自增
+
+        I2C_SendByte(I2C, reg_addr+i);
+            if (!I2C_WaitAck(I2C)) {
+                PRINT("W2");
+                I2C_Stop(I2C);
+                return 0; // 通信失败
+            }
+
         I2C_SendByte(I2C, data[i]);
         if (!I2C_WaitAck(I2C)) {
-            PRINT("W3");
+            PRINT("W3+%d",i);
             I2C_Stop(I2C);
             return 0; // 通信失败
         }

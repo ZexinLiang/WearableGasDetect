@@ -21,6 +21,8 @@
 #include "jed.h"
 #include "bmeInRegis.h"
 #include "scd40reg.h"
+#include "bme68x.h"
+#include "bme68x_defs.h"
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
 uint8_t RxBuff[100];
@@ -32,7 +34,6 @@ const uint8_t MacAddr[6] = {0x84, 0xC2, 0xE4, 0x03, 0x02, 0x02};
 #endif
 
 //BME688
-uint8_t dev_addr = 0x77;
 
 //JED系列
 uint16_t gasPPM[2]={0};
@@ -87,13 +88,12 @@ int main()
     //JED系列传感器加热引脚
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//配置传感器加热电压芯片使能引脚
     GPIOB_ResetBits(GPIO_Pin_7);//默认不加热，降低功耗
+    DelayMs(5000);
+    BME688InitInReg();
 
-    //BME688InitInReg();
-
-    taskInit();//测量任务初始化
     while(1)
     {
-        TMOS_SystemProcess();//TMOS任务调度
+        //TMOS_SystemProcess();//TMOS任务调度
     }
 
 }
