@@ -26,7 +26,7 @@ uint8_t cnt = 0;
 void BleMsgOutput(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环回传
     switch(cnt%maxMsgNum){
     case 0 : sprintf(msg,"$temp1%03.2f*",DataTab.temp1);break;
-    case 1 : sprintf(msg,"$pres1%04.2f*",DataTab.pres1);break;
+    case 1 : sprintf(msg,"$pres1%06.2f*",DataTab.pres1);break;
     case 2 : sprintf(msg,"$humi1%03.2f*",DataTab.humi1);break;
     case 3 : sprintf(msg,"$gResi%06.2f*",DataTab.gasRes);break;
     case 4 : sprintf(msg,"$humi2%03d*",DataTab.humi2);break;

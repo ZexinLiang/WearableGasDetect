@@ -14,7 +14,6 @@ void print_sensor_data(struct bme68x_data *comp_data)
 {
 #ifdef BME68X_USE_FPU
     printf("temperature:%0.2f*C   pressure:%0.2fhPa   humidity:%0.2f%%   Gas resistance:%0.2f ohm\r\n",comp_data->temperature, comp_data->pressure/100, comp_data->humidity, comp_data->gas_resistance         );
-    printf("\r\b\r");
 #else
     printf("temperature:%ld*C   pressure:%ldhPa   humidity:%ld%%   Gas resistance:%lu ohm\r\n",comp_data->temperature, comp_data->pressure/100, comp_data->humidity, comp_data->gas_resistance         );
     printf("\r\b\r");
