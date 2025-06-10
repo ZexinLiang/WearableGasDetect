@@ -1,4 +1,5 @@
-user/src/main.o: ../user/src/main.c \
+user/src/data.o: ../user/src/data.c \
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/data.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH583SFR.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\RVMSIS/core_riscv.h \
@@ -30,22 +31,14 @@ user/src/main.o: ../user/src/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/task.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/RF_PHY.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x_defs.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x_defs.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/data.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/task.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h
+
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/data.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h:
 
@@ -109,8 +102,6 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/task.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/RF_PHY.h:
 
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/i2c.h:
-
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h:
@@ -120,23 +111,5 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x_defs.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x_defs.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/data.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/peripheral.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/task.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/jed.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h:

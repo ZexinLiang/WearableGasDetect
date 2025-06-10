@@ -8,15 +8,19 @@
 #include "i2c.h"
 #include "jed.h"
 #include "scd40reg.h"
+#include "bmelink.h"
+#include "data.h"
 
 #define READ_BAT_EVENT   1
 #define READ_UART_EVENT  2
 #define E5000MS_EVENT    4
 #define E1000MS_EVENT    8
 #define E100MS_EVENT     16
-#define E10MS_EVENT      32
 #define SLEEP_EVENT      64
+#define BME_START_EVENT  32
 #define SCD40_START_EVENT 128
+
+extern DataTab_TypeDef DataTab;
 
 uint8_t TASK_ID = INVALID_TASK_ID;
 uint8_t SCD40TaskCtrlCnt = 0;//SCD40初始化启动控制器
@@ -31,6 +35,7 @@ void taskInit(void){
     TASK_ID = TMOS_ProcessEventRegister(ProcessEvent);
     tmos_start_task( TASK_ID, E1000MS_EVENT, 1600 );
     tmos_start_task(TASK_ID, SCD40_START_EVENT, 3200);//启动初始化+衔接5s定时测量
+    tmos_start_task(TASK_ID, BME_START_EVENT, 3200);
 }
 
 
@@ -57,6 +62,9 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
         if(status)
         {
             read_measurement(&CO2,&Temperature,&Relative_humidity);
+            DataTab.CO2 = CO2;
+            DataTab.temp2 = Temperature;
+            DataTab.humi2 = Relative_humidity;
             printf("CO2:%d,T:%d,H:%d\r\n",CO2,Temperature,Relative_humidity);
         }
 
@@ -77,10 +85,11 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
         tmos_start_task(TASK_ID, E100MS_EVENT, 160); // 160 * 0.625ms执行一次  100MS
         return (events ^ E100MS_EVENT);
     }
-    if (events & E10MS_EVENT)
+    if (events & BME_START_EVENT)
     {
-        tmos_start_task(TASK_ID, E10MS_EVENT, 16); // 16 * 0.625ms执行一次  10MS
-        return (events ^ E10MS_EVENT);
+        tmos_start_task(TASK_ID, BME_START_EVENT, 4000); // 16 * 0.625ms执行一次  10MS
+        BME_In_Task();
+        return (events ^ BME_START_EVENT);
     }
     if (events & SCD40_START_EVENT)
     {

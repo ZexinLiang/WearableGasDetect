@@ -9,4 +9,6 @@ void user_delay_us(uint32_t period, void *intf_ptr);
 
 void bme688devInit(void);
 
+void BME_In_Task(void);
+
 #endif

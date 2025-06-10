@@ -2,7 +2,9 @@
 #include "bme68x_defs.h"
 #include "bmelink.h"
 #include "i2c.h"
+#include "data.h"
 
+extern DataTab_TypeDef DataTab;
 extern softI2C_TypeDef i2c1;
 static uint8_t dev_addr = BME68X_I2C_ADDR_LOW;
 struct bme68x_dev dev;
@@ -43,21 +45,37 @@ int8_t stream_sensor_data_forced_mode(struct bme68x_dev *dev)
 
     rslt = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &heatr_conf, dev);
     dev->delay_us(40*1000,dev->intf_ptr);
-
-    printf("Temperature           Pressure             Humidity             Gas resistance\r\n");
-    /* Continuously stream sensor data */
-    while (1) {
-        rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, dev);
-        /* Wait for the measurement to complete and print data @25Hz */
-        del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, dev) + (heatr_conf.heatr_dur * 1000);
-        dev->delay_us(del_period*5, dev->intf_ptr);
-        rslt = bme68x_get_data(BME68X_FORCED_MODE, &comp_data, &n_fields, dev);
-        if(n_fields)
-        {
-            print_sensor_data(&comp_data);
-        }
-    }
+//    printf("Temperature           Pressure             Humidity             Gas resistance\r\n");
+//    /* Continuously stream sensor data */
+//    while (1) {
+//        rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, dev);
+//        /* Wait for the measurement to complete and print data @25Hz */
+//        del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, dev) + (heatr_conf.heatr_dur * 1000);
+//        dev->delay_us(del_period*5, dev->intf_ptr);
+//        rslt = bme68x_get_data(BME68X_FORCED_MODE, &comp_data, &n_fields, dev);
+//        if(n_fields)
+//        {
+//            print_sensor_data(&comp_data);
+//        }
+//    }
     return rslt;
+}
+
+uint8_t readOrwrite = 1;
+struct bme68x_heatr_conf heatr_conf;
+extern struct bme68x_data comp_data;
+uint8_t n_fields;
+void BME_In_Task(void){
+    if(readOrwrite) bme68x_set_op_mode(BME68X_FORCED_MODE, &dev);
+    else {
+        uint8_t rslt = bme68x_get_data(BME68X_FORCED_MODE, &comp_data, &n_fields, &dev);
+        DataTab.gasRes = comp_data.gas_resistance;
+        DataTab.humi1 = comp_data.humidity;
+        DataTab.temp1 = comp_data.temperature;
+        DataTab.pres1 = comp_data.pressure;
+        print_sensor_data(&comp_data);
+    }
+    readOrwrite = !readOrwrite;
 }
 
 int8_t stream_sensor_data_parallel_mode(struct bme68x_dev *dev)

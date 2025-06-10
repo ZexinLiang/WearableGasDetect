@@ -24,6 +24,7 @@
 #include "bme68x.h"
 #include "bme68x_defs.h"
 #include "bmelink.h"
+#include "data.h"
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
 uint8_t RxBuff[100];
@@ -34,7 +35,11 @@ __attribute__((aligned(4))) uint32_t MEM_BUF[BLE_MEMHEAP_SIZE / 4];  // 4×Ö½Ú¶ÔÆ
 const uint8_t MacAddr[6] = {0x84, 0xC2, 0xE4, 0x03, 0x02, 0x02};
 #endif
 
+//×ÜÊý¾Ý
+DataTab_TypeDef DataTab={0};
+
 //BME688
+struct bme68x_data comp_data;
 
 //JEDÏµÁÐ
 uint16_t gasPPM[2]={0};
@@ -89,12 +94,11 @@ int main()
     //JEDÏµÁÐ´«¸ÐÆ÷¼ÓÈÈÒý½Å
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//ÅäÖÃ´«¸ÐÆ÷¼ÓÈÈµçÑ¹Ð¾Æ¬Ê¹ÄÜÒý½Å
     GPIOB_ResetBits(GPIO_Pin_7);//Ä¬ÈÏ²»¼ÓÈÈ£¬½µµÍ¹¦ºÄ
-    DelayMs(5000);
-//    BME688_Test();
     bme688devInit();
+    taskInit();
     while(1)
     {
-        //TMOS_SystemProcess();//TMOSÈÎÎñµ÷¶È
+        TMOS_SystemProcess();//TMOSÈÎÎñµ÷¶È
     }
 
 }

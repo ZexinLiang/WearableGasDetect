@@ -21,6 +21,7 @@
 #include "gattprofile.h"
 #include "peripheral.h"
 #include "scd40reg.h"
+#include "data.h"
 /*********************************************************************
  * MACROS
  */
@@ -30,7 +31,7 @@
  */
 
 // How often to perform periodic event
-#define SBP_PERIODIC_EVT_PERIOD              400
+#define SBP_PERIODIC_EVT_PERIOD              800
 
 // How often to perform read rssi event
 #define SBP_READ_RSSI_EVT_PERIOD             3200
@@ -391,9 +392,9 @@ static void Peripheral_ProcessGAPMsg(gapRoleEvent_t *pEvent)
     {
         case GAP_SCAN_REQUEST_EVENT:
         {
-            PRINT("Receive scan req from %x %x %x %x %x %x  ..\n", pEvent->scanReqEvt.scannerAddr[0],
-                  pEvent->scanReqEvt.scannerAddr[1], pEvent->scanReqEvt.scannerAddr[2], pEvent->scanReqEvt.scannerAddr[3],
-                  pEvent->scanReqEvt.scannerAddr[4], pEvent->scanReqEvt.scannerAddr[5]);
+            //PRINT("Receive scan req from %x %x %x %x %x %x  ..\n", pEvent->scanReqEvt.scannerAddr[0],
+            //      pEvent->scanReqEvt.scannerAddr[1], pEvent->scanReqEvt.scannerAddr[2], pEvent->scanReqEvt.scannerAddr[3],
+            //      pEvent->scanReqEvt.scannerAddr[4], pEvent->scanReqEvt.scannerAddr[5]);
             break;
         }
 
@@ -661,14 +662,7 @@ uint8_t taskCnt = 0;
 static void performPeriodicTask(void)
 {
     uint8_t sendMsg[20] = {0};
-        taskCnt++;
-        switch(taskCnt % 5) {
-            case 1: sprintf((char*)sendMsg, "CO2:%6d\r\n", CO2); break;
-            case 2: sprintf((char*)sendMsg, "T:%3d\r\n", Temperature); break;
-            case 3: sprintf((char*)sendMsg, "H:%3d\r\n", Relative_humidity); break;
-            default: break;
-        }
-
+    BleMsgOutput(sendMsg);
         // 只发送非空消息
         if(sendMsg[0] != '\0') {
             peripheralChar4Notify(sendMsg, strlen((char*)sendMsg));
