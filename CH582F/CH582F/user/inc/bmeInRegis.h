@@ -20,11 +20,11 @@ void BME688_Test(void);
 
 uint8_t BME688_ForceModeCFG(void);
 
-void BME688_TempGet(double* temp);
+void BME688_TempGet(double* temp,uint8_t field);
 
-void BME688_PresGet(double* pressure);
+void BME688_PresGet(double* pressure,uint8_t field);
 
-void BME688_HumiGet(double* humidity);
+void BME688_HumiGet(double* humidity,uint8_t field);
 
 void BME688_HeatResGet(double target_temp,uint8_t* res_heat_x);
 

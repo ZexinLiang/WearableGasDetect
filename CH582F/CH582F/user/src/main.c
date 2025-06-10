@@ -23,6 +23,7 @@
 #include "scd40reg.h"
 #include "bme68x.h"
 #include "bme68x_defs.h"
+#include "bmelink.h"
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
 uint8_t RxBuff[100];
@@ -89,8 +90,8 @@ int main()
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//配置传感器加热电压芯片使能引脚
     GPIOB_ResetBits(GPIO_Pin_7);//默认不加热，降低功耗
     DelayMs(5000);
-    BME688_Test();
-
+//    BME688_Test();
+    bme688devInit();
     while(1)
     {
         //TMOS_SystemProcess();//TMOS任务调度
