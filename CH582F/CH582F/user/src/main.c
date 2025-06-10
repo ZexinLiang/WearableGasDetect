@@ -89,7 +89,7 @@ int main()
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//配置传感器加热电压芯片使能引脚
     GPIOB_ResetBits(GPIO_Pin_7);//默认不加热，降低功耗
     DelayMs(5000);
-    BME688InitInReg();
+    BME688_Test();
 
     while(1)
     {

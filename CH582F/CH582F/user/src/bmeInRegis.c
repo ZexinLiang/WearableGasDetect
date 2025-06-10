@@ -9,7 +9,25 @@
 
 PBData_TypeDef PBData={0};
 
-uint8_t BME688InitInReg(void){
+void BME688_Test(void){
+    if(!BME688_ForceModeCFG()) PRINT("BME688 Config Error\r\n");
+    // 等待测量完成
+    DelayMs(500);
+
+    // 读取状态寄存器
+    if(!BME688_MeaStusGet())    return;
+
+    double temperature,pressure,humidity;
+    BME688_TempGet(&temperature);
+    BME688_PresGet(&pressure);
+    BME688_HumiGet(&humidity);
+    PRINT("Compensated Temp: %f C\r\n", temperature);
+    PRINT("Compensated Pres: %f Pa\r\n", pressure);
+    PRINT("Compensated Humi: %f %\r\n", humidity);
+    return;//配置成功
+}
+
+uint8_t BME688_ForceModeCFG(void){
     uint8_t rslt;//通信验证
     uint8_t chip_id;//芯片ID
     rslt = i2c_read_reg(&i2c1, 0x76, 0xD0, &chip_id, 1);//读取芯片ID
@@ -51,8 +69,9 @@ uint8_t BME688InitInReg(void){
     }
 
     // 步骤2: 计算并设置目标温度电阻值res_heat_0 (假设目标温度300°C)
-    // 注：实际应使用API函数计算，这里使用示例值（需根据校准参数调整）
-    uint8_t res_heat_0 = 0x50; // 示例值，需根据规格书第27页公式计算
+    uint8_t res_heat_0;
+    BME688_HeatResGet(300, &res_heat_0);
+#warnig "Haven't been test"
     rslt = i2c_write_reg(&i2c1, 0x76, 0x5A, &res_heat_0, 1);
     if(!rslt){
         PRINT("Communication error:res_heat_0 set\r\n");
@@ -74,84 +93,7 @@ uint8_t BME688InitInReg(void){
         PRINT("Communication error:mode set\r\n");
         return 1;
     }
-
-    // 等待测量完成（典型等待时间约100ms）
-    DelayMs(100);
-
-    // 读取状态寄存器
-    uint8_t meas_status;
-    rslt = i2c_read_reg(&i2c1, 0x76, 0x1D, &meas_status, 1);
-    if(!rslt){
-        PRINT("Communication error:status read\r\n");
-        return 1;
-    }
-
-    // 检查新数据有效位(bit7)
-    if(!(meas_status & 0x80)){
-        PRINT("No new data available\r\n");
-        return 1;
-    }
-
-//    // 读取原始数据（Field 0）
-//    uint8_t data[15];
-//    rslt = i2c_read_reg(&i2c1, 0x76, 0x1F, data, 15);
-//    if(!rslt){
-//        PRINT("Communication error:data read\n");
-//        return 1;
-//    }
-//
-//    // 解析原始数据
-//    uint32_t press_raw = (data[0] << 12) | (data[1] << 4) | (data[2] >> 4);
-//    uint32_t temp_raw = (data[3] << 12) | (data[4] << 4) | (data[5] >> 4);
-//    uint16_t hum_raw = (data[6] << 8) | data[7];
-//    uint16_t gas_res = (data[13] << 2) | (data[14] >> 6);
-//    uint8_t gas_range = data[14] & 0x0F;
-//
-//    // 打印结果
-//    PRINT("Temperature: %d \n", temp_raw);
-//    // 添加压力、湿度、气体补偿计算...
-//    // 先读取校准参数（关键步骤！）
-//    uint16_t par_t1;
-//    uint16_t par_t2;
-//    int8_t par_t3;
-//    uint8_t calib_data[5];
-//
-//    // 读取温度校准参数寄存器组
-//    rslt = i2c_read_reg(&i2c1, 0x76, 0xE9, calib_data, 5);  // 0xE9-0xED
-//    if(!rslt){
-//         PRINT("Communication error:reg read\n");
-//         return 1;
-//     }
-//
-//    // 解析校准参数
-//    par_t1 = (calib_data[1] << 8) | calib_data[0];     // 0xE9-0xEA
-//    par_t2 = (calib_data[3] << 8) | calib_data[2];     // 0x8B-0x8C
-//    par_t3 = (int8_t)calib_data[4];                    // 0x8D
-//
-//    // 读取原始温度数据（假设已获取data数组）
-//
-//    // 整数补偿算法（规格书第23页）
-//    int32_t var1, var2,var3, t_fine;
-//    int32_t temp_comp;
-//
-//    var1 = ((int32_t)temp_raw >> 3) - ((int32_t)par_t1 << 1);
-//    var2 = (var1 * (int32_t)par_t2) >> 11;
-//    var3 = ((((var1 >> 1) * (var1 >> 1)) >> 12) * ((int32_t)par_t3 << 4)) >> 14;
-//    t_fine = var2 + var3;
-//
-//    // 最终温度计算（带0.01°C分辨率）
-//    temp_comp = (t_fine * 5 + 128) >> 8;  // 等价于 (t_fine / 5120.0) * 100
-//
-//    // 转换为浮点温度值
-//    float temperature = temp_comp / 100.0f;
-//    PRINT("p1:%d p2:%d p3:%d\n",par_t1,par_t2,par_t3);
-    double temperature;
-    BME688_TempGet(&temperature);
-    double pressure;
-    BME688_PresGet(&pressure);
-    PRINT("Compensated Temp: %f C\r\n", temperature);
-    PRINT("Compensated pres: %f Pa\r\n", pressure);
-    return 0;//配置成功
+    return 0;
 }
 
 void BME688_TempGet(double* temp){
@@ -189,6 +131,7 @@ void BME688_TempGet(double* temp){
     PBData.t_fine = t_fine;
     temp_comp = t_fine / 5120.0;
     *temp = temp_comp;
+    PBData.temp_comp = temp_comp;
 }
 
 void BME688_PresGet(double* pressure){
@@ -246,4 +189,88 @@ void BME688_PresGet(double* pressure){
     press_comp = press_comp + (var1 + var2 + var3 +
      ((double)par_p7 * 128.0)) / 16.0;
     *pressure  = press_comp;
+}
+void BME688_HumiGet(double* humidity){
+    //获取AD值以及校准参数
+    uint32_t par_h1,par_h2,par_h3,par_h4,par_h5,par_h6,par_h7;//校准参数
+    uint32_t humi_adc;//温度ADC原始值
+    uint8_t rslt;//读取成功判断
+    uint8_t i = 0;//通信错误码
+    uint8_t regData[8] = {0};
+    rslt = i2c_read_reg(&i2c1, 0x76, 0xE1, regData, 8);
+    if(!rslt){
+        PRINT("Communication error:HumiGet %d\r\n",i++);
+        return;
+    }
+    par_h1 = regData[2]<<4|(regData[1]&0b00001111);//选中数据后四位
+    par_h2 = regData[0]<<4|regData[1]>>4;//取MSB-4
+    par_h3 = regData[3];
+    par_h4 = regData[4];
+    par_h5 = regData[5];
+    par_h6 = regData[6];
+    par_h7 = regData[7];
+    rslt = i2c_read_reg(&i2c1, 0x76, 0x25, regData, 2);
+    if(!rslt){
+        PRINT("Communication error:HumiGet %d\r\n",i++);
+        return;
+    }
+    humi_adc = regData[0]<<8|regData[1];
+    double var1,var2,var3,var4,hum_comp;
+    var1 = humi_adc - (((double)par_h1 * 16.0) + (((double)par_h3 / 2.0) * PBData.temp_comp));
+    var2 = var1 * (((double)par_h2 / 262144.0) * (1.0 + (((double)par_h4 / 16384.0) *
+            PBData.temp_comp) + (((double)par_h5 / 1048576.0) * PBData.temp_comp * PBData.temp_comp)));
+    var3 = (double)par_h6 / 16384.0;
+    var4 = (double)par_h7 / 2097152.0;
+    hum_comp = var2 + ((var3 + (var4 * PBData.temp_comp)) * var2 * var2);
+    *humidity = hum_comp;
+}
+
+void BME688_HeatResGet(double target_temp,uint8_t* res_heat_x){
+    uint32_t par_g1,par_g2,par_g3;
+    int8_t res_heat_range,res_heat_val;
+    uint8_t rslt;//读取成功判断
+    uint8_t i = 0;//通信错误码
+    uint8_t regData[4] = {0};
+    rslt = i2c_read_reg(&i2c1, 0x76, 0xEB, regData, 4);
+    if(!rslt){
+        PRINT("Communication error:HeatResGet %d\r\n",i++);
+        return;
+    }
+    par_g1 = regData[2];
+    par_g2 = regData[1]<<8|regData[0];
+    par_g3 = regData[3];
+    rslt = i2c_read_reg(&i2c1, 0x76, 0x02, regData, 1);
+    if(!rslt){
+        PRINT("Communication error:HeatResGet %d\r\n",i++);
+        return;
+    }
+    res_heat_range = (regData[0]>>4)&0b00110000;
+    rslt = i2c_read_reg(&i2c1, 0x76, 0x00, regData, 1);
+    if(!rslt){
+        PRINT("Communication error:HeatResGet %d\r\n",i++);
+        return;
+    }
+    res_heat_val = regData[0];
+    double var1,var2,var3,var4,var5;
+    var1 = ((double)par_g1 / 16.0) + 49.0;
+    var2 = (((double)par_g2 / 32768.0) * 0.0005) + 0.00235;
+    var3 = (double)par_g3 / 1024.0;
+    var4 = var1 * (1.0 + (var2 * (double) target_temp));
+    var5 = var4 + (var3 * (double)PBData.temp_comp);//目标设定阻值，单位Ohm
+    res_heat_x = (uint8_t)(3.4 * ((var5 * (4.0 / (4.0 + (double)res_heat_range)) * (1.0/(1.0 +
+    ((double)res_heat_val * 0.002)))) - 25));
+}
+uint8_t BME688_MeaStusGet(void){
+    uint8_t meas_status,rslt;
+    rslt = i2c_read_reg(&i2c1, 0x76, 0x1D, &meas_status, 1);
+    if(!rslt){
+        PRINT("Communication error:status read\r\n");
+        return 0;
+    }
+    // 检查新数据有效位(bit7)
+    if(!(meas_status & 0x80)){
+        PRINT("No new data available\r\n");
+        return 0;
+    }
+    return 1;
 }
