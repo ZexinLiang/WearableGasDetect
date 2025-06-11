@@ -1,6 +1,5 @@
-user/src/central.o: ../user/src/central.c \
- C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/CONFIG.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.H \
+user/src/control.o: ../user/src/control.c \
+ C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/control.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/CH58x_common.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/CH583SFR.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\RVMSIS/core_riscv.h \
@@ -18,22 +17,19 @@ user/src/central.o: ../user/src/central.c \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/CH58x_usbdev.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/CH58x_usbhost.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/ISP583.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\Profile\include/gattprofile.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/central.h \
- C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/control.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/HAL.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/CONFIG.h \
+ C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.H \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/RTC.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/SLEEP.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/LED.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/KEY.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/config.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.h \
+ C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\Profile\include/gattprofile.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/central.h
 
-C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/CONFIG.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.H:
+C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/control.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/CH58x_common.h:
 
@@ -69,15 +65,11 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeri
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\StdPeriphDriver\inc/ISP583.h:
 
-C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\Profile\include/gattprofile.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/central.h:
-
-C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/control.h:
-
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/HAL.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/CONFIG.h:
+
+C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.H:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/RTC.h:
 
@@ -90,5 +82,7 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\inc
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\HAL\include/config.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB/CH58xBLE_LIB.h:
+
+C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\Profile\include/gattprofile.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\user\inc/central.h:

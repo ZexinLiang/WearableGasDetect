@@ -18,6 +18,7 @@
 #include "CONFIG.h"
 #include "gattprofile.h"
 #include "central.h"
+#include "control.h"
 
 /*********************************************************************
  * MACROS
@@ -206,6 +207,7 @@ static void central_ProcessTMOSMsg(tmos_event_hdr_t *pMsg);
 static void centralGATTDiscoveryEvent(gattMsgEvent_t *pMsg);
 static void centralStartDiscovery(void);
 static void centralAddDeviceInfo(uint8_t *pAddr, uint8_t addrType);
+static void mycentralAddDeviceInfo(uint8_t *pAddr, uint8_t addrType, uint8_t *pAdvData, uint8_t dataLen);
 /*********************************************************************
  * PROFILE CALLBACKS
  */
@@ -520,10 +522,12 @@ static void centralProcessGATTMsg(gattMsgEvent_t *pMsg)
     }
     else if(pMsg->method == ATT_HANDLE_VALUE_NOTI)
     {
-        PRINT("Receive noti:");
-        for(int i = 0;i < pMsg->msg.handleValueNoti.len;i++)
-            PRINT("%c", *(pMsg->msg.handleValueNoti.pValue+i));
-        PRINT("\r\n");
+        //连接上之后做数据回传
+        BLEDataTransfer(pMsg);
+//        PRINT("Receive noti:");
+//        for(int i = 0;i < pMsg->msg.handleValueNoti.len;i++)
+//            PRINT("%c", *(pMsg->msg.handleValueNoti.pValue+i));
+//        PRINT("\r\n");
     }
     else if(centralDiscState != BLE_DISC_STATE_IDLE)
     {
@@ -588,7 +592,14 @@ static void centralEventCB(gapRoleEvent_t *pEvent)
         case GAP_DEVICE_INFO_EVENT:
         {
             // Add device to list
-            centralAddDeviceInfo(pEvent->deviceInfo.addr, pEvent->deviceInfo.addrType);
+            //centralAddDeviceInfo(pEvent->deviceInfo.addr, pEvent->deviceInfo.addrType);
+            //处理扫描到的设备，新增输出设备名字
+            mycentralAddDeviceInfo(
+                pEvent->deviceInfo.addr,
+                pEvent->deviceInfo.addrType,
+                pEvent->deviceInfo.pEvtData,
+                pEvent->deviceInfo.dataLen
+            );
         }
         break;
 
@@ -950,6 +961,64 @@ static void centralAddDeviceInfo(uint8_t *pAddr, uint8_t addrType)
               centralDevList[centralScanRes - 1].addr[3],
               centralDevList[centralScanRes - 1].addr[4],
               centralDevList[centralScanRes - 1].addr[5]);
+    }
+}
+
+static void mycentralAddDeviceInfo(uint8_t *pAddr, uint8_t addrType, uint8_t *pAdvData, uint8_t dataLen)
+{
+    uint8_t i;
+
+    // If result count not at max
+    if (centralScanRes < DEFAULT_MAX_SCAN_RES)
+    {
+        // Check if device is already in scan results
+        for (i = 0; i < centralScanRes; i++)
+        {
+            if (tmos_memcmp(pAddr, centralDevList[i].addr, B_ADDR_LEN))
+            {
+                return;
+            }
+        }
+
+        // Add addr to scan result list
+        tmos_memcpy(centralDevList[centralScanRes].addr, pAddr, B_ADDR_LEN);
+        centralDevList[centralScanRes].addrType = addrType;
+
+        // Extract name from advData (if available)
+        char name[32] = "(unknown)";
+        if (pAdvData != NULL && dataLen > 0)
+        {
+            uint8_t idx = 0;
+            while (idx + 1 < dataLen)
+            {
+                uint8_t len = pAdvData[idx];
+                if (len == 0 || idx + len >= dataLen)
+                    break;
+
+                uint8_t type = pAdvData[idx + 1];
+
+                if ((type == 0x08 || type == 0x09) && len > 1) // short or complete local name
+                {
+                    uint8_t nameLen = len - 1;
+                    if (nameLen > 31)
+                        nameLen = 31;
+                    tmos_memcpy(name, &pAdvData[idx + 2], nameLen);
+                    name[nameLen] = '\0';
+                    break;
+                }
+                idx += (len + 1);
+            }
+        }
+
+        // Increment scan result count
+        centralScanRes++;
+
+        // Display device addr and name
+//        if(name[0]=='c'&&name[1]=='H'&&name[2]=='5'&&name[3]=='8'&&name[4]=='2'&&name[5]=='F'){
+//            char
+//        }
+        PRINT("Device %d - Addr %02X:%02X:%02X:%02X:%02X:%02X Name: %s\n", centralScanRes,
+              pAddr[5], pAddr[4], pAddr[3], pAddr[2], pAddr[1], pAddr[0], name);
     }
 }
 

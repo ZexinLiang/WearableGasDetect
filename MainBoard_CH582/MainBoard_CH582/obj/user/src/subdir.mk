@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../user/src/central.c \
+../user/src/control.c \
 ../user/src/main.c 
 
 OBJS += \
 ./user/src/central.o \
+./user/src/control.o \
 ./user/src/main.o 
 
 C_DEPS += \
 ./user/src/central.d \
+./user/src/control.d \
 ./user/src/main.d 
 
 

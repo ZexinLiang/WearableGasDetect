@@ -54,7 +54,7 @@ all: MainBoard_CH582.elf secondary-outputs
 
 # 工具调用
 MainBoard_CH582.elf: $(OBJS) $(USER_OBJS)
-	@	@	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common  -g -T "../Ld/Link.ld" -nostartfiles -Xlinker --gc-sections -L"../" -L"C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB" -L"../StdPeriphDriver" -Xlinker --print-memory-usage -Wl,-Map,"MainBoard_CH582.map" --specs=nano.specs --specs=nosys.specs -o "MainBoard_CH582.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@	@	riscv-none-embed-gcc -march=rv32imac -mabi=ilp32 -mcmodel=medany -msmall-data-limit=8 -mno-save-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common  -g -T "../Ld/Link.ld" -nostartfiles -Xlinker --gc-sections -L"../" -L"C:\Users\86135\Desktop\WearableGasDetect\MainBoard_CH582\MainBoard_CH582\LIB" -L"../StdPeriphDriver" -Xlinker --print-memory-usage -Wl,-Map,"MainBoard_CH582.map" --specs=nano.specs -u _printf_float --specs=nosys.specs -o "MainBoard_CH582.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@	@
 MainBoard_CH582.hex: MainBoard_CH582.elf
 	@	riscv-none-embed-objcopy -O ihex "MainBoard_CH582.elf"  "MainBoard_CH582.hex"
