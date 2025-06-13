@@ -35,7 +35,7 @@ const uint8_t MacAddr[6] = {0x84, 0xC2, 0xE4, 0x03, 0x02, 0x02};
  */
 int main()
 {
-    PWR_DCDCCfg(ENABLE);//启动DC-DC低功耗
+    //PWR_DCDCCfg(ENABLE);//启动DC-DC低功耗
     SetSysClock(CLK_SOURCE_PLL_60MHz);//配置系统时钟
 
     GPIOA_SetBits(bTXD1);//PA9  配置串口1

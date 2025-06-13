@@ -22,5 +22,6 @@ void BLEDataTransfer(gattMsgEvent_t *pMsg){
             break;
     }
     UART1_SendString(fbMsg, j);
+    UART0_SendString(fbMsg, j);
 }
 

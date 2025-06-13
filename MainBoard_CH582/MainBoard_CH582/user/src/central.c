@@ -37,13 +37,13 @@
 #define DEFAULT_SCAN_DURATION               2400
 
 // Connection min interval in 1.25ms
-#define DEFAULT_MIN_CONNECTION_INTERVAL     20
+#define DEFAULT_MIN_CONNECTION_INTERVAL     6//20
 
 // Connection max interval in 1.25ms
-#define DEFAULT_MAX_CONNECTION_INTERVAL     100
+#define DEFAULT_MAX_CONNECTION_INTERVAL     12//100
 
 // Connection supervision timeout in 10ms
-#define DEFAULT_CONNECTION_TIMEOUT          100
+#define DEFAULT_CONNECTION_TIMEOUT          200//100
 
 // Discovey mode (limited, general, all)
 #define DEFAULT_DISCOVERY_MODE              DEVDISC_MODE_ALL
