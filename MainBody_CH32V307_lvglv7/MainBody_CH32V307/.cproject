@@ -102,7 +102,7 @@
 									<listOptionValue builtIn="false" value="m"/>
 								</option>
 								<option id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printfloat.1366871723" name="Use wchprintfloat(-lprintfloat)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printfloat" useByScannerDiscovery="false" value="true" valueType="boolean"/>
-								<option id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printf.739397731" name="Use wchprintf(-lprintf)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printf" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printf.739397731" name="Use wchprintf(-lprintf)" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.option.c.linker.printf" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<inputType id="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker.input.1859223768" superClass="ilg.gnumcueclipse.managedbuild.cross.riscv.tool.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

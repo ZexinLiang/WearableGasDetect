@@ -8,7 +8,7 @@ d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv
                               d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o) (__fdlib_version)
 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
                               d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o) (matherr)
-d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                               ./User/m780eg.o (sprintf)
 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
                               ./Gui/lvgl/src/lv_misc/lv_printf.o (__udivdi3)
@@ -34,6 +34,10 @@ d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv
                               ./User/ch582inn.o (__floatsidf)
 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
                               ./User/touch.o (__floatunsidf)
+d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+                              d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o) (__fixdfdi)
+d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
+                              d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o) (__floatdidf)
 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
                               ./User/touch.o (__addsf3)
 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
@@ -6862,14 +6866,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
  .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
  .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
- .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
- .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
- .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
- .text.printf   0x0000000000000000       0x28 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+ .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+ .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+ .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+ .text.putchar  0x0000000000000000       0x1c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+ .text.printf   0x0000000000000000       0x28 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
  .text.snprintf
-                0x0000000000000000       0x2e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
- .text.puts     0x0000000000000000       0x52 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
- .text.putchar  0x0000000000000000       0x1c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+                0x0000000000000000       0x2e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+ .text.puts     0x0000000000000000       0x52 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
  .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
  .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
  .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
@@ -6908,6 +6912,12 @@ Discarded input sections
  .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
  .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
  .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
+ .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+ .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+ .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+ .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
+ .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
+ .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
  .text          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
  .data          0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
  .bss           0x0000000000000000        0x0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
@@ -7297,7 +7307,6 @@ LOAD ./Gui/lvgl/examples/porting/lv_port_indev.o
 LOAD ./Debug/debug.o
 LOAD ./Core/core_riscv.o
 LOAD d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a
-LOAD d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a
 LOAD d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a
 LOAD d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a
 LOAD d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a
@@ -7331,7 +7340,7 @@ END GROUP
                 0x00000000000001c0                . = ALIGN (0x40)
  *fill*         0x00000000000001a4       0x1c 
 
-.text           0x00000000000001c0    0x29d8c
+.text           0x00000000000001c0    0x2a24c
                 0x00000000000001c0                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000000001c0       0x60 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(save-restore.o)
@@ -9085,365 +9094,374 @@ END GROUP
  .text.matherr  0x000000000001de9e        0x4 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-s_matherr.o)
                 0x000000000001de9e                matherr
  .text.printchar
-                0x000000000001dea2       0x4a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+                0x000000000001dea2       0x4a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                 0x000000000001dea2                printchar
- .text.prints   0x000000000001deec       0xe0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+ .text.prints   0x000000000001deec       0xe0 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                 0x000000000001deec                prints
  .text.printInt
-                0x000000000001dfcc       0xf2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+                0x000000000001dfcc       0xf2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                 0x000000000001dfcc                printInt
  .text.printLongLongInt
-                0x000000000001e0be        0x4 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+                0x000000000001e0be      0x120 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                 0x000000000001e0be                printLongLongInt
  .text.printDouble
-                0x000000000001e0c2        0x4 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
-                0x000000000001e0c2                printDouble
- .text.print    0x000000000001e0c6      0x320 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
-                0x000000000001e0c6                print
- .text.sprintf  0x000000000001e3e6       0x28 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
-                0x000000000001e3e6                sprintf
+                0x000000000001e1de      0x100 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+                0x000000000001e1de                printDouble
+ .text.print    0x000000000001e2de      0x358 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+                0x000000000001e2de                print
+ .text.sprintf  0x000000000001e636       0x28 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
+                0x000000000001e636                sprintf
  .text.__udivdi3
-                0x000000000001e40e      0x392 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
-                0x000000000001e40e                __udivdi3
+                0x000000000001e65e      0x392 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_udivdi3.o)
+                0x000000000001e65e                __udivdi3
  .text.__umoddi3
-                0x000000000001e7a0      0x38a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_umoddi3.o)
-                0x000000000001e7a0                __umoddi3
+                0x000000000001e9f0      0x38a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_umoddi3.o)
+                0x000000000001e9f0                __umoddi3
  .text.__adddf3
-                0x000000000001eb2a      0x730 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(adddf3.o)
-                0x000000000001eb2a                __adddf3
+                0x000000000001ed7a      0x730 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(adddf3.o)
+                0x000000000001ed7a                __adddf3
  .text.__divdf3
-                0x000000000001f25a      0x5b4 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
-                0x000000000001f25a                __divdf3
- .text.__gedf2  0x000000000001f80e       0xae d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(gedf2.o)
-                0x000000000001f80e                __gedf2
-                0x000000000001f80e                __gtdf2
- .text.__ledf2  0x000000000001f8bc       0xb6 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(ledf2.o)
-                0x000000000001f8bc                __ledf2
-                0x000000000001f8bc                __ltdf2
+                0x000000000001f4aa      0x5b4 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
+                0x000000000001f4aa                __divdf3
+ .text.__gedf2  0x000000000001fa5e       0xae d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(gedf2.o)
+                0x000000000001fa5e                __gedf2
+                0x000000000001fa5e                __gtdf2
+ .text.__ledf2  0x000000000001fb0c       0xb6 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(ledf2.o)
+                0x000000000001fb0c                __ledf2
+                0x000000000001fb0c                __ltdf2
  .text.__muldf3
-                0x000000000001f972      0x4b8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
-                0x000000000001f972                __muldf3
+                0x000000000001fbc2      0x4b8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
+                0x000000000001fbc2                __muldf3
  .text.__subdf3
-                0x000000000001fe2a      0x73e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subdf3.o)
-                0x000000000001fe2a                __subdf3
+                0x000000000002007a      0x73e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subdf3.o)
+                0x000000000002007a                __subdf3
  .text.__unorddf2
-                0x0000000000020568       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(unorddf2.o)
-                0x0000000000020568                __unorddf2
+                0x00000000000207b8       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(unorddf2.o)
+                0x00000000000207b8                __unorddf2
  .text.__fixunsdfsi
-                0x00000000000205a4       0x5c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunsdfsi.o)
-                0x00000000000205a4                __fixunsdfsi
+                0x00000000000207f4       0x5c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunsdfsi.o)
+                0x00000000000207f4                __fixunsdfsi
  .text.__floatsidf
-                0x0000000000020600       0x72 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsidf.o)
-                0x0000000000020600                __floatsidf
+                0x0000000000020850       0x72 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsidf.o)
+                0x0000000000020850                __floatsidf
  .text.__floatunsidf
-                0x0000000000020672       0x68 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
-                0x0000000000020672                __floatunsidf
+                0x00000000000208c2       0x68 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
+                0x00000000000208c2                __floatunsidf
+ .text.__fixdfdi
+                0x000000000002092a       0xbc d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+                0x000000000002092a                __fixdfdi
+ .text.__floatdidf
+                0x00000000000209e6      0x1b6 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
+                0x00000000000209e6                __floatdidf
  .text.__addsf3
-                0x00000000000206da      0x36a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
-                0x00000000000206da                __addsf3
+                0x0000000000020b9c      0x36a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
+                0x0000000000020b9c                __addsf3
  .text.__divsf3
-                0x0000000000020a44      0x2b2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
-                0x0000000000020a44                __divsf3
+                0x0000000000020f06      0x2b2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
+                0x0000000000020f06                __divsf3
  .text.__mulsf3
-                0x0000000000020cf6      0x294 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
-                0x0000000000020cf6                __mulsf3
+                0x00000000000211b8      0x294 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
+                0x00000000000211b8                __mulsf3
  .text.__subsf3
-                0x0000000000020f8a      0x388 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
-                0x0000000000020f8a                __subsf3
+                0x000000000002144c      0x388 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
+                0x000000000002144c                __subsf3
  .text.__fixsfsi
-                0x0000000000021312       0x62 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
-                0x0000000000021312                __fixsfsi
+                0x00000000000217d4       0x62 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
+                0x00000000000217d4                __fixsfsi
  .text.__fixunssfsi
-                0x0000000000021374       0x56 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
-                0x0000000000021374                __fixunssfsi
+                0x0000000000021836       0x56 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
+                0x0000000000021836                __fixunssfsi
  .text.__floatsisf
-                0x00000000000213ca       0xc6 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
-                0x00000000000213ca                __floatsisf
+                0x000000000002188c       0xc6 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
+                0x000000000002188c                __floatsisf
  .text.__floatunsisf
-                0x0000000000021490       0xce d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
-                0x0000000000021490                __floatunsisf
+                0x0000000000021952       0xce d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
+                0x0000000000021952                __floatunsisf
  .text.__extendsfdf2
-                0x000000000002155e       0xac d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
-                0x000000000002155e                __extendsfdf2
+                0x0000000000021a20       0xac d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
+                0x0000000000021a20                __extendsfdf2
  .text.__truncdfsf2
-                0x000000000002160a      0x16a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(truncdfsf2.o)
-                0x000000000002160a                __truncdfsf2
+                0x0000000000021acc      0x16a d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(truncdfsf2.o)
+                0x0000000000021acc                __truncdfsf2
  .text.__clzsi2
-                0x0000000000021774       0x6e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
-                0x0000000000021774                __clzsi2
- .text.__errno  0x00000000000217e2        0x8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
-                0x00000000000217e2                __errno
- .text.memcmp   0x00000000000217ea       0x24 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
-                0x00000000000217ea                memcmp
- .text.memcpy   0x000000000002180e       0xb2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
-                0x000000000002180e                memcpy
- .text.strcpy   0x00000000000218c0       0x10 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
-                0x00000000000218c0                strcpy
- .text.strlen   0x00000000000218d0       0x12 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)
-                0x00000000000218d0                strlen
+                0x0000000000021c36       0x6e d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
+                0x0000000000021c36                __clzsi2
+ .text.__errno  0x0000000000021ca4        0x8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
+                0x0000000000021ca4                __errno
+ .text.memcmp   0x0000000000021cac       0x24 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
+                0x0000000000021cac                memcmp
+ .text.memcpy   0x0000000000021cd0       0xb2 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
+                0x0000000000021cd0                memcpy
+ .text.strcpy   0x0000000000021d82       0x10 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
+                0x0000000000021d82                strcpy
+ .text.strlen   0x0000000000021d92       0x12 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)
+                0x0000000000021d92                strlen
  *(.rodata)
- *fill*         0x00000000000218e2        0x2 
- .rodata        0x00000000000218e4       0x10 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
- .rodata        0x00000000000218f4       0x10 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+ .rodata        0x0000000000021da4       0x10 ./Gui/lvgl/src/lv_draw/lv_img_buf.o
+ .rodata        0x0000000000021db4       0x10 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
  *(.rodata*)
- *fill*         0x0000000000021904        0x4 
+ *fill*         0x0000000000021dc4        0x4 
  .rodata.UART5_IRQHandler.cst8
-                0x0000000000021908       0x10 ./User/ch582inn.o
+                0x0000000000021dc8       0x10 ./User/ch582inn.o
  .rodata.asc2_1206
-                0x0000000000021918      0x474 ./User/lcd.o
-                0x0000000000021918                asc2_1206
+                0x0000000000021dd8      0x474 ./User/lcd.o
+                0x0000000000021dd8                asc2_1206
  .rodata.asc2_1608
-                0x0000000000021d8c      0x5f0 ./User/lcd.o
-                0x0000000000021d8c                asc2_1608
+                0x000000000002224c      0x5f0 ./User/lcd.o
+                0x000000000002224c                asc2_1608
  .rodata.asc2_2412
-                0x000000000002237c      0xd5c ./User/lcd.o
-                0x000000000002237c                asc2_2412
+                0x000000000002283c      0xd5c ./User/lcd.o
+                0x000000000002283c                asc2_2412
  .rodata.m780EGUpload
-                0x00000000000230d8       0x1c ./User/m780eg.o
+                0x0000000000023598       0x1c ./User/m780eg.o
  .rodata.m780EGUpload.str1.4
-                0x00000000000230f4       0x70 ./User/m780eg.o
+                0x00000000000235b4       0x70 ./User/m780eg.o
  .rodata.main.str1.4
-                0x0000000000023164        0x8 ./User/main.o
+                0x0000000000023624        0x8 ./User/main.o
  .rodata.getVolInPercent.cst4
-                0x000000000002316c        0x8 ./User/powerManage.o
+                0x000000000002362c        0x8 ./User/powerManage.o
  .rodata.TP_Adj_Info_Show.str1.4
-                0x0000000000023174       0x28 ./User/touch.o
+                0x0000000000023634       0x28 ./User/touch.o
  .rodata.TP_Adjust.cst4
-                0x000000000002319c        0x4 ./User/touch.o
+                0x000000000002365c        0x4 ./User/touch.o
                                           0x8 (size before relaxing)
  .rodata.TP_Adjust.cst8
-                0x00000000000231a0       0x10 ./User/touch.o
+                0x0000000000023660       0x10 ./User/touch.o
  .rodata.TP_Adjust.str1.4
-                0x00000000000231b0       0xac ./User/touch.o
- .rodata.cmaps  0x000000000002325c       0x3c ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+                0x0000000000023670       0xac ./User/touch.o
+ .rodata.cmaps  0x000000000002371c       0x3c ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .rodata.glyph_bitmap
-                0x0000000000023298     0x19f7 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
- *fill*         0x0000000000024c8f        0x1 
+                0x0000000000023758     0x19f7 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+ *fill*         0x000000000002514f        0x1 
  .rodata.glyph_dsc
-                0x0000000000024c90      0x4d8 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+                0x0000000000025150      0x4d8 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .rodata.kern_class_values
-                0x0000000000025168      0xb40 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+                0x0000000000025628      0xb40 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .rodata.kern_classes
-                0x0000000000025ca8       0x10 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+                0x0000000000026168       0x10 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .rodata.kern_left_class_mapping
-                0x0000000000025cb8       0x9b ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
- *fill*         0x0000000000025d53        0x1 
+                0x0000000000026178       0x9b ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+ *fill*         0x0000000000026213        0x1 
  .rodata.kern_right_class_mapping
-                0x0000000000025d54       0x9b ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
- *fill*         0x0000000000025def        0x1 
+                0x0000000000026214       0x9b ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+ *fill*         0x00000000000262af        0x1 
  .rodata.unicode_list_2
-                0x0000000000025df0       0x78 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
+                0x00000000000262b0       0x78 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o
  .rodata.setup_scr_screen_1.str1.4
-                0x0000000000025e68       0x19 ./Gui/my_design/generated/setup_scr_screen_1.o
- *fill*         0x0000000000025e81        0x3 
+                0x0000000000026328       0x19 ./Gui/my_design/generated/setup_scr_screen_1.o
+ *fill*         0x0000000000026341        0x3 
  .rodata.setup_scr_screen_2.str1.4
-                0x0000000000025e84       0x22 ./Gui/my_design/generated/setup_scr_screen_2.o
- *fill*         0x0000000000025ea6        0x2 
+                0x0000000000026344       0x22 ./Gui/my_design/generated/setup_scr_screen_2.o
+ *fill*         0x0000000000026366        0x2 
  .rodata.lv_btnmatrix_set_map.str1.4
-                0x0000000000025ea8       0x22 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- *fill*         0x0000000000025eca        0x2 
+                0x0000000000026368       0x22 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ *fill*         0x000000000002638a        0x2 
  .rodata.lv_btnmatrix_signal.str1.4
-                0x0000000000025ecc        0xd ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
- *fill*         0x0000000000025ed9        0x3 
+                0x000000000002638c        0xd ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+ *fill*         0x0000000000026399        0x3 
  .rodata.str1.4
-                0x0000000000025edc       0x25 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
+                0x000000000002639c       0x25 ./Gui/lvgl/src/lv_widgets/lv_btnmatrix.o
                                          0x29 (size before relaxing)
  .rodata.lv_cont_create.str1.4
-                0x0000000000025f01        0xe ./Gui/lvgl/src/lv_widgets/lv_cont.o
+                0x00000000000263c1        0xe ./Gui/lvgl/src/lv_widgets/lv_cont.o
  .rodata.lv_cont_set_layout.str1.4
-                0x0000000000025f01        0xd ./Gui/lvgl/src/lv_widgets/lv_cont.o
- *fill*         0x0000000000025f01        0x3 
+                0x00000000000263c1        0xd ./Gui/lvgl/src/lv_widgets/lv_cont.o
+ *fill*         0x00000000000263c1        0x3 
  .rodata.lv_cont_signal.str1.4
-                0x0000000000025f04        0x8 ./Gui/lvgl/src/lv_widgets/lv_cont.o
+                0x00000000000263c4        0x8 ./Gui/lvgl/src/lv_widgets/lv_cont.o
  .rodata.default_kb_ctrl_lc_map
-                0x0000000000025f0c       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x00000000000263cc       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_ctrl_num_map
-                0x0000000000025f5c       0x22 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
- *fill*         0x0000000000025f7e        0x2 
+                0x000000000002641c       0x22 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+ *fill*         0x000000000002643e        0x2 
  .rodata.default_kb_ctrl_spec_map
-                0x0000000000025f80       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026440       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_ctrl_uc_map
-                0x0000000000025fd0       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026490       0x50 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_map_lc
-                0x0000000000026020       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x00000000000264e0       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_map_num
-                0x00000000000260d0       0x54 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026590       0x54 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_map_spec
-                0x0000000000026124       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x00000000000265e4       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.default_kb_map_uc
-                0x00000000000261d4       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026694       0xb0 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.lv_keyboard_create.str1.4
-                0x0000000000026284        0xe ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026744        0xe ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.lv_keyboard_def_event_cb.str1.4
-                0x0000000000026284       0x30 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026744       0x30 ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.lv_keyboard_set_textarea.str1.4
-                0x00000000000262b4        0xd ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026774        0xd ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.lv_keyboard_signal.str1.4
-                0x00000000000262b4        0xc ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026774        0xc ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
  .rodata.str1.4
-                0x00000000000262c0      0x14e ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
+                0x0000000000026780      0x14e ./Gui/lvgl/src/lv_widgets/lv_keyboard.o
                                         0x16e (size before relaxing)
- *fill*         0x000000000002640e        0x2 
+ *fill*         0x00000000000268ce        0x2 
  .rodata.lv_label_create.str1.4
-                0x0000000000026410        0x5 ./Gui/lvgl/src/lv_widgets/lv_label.o
+                0x00000000000268d0        0x5 ./Gui/lvgl/src/lv_widgets/lv_label.o
  .rodata.lv_label_set_align.str1.4
-                0x0000000000026415        0xd ./Gui/lvgl/src/lv_widgets/lv_label.o
+                0x00000000000268d5        0xd ./Gui/lvgl/src/lv_widgets/lv_label.o
  .rodata.lv_label_set_text.str1.4
-                0x0000000000026415        0xe ./Gui/lvgl/src/lv_widgets/lv_label.o
- *fill*         0x0000000000026415        0x3 
+                0x00000000000268d5        0xe ./Gui/lvgl/src/lv_widgets/lv_label.o
+ *fill*         0x00000000000268d5        0x3 
  .rodata.lv_label_signal.str1.4
-                0x0000000000026418        0x9 ./Gui/lvgl/src/lv_widgets/lv_label.o
+                0x00000000000268d8        0x9 ./Gui/lvgl/src/lv_widgets/lv_label.o
  .rodata.lv_page_set_scrollbar_mode.str1.4
-                0x0000000000026421        0xd ./Gui/lvgl/src/lv_widgets/lv_page.o
+                0x00000000000268e1        0xd ./Gui/lvgl/src/lv_widgets/lv_page.o
  .rodata.lv_textarea_set_placeholder_text.str1.4
-                0x0000000000026421       0x1e ./Gui/lvgl/src/lv_widgets/lv_textarea.o
- *fill*         0x0000000000026421        0x3 
+                0x00000000000268e1       0x1e ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+ *fill*         0x00000000000268e1        0x3 
  .rodata.pwd_char_hider.str1.4
-                0x0000000000026424        0x4 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
+                0x00000000000268e4        0x4 ./Gui/lvgl/src/lv_widgets/lv_textarea.o
                                           0x6 (size before relaxing)
  .rodata.lv_theme_apply
-                0x0000000000026428       0xa0 ./Gui/lvgl/src/lv_themes/lv_theme.o
+                0x00000000000268e8       0xa0 ./Gui/lvgl/src/lv_themes/lv_theme.o
  .rodata.theme_apply
-                0x00000000000264c8       0xa0 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+                0x0000000000026988       0xa0 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
  .rodata.lv_theme_material_init.str1.4
-                0x0000000000026568        0x4 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
+                0x0000000000026a28        0x4 ./Gui/lvgl/src/lv_themes/lv_theme_material.o
  .rodata.lv_anim_start.str1.4
-                0x0000000000026568        0xe ./Gui/lvgl/src/lv_misc/lv_anim.o
+                0x0000000000026a28        0xe ./Gui/lvgl/src/lv_misc/lv_anim.o
  .rodata._lv_area_align
-                0x0000000000026568       0x54 ./Gui/lvgl/src/lv_misc/lv_area.o
+                0x0000000000026a28       0x54 ./Gui/lvgl/src/lv_misc/lv_area.o
  .rodata.lv_fs_drv_register.str1.4
-                0x00000000000265bc        0xe ./Gui/lvgl/src/lv_misc/lv_fs.o
+                0x0000000000026a7c        0xe ./Gui/lvgl/src/lv_misc/lv_fs.o
  .rodata.lv_fs_get_ext.str1.4
-                0x00000000000265bc        0x1 ./Gui/lvgl/src/lv_misc/lv_fs.o
+                0x0000000000026a7c        0x1 ./Gui/lvgl/src/lv_misc/lv_fs.o
  .rodata.sin0_90_table
-                0x00000000000265bc       0xb6 ./Gui/lvgl/src/lv_misc/lv_math.o
- *fill*         0x0000000000026672        0x2 
+                0x0000000000026a7c       0xb6 ./Gui/lvgl/src/lv_misc/lv_math.o
+ *fill*         0x0000000000026b32        0x2 
  .rodata._lv_mem_buf_get.str1.4
-                0x0000000000026674       0x81 ./Gui/lvgl/src/lv_misc/lv_mem.o
+                0x0000000000026b34       0x81 ./Gui/lvgl/src/lv_misc/lv_mem.o
  .rodata.lv_task_create.str1.4
-                0x00000000000266f5        0xe ./Gui/lvgl/src/lv_misc/lv_task.o
- *fill*         0x00000000000266f5        0x3 
+                0x0000000000026bb5        0xe ./Gui/lvgl/src/lv_misc/lv_task.o
+ *fill*         0x0000000000026bb5        0x3 
  .rodata._lv_txt_get_next_line.str1.4
-                0x00000000000266f8        0x8 ./Gui/lvgl/src/lv_misc/lv_txt.o
+                0x0000000000026bb8        0x8 ./Gui/lvgl/src/lv_misc/lv_txt.o
  .rodata._lv_txt_set_text_vfmt.str1.4
-                0x0000000000026700        0xe ./Gui/lvgl/src/lv_misc/lv_txt.o
+                0x0000000000026bc0        0xe ./Gui/lvgl/src/lv_misc/lv_txt.o
  .rodata.lv_disp_drv_register.str1.4
-                0x0000000000026700        0xe ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
+                0x0000000000026bc0        0xe ./Gui/lvgl/src/lv_hal/lv_hal_disp.o
  .rodata.lv_indev_drv_register.str1.4
-                0x0000000000026700        0xe ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
+                0x0000000000026bc0        0xe ./Gui/lvgl/src/lv_hal/lv_hal_indev.o
  .rodata.get_bits
-                0x0000000000026700       0x20 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+                0x0000000000026bc0       0x20 ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
  .rodata.lv_font_get_bitmap_fmt_txt.str1.4
-                0x0000000000026720        0xe ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
- .rodata.cmaps  0x0000000000026720       0x28 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+                0x0000000000026be0        0xe ./Gui/lvgl/src/lv_font/lv_font_fmt_txt.o
+ .rodata.cmaps  0x0000000000026be0       0x28 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
  .rodata.glyph_dsc
-                0x0000000000026748      0x4d8 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+                0x0000000000026c08      0x4d8 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
  .rodata.gylph_bitmap
-                0x0000000000026c20     0x219a ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- *fill*         0x0000000000028dba        0x2 
+                0x00000000000270e0     0x219a ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ *fill*         0x000000000002927a        0x2 
  .rodata.kern_class_values
-                0x0000000000028dbc      0xbad ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- *fill*         0x0000000000029969        0x3 
+                0x000000000002927c      0xbad ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ *fill*         0x0000000000029e29        0x3 
  .rodata.kern_classes
-                0x000000000002996c       0x10 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+                0x0000000000029e2c       0x10 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
  .rodata.kern_left_class_mapping
-                0x000000000002997c       0x9b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- *fill*         0x0000000000029a17        0x1 
+                0x0000000000029e3c       0x9b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ *fill*         0x0000000000029ed7        0x1 
  .rodata.kern_right_class_mapping
-                0x0000000000029a18       0x9b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- *fill*         0x0000000000029ab3        0x1 
+                0x0000000000029ed8       0x9b ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ *fill*         0x0000000000029f73        0x1 
  .rodata.unicode_list_1
-                0x0000000000029ab4       0x76 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
- *fill*         0x0000000000029b2a        0x2 
+                0x0000000000029f74       0x76 ./Gui/lvgl/src/lv_font/lv_font_montserrat_14.o
+ *fill*         0x0000000000029fea        0x2 
  .rodata.CSWTCH.14
-                0x0000000000029b2c        0xb ./Gui/lvgl/src/lv_draw/lv_draw_img.o
- *fill*         0x0000000000029b37        0x1 
+                0x0000000000029fec        0xb ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+ *fill*         0x0000000000029ff7        0x1 
  .rodata.lv_draw_img.str1.4
-                0x0000000000029b38        0x8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
+                0x0000000000029ff8        0x8 ./Gui/lvgl/src/lv_draw/lv_draw_img.o
  .rodata._lv_bpp4_opa_table
-                0x0000000000029b40       0x10 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
-                0x0000000000029b40                _lv_bpp4_opa_table
+                0x000000000002a000       0x10 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+                0x000000000002a000                _lv_bpp4_opa_table
  .rodata._lv_bpp8_opa_table
-                0x0000000000029b50      0x100 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
-                0x0000000000029b50                _lv_bpp8_opa_table
+                0x000000000002a010      0x100 ./Gui/lvgl/src/lv_draw/lv_draw_label.o
+                0x000000000002a010                _lv_bpp8_opa_table
  .rodata.wcorr.6910
-                0x0000000000029c50       0x21 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
+                0x000000000002a110       0x21 ./Gui/lvgl/src/lv_draw/lv_draw_line.o
  .rodata.lv_img_cache_set_size.str1.4
-                0x0000000000029c71        0xe ./Gui/lvgl/src/lv_draw/lv_img_cache.o
- *fill*         0x0000000000029c71        0x3 
+                0x000000000002a131        0xe ./Gui/lvgl/src/lv_draw/lv_img_cache.o
+ *fill*         0x000000000002a131        0x3 
  .rodata.lv_img_decoder_built_in_info.str1.4
-                0x0000000000029c74        0x4 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+                0x000000000002a134        0x4 ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
  .rodata.lv_img_decoder_built_in_open.str1.4
-                0x0000000000029c78        0xe ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
+                0x000000000002a138        0xe ./Gui/lvgl/src/lv_draw/lv_img_decoder.o
  .rodata.lv_scr_load_anim
-                0x0000000000029c78       0x28 ./Gui/lvgl/src/lv_core/lv_disp.o
+                0x000000000002a138       0x28 ./Gui/lvgl/src/lv_core/lv_disp.o
  .rodata.lv_group_create.str1.4
-                0x0000000000029ca0        0xe ./Gui/lvgl/src/lv_core/lv_group.o
+                0x000000000002a160        0xe ./Gui/lvgl/src/lv_core/lv_group.o
  .rodata.obj_align_mid_core
-                0x0000000000029ca0       0x54 ./Gui/lvgl/src/lv_core/lv_obj.o
+                0x000000000002a160       0x54 ./Gui/lvgl/src/lv_core/lv_obj.o
  .rodata.lv_obj_create.str1.4
-                0x0000000000029cf4        0xe ./Gui/lvgl/src/lv_core/lv_obj.o
+                0x000000000002a1b4        0xe ./Gui/lvgl/src/lv_core/lv_obj.o
  .rodata.lv_obj_set_click.part.6.str1.4
-                0x0000000000029cf4        0xd ./Gui/lvgl/src/lv_core/lv_obj.o
+                0x000000000002a1b4        0xd ./Gui/lvgl/src/lv_core/lv_obj.o
  .rodata.lv_obj_signal.str1.4
-                0x0000000000029cf4        0x7 ./Gui/lvgl/src/lv_core/lv_obj.o
+                0x000000000002a1b4        0x7 ./Gui/lvgl/src/lv_core/lv_obj.o
  .rodata._lv_style_list_remove_style.str1.4
-                0x0000000000029cfb        0xe ./Gui/lvgl/src/lv_core/lv_style.o
- *fill*         0x0000000000029cfb        0x1 
+                0x000000000002a1bb        0xe ./Gui/lvgl/src/lv_core/lv_style.o
+ *fill*         0x000000000002a1bb        0x1 
  .rodata.sqrt.str1.4
-                0x0000000000029cfc        0x5 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o)
- *fill*         0x0000000000029d01        0x3 
+                0x000000000002a1bc        0x5 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libm.a(lib_a-w_sqrt.o)
+ *fill*         0x000000000002a1c1        0x3 
  .rodata.print.str1.4
-                0x0000000000029d04        0x8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+                0x000000000002a1c4        0x8 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
                                           0x7 (size before relaxing)
  .rodata.__divdf3
-                0x0000000000029d0c       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
+                0x000000000002a1cc       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divdf3.o)
  .rodata.__muldf3
-                0x0000000000029d4c       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
+                0x000000000002a20c       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(muldf3.o)
  .rodata.__divsf3
-                0x0000000000029d8c       0x80 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
+                0x000000000002a24c       0x80 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
  .rodata.__mulsf3
-                0x0000000000029e0c       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
+                0x000000000002a2cc       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
  .rodata.__clz_tab
-                0x0000000000029e4c      0x100 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clz.o)
-                0x0000000000029e4c                __clz_tab
+                0x000000000002a30c      0x100 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clz.o)
+                0x000000000002a30c                __clz_tab
  *(.gnu.linkonce.t.*)
-                0x0000000000029f4c                . = ALIGN (0x4)
+                0x000000000002a40c                . = ALIGN (0x4)
 
-.rela.dyn       0x0000000000029f4c        0x0
- .rela.init     0x0000000000029f4c        0x0 ./User/buzzer.o
- .rela.vector   0x0000000000029f4c        0x0 ./User/buzzer.o
+.rela.dyn       0x000000000002a40c        0x0
+ .rela.init     0x000000000002a40c        0x0 ./User/buzzer.o
+ .rela.vector   0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.text.handle_reset
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.text.prints
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.text.printInt
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
+ .rela.text.printLongLongInt
+                0x000000000002a40c        0x0 ./User/buzzer.o
+ .rela.text.printDouble
+                0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.text.print
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.text.sprintf
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
  .rela.data.impure_data
-                0x0000000000029f4c        0x0 ./User/buzzer.o
+                0x000000000002a40c        0x0 ./User/buzzer.o
 
-.fini           0x0000000000029f4c        0x0
+.fini           0x000000000002a40c        0x0
  *(SORT_NONE(.fini))
-                0x0000000000029f4c                . = ALIGN (0x4)
+                0x000000000002a40c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_etext = .)
                 [!provide]                        PROVIDE (_eitcm = .)
 
-.preinit_array  0x0000000000029f4c        0x0
+.preinit_array  0x000000000002a40c        0x0
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000000029f4c        0x0
+.init_array     0x000000000002a40c        0x0
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.init_array.*) SORT_BY_INIT_PRIORITY(.ctors.*))
  *(.init_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .ctors)
                 [!provide]                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0000000000029f4c        0x0
+.fini_array     0x000000000002a40c        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_INIT_PRIORITY(.fini_array.*) SORT_BY_INIT_PRIORITY(.dtors.*))
  *(.fini_array EXCLUDE_FILE(*crtend?.o *crtend.o *crtbegin?.o *crtbegin.o) .dtors)
@@ -9463,15 +9481,15 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
 
-.dalign         0x0000000020000000        0x0 load address 0x0000000000029f4c
+.dalign         0x0000000020000000        0x0 load address 0x000000000002a40c
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                PROVIDE (_data_vma = .)
 
-.dlalign        0x0000000000029f4c        0x0
-                0x0000000000029f4c                . = ALIGN (0x4)
-                0x0000000000029f4c                PROVIDE (_data_lma = .)
+.dlalign        0x000000000002a40c        0x0
+                0x000000000002a40c                . = ALIGN (0x4)
+                0x000000000002a40c                PROVIDE (_data_lma = .)
 
-.data           0x0000000020000000      0x1e8 load address 0x0000000000029f4c
+.data           0x0000000020000000      0x1e8 load address 0x000000000002a40c
  *(.gnu.linkonce.r.*)
  *(.data .data.*)
  .data.AHBPrescTable
@@ -9598,7 +9616,7 @@ END GROUP
  *fill*         0x00000000200001e6        0x2 
                 0x00000000200001e8                PROVIDE (_edata = .)
 
-.bss            0x00000000200001e8     0x996c load address 0x000000000002a134
+.bss            0x00000000200001e8     0x996c load address 0x000000000002a5f4
                 0x00000000200001e8                . = ALIGN (0x4)
                 0x00000000200001e8                PROVIDE (_sbss = .)
  *(.sbss*)
@@ -10569,9 +10587,9 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .comment       0x0000000000000033       0x34 ./Gui/lvgl/examples/porting/lv_port_disp.o
  .comment       0x0000000000000033       0x34 ./Gui/lvgl/examples/porting/lv_port_indev.o
  .comment       0x0000000000000033       0x34 ./Debug/debug.o
- .comment       0x0000000000000033       0x34 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintf.a(wchprintf.o)
+ .comment       0x0000000000000033       0x34 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libprintfloat.a(printfloat.o)
 
-.debug_frame    0x0000000000000000     0x8ad8
+.debug_frame    0x0000000000000000     0x8b38
  .debug_frame   0x0000000000000000       0x38 ./User/buzzer.o
  .debug_frame   0x0000000000000038       0x30 ./User/ch32v30x_it.o
  .debug_frame   0x0000000000000068       0x78 ./User/ch582inn.o
@@ -10652,19 +10670,21 @@ OUTPUT(MainBody_CH32V307.elf elf32-littleriscv)
  .debug_frame   0x0000000000008758       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunsdfsi.o)
  .debug_frame   0x0000000000008778       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsidf.o)
  .debug_frame   0x00000000000087b0       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsidf.o)
- .debug_frame   0x00000000000087e8       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
- .debug_frame   0x0000000000008828       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
- .debug_frame   0x0000000000008878       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
- .debug_frame   0x00000000000088c8       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
- .debug_frame   0x0000000000008904       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
- .debug_frame   0x0000000000008924       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
- .debug_frame   0x0000000000008944       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
- .debug_frame   0x000000000000897c       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
- .debug_frame   0x00000000000089c0       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
- .debug_frame   0x00000000000089f8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(truncdfsf2.o)
- .debug_frame   0x0000000000008a18       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
- .debug_frame   0x0000000000008a38       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000008a58       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
- .debug_frame   0x0000000000008a78       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x0000000000008a98       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
- .debug_frame   0x0000000000008ab8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)
+ .debug_frame   0x00000000000087e8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixdfdi.o)
+ .debug_frame   0x0000000000008808       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatdidf.o)
+ .debug_frame   0x0000000000008848       0x40 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(addsf3.o)
+ .debug_frame   0x0000000000008888       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(divsf3.o)
+ .debug_frame   0x00000000000088d8       0x50 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(mulsf3.o)
+ .debug_frame   0x0000000000008928       0x3c d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(subsf3.o)
+ .debug_frame   0x0000000000008964       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixsfsi.o)
+ .debug_frame   0x0000000000008984       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(fixunssfsi.o)
+ .debug_frame   0x00000000000089a4       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatsisf.o)
+ .debug_frame   0x00000000000089dc       0x44 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(floatunsisf.o)
+ .debug_frame   0x0000000000008a20       0x38 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(extendsfdf2.o)
+ .debug_frame   0x0000000000008a58       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(truncdfsf2.o)
+ .debug_frame   0x0000000000008a78       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/rv32imacxw/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000008a98       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000008ab8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcmp.o)
+ .debug_frame   0x0000000000008ad8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x0000000000008af8       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strcpy.o)
+ .debug_frame   0x0000000000008b18       0x20 d:/mounriver/mounriver_studio/toolchain/risc-v embedded gcc/bin/../lib/gcc/riscv-none-embed/8.2.0/../../../../riscv-none-embed/lib/rv32imacxw/ilp32\libg_nano.a(lib_a-strlen.o)
