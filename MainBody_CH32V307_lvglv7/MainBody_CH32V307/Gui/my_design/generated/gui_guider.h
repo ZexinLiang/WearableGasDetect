@@ -21,15 +21,19 @@ typedef struct
 	lv_obj_t *screen;
 	bool screen_del;
 	lv_obj_t *g_kb_screen;
-	lv_obj_t *screen_img_1;
 	lv_obj_t *screen_1;
 	bool screen_1_del;
 	lv_obj_t *g_kb_screen_1;
-	lv_obj_t *screen_1_ta_1;
-	lv_obj_t *screen_1_ta_2;
-	lv_obj_t *screen_1_ta_3;
-	lv_obj_t *screen_1_ta_4;
-	lv_obj_t *screen_1_bar_1;
+	lv_obj_t *screen_1_cont_1;
+	lv_obj_t *screen_1_label_1;
+	lv_obj_t *screen_1_img_1;
+	lv_obj_t *screen_2;
+	bool screen_2_del;
+	lv_obj_t *g_kb_screen_2;
+	lv_obj_t *screen_2_cont_1;
+	lv_obj_t *screen_2_label_1;
+	lv_obj_t *screen_2_label_2;
+	lv_obj_t *screen_2_label_3;
 }lv_ui;
 
 void init_scr_del_flag(lv_ui *ui);
@@ -38,7 +42,8 @@ extern lv_ui guider_ui;
 
 void setup_scr_screen(lv_ui *ui);
 void setup_scr_screen_1(lv_ui *ui);
-LV_IMG_DECLARE(_wchlogo_alpha_149x44);
+void setup_scr_screen_2(lv_ui *ui);
+LV_IMG_DECLARE(_wchlogo_alpha_162x41);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
 

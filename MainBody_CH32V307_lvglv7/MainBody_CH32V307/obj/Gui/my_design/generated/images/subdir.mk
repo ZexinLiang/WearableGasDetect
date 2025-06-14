@@ -5,13 +5,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Gui/my_design/generated/images/_wchlogo_alpha_149x44.c 
+../Gui/my_design/generated/images/_wchlogo_alpha_154x38.c \
+../Gui/my_design/generated/images/_wchlogo_alpha_162x41.c 
 
 OBJS += \
-./Gui/my_design/generated/images/_wchlogo_alpha_149x44.o 
+./Gui/my_design/generated/images/_wchlogo_alpha_154x38.o \
+./Gui/my_design/generated/images/_wchlogo_alpha_162x41.o 
 
 C_DEPS += \
-./Gui/my_design/generated/images/_wchlogo_alpha_149x44.d 
+./Gui/my_design/generated/images/_wchlogo_alpha_154x38.d \
+./Gui/my_design/generated/images/_wchlogo_alpha_162x41.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

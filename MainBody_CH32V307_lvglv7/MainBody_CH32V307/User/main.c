@@ -98,8 +98,9 @@ int main(void)
 #endif
 
     while(1){
-        delay_ms(30);
-        lv_tick_inc(30);
+            //lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:");
+        delay_ms(10);
+        lv_tick_inc(10);
         lv_task_handler();
         tp_dev.scan(0);
     }

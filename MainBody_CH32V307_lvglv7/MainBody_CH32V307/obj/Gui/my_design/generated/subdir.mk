@@ -8,19 +8,22 @@ C_SRCS += \
 ../Gui/my_design/generated/events_init.c \
 ../Gui/my_design/generated/gui_guider.c \
 ../Gui/my_design/generated/setup_scr_screen.c \
-../Gui/my_design/generated/setup_scr_screen_1.c 
+../Gui/my_design/generated/setup_scr_screen_1.c \
+../Gui/my_design/generated/setup_scr_screen_2.c 
 
 OBJS += \
 ./Gui/my_design/generated/events_init.o \
 ./Gui/my_design/generated/gui_guider.o \
 ./Gui/my_design/generated/setup_scr_screen.o \
-./Gui/my_design/generated/setup_scr_screen_1.o 
+./Gui/my_design/generated/setup_scr_screen_1.o \
+./Gui/my_design/generated/setup_scr_screen_2.o 
 
 C_DEPS += \
 ./Gui/my_design/generated/events_init.d \
 ./Gui/my_design/generated/gui_guider.d \
 ./Gui/my_design/generated/setup_scr_screen.d \
-./Gui/my_design/generated/setup_scr_screen_1.d 
+./Gui/my_design/generated/setup_scr_screen_1.d \
+./Gui/my_design/generated/setup_scr_screen_2.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

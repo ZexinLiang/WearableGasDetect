@@ -23,7 +23,7 @@ static void kb_event_cb(lv_obj_t * event_kb, lv_event_t event)
 	}
 }
 
-void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
+static void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
 {
 	if (event == LV_EVENT_FOCUSED || event == LV_EVENT_CLICKED)
 	{
@@ -52,25 +52,9 @@ void setup_scr_screen(lv_ui *ui){
 	//Set style for screen. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_main_default;
 	lv_style_reset(&style_screen_main_default);
-	lv_style_set_bg_opa(&style_screen_main_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_bg_opa(&style_screen_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen, LV_OBJ_PART_MAIN, &style_screen_main_default);
 
-
-	//Widget: screen_img_1
-	ui->screen_img_1 = lv_img_create(ui->screen, NULL);
-	lv_obj_set_click(ui->screen_img_1, true);
-	lv_img_set_src(ui->screen_img_1, &_wchlogo_alpha_149x44);
-	lv_img_set_pivot(ui->screen_img_1, 50,50);
-	lv_img_set_angle(ui->screen_img_1, 0);
-	lv_obj_set_pos(ui->screen_img_1, 85.5, 98);
-	lv_obj_set_size(ui->screen_img_1, 149, 44);
-
-	//Set style for screen_img_1. Part: LV_IMG_PART_MAIN, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_img_1_main_default;
-	lv_style_reset(&style_screen_img_1_main_default);
-	lv_style_set_image_opa(&style_screen_img_1_main_default, LV_STATE_DEFAULT, 255);
-	lv_obj_add_style(ui->screen_img_1, LV_IMG_PART_MAIN, &style_screen_img_1_main_default);
 
 
 	//Init events for screen.

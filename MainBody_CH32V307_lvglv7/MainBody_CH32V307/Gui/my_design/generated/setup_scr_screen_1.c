@@ -52,163 +52,71 @@ void setup_scr_screen_1(lv_ui *ui){
 	//Set style for screen_1. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_1_main_default;
 	lv_style_reset(&style_screen_1_main_default);
-	lv_style_set_bg_opa(&style_screen_1_main_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x484848));
+	lv_style_set_bg_opa(&style_screen_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_1, LV_OBJ_PART_MAIN, &style_screen_1_main_default);
 
 
-	//Widget: screen_1_ta_1
-	ui->screen_1_ta_1 = lv_textarea_create(ui->screen_1, NULL);
-	lv_textarea_set_text(ui->screen_1_ta_1, "gas1:");
-	lv_obj_set_event_cb(ui->screen_1_ta_1, text_area_event_cb);
-	lv_obj_set_pos(ui->screen_1_ta_1, 12, 49);
-	lv_obj_set_size(ui->screen_1_ta_1, 136, 25);
+	//Widget: screen_1_cont_1
+	ui->screen_1_cont_1 = lv_cont_create(ui->screen_1, NULL);
+	lv_obj_set_click(ui->screen_1_cont_1, false);
+	lv_cont_set_layout(ui->screen_1_cont_1, LV_LAYOUT_OFF);
+	lv_cont_set_fit(ui->screen_1_cont_1, LV_FIT_NONE);
+	lv_obj_set_pos(ui->screen_1_cont_1, 0, 0);
+	lv_obj_set_size(ui->screen_1_cont_1, 320, 240);
 
-	//Set style for screen_1_ta_1. Part: LV_PAGE_PART_BG, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_1_bg_default;
-	lv_style_reset(&style_screen_1_ta_1_bg_default);
-	lv_style_set_text_color(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-	lv_style_set_text_letter_space(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_width(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_opa(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_border_color(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_pad_top(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_right(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_left(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_radius(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_1_ta_1_bg_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_1, LV_PAGE_PART_BG, &style_screen_1_ta_1_bg_default);
+	//Set style for screen_1_cont_1. Part: LV_CONT_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_1_cont_1_main_default;
+	lv_style_reset(&style_screen_1_cont_1_main_default);
+	lv_style_set_bg_opa(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_border_width(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, 1);
+	lv_style_set_border_opa(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x999999));
+	lv_style_set_radius(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_1_cont_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_1_cont_1, LV_CONT_PART_MAIN, &style_screen_1_cont_1_main_default);
 
-	//Set style for screen_1_ta_1. Part: LV_PAGE_PART_SCROLLABLE, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_1_scrollable_default;
-	lv_style_reset(&style_screen_1_ta_1_scrollable_default);
-	lv_style_set_bg_opa(&style_screen_1_ta_1_scrollable_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_ta_1_scrollable_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_radius(&style_screen_1_ta_1_scrollable_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_1, LV_PAGE_PART_SCROLLABLE, &style_screen_1_ta_1_scrollable_default);
+	//Widget: screen_1_label_1
+	ui->screen_1_label_1 = lv_label_create(ui->screen_1_cont_1, NULL);
+	lv_label_set_text(ui->screen_1_label_1, "WearableGasDetect\nDevice");
+	lv_label_set_align(ui->screen_1_label_1, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_1_label_1, 79, 137);
+	lv_obj_set_width(ui->screen_1_label_1, 162);
 
-
-	//Widget: screen_1_ta_2
-	ui->screen_1_ta_2 = lv_textarea_create(ui->screen_1, NULL);
-	lv_textarea_set_text(ui->screen_1_ta_2, "gas2:");
-	lv_obj_set_event_cb(ui->screen_1_ta_2, text_area_event_cb);
-	lv_obj_set_pos(ui->screen_1_ta_2, 12, 92);
-	lv_obj_set_size(ui->screen_1_ta_2, 136, 25);
-
-	//Set style for screen_1_ta_2. Part: LV_PAGE_PART_BG, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_2_bg_default;
-	lv_style_reset(&style_screen_1_ta_2_bg_default);
-	lv_style_set_text_color(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-	lv_style_set_text_letter_space(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_width(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_opa(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_border_color(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_pad_top(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_right(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_left(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_radius(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_1_ta_2_bg_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_2, LV_PAGE_PART_BG, &style_screen_1_ta_2_bg_default);
-
-	//Set style for screen_1_ta_2. Part: LV_PAGE_PART_SCROLLABLE, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_2_scrollable_default;
-	lv_style_reset(&style_screen_1_ta_2_scrollable_default);
-	lv_style_set_bg_opa(&style_screen_1_ta_2_scrollable_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_ta_2_scrollable_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_radius(&style_screen_1_ta_2_scrollable_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_2, LV_PAGE_PART_SCROLLABLE, &style_screen_1_ta_2_scrollable_default);
+	//Set style for screen_1_label_1. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_1_label_1_main_default;
+	lv_style_reset(&style_screen_1_label_1_main_default);
+	lv_style_set_radius(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_text_font(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_letter_space(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_pad_top(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_1_label_1, LV_LABEL_PART_MAIN, &style_screen_1_label_1_main_default);
 
 
-	//Widget: screen_1_ta_3
-	ui->screen_1_ta_3 = lv_textarea_create(ui->screen_1, NULL);
-	lv_textarea_set_text(ui->screen_1_ta_3, "gas3:");
-	lv_obj_set_event_cb(ui->screen_1_ta_3, text_area_event_cb);
-	lv_obj_set_pos(ui->screen_1_ta_3, 12, 134);
-	lv_obj_set_size(ui->screen_1_ta_3, 136, 25);
+	//Widget: screen_1_img_1
+	ui->screen_1_img_1 = lv_img_create(ui->screen_1_cont_1, NULL);
+	lv_obj_set_click(ui->screen_1_img_1, true);
+	lv_img_set_src(ui->screen_1_img_1, &_wchlogo_alpha_162x41);
+	lv_img_set_pivot(ui->screen_1_img_1, 50,50);
+	lv_img_set_angle(ui->screen_1_img_1, 0);
+	lv_obj_set_pos(ui->screen_1_img_1, 79, 78);
+	lv_obj_set_size(ui->screen_1_img_1, 162, 41);
 
-	//Set style for screen_1_ta_3. Part: LV_PAGE_PART_BG, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_3_bg_default;
-	lv_style_reset(&style_screen_1_ta_3_bg_default);
-	lv_style_set_text_color(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-	lv_style_set_text_letter_space(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_width(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_opa(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_border_color(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_pad_top(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_right(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_left(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_radius(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_1_ta_3_bg_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_3, LV_PAGE_PART_BG, &style_screen_1_ta_3_bg_default);
-
-	//Set style for screen_1_ta_3. Part: LV_PAGE_PART_SCROLLABLE, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_3_scrollable_default;
-	lv_style_reset(&style_screen_1_ta_3_scrollable_default);
-	lv_style_set_bg_opa(&style_screen_1_ta_3_scrollable_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_ta_3_scrollable_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_radius(&style_screen_1_ta_3_scrollable_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_3, LV_PAGE_PART_SCROLLABLE, &style_screen_1_ta_3_scrollable_default);
+	//Set style for screen_1_img_1. Part: LV_IMG_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_1_img_1_main_default;
+	lv_style_reset(&style_screen_1_img_1_main_default);
+	lv_style_set_image_opa(&style_screen_1_img_1_main_default, LV_STATE_DEFAULT, 255);
+	lv_obj_add_style(ui->screen_1_img_1, LV_IMG_PART_MAIN, &style_screen_1_img_1_main_default);
 
 
-	//Widget: screen_1_ta_4
-	ui->screen_1_ta_4 = lv_textarea_create(ui->screen_1, NULL);
-	lv_textarea_set_text(ui->screen_1_ta_4, "gas4:");
-	lv_obj_set_event_cb(ui->screen_1_ta_4, text_area_event_cb);
-	lv_obj_set_pos(ui->screen_1_ta_4, 12, 178);
-	lv_obj_set_size(ui->screen_1_ta_4, 136, 25);
-
-	//Set style for screen_1_ta_4. Part: LV_PAGE_PART_BG, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_4_bg_default;
-	lv_style_reset(&style_screen_1_ta_4_bg_default);
-	lv_style_set_text_color(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-	lv_style_set_text_letter_space(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_width(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 2);
-	lv_style_set_border_opa(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_border_color(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_pad_top(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_right(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_pad_left(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 4);
-	lv_style_set_radius(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_1_ta_4_bg_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_4, LV_PAGE_PART_BG, &style_screen_1_ta_4_bg_default);
-
-	//Set style for screen_1_ta_4. Part: LV_PAGE_PART_SCROLLABLE, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_ta_4_scrollable_default;
-	lv_style_reset(&style_screen_1_ta_4_scrollable_default);
-	lv_style_set_bg_opa(&style_screen_1_ta_4_scrollable_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_ta_4_scrollable_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_radius(&style_screen_1_ta_4_scrollable_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_ta_4, LV_PAGE_PART_SCROLLABLE, &style_screen_1_ta_4_scrollable_default);
-
-
-	//Widget: screen_1_bar_1
-	ui->screen_1_bar_1 = lv_bar_create(ui->screen_1, NULL);
-	lv_bar_set_anim_time(ui->screen_1_bar_1, 1000);
-	lv_bar_set_range(ui->screen_1_bar_1, 0, 100);
-	lv_bar_set_value(ui->screen_1_bar_1, 70, LV_ANIM_OFF);
-	lv_obj_set_pos(ui->screen_1_bar_1, 280, 14);
-	lv_obj_set_size(ui->screen_1_bar_1, 29, 6);
-
-	//Set style for screen_1_bar_1. Part: LV_BAR_PART_BG, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_bar_1_bg_default;
-	lv_style_reset(&style_screen_1_bar_1_bg_default);
-	lv_style_set_bg_opa(&style_screen_1_bar_1_bg_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_bar_1_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
-	lv_style_set_radius(&style_screen_1_bar_1_bg_default, LV_STATE_DEFAULT, 10);
-	lv_style_set_shadow_width(&style_screen_1_bar_1_bg_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen_1_bar_1, LV_BAR_PART_BG, &style_screen_1_bar_1_bg_default);
-
-	//Set style for screen_1_bar_1. Part: LV_BAR_PART_INDIC, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_1_bar_1_indic_default;
-	lv_style_reset(&style_screen_1_bar_1_indic_default);
-	lv_style_set_bg_opa(&style_screen_1_bar_1_indic_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_bar_1_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_radius(&style_screen_1_bar_1_indic_default, LV_STATE_DEFAULT, 10);
-	lv_obj_add_style(ui->screen_1_bar_1, LV_BAR_PART_INDIC, &style_screen_1_bar_1_indic_default);
-
-
+	//Init events for screen.
+	events_init_screen_1(ui);
 }
