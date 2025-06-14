@@ -218,8 +218,8 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_EXT_CLICK_AREA LV_EXT_CLICK_AREA_TINY
 #define LV_USE_ARC 0
 #define LV_USE_BAR 0
-#define LV_USE_BTN 0
-#define LV_USE_BTNMATRIX 0
+#define LV_USE_BTN 1
+#define LV_USE_BTNMATRIX 1
 #define LV_USE_CALENDAR 0
 
 #if LV_USE_CALENDAR
@@ -243,14 +243,14 @@ typedef void * lv_obj_user_data_t;
 #endif /* LV_USE_DROPDOWN */
 
 #define LV_USE_GAUGE 0
-#define LV_USE_IMG 1
+#define LV_USE_IMG 0
 #define LV_USE_IMGBTN 0
 
 #if LV_USE_IMGBTN
 #define LV_IMGBTN_TILED 0
 #endif /* LV_USE_IMGBTN */
 
-#define LV_USE_KEYBOARD 0
+#define LV_USE_KEYBOARD 1
 #define LV_USE_LABEL 1
 
 #if LV_USE_LABEL != 0
@@ -306,7 +306,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_SLIDER 0
 #define LV_USE_SPINBOX 0
 #define LV_USE_SWITCH 0
-#define LV_USE_TEXTAREA 0
+#define LV_USE_TEXTAREA 1
 
 #if LV_USE_TEXTAREA != 0
 #define LV_TEXTAREA_DEF_CURSOR_BLINK_TIME 400

@@ -249,7 +249,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_IMGBTN_TILED 0
 #endif /* LV_USE_IMGBTN */
 
-#define LV_USE_KEYBOARD 0
+#define LV_USE_KEYBOARD 1
 #define LV_USE_LABEL 1
 
 #if LV_USE_LABEL != 0

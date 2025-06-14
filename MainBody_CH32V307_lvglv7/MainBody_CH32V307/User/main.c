@@ -96,9 +96,10 @@ int main(void)
 	GPIO_SetBits(GPIOA,GPIO_Pin_4);
 	GPIO_SetBits(GPIOA,GPIO_Pin_5);
 #endif
-
+	uint8_t cnt = 0;
     while(1){
-            //lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:");
+        cnt ++;
+            lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:%d",cnt);
         delay_ms(10);
         lv_tick_inc(10);
         lv_task_handler();

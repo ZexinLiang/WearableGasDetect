@@ -1,1 +1,1 @@
-GEN_CSRCS += _wchlogo_alpha_162x41.c
+GEN_CSRCS += 
