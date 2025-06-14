@@ -68,6 +68,7 @@ int main(void)
 	lv_port_disp_init();
 	//lv_demo_widgets();
 	lv_port_indev_init();
+	//修改setup_ui并一次性初始化完所有屏幕或者带变量的屏幕
 	setup_ui(&guider_ui);
 	events_init(&guider_ui);
 
@@ -99,7 +100,7 @@ int main(void)
 	uint8_t cnt = 0;
     while(1){
         cnt ++;
-            lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:%d",cnt);
+        lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:%d",cnt);
         delay_ms(10);
         lv_tick_inc(10);
         lv_task_handler();

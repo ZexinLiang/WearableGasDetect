@@ -587,11 +587,216 @@
 					"click": "false",
 					"child": [
 						{
+							"name": "img_1",
+							"id": "bsbie8ic",
+							"type": "img",
+							"left": 89,
+							"top": 80,
+							"visible": true,
+							"width": 142,
+							"height": 35,
+							"default_style": false,
+							"img_path": "C:\\Users\\86135\\Desktop\\WearableGasDetect\\GUIGuiderUI\\WearableGasUI\\UIinGUI\\import\\image\\wchlogo.png",
+							"rotate": 0,
+							"x": 50,
+							"y": 50,
+							"color_format": "true-color-alpha",
+							"style": [
+								{
+									"part": "LV_IMG_PART_MAIN",
+									"state": "LV_STATE_DEFAULT",
+									"desc": "main",
+									"disable": false,
+									"image_recolor": "#ffffff",
+									"image_recolor_opa": 0,
+									"image_opa": 255
+								}
+							],
+							"event": {
+								"clicked": [
+									{
+										"trigger": "clicked",
+										"dst": "screen",
+										"action": {
+											"load_screen": {
+												"ische": true,
+												"duration": 100,
+												"delay": 100,
+												"scrId": "rnvddru3",
+												"anim_type": "LV_SCR_LOAD_ANIM_FADE_ON",
+												"is_clean": false,
+												"is_del": true
+											},
+											"bg_color": {
+												"ische": false,
+												"value": "#000000"
+											},
+											"grad_color": {
+												"ische": false,
+												"value": "#000000",
+												"dir": "LV_GRAD_DIR_HOR"
+											},
+											"bg_opa": {
+												"ische": false,
+												"value": 255
+											},
+											"opacity": {
+												"ische": false,
+												"value": 255
+											},
+											"bg_img_opa": {
+												"ische": false,
+												"value": 0
+											},
+											"bg_img_recolor": {
+												"ische": false,
+												"value": "#000000"
+											},
+											"bg_img_recolor_opa": {
+												"ische": false,
+												"value": 0
+											},
+											"border_side": {
+												"ische": false,
+												"value": []
+											},
+											"border_width": {
+												"ische": false,
+												"value": 0
+											},
+											"border_opa": {
+												"ische": false,
+												"value": 0
+											},
+											"border_color": {
+												"ische": false,
+												"value": "#000000"
+											},
+											"radius": {
+												"ische": false,
+												"value": 0
+											},
+											"width": {
+												"ische": false,
+												"value": 50
+											},
+											"height": {
+												"ische": false,
+												"value": 50
+											},
+											"set_text": {
+												"ische": false,
+												"value": "default",
+												"font": 12,
+												"font_family": "montserratMedium"
+											},
+											"position": {
+												"ische": false,
+												"value_x": 0,
+												"value_y": 0
+											},
+											"isVisible": {
+												"ische": false,
+												"flag": ""
+											},
+											"customer_code": {
+												"ische": false,
+												"inc_c": "",
+												"code_c": "",
+												"inc_py": "",
+												"code_py": ""
+											},
+											"freemaster": {
+												"ische": false,
+												"variable": "",
+												"address": "",
+												"type": "",
+												"value": "",
+												"isOrigin": false
+											},
+											"add_state": {
+												"ische": false,
+												"value": "LV_STATE_DEFAULT"
+											},
+											"add_flag": {
+												"ische": false,
+												"value": []
+											},
+											"clear_flag": {
+												"ische": false,
+												"value": []
+											},
+											"move": {
+												"ische": false,
+												"value_x": 0,
+												"value_y": 0,
+												"delay": 0,
+												"duration": 1000,
+												"repeat_count": 0,
+												"repeat_delay": 0,
+												"playback_time": 0,
+												"playback_delay": 0,
+												"start_cb": "",
+												"ready_cb": "",
+												"deleted_cb": "",
+												"path_type": "linear"
+											},
+											"scaleSize": {
+												"ische": false,
+												"width": 0,
+												"height": 0,
+												"delay": 0,
+												"duration": 1000,
+												"repeat_count": 0,
+												"repeat_delay": 0,
+												"playback_time": 0,
+												"playback_delay": 0,
+												"start_cb": "",
+												"ready_cb": "",
+												"deleted_cb": "",
+												"path_type": "linear"
+											},
+											"img_zoom": {
+												"ische": false,
+												"zoom": 0,
+												"delay": 0,
+												"duration": 1000,
+												"repeat_count": 0,
+												"repeat_delay": 0,
+												"playback_time": 0,
+												"playback_delay": 0,
+												"start_cb": "",
+												"ready_cb": "",
+												"deleted_cb": "",
+												"path_type": "linear"
+											},
+											"rotate": {
+												"ische": false,
+												"rotate": 0,
+												"x": 0,
+												"y": 0,
+												"delay": 0,
+												"duration": 1000,
+												"repeat_count": 0,
+												"repeat_delay": 0,
+												"playback_time": 0,
+												"playback_delay": 0,
+												"start_cb": "",
+												"ready_cb": "",
+												"deleted_cb": "",
+												"path_type": "linear"
+											}
+										}
+									}
+								]
+							}
+						},
+						{
 							"name": "label_1",
 							"id": "943vxgsl",
 							"type": "label",
 							"left": 79,
-							"top": 101,
+							"top": 130,
 							"visible": true,
 							"width": 162,
 							"default_style": false,
@@ -614,7 +819,7 @@
 									"bg_grad_color": "#ffffff",
 									"bg_main_stop": 0,
 									"bg_grad_stop": 255,
-									"bg_opa": 255,
+									"bg_opa": 0,
 									"bg_grad_dir": "LV_GRAD_DIR_NONE",
 									"padding_top": 0,
 									"padding_right": 0,
@@ -1088,7 +1293,7 @@
 							"left": 29,
 							"top": 100,
 							"visible": true,
-							"width": 100,
+							"width": 200,
 							"default_style": false,
 							"text": "Pressure:",
 							"text_align": "right",
@@ -1101,7 +1306,7 @@
 									"disable": false,
 									"radius": 0,
 									"text_color": "#000000",
-									"font": 12,
+									"font": 17,
 									"font_family": "montserratMedium",
 									"letter_space": 2,
 									"line_space": 0,
@@ -1160,9 +1365,9 @@
 							"left": 29,
 							"top": 66,
 							"visible": true,
-							"width": 100,
+							"width": 200,
 							"default_style": false,
-							"text": "Huminity:",
+							"text": "Humidity:",
 							"text_align": "right",
 							"long_mode": "LV_LABEL_LONG_BREAK",
 							"style": [
@@ -1173,7 +1378,7 @@
 									"disable": false,
 									"radius": 0,
 									"text_color": "#000000",
-									"font": 12,
+									"font": 17,
 									"font_family": "montserratMedium",
 									"letter_space": 2,
 									"line_space": 0,
@@ -1232,9 +1437,9 @@
 							"left": 29,
 							"top": 31,
 							"visible": true,
-							"width": 100,
+							"width": 200,
 							"default_style": false,
-							"text": "Temprature:",
+							"text": "Tempreture:",
 							"text_align": "right",
 							"long_mode": "LV_LABEL_LONG_BREAK",
 							"style": [
@@ -1245,7 +1450,7 @@
 									"disable": false,
 									"radius": 0,
 									"text_color": "#000000",
-									"font": 12,
+									"font": 17,
 									"font_family": "montserratMedium",
 									"letter_space": 2,
 									"line_space": 0,
@@ -1354,7 +1559,7 @@
 		"keyBoard": {
 			"display_kb": true
 		},
-		"default_scr": "screen",
+		"default_scr": "screen_2",
 		"theme": "LV_THEME_MATERIAL_FLAG_LIGHT",
 		"screen": [
 			{
@@ -1474,7 +1679,7 @@
 								"visible": true,
 								"pos": [
 									79,
-									101
+									130
 								],
 								"size": [
 									162,
@@ -1518,7 +1723,7 @@
 										"bg_grad_color": "#ffffff",
 										"bg_main_stop": 0,
 										"bg_grad_stop": 255,
-										"bg_opa": 255,
+										"bg_opa": 0,
 										"bg_grad_dir": "LV_GRAD_DIR_NONE",
 										"padding_top": 0,
 										"padding_right": 0,
@@ -1559,6 +1764,57 @@
 										"shadow_spread": 0,
 										"shadow_ofs_x": 0,
 										"shadow_ofs_y": 0
+									}
+								]
+							},
+							{
+								"name": "screen_1_img_1",
+								"id": "bsbie8ic",
+								"type": "img",
+								"visible": true,
+								"pos": [
+									89,
+									80
+								],
+								"size": [
+									142,
+									35
+								],
+								"default_style": false,
+								"event": {
+									"clicked": [
+										{
+											"src": "screen_1_img_1",
+											"trigger": "clicked",
+											"dst": "screen_2",
+											"dst_type": "scr",
+											"src_type": "img",
+											"src_screen": "screen_1",
+											"action": "load_screen",
+											"duration": 100,
+											"delay": 100,
+											"scrId": "rnvddru3",
+											"anim_type": "LV_SCR_LOAD_ANIM_FADE_ON",
+											"is_clean": false,
+											"is_del": true
+										}
+									]
+								},
+								"img_path": "C:\\Users\\86135\\Desktop\\WearableGasDetect\\GUIGuiderUI\\WearableGasUI\\UIinGUI\\import\\image\\wchlogo.png",
+								"color_format": "true-color-alpha",
+								"rotate": 0,
+								"pivot": "50,50",
+								"img_flash_path": "F:/wchlogo.png",
+								"img_sd_path": "S://wchlogo.png",
+								"style": [
+									{
+										"part": "LV_IMG_PART_MAIN",
+										"state": "LV_STATE_DEFAULT",
+										"desc": "main",
+										"disable": false,
+										"image_recolor": "#ffffff",
+										"image_recolor_opa": 0,
+										"image_opa": 255
 									}
 								]
 							}
@@ -1648,11 +1904,11 @@
 									31
 								],
 								"size": [
-									100,
+									200,
 									null
 								],
 								"default_style": false,
-								"text": "Temprature:",
+								"text": "Tempreture:",
 								"long_mode": "LV_LABEL_LONG_BREAK",
 								"style": [
 									{
@@ -1662,7 +1918,7 @@
 										"disable": false,
 										"radius": 0,
 										"text_color": "#000000",
-										"font": 12,
+										"font": 17,
 										"font_family": "montserratMedium",
 										"letter_space": 2,
 										"line_space": 0,
@@ -1724,11 +1980,11 @@
 									66
 								],
 								"size": [
-									100,
+									200,
 									null
 								],
 								"default_style": false,
-								"text": "Huminity:",
+								"text": "Humidity:",
 								"long_mode": "LV_LABEL_LONG_BREAK",
 								"style": [
 									{
@@ -1738,7 +1994,7 @@
 										"disable": false,
 										"radius": 0,
 										"text_color": "#000000",
-										"font": 12,
+										"font": 17,
 										"font_family": "montserratMedium",
 										"letter_space": 2,
 										"line_space": 0,
@@ -1800,7 +2056,7 @@
 									100
 								],
 								"size": [
-									100,
+									200,
 									null
 								],
 								"default_style": false,
@@ -1814,7 +2070,7 @@
 										"disable": false,
 										"radius": 0,
 										"text_color": "#000000",
-										"font": 12,
+										"font": 17,
 										"font_family": "montserratMedium",
 										"letter_space": 2,
 										"line_space": 0,

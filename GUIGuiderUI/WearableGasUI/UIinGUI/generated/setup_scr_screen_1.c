@@ -80,7 +80,7 @@ void setup_scr_screen_1(lv_ui *ui){
 	ui->screen_1_label_1 = lv_label_create(ui->screen_1_cont_1, NULL);
 	lv_label_set_text(ui->screen_1_label_1, "WearableGasDetect\nDevice");
 	lv_label_set_align(ui->screen_1_label_1, LV_LABEL_ALIGN_CENTER);
-	lv_obj_set_pos(ui->screen_1_label_1, 79, 101);
+	lv_obj_set_pos(ui->screen_1_label_1, 79, 130);
 	lv_obj_set_width(ui->screen_1_label_1, 162);
 
 	//Set style for screen_1_label_1. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -91,14 +91,29 @@ void setup_scr_screen_1(lv_ui *ui){
 	lv_style_set_text_font(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
 	lv_style_set_text_letter_space(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_bg_opa(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_bg_opa(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_top(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_right(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_bottom(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_left(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_shadow_width(&style_screen_1_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_1_label_1, LV_LABEL_PART_MAIN, &style_screen_1_label_1_main_default);
+
+
+	//Widget: screen_1_img_1
+	ui->screen_1_img_1 = lv_img_create(ui->screen_1_cont_1, NULL);
+	lv_obj_set_click(ui->screen_1_img_1, true);
+	lv_img_set_src(ui->screen_1_img_1, &_wchlogo_alpha_142x35);
+	lv_img_set_pivot(ui->screen_1_img_1, 50,50);
+	lv_img_set_angle(ui->screen_1_img_1, 0);
+	lv_obj_set_pos(ui->screen_1_img_1, 89, 80);
+	lv_obj_set_size(ui->screen_1_img_1, 142, 35);
+
+	//Set style for screen_1_img_1. Part: LV_IMG_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_1_img_1_main_default;
+	lv_style_reset(&style_screen_1_img_1_main_default);
+	lv_style_set_image_opa(&style_screen_1_img_1_main_default, LV_STATE_DEFAULT, 255);
+	lv_obj_add_style(ui->screen_1_img_1, LV_IMG_PART_MAIN, &style_screen_1_img_1_main_default);
 
 
 	//Init events for screen.

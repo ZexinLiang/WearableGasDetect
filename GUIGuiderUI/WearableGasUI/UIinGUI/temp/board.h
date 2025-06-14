@@ -243,7 +243,7 @@ typedef void * lv_obj_user_data_t;
 #endif /* LV_USE_DROPDOWN */
 
 #define LV_USE_GAUGE 0
-#define LV_USE_IMG 0
+#define LV_USE_IMG 1
 #define LV_USE_IMGBTN 0
 
 #if LV_USE_IMGBTN
