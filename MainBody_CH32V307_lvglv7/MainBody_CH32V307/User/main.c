@@ -98,13 +98,9 @@ int main(void)
 #endif
 
     while(1){
-//        lv_tick_inc(30);
-//        lv_task_handler();
-//        tp_dev.scan(0);
-
-        delay_ms(500);
-        USART_SendData(USART1, 0x88);
-        USART_SendData(USART2, 0x88);
-
+        delay_ms(30);
+        lv_tick_inc(30);
+        lv_task_handler();
+        tp_dev.scan(0);
     }
 }

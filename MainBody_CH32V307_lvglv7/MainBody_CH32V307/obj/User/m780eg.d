@@ -28,7 +28,7 @@ User/m780eg.o: ../User/m780eg.c ../User/m780eg.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User/ch32v30x_it.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug/debug.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x_misc.h \
- ../User/ch32v30x_conf.h
+ ../User/ch32v30x_conf.h ../User/ch582inn.h
 
 ../User/m780eg.h:
 
@@ -91,3 +91,5 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x_misc.h:
 
 ../User/ch32v30x_conf.h:
+
+../User/ch582inn.h:

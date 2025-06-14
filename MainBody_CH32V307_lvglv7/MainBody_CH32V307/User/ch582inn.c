@@ -9,6 +9,8 @@
 #include "ch582inn.h"
 #include <stdio.h>
 
+DataTab_TypeDef data;
+
 void UART5_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
 #define U5Rx_MAX_LEN 40
@@ -63,13 +65,53 @@ void UART5_DataProcess(uint8_t* data, uint16_t len){
     USART_SendData(UART5, len);
 }
 
+
+uint8_t u5GetFlag = 0;
+uint8_t singleChar = 0;
 void UART5_IRQHandler(void){
     if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET){//接收中断触发
-        if(U5Rx_Len<U5Rx_MAX_LEN){
-            U5Rx_Buff[U5Rx_Len++] = USART_ReceiveData(UART5);
-            USART_SendData(UART5,U5Rx_Buff[U5Rx_Len-1]);
+        singleChar = USART_ReceiveData(UART5);
+        if(singleChar == '$') u5GetFlag = 1;
+        if(u5GetFlag){
+            U5Rx_Buff[U5Rx_Len++] = singleChar;
+            if(singleChar == '*') {
+                u5GetFlag = 0;//结束接收，可以处理数据
+                U5Rx_Len = 0;
+                if(U5Rx_Buff[1]=='t'&&U5Rx_Buff[5]=='1'){
+                    data.temp1 = (U5Rx_Buff[6]-'0')*100+(U5Rx_Buff[7]-'0')*10+(U5Rx_Buff[8]-'0')+
+                                 (U5Rx_Buff[10]-'0')*0.1+(U5Rx_Buff[11]-'0')*0.01;
+                }
+                else if(U5Rx_Buff[2]=='r'&&U5Rx_Buff[5]=='1'){
+                    data.pres1 = (U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0')+
+                                 (U5Rx_Buff[13]-'0')*0.1+(U5Rx_Buff[14]-'0')*0.01;
+                }
+                else if(U5Rx_Buff[1]=='h'&&U5Rx_Buff[5]=='1'){
+                    data.humi1 = (U5Rx_Buff[6]-'0')*100+(U5Rx_Buff[7]-'0')*10+(U5Rx_Buff[8]-'0')+
+                                 (U5Rx_Buff[10]-'0')*0.1+(U5Rx_Buff[11]-'0')*0.01;
+                }
+                else if(U5Rx_Buff[1]=='g'){
+                    data.gasRes =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0')+
+                                 (U5Rx_Buff[13]-'0')*0.1+(U5Rx_Buff[14]-'0')*0.01;
+                }
+                else if(U5Rx_Buff[1]=='h'&&U5Rx_Buff[5]=='2'){
+                    data.humi2 = (U5Rx_Buff[6]-'0')*100+(U5Rx_Buff[7]-'0')*10+(U5Rx_Buff[8]-'0');
+                }
+                else if(U5Rx_Buff[1]=='t'&&U5Rx_Buff[5]=='2'){
+                    data.temp2 = (U5Rx_Buff[6]-'0')*100+(U5Rx_Buff[7]-'0')*10+(U5Rx_Buff[8]-'0');
+                }
+                else if(U5Rx_Buff[1]=='C'){
+                    data.CO2   =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
+                }
+                else if(U5Rx_Buff[2]=='g'&&U5Rx_Buff[5]=='1'){
+                    data.gas1   =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
+                }
+            }
+            //USART_SendData(UART5,U5Rx_Buff[U5Rx_Len-1]);
         } else{
-            USART_ReceiveData(UART5);
             U5Rx_Len = 0;
         }
     }

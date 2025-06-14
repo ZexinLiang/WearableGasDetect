@@ -12,6 +12,17 @@
 #include "ch32v30x_conf.h"
 #include "stdint.h"
 
+typedef struct DataTab{
+    float temp1;
+    float pres1;
+    float humi1;
+    float gasRes;
+    uint8_t humi2;
+    uint8_t temp2;
+    uint16_t CO2;
+    uint16_t gas1;
+}DataTab_TypeDef;
+
 void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str);
 void CH582_Com_Init(void);
 

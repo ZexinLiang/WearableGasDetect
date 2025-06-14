@@ -25,10 +25,10 @@ uint8_t cnt = 0;
 #define maxMsgNum 8
 void BleMsgOutput(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环回传
     switch(cnt%maxMsgNum){
-    case 0 : sprintf(msg,"$temp1%03.2f*",DataTab.temp1);break;
-    case 1 : sprintf(msg,"$pres1%06.2f*",DataTab.pres1);break;
-    case 2 : sprintf(msg,"$humi1%03.2f*",DataTab.humi1);break;
-    case 3 : sprintf(msg,"$gResi%06.2f*",DataTab.gasRes);break;
+    case 0 : sprintf(msg,"$temp1%06.2f*",DataTab.temp1);break;
+    case 1 : sprintf(msg,"$pres1%09.2f*",DataTab.pres1);break;
+    case 2 : sprintf(msg,"$humi1%06.2f*",DataTab.humi1);break;
+    case 3 : sprintf(msg,"$gResi%09.2f*",DataTab.gasRes);break;
     case 4 : sprintf(msg,"$humi2%03d*",DataTab.humi2);break;
     case 5 : sprintf(msg,"$temp2%03d*",DataTab.temp2);break;
     case 6 : sprintf(msg,"$CO2pp%06d*",DataTab.CO2);break;

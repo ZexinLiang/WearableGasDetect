@@ -28,7 +28,7 @@ User/periodicalTask.o: ../User/periodicalTask.c ../User/periodicalTask.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User/ch32v30x_it.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug/debug.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x_misc.h \
- ../User/ch32v30x_conf.h ../User/powerManage.h
+ ../User/ch32v30x_conf.h ../User/powerManage.h ../User/m780eg.h
 
 ../User/periodicalTask.h:
 
@@ -93,3 +93,5 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../User/ch32v30x_conf.h:
 
 ../User/powerManage.h:
+
+../User/m780eg.h:

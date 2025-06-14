@@ -19,7 +19,7 @@ void m780eg_work(void);
 void m780eg_reset(void);
 uint8_t m780eg_cnn_stat(void);
 void m780eg_perioTask(void);
-
+void m780EGUpload(char* msg);
 void USART3_DataProcess(uint8_t* data, uint16_t len);
 
 #endif /* USER_M780EG_H_ */

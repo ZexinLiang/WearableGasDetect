@@ -5,6 +5,7 @@
  *      Author: 86135
  */
 #include "periodicalTask.h"
+#include "m780eg.h"
 
 void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
@@ -42,12 +43,16 @@ void TIM2_Trigger_Init(u16 arr, u16 psc){
     TIM_Cmd(TIM2, ENABLE);
 }
 
-void TIM2_IRQHandler()
+uint8_t divInS = 0;
+void TIM2_IRQHandler()//50ms
 {
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
     {
         //powerOffDetect();//关机检测
-
+        divInS = (divInS+1)%20;
+        if(!divInS){//1s执行的任务
+            m780eg_perioTask();
+        }
         TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
     }
 }

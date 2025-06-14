@@ -9335,7 +9335,7 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:27
     38c6:	97ba                	add	a5,a5,a4
     38c8:	8782                	jr	a5
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:28
-    case 0 : sprintf(msg,"$temp1%03.2f*",DataTab.temp1);break;
+    case 0 : sprintf(msg,"$temp1%06.2f*",DataTab.temp1);break;
     38ca:	9f418793          	addi	a5,gp,-1548 # 2000285c <DataTab>
     38ce:	4388                	lw	a0,0(a5)
     38d0:	7e6240ef          	jal	ra,280b6 <__extendsfdf2>
@@ -9344,9 +9344,9 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:28
     38d8:	00028597          	auipc	a1,0x28
     38dc:	1e458593          	addi	a1,a1,484 # 2babc <_read+0x1be>
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:31
-    case 1 : sprintf(msg,"$pres1%06.2f*",DataTab.pres1);break;
-    case 2 : sprintf(msg,"$humi1%03.2f*",DataTab.humi1);break;
-    case 3 : sprintf(msg,"$gResi%06.2f*",DataTab.gasRes);break;
+    case 1 : sprintf(msg,"$pres1%09.2f*",DataTab.pres1);break;
+    case 2 : sprintf(msg,"$humi1%06.2f*",DataTab.humi1);break;
+    case 3 : sprintf(msg,"$gResi%09.2f*",DataTab.gasRes);break;
     38e0:	8522                	mv	a0,s0
     38e2:	4ce250ef          	jal	ra,28db0 <siprintf>
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:37
@@ -9371,7 +9371,7 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:38
     38f6:	0141                	addi	sp,sp,16
     38f8:	8082                	ret
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:29
-    case 1 : sprintf(msg,"$pres1%06.2f*",DataTab.pres1);break;
+    case 1 : sprintf(msg,"$pres1%09.2f*",DataTab.pres1);break;
     38fa:	9f418793          	addi	a5,gp,-1548 # 2000285c <DataTab>
     38fe:	43c8                	lw	a0,4(a5)
     3900:	7b6240ef          	jal	ra,280b6 <__extendsfdf2>
@@ -9381,7 +9381,7 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:29
     390c:	1c458593          	addi	a1,a1,452 # 2bacc <_read+0x1ce>
     3910:	bfc1                	j	38e0 <BleMsgOutput+0x4a>
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:30
-    case 2 : sprintf(msg,"$humi1%03.2f*",DataTab.humi1);break;
+    case 2 : sprintf(msg,"$humi1%06.2f*",DataTab.humi1);break;
     3912:	9f418793          	addi	a5,gp,-1548 # 2000285c <DataTab>
     3916:	4788                	lw	a0,8(a5)
     3918:	79e240ef          	jal	ra,280b6 <__extendsfdf2>
@@ -9391,7 +9391,7 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:30
     3924:	1bc58593          	addi	a1,a1,444 # 2badc <_read+0x1de>
     3928:	bf65                	j	38e0 <BleMsgOutput+0x4a>
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\obj/../user/src/data.c:31
-    case 3 : sprintf(msg,"$gResi%06.2f*",DataTab.gasRes);break;
+    case 3 : sprintf(msg,"$gResi%09.2f*",DataTab.gasRes);break;
     392a:	9f418793          	addi	a5,gp,-1548 # 2000285c <DataTab>
     392e:	47c8                	lw	a0,12(a5)
     3930:	786240ef          	jal	ra,280b6 <__extendsfdf2>
@@ -71750,13 +71750,14 @@ _read():
    2babe:	6d65                	lui	s10,0x19
    2bac0:	3170                	fld	fa2,224(a0)
    2bac2:	3025                	jal	2b2ea <_isatty_r>
-   2bac4:	66322e33          	0x66322e33
+   2bac4:	2e36                	fld	ft8,328(sp)
+   2bac6:	6632                	flw	fa2,12(sp)
    2bac8:	002a                	c.slli	zero,0xa
    2baca:	0000                	unimp
    2bacc:	7024                	flw	fs1,96(s0)
    2bace:	6572                	flw	fa0,28(sp)
    2bad0:	30253173          	csrrc	sp,medeleg,a0
-   2bad4:	2e36                	fld	ft8,328(sp)
+   2bad4:	2e39                	jal	2bdf2 <devInfoSoftwareRev+0x4e>
    2bad6:	6632                	flw	fa2,12(sp)
    2bad8:	002a                	c.slli	zero,0xa
    2bada:	0000                	unimp
@@ -71764,13 +71765,14 @@ _read():
    2bade:	6d75                	lui	s10,0x1d
    2bae0:	3169                	jal	2b76a <__trunctfdf2+0xca>
    2bae2:	3025                	jal	2b30a <_isatty_r+0x20>
-   2bae4:	66322e33          	0x66322e33
+   2bae4:	2e36                	fld	ft8,328(sp)
+   2bae6:	6632                	flw	fa2,12(sp)
    2bae8:	002a                	c.slli	zero,0xa
    2baea:	0000                	unimp
    2baec:	6724                	flw	fs1,72(a4)
    2baee:	6552                	flw	fa0,20(sp)
    2baf0:	30256973          	csrrsi	s2,medeleg,10
-   2baf4:	2e36                	fld	ft8,328(sp)
+   2baf4:	2e39                	jal	2be12 <devInfoSoftwareRev+0x6e>
    2baf6:	6632                	flw	fa2,12(sp)
    2baf8:	002a                	c.slli	zero,0xa
    2bafa:	0000                	unimp

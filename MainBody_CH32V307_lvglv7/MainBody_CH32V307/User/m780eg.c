@@ -7,6 +7,8 @@
 
 #include "m780eg.h"
 #include <stdio.h>
+#include "ch582inn.h"
+extern DataTab_TypeDef data;
 
 void USART3_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
@@ -79,16 +81,15 @@ uint8_t m780eg_cnn_stat(void){
 //测试临时变量
 uint16_t temp1 = 543,temp2 = 326,temp3 = 2367;
 void m780eg_dataUpload(void){//按照约定通信上报数据
-    char uploadMsg[50] = {0};
+    char uploadMsg[20] = {0};
     //上报气体数据信息
-    sprintf(uploadMsg,"m7%04d%04d%04deg",temp1,temp2,temp3);
+    m780EGUpload(uploadMsg);
     USARTx_SendStr(USART3, uploadMsg);
 }
 
 //放在定时器里的周期性任务,1000ms
 uint8_t cnnRstCnt = 0;
 uint8_t reworkFlag = 0;
-#warning "Put 'm780eg_perioTask();' in a tim PEC which triggered per1s"
 void m780eg_perioTask(void){
     cnnRstCnt++;
     if(m780eg_cnn_stat()){
@@ -108,12 +109,29 @@ void m780eg_perioTask(void){
     }
 }
 
+
+uint8_t uploadCnt = 0;
+#define maxMsgNum 8
+void m780EGUpload(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环回传
+    switch(uploadCnt%maxMsgNum){
+    case 0 : sprintf(msg,"$temp1%06.2f*",data.temp1);break;
+    case 1 : sprintf(msg,"$pres1%09.2f*",data.pres1);break;
+    case 2 : sprintf(msg,"$humi1%06.2f*",data.humi1);break;
+    case 3 : sprintf(msg,"$gResi%09.2f*",data.gasRes);break;
+    case 4 : sprintf(msg,"$humi2%03d*",data.humi2);break;
+    case 5 : sprintf(msg,"$temp2%03d*",data.temp2);break;
+    case 6 : sprintf(msg,"$CO2pp%06d*",data.CO2);break;
+    case 7 : sprintf(msg,"$pgas1%06d*",data.gas1);break;
+    }
+    uploadCnt++;
+}
+
 void m780eg_dataProcess(void){//处理接收到的服务器报文
 
 }
 
 void USART3_DataProcess(uint8_t* data, uint16_t len){
-    USART_SendData(USART3, len);
+    //USART_SendData(USART3, len);
 }
 
 void USART3_IRQHandler(void){
