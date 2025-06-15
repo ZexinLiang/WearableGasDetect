@@ -14,19 +14,19 @@
 #include "custom.h"
 
 
-void setup_scr_screen(lv_ui *ui){
-	//Widget: screen
-	ui->screen = lv_obj_create(NULL, NULL);
-	lv_obj_set_size(ui->screen, 320, 240);
+void setup_scr_screen_none(lv_ui *ui){
+	//Widget: screen_none
+	ui->screen_none = lv_obj_create(NULL, NULL);
+	lv_obj_set_size(ui->screen_none, 320, 240);
 
-	//Set style for screen. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
-	static lv_style_t style_screen_main_default;
-	lv_style_reset(&style_screen_main_default);
-	lv_style_set_bg_opa(&style_screen_main_default, LV_STATE_DEFAULT, 0);
-	lv_obj_add_style(ui->screen, LV_OBJ_PART_MAIN, &style_screen_main_default);
+	//Set style for screen_none. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_none_main_default;
+	lv_style_reset(&style_screen_none_main_default);
+	lv_style_set_bg_opa(&style_screen_none_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_none, LV_OBJ_PART_MAIN, &style_screen_none_main_default);
 
 
 
 	//Init events for screen.
-	events_init_screen(ui);
+	events_init_screen_none(ui);
 }

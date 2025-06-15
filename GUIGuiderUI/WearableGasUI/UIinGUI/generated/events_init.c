@@ -12,7 +12,7 @@
 #include "lvgl.h"
 
 
-static void screen_event_handler (lv_obj_t *obj, lv_event_t event) 
+static void screen_none_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
 	case LV_EVENT_CLICKED:
@@ -21,11 +21,11 @@ static void screen_event_handler (lv_obj_t *obj, lv_event_t event)
 	    lv_obj_t * act_scr = lv_scr_act();
 	    lv_disp_t * d = lv_obj_get_disp(act_scr);
 	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
-	        if (guider_ui.screen_1_del == true) {
-	          setup_scr_screen_1(&guider_ui);
+	        if (guider_ui.screen_pwon_del == true) {
+	          setup_scr_screen_pwon(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_1, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_del = true;
+	        lv_scr_load_anim(guider_ui.screen_pwon, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_none_del = true;
 	    }
 		break;
 	}
@@ -33,12 +33,12 @@ static void screen_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
-void events_init_screen(lv_ui *ui)
+void events_init_screen_none(lv_ui *ui)
 {
-	lv_obj_set_event_cb(ui->screen, screen_event_handler);
+	lv_obj_set_event_cb(ui->screen_none, screen_none_event_handler);
 }
 
-static void screen_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+static void screen_pwon_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
 	case LV_EVENT_CLICKED:
@@ -47,11 +47,11 @@ static void screen_1_event_handler (lv_obj_t *obj, lv_event_t event)
 	    lv_obj_t * act_scr = lv_scr_act();
 	    lv_disp_t * d = lv_obj_get_disp(act_scr);
 	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
-	        if (guider_ui.screen_3_del == true) {
-	          setup_scr_screen_3(&guider_ui);
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_3, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_1_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_pwon_del = true;
 	    }
 		break;
 	}
@@ -59,35 +59,14 @@ static void screen_1_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
-static void screen_1_cont_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+static void screen_pwon_cont_1_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
 	default:
 		break;
 	}
 }
-static void screen_1_label_1_event_handler (lv_obj_t *obj, lv_event_t event) 
-{
-	switch (event) {
-	case LV_EVENT_CLICKED:
-	{
-		//Write the load screen code.
-	    lv_obj_t * act_scr = lv_scr_act();
-	    lv_disp_t * d = lv_obj_get_disp(act_scr);
-	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
-	        if (guider_ui.screen_2_del == true) {
-	          setup_scr_screen_2(&guider_ui);
-	        }
-	        lv_scr_load_anim(guider_ui.screen_2, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_1_del = true;
-	    }
-		break;
-	}
-	default:
-		break;
-	}
-}
-static void screen_1_img_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+static void screen_pwon_label_1_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
 	case LV_EVENT_CLICKED:
@@ -96,11 +75,11 @@ static void screen_1_img_1_event_handler (lv_obj_t *obj, lv_event_t event)
 	    lv_obj_t * act_scr = lv_scr_act();
 	    lv_disp_t * d = lv_obj_get_disp(act_scr);
 	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
-	        if (guider_ui.screen_3_del == true) {
-	          setup_scr_screen_3(&guider_ui);
+	        if (guider_ui.screen_rtdata_del == true) {
+	          setup_scr_screen_rtdata(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_3, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_1_del = true;
+	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_pwon_del = true;
 	    }
 		break;
 	}
@@ -108,24 +87,285 @@ static void screen_1_img_1_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
-void events_init_screen_1(lv_ui *ui)
+static void screen_pwon_img_1_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
-	lv_obj_set_event_cb(ui->screen_1, screen_1_event_handler);
-	lv_obj_set_event_cb(ui->screen_1_cont_1, screen_1_cont_1_event_handler);
-	lv_obj_set_event_cb(ui->screen_1_label_1, screen_1_label_1_event_handler);
-	lv_obj_set_event_cb(ui->screen_1_img_1, screen_1_img_1_event_handler);
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_pwon_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_pwon(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_pwon, screen_pwon_event_handler);
+	lv_obj_set_event_cb(ui->screen_pwon_cont_1, screen_pwon_cont_1_event_handler);
+	lv_obj_set_event_cb(ui->screen_pwon_label_1, screen_pwon_label_1_event_handler);
+	lv_obj_set_event_cb(ui->screen_pwon_img_1, screen_pwon_img_1_event_handler);
 }
 
-static void screen_3_cont_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+static void screen_settings_page_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
 	default:
 		break;
 	}
 }
-void events_init_screen_3(lv_ui *ui)
+static void screen_settings_btn_sub_device_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
-	lv_obj_set_event_cb(ui->screen_3_cont_1, screen_3_cont_1_event_handler);
+	switch (event) {
+	case LV_EVENT_RELEASED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_sub_device_del == true) {
+	          setup_scr_screen_sub_device(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_sub_device, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_settings_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+static void screen_settings_btn_network_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_RELEASED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_network_del == true) {
+	          setup_scr_screen_network(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_network, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_settings_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+static void screen_settings_btn_rtdata_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_RELEASED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_rtdata_del == true) {
+	          setup_scr_screen_rtdata(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_settings_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+static void screen_settings_btn_devicest_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_devicest_del == true) {
+	          setup_scr_screen_devicest(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_devicest, LV_SCR_LOAD_ANIM_NONE, 100, 100, true);
+	        guider_ui.screen_settings_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+static void screen_settings_btn_alarmset_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_alarmst_del == true) {
+	          setup_scr_screen_alarmst(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_alarmst, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_settings_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_settings(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_settings_page, screen_settings_page_event_handler);
+	lv_obj_set_event_cb(ui->screen_settings_btn_sub_device, screen_settings_btn_sub_device_event_handler);
+	lv_obj_set_event_cb(ui->screen_settings_btn_network, screen_settings_btn_network_event_handler);
+	lv_obj_set_event_cb(ui->screen_settings_btn_rtdata, screen_settings_btn_rtdata_event_handler);
+	lv_obj_set_event_cb(ui->screen_settings_btn_devicest, screen_settings_btn_devicest_event_handler);
+	lv_obj_set_event_cb(ui->screen_settings_btn_alarmset, screen_settings_btn_alarmset_event_handler);
+}
+
+static void screen_rtdata_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_rtdata_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_rtdata(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_rtdata_menu, screen_rtdata_menu_event_handler);
+}
+
+static void screen_devicest_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_devicest_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_devicest(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_devicest_menu, screen_devicest_menu_event_handler);
+}
+
+static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_NONE, 100, 100, true);
+	        guider_ui.screen_alarmst_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_alarmst(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_alarmst_menu, screen_alarmst_menu_event_handler);
+}
+
+static void screen_network_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_network_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_network(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_network_menu, screen_network_menu_event_handler);
+}
+
+static void screen_sub_device_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_settings_del == true) {
+	          setup_scr_screen_settings(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_sub_device_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
+void events_init_screen_sub_device(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_sub_device_menu, screen_sub_device_menu_event_handler);
 }
 
 
