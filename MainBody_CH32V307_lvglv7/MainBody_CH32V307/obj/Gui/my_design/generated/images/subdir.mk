@@ -5,14 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Gui/my_design/generated/images/_wchlogo_alpha_142x35.c \
 ../Gui/my_design/generated/images/_wchlogo_alpha_154x38.c \
 ../Gui/my_design/generated/images/_wchlogo_alpha_162x41.c 
 
 OBJS += \
+./Gui/my_design/generated/images/_wchlogo_alpha_142x35.o \
 ./Gui/my_design/generated/images/_wchlogo_alpha_154x38.o \
 ./Gui/my_design/generated/images/_wchlogo_alpha_162x41.o 
 
 C_DEPS += \
+./Gui/my_design/generated/images/_wchlogo_alpha_142x35.d \
 ./Gui/my_design/generated/images/_wchlogo_alpha_154x38.d \
 ./Gui/my_design/generated/images/_wchlogo_alpha_162x41.d 
 

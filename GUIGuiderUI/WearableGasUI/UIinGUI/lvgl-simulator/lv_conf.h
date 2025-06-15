@@ -86,7 +86,7 @@ typedef void * lv_fs_drv_user_data_t;
 #endif /* LV_USE_FILESYSTEM */
 
 #define LV_USE_USER_DATA 0
-#define LV_USE_PERF_MONITOR 0
+#define LV_USE_PERF_MONITOR 1
 #define LV_USE_API_EXTENSION_V6 1
 #define LV_USE_API_EXTENSION_V7 1
 #define LV_IMG_CF_INDEXED 1
@@ -249,7 +249,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_IMGBTN_TILED 0
 #endif /* LV_USE_IMGBTN */
 
-#define LV_USE_KEYBOARD 1
+#define LV_USE_KEYBOARD 0
 #define LV_USE_LABEL 1
 
 #if LV_USE_LABEL != 0

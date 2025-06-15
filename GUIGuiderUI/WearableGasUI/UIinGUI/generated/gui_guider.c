@@ -16,6 +16,7 @@ void init_scr_del_flag(lv_ui *ui)
   
 	ui->screen_del = true;
 	ui->screen_1_del = true;
+	ui->screen_3_del = true;
 	ui->screen_2_del = true;
 }
 
@@ -25,6 +26,6 @@ void setup_ui(lv_ui *ui)
 		LV_THEME_MATERIAL_FLAG_LIGHT, LV_THEME_DEFAULT_FONT_SMALL,  LV_THEME_DEFAULT_FONT_NORMAL,
 		LV_THEME_DEFAULT_FONT_SUBTITLE, LV_THEME_DEFAULT_FONT_TITLE);
   init_scr_del_flag(ui);
-  setup_scr_screen_2(ui);
-  lv_scr_load(ui->screen_2);
+  setup_scr_screen_3(ui);
+  lv_scr_load(ui->screen_3);
 }

@@ -13,40 +13,10 @@
 #include "events_init.h"
 #include "custom.h"
 
-#if LV_USE_KEYBOARD
-static lv_obj_t * kb;
-static void kb_event_cb(lv_obj_t * event_kb, lv_event_t event)
-{
-	lv_keyboard_def_event_cb(event_kb, event);
-	if(event == LV_EVENT_APPLY || event == LV_EVENT_CANCEL){
-		lv_obj_set_hidden(event_kb, true);
-	}
-}
-
-static void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
-{
-	if (event == LV_EVENT_FOCUSED || event == LV_EVENT_CLICKED)
-	{
-		lv_keyboard_set_textarea(kb, ta);
-		lv_obj_move_foreground(kb);
-		lv_obj_set_hidden(kb, false);
-	}
-	if (event == LV_EVENT_CANCEL || event == LV_EVENT_DEFOCUSED)
-	{
-		lv_keyboard_set_textarea(kb, NULL);
-		lv_obj_move_background(kb);
-		lv_obj_set_hidden(kb, true);
-	}
-}
-#endif
-
 
 void setup_scr_screen_2(lv_ui *ui){
 	//Widget: screen_2
 	ui->screen_2 = lv_obj_create(NULL, NULL);
-	kb = lv_keyboard_create(ui->screen_2, NULL);
-	lv_obj_set_event_cb(kb, kb_event_cb);
-	lv_obj_set_hidden(kb, true);
 	lv_obj_set_size(ui->screen_2, 320, 240);
 
 	//Set style for screen_2. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
@@ -78,17 +48,17 @@ void setup_scr_screen_2(lv_ui *ui){
 
 	//Widget: screen_2_label_1
 	ui->screen_2_label_1 = lv_label_create(ui->screen_2_cont_1, NULL);
-	lv_label_set_text(ui->screen_2_label_1, "Temprature:");
+	lv_label_set_text(ui->screen_2_label_1, "Tempreture:");
 	lv_label_set_align(ui->screen_2_label_1, LV_LABEL_ALIGN_CENTER);
-	lv_obj_set_pos(ui->screen_2_label_1, 29, 31);
-	lv_obj_set_width(ui->screen_2_label_1, 100);
+	lv_obj_set_pos(ui->screen_2_label_1, 29, 30);
+	lv_obj_set_width(ui->screen_2_label_1, 140);
 
 	//Set style for screen_2_label_1. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_2_label_1_main_default;
 	lv_style_reset(&style_screen_2_label_1_main_default);
 	lv_style_set_radius(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_font(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
 	lv_style_set_text_letter_space(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_bg_opa(&style_screen_2_label_1_main_default, LV_STATE_DEFAULT, 0);
@@ -102,17 +72,17 @@ void setup_scr_screen_2(lv_ui *ui){
 
 	//Widget: screen_2_label_2
 	ui->screen_2_label_2 = lv_label_create(ui->screen_2_cont_1, NULL);
-	lv_label_set_text(ui->screen_2_label_2, "Huminity:");
+	lv_label_set_text(ui->screen_2_label_2, "Humidity:");
 	lv_label_set_align(ui->screen_2_label_2, LV_LABEL_ALIGN_CENTER);
 	lv_obj_set_pos(ui->screen_2_label_2, 29, 66);
-	lv_obj_set_width(ui->screen_2_label_2, 100);
+	lv_obj_set_width(ui->screen_2_label_2, 140);
 
 	//Set style for screen_2_label_2. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_2_label_2_main_default;
 	lv_style_reset(&style_screen_2_label_2_main_default);
 	lv_style_set_radius(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_font(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
 	lv_style_set_text_letter_space(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_bg_opa(&style_screen_2_label_2_main_default, LV_STATE_DEFAULT, 0);
@@ -129,14 +99,14 @@ void setup_scr_screen_2(lv_ui *ui){
 	lv_label_set_text(ui->screen_2_label_3, "Pressure:");
 	lv_label_set_align(ui->screen_2_label_3, LV_LABEL_ALIGN_CENTER);
 	lv_obj_set_pos(ui->screen_2_label_3, 29, 100);
-	lv_obj_set_width(ui->screen_2_label_3, 100);
+	lv_obj_set_width(ui->screen_2_label_3, 140);
 
 	//Set style for screen_2_label_3. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_2_label_3_main_default;
 	lv_style_reset(&style_screen_2_label_3_main_default);
 	lv_style_set_radius(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_font(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
 	lv_style_set_text_letter_space(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_bg_opa(&style_screen_2_label_3_main_default, LV_STATE_DEFAULT, 0);

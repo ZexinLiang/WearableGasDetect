@@ -70,7 +70,14 @@ build/object/lv_refr.o: \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_draw\lv_draw_arc.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_draw\lv_draw_blend.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font_fmt_txt.h \
- c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font.h
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_label.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_conf_internal.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_core\lv_obj.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_symbol_def.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_misc\lv_txt.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_draw\lv_draw.h
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_core\lv_refr.h:
 
@@ -213,3 +220,17 @@ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font_fmt_txt.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_label.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_conf_internal.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_core\lv_obj.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_font.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_font\lv_symbol_def.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_misc\lv_txt.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_draw\lv_draw.h:

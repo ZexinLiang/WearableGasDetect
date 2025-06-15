@@ -125,7 +125,6 @@ build/object/monitor.o: \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_led.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_btnmatrix.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_keyboard.h \
- c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_btnmatrix.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_dropdown.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_page.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_label.h \
@@ -138,6 +137,7 @@ build/object/monitor.o: \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_win.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_tileview.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_msgbox.h \
+ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_btnmatrix.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_objmask.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_cont.h \
  c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_gauge.h \
@@ -455,8 +455,6 @@ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_keyboard.h:
 
-c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_btnmatrix.h:
-
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_dropdown.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src\lv_widgets\lv_page.h:
@@ -480,6 +478,8 @@ c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_tileview.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_msgbox.h:
+
+c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_btnmatrix.h:
 
 c:\users\86135\desktop\wearablegasdetect\guiguiderui\wearablegasui\uiingui\lvgl\src/lv_widgets/lv_objmask.h:
 

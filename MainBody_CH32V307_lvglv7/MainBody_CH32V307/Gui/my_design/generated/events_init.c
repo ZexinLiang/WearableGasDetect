@@ -47,10 +47,10 @@ static void screen_1_event_handler (lv_obj_t *obj, lv_event_t event)
 	    lv_obj_t * act_scr = lv_scr_act();
 	    lv_disp_t * d = lv_obj_get_disp(act_scr);
 	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
-	        if (guider_ui.screen_2_del == true) {
-	          setup_scr_screen_2(&guider_ui);
+	        if (guider_ui.screen_3_del == true) {
+	          setup_scr_screen_3(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_2, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        lv_scr_load_anim(guider_ui.screen_3, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
 	        guider_ui.screen_1_del = true;
 	    }
 		break;
@@ -87,11 +87,45 @@ static void screen_1_label_1_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
+static void screen_1_img_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		//Write the load screen code.
+	    lv_obj_t * act_scr = lv_scr_act();
+	    lv_disp_t * d = lv_obj_get_disp(act_scr);
+	    if (d->prev_scr == NULL && (d->scr_to_load == NULL || d->scr_to_load == act_scr)) {
+	        if (guider_ui.screen_3_del == true) {
+	          setup_scr_screen_3(&guider_ui);
+	        }
+	        lv_scr_load_anim(guider_ui.screen_3, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
+	        guider_ui.screen_1_del = true;
+	    }
+		break;
+	}
+	default:
+		break;
+	}
+}
 void events_init_screen_1(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_1, screen_1_event_handler);
 	lv_obj_set_event_cb(ui->screen_1_cont_1, screen_1_cont_1_event_handler);
 	lv_obj_set_event_cb(ui->screen_1_label_1, screen_1_label_1_event_handler);
+	lv_obj_set_event_cb(ui->screen_1_img_1, screen_1_img_1_event_handler);
+}
+
+static void screen_3_cont_1_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	default:
+		break;
+	}
+}
+void events_init_screen_3(lv_ui *ui)
+{
+	lv_obj_set_event_cb(ui->screen_3_cont_1, screen_3_cont_1_event_handler);
 }
 
 

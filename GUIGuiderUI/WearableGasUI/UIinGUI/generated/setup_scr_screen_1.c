@@ -13,40 +13,10 @@
 #include "events_init.h"
 #include "custom.h"
 
-#if LV_USE_KEYBOARD
-static lv_obj_t * kb;
-static void kb_event_cb(lv_obj_t * event_kb, lv_event_t event)
-{
-	lv_keyboard_def_event_cb(event_kb, event);
-	if(event == LV_EVENT_APPLY || event == LV_EVENT_CANCEL){
-		lv_obj_set_hidden(event_kb, true);
-	}
-}
-
-static void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
-{
-	if (event == LV_EVENT_FOCUSED || event == LV_EVENT_CLICKED)
-	{
-		lv_keyboard_set_textarea(kb, ta);
-		lv_obj_move_foreground(kb);
-		lv_obj_set_hidden(kb, false);
-	}
-	if (event == LV_EVENT_CANCEL || event == LV_EVENT_DEFOCUSED)
-	{
-		lv_keyboard_set_textarea(kb, NULL);
-		lv_obj_move_background(kb);
-		lv_obj_set_hidden(kb, true);
-	}
-}
-#endif
-
 
 void setup_scr_screen_1(lv_ui *ui){
 	//Widget: screen_1
 	ui->screen_1 = lv_obj_create(NULL, NULL);
-	kb = lv_keyboard_create(ui->screen_1, NULL);
-	lv_obj_set_event_cb(kb, kb_event_cb);
-	lv_obj_set_hidden(kb, true);
 	lv_obj_set_size(ui->screen_1, 320, 240);
 
 	//Set style for screen_1. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
