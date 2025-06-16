@@ -157,7 +157,7 @@ typedef void * lv_anim_user_data_t;
 #endif
 
 /* 1: Enable shadow drawing on rectangles*/
-#define LV_USE_SHADOW           1
+#define LV_USE_SHADOW           0
 #if LV_USE_SHADOW
 /* Allow buffering some shadow calculation
  * LV_SHADOW_CACHE_SIZE is the max. shadow size to buffer,
@@ -167,25 +167,25 @@ typedef void * lv_anim_user_data_t;
 #endif
 
 /*1: enable outline drawing on rectangles*/
-#define LV_USE_OUTLINE  1
+#define LV_USE_OUTLINE  0
 
 /*1: enable pattern drawing on rectangles*/
-#define LV_USE_PATTERN  1
+#define LV_USE_PATTERN  0
 
 /*1: enable value string drawing on rectangles*/
-#define LV_USE_VALUE_STR    1
+#define LV_USE_VALUE_STR    0
 
 /* 1: Use other blend modes than normal (`LV_BLEND_MODE_...`)*/
-#define LV_USE_BLEND_MODES      1
+#define LV_USE_BLEND_MODES      0
 
 /* 1: Use the `opa_scale` style property to set the opacity of an object and its children at once*/
-#define LV_USE_OPA_SCALE        1
+#define LV_USE_OPA_SCALE        0
 
 /* 1: Use image zoom and rotation*/
-#define LV_USE_IMG_TRANSFORM    1
+#define LV_USE_IMG_TRANSFORM    0
 
 /* 1: Enable object groups (for keyboard/encoder navigation) */
-#define LV_USE_GROUP            1
+#define LV_USE_GROUP            0
 #if LV_USE_GROUP
 typedef void * lv_group_user_data_t;
 #endif  /*LV_USE_GROUP*/
@@ -211,7 +211,7 @@ e.g. "stm32f769xx.h" or "stm32f429xx.h" */
 #define LV_USE_GPU_NXP_VG_LITE   0
 
 /* 1: Enable file system (might be required for images */
-#define LV_USE_FILESYSTEM       1
+#define LV_USE_FILESYSTEM       0
 #if LV_USE_FILESYSTEM
 /*Declare the type of the user data of file system drivers (can be e.g. `void *`, `int`, `struct`)*/
 typedef void * lv_fs_drv_user_data_t;
@@ -232,10 +232,10 @@ typedef void * lv_fs_drv_user_data_t;
  *========================*/
 
 /* 1: Enable indexed (palette) images */
-#define LV_IMG_CF_INDEXED       1
+#define LV_IMG_CF_INDEXED       0
 
 /* 1: Enable alpha indexed images */
-#define LV_IMG_CF_ALPHA         1
+#define LV_IMG_CF_ALPHA         0
 
 /* Default image cache size. Image caching keeps the images opened.
  * If only the built-in image formats are used there is no real advantage of caching.
@@ -453,11 +453,11 @@ typedef void * lv_font_user_data_t;
 
 /* No theme, you can apply your styles as you need
  * No flags. Set LV_THEME_DEFAULT_FLAG 0 */
-#define LV_USE_THEME_EMPTY       1
+#define LV_USE_THEME_EMPTY       0
 
 /*Simple to the create your theme based on it
  * No flags. Set LV_THEME_DEFAULT_FLAG 0 */
-#define LV_USE_THEME_TEMPLATE    1
+#define LV_USE_THEME_TEMPLATE    0
 
 /* A fast and impressive theme.
  * Flags:
@@ -473,7 +473,7 @@ typedef void * lv_font_user_data_t;
  * texts and borders will be black and the background will be
  * white. Else the colors are inverted.
  * No flags. Set LV_THEME_DEFAULT_FLAG 0 */
-#define LV_USE_THEME_MONO        1
+#define LV_USE_THEME_MONO        0
 
 #define LV_THEME_DEFAULT_INCLUDE            <stdint.h>      /*Include a header for the init. function*/
 #define LV_THEME_DEFAULT_INIT               lv_theme_material_init
@@ -559,7 +559,7 @@ typedef void * lv_obj_user_data_t;
 #endif
 
 /*1: enable `lv_obj_realign()` based on `lv_obj_align()` parameters*/
-#define LV_USE_OBJ_REALIGN          1
+#define LV_USE_OBJ_REALIGN          0
 
 /* Enable to make the object clickable on a larger area.
  * LV_EXT_CLICK_AREA_OFF or 0: Disable this feature
@@ -576,7 +576,7 @@ typedef void * lv_obj_user_data_t;
  */
 
 /*Arc (dependencies: -)*/
-#define LV_USE_ARC      1
+#define LV_USE_ARC      0
 
 /*Bar (dependencies: -)*/
 #define LV_USE_BAR      1
@@ -585,7 +585,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_BTN      1
 
 /*Button matrix (dependencies: -)*/
-#define LV_USE_BTNMATRIX     1
+#define LV_USE_BTNMATRIX     0
 
 /*Calendar (dependencies: -)*/
 #define LV_USE_CALENDAR 0
@@ -632,7 +632,7 @@ typedef void * lv_obj_user_data_t;
 #endif
 
 /*Keyboard (dependencies: lv_btnm)*/
-#define LV_USE_KEYBOARD       1
+#define LV_USE_KEYBOARD       0
 
 /*Label (dependencies: -*/
 #define LV_USE_LABEL    1

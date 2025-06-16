@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//Gui/lvgl/src/lv_misc/lv_txt.c=UTF-8
 encoding//Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.c=UTF-8
+encoding//Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_18.c=UTF-8
 encoding//Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_8.c=UTF-8
 encoding//Peripheral/src/ch32v30x_tim.c=UTF-8

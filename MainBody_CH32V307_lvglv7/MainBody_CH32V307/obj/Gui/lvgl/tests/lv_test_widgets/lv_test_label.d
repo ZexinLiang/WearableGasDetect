@@ -61,7 +61,6 @@ Gui/lvgl/tests/lv_test_widgets/lv_test_label.o: \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_conf_internal.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/lv_img_buf.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_fs.h \
- ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_mem.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_types.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/lv_obj_style_dec.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/lv_group.h \
@@ -126,7 +125,6 @@ Gui/lvgl/tests/lv_test_widgets/lv_test_label.o: \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_led.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_btnmatrix.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_keyboard.h \
- ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_btnmatrix.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_dropdown.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_roller.h \
  ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_page.h \
@@ -212,7 +210,6 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_conf_internal.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/lv_img_buf.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_fs.h:
-../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_mem.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/../lv_draw/../lv_misc/lv_types.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/lv_obj_style_dec.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_core/lv_group.h:
@@ -277,7 +274,6 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_led.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_btnmatrix.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_keyboard.h:
-../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_btnmatrix.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_dropdown.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_roller.h:
 ../Gui/lvgl/tests/lv_test_widgets/../../src/lv_widgets/lv_page.h:

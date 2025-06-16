@@ -24,7 +24,6 @@ Gui/lvgl/src/lv_draw/lv_draw_mask.o: \
  ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_area.h \
  ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_fs.h \
  ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/../lv_conf_internal.h \
- ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_mem.h \
  ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_types.h \
  ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/lv_draw_mask.h
 ../Gui/lvgl/src/lv_draw/lv_draw_mask.h:
@@ -51,6 +50,5 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_area.h:
 ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_fs.h:
 ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/../lv_conf_internal.h:
-../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_mem.h:
 ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/../lv_misc/lv_types.h:
 ../Gui/lvgl/src/lv_draw/../lv_misc/../lv_draw/lv_draw_mask.h:

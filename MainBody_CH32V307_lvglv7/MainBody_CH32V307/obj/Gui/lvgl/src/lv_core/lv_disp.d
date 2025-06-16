@@ -51,7 +51,6 @@ Gui/lvgl/src/lv_core/lv_disp.o: ../Gui/lvgl/src/lv_core/lv_disp.c \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_conf_internal.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/lv_img_buf.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_fs.h \
- ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_mem.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_types.h \
  ../Gui/lvgl/src/lv_core/lv_obj_style_dec.h \
  ../Gui/lvgl/src/lv_core/../lv_misc/lv_math.h \
@@ -109,7 +108,6 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_conf_internal.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/lv_img_buf.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_fs.h:
-../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_mem.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_types.h:
 ../Gui/lvgl/src/lv_core/lv_obj_style_dec.h:
 ../Gui/lvgl/src/lv_core/../lv_misc/lv_math.h:

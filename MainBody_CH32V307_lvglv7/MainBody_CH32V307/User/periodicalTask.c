@@ -14,6 +14,8 @@ uint8_t lvgl_task_flag = 0;
 extern lv_ui guider_ui;
 extern DataTab_TypeDef data;
 extern uint8_t volInPercent;
+extern uint8_t CH582IdleCnt;
+extern uint8_t CH582Cnned;
 
 void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
@@ -70,6 +72,13 @@ void TIM2_IRQHandler()//50ms
         if(!divInS){//1s执行的任务
             //数据上报
             m780eg_perioTask();
+            //判断是否连接从机
+            CH582IdleCnt = (CH582IdleCnt+1)%5;
+            if(CH582IdleCnt == 4){
+                CH582Cnned = 0;
+            }
+            if(CH582Cnned) lv_label_set_text(guider_ui.screen_sub_device_cnn_state, "Connected");
+            else lv_label_set_text(guider_ui.screen_sub_device_cnn_state, "Disconnected");
         }
         divIn5S = (divIn5S+1)%40;
         if(!divIn5S){//2S任务

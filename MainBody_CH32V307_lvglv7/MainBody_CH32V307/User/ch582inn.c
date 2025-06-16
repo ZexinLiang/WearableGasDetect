@@ -17,6 +17,7 @@ void UART5_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 uint8_t U5Rx_Buff[U5Rx_MAX_LEN]={0};
 uint16_t U5Rx_Len = 0;
 uint8_t CH582Cnned = 0;
+uint8_t CH582IdleCnt = 0;//超过五秒没有收到消息或者收到断联消息视为断链
 /* 连接功能
  * 如果已经连接成功，直接返回数据
  * 如果没有连接成功，返回周围可查找到的设备
@@ -73,6 +74,8 @@ void UART5_IRQHandler(void){
         singleChar = USART_ReceiveData(UART5);
         if(singleChar == '$') u5GetFlag = 1;
         if(u5GetFlag){
+            CH582Cnned = 1;
+            CH582IdleCnt = 0;
             U5Rx_Buff[U5Rx_Len++] = singleChar;
             if(singleChar == '*') {
                 u5GetFlag = 0;//结束接收，可以处理数据

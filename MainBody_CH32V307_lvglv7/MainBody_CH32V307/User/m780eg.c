@@ -8,6 +8,11 @@
 #include "m780eg.h"
 #include <stdio.h>
 #include "ch582inn.h"
+#include "lvgl.h"
+#include "gui_guider.h"
+
+
+extern lv_ui guider_ui;
 extern DataTab_TypeDef data;
 
 void USART3_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
@@ -93,9 +98,12 @@ uint8_t reworkFlag = 0;
 void m780eg_perioTask(void){
     cnnRstCnt++;
     if(m780eg_cnn_stat()){
+        lv_label_set_text(guider_ui.screen_network_cnn_state, "Connected");
         m780eg_dataUpload();
         cnnRstCnt = 0;
     }
+    else
+        lv_label_set_text(guider_ui.screen_network_cnn_state, "Disconnected");
     //配合cnnRstCnt起到reset下拉1s后自动复位
     if(reworkFlag){
         m780eg_work();

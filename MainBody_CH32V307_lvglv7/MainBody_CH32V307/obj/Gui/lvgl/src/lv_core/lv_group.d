@@ -53,23 +53,8 @@ Gui/lvgl/src/lv_core/lv_group.o: ../Gui/lvgl/src/lv_core/lv_group.c \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_conf_internal.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/lv_img_buf.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_fs.h \
- ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_mem.h \
  ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_types.h \
- ../Gui/lvgl/src/lv_core/lv_obj_style_dec.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/lv_theme.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/../lv_conf_internal.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/../lv_core/lv_style.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/../lv_core/lv_obj.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_empty.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_template.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_material.h \
- ../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_mono.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/lv_gc.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/lv_ll.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/lv_task.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_img_cache.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_img_decoder.h \
- ../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_draw_mask.h
+ ../Gui/lvgl/src/lv_core/lv_obj_style_dec.h
 ../Gui/lvgl/src/lv_core/lv_group.h:
 ../Gui/lvgl/src/lv_core/lv_obj.h:
 ../Gui/lvgl/src/lv_core/../lv_conf_internal.h:
@@ -125,20 +110,5 @@ C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_conf_internal.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/lv_img_buf.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_fs.h:
-../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_mem.h:
 ../Gui/lvgl/src/lv_core/../lv_draw/../lv_misc/lv_types.h:
 ../Gui/lvgl/src/lv_core/lv_obj_style_dec.h:
-../Gui/lvgl/src/lv_core/../lv_themes/lv_theme.h:
-../Gui/lvgl/src/lv_core/../lv_themes/../lv_conf_internal.h:
-../Gui/lvgl/src/lv_core/../lv_themes/../lv_core/lv_style.h:
-../Gui/lvgl/src/lv_core/../lv_themes/../lv_core/lv_obj.h:
-../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_empty.h:
-../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_template.h:
-../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_material.h:
-../Gui/lvgl/src/lv_core/../lv_themes/lv_theme_mono.h:
-../Gui/lvgl/src/lv_core/../lv_misc/lv_gc.h:
-../Gui/lvgl/src/lv_core/../lv_misc/lv_ll.h:
-../Gui/lvgl/src/lv_core/../lv_misc/lv_task.h:
-../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_img_cache.h:
-../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_img_decoder.h:
-../Gui/lvgl/src/lv_core/../lv_misc/../lv_draw/lv_draw_mask.h:
