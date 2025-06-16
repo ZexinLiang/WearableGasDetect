@@ -717,7 +717,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_SPINBOX       0
 
 /*Switch (dependencies: lv_slider)*/
-#define LV_USE_SWITCH       0
+#define LV_USE_SWITCH       1
 
 /*Text area (dependencies: lv_label, lv_page)*/
 #define LV_USE_TEXTAREA       1

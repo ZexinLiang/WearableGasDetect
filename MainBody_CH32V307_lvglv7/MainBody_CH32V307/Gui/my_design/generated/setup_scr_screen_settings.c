@@ -34,27 +34,28 @@ void setup_scr_screen_settings(lv_ui *ui){
 //	lv_obj_set_pos(ui->screen_settings_page, -440, 0);
 //	lv_obj_set_size(ui->screen_settings_page, 1200, 240);
 
-    ui->screen_settings_page = lv_page_create(ui->screen_settings, NULL);
-    lv_page_set_scrollbar_mode(ui->screen_settings_page, LV_SCROLLBAR_MODE_OFF);
-    lv_page_set_scrl_layout(ui->screen_settings_page, LV_LAYOUT_OFF);
-    lv_page_set_scrollable_fit(ui->screen_settings_page, LV_FIT_NONE);
-    lv_obj_set_pos(ui->screen_settings_page, 0, 0);
-    lv_obj_set_size(ui->screen_settings_page, 320, 240);
+	ui->screen_settings_page = lv_page_create(ui->screen_settings, NULL);
+	lv_page_set_scrollbar_mode(ui->screen_settings_page, LV_SCROLLBAR_MODE_OFF);
+	lv_page_set_scrl_layout(ui->screen_settings_page, LV_LAYOUT_OFF);
+	lv_page_set_scrollable_fit(ui->screen_settings_page, LV_FIT_NONE);
+	lv_obj_set_pos(ui->screen_settings_page, 0, 0);
+	lv_obj_set_size(ui->screen_settings_page, 320, 240);
+
 
 	//Set style for screen_settings_page. Part: LV_CONT_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_settings_page_main_default;
 	lv_style_reset(&style_screen_settings_page_main_default);
 	lv_style_set_bg_opa(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_bg_color(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_radius(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_border_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 1);
 	lv_style_set_border_opa(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, lv_color_hex(0x999999));
-	lv_style_set_radius(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_settings_page, LV_CONT_PART_MAIN, &style_screen_settings_page_main_default);
 
-    lv_obj_t* scroll = lv_page_get_scrl(ui->screen_settings_page);
-    lv_obj_set_size(scroll, 1200, 220);
+	lv_obj_t* scroll = lv_page_get_scrl(ui->screen_settings_page);
+	lv_obj_set_size(scroll, 1200, 220);
 
 	//Widget: screen_settings_btn_sub_device
 	ui->screen_settings_btn_sub_device = lv_btn_create(scroll, NULL);

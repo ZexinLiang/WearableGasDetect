@@ -87,16 +87,111 @@ void setup_scr_screen_network(lv_ui *ui){
 	//Set style for screen_network_menu. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_menu_main_default;
 	lv_style_reset(&style_screen_network_menu_main_default);
+	lv_style_set_radius(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 50);
 	lv_style_set_text_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
 	lv_style_set_bg_opa(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_bg_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_shadow_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_border_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_border_opa(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-	lv_style_set_radius(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 50);
-	lv_style_set_shadow_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_network_menu, LV_BTN_PART_MAIN, &style_screen_network_menu_main_default);
+
+
+	//Widget: screen_network_cnn_txt
+	ui->screen_network_cnn_txt = lv_label_create(ui->screen_network, NULL);
+	lv_label_set_text(ui->screen_network_cnn_txt, "Connect State:");
+	lv_label_set_align(ui->screen_network_cnn_txt, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_network_cnn_txt, 8, 65);
+	lv_obj_set_width(ui->screen_network_cnn_txt, 159);
+
+	//Set style for screen_network_cnn_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_network_cnn_txt_main_default;
+	lv_style_reset(&style_screen_network_cnn_txt_main_default);
+	lv_style_set_bg_opa(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_radius(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_text_letter_space(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_network_cnn_txt, LV_LABEL_PART_MAIN, &style_screen_network_cnn_txt_main_default);
+
+
+	//Widget: screen_network_cnn_state
+	ui->screen_network_cnn_state = lv_label_create(ui->screen_network, NULL);
+	lv_label_set_text(ui->screen_network_cnn_state, "Disconnected");
+	lv_label_set_align(ui->screen_network_cnn_state, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_network_cnn_state, 170, 65);
+	lv_obj_set_width(ui->screen_network_cnn_state, 145);
+
+	//Set style for screen_network_cnn_state. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_network_cnn_state_main_default;
+	lv_style_reset(&style_screen_network_cnn_state_main_default);
+	lv_style_set_text_color(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_text_letter_space(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_radius(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_network_cnn_state, LV_LABEL_PART_MAIN, &style_screen_network_cnn_state_main_default);
+
+
+	//Widget: screen_network_btn_cnn
+	ui->screen_network_btn_cnn = lv_btn_create(ui->screen_network, NULL);
+	ui->screen_network_btn_cnn_label = lv_label_create(ui->screen_network_btn_cnn, NULL);
+	lv_label_set_text(ui->screen_network_btn_cnn_label, "search and\nconnect");
+	lv_label_set_align(ui->screen_network_btn_cnn_label, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_network_btn_cnn, 110, 110);
+	lv_obj_set_size(ui->screen_network_btn_cnn, 100, 50);
+
+	//Set style for screen_network_btn_cnn. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_network_btn_cnn_main_default;
+	lv_style_reset(&style_screen_network_btn_cnn_main_default);
+	lv_style_set_radius(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 50);
+	lv_style_set_text_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_bg_opa(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_shadow_width(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_width(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_border_opa(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_obj_add_style(ui->screen_network_btn_cnn, LV_BTN_PART_MAIN, &style_screen_network_btn_cnn_main_default);
+
+
+	//Widget: screen_network_server_msg
+	ui->screen_network_server_msg = lv_label_create(ui->screen_network, NULL);
+	lv_label_set_text(ui->screen_network_server_msg, "msg:hubei wuhan china");
+	lv_label_set_align(ui->screen_network_server_msg, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_network_server_msg, 20, 180);
+	lv_obj_set_width(ui->screen_network_server_msg, 280);
+
+	//Set style for screen_network_server_msg. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_network_server_msg_main_default;
+	lv_style_reset(&style_screen_network_server_msg_main_default);
+	lv_style_set_radius(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_letter_space(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_network_server_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_network_server_msg, LV_LABEL_PART_MAIN, &style_screen_network_server_msg_main_default);
 
 
 	//Init events for screen.

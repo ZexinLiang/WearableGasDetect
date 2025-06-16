@@ -268,7 +268,7 @@ typedef void * lv_obj_user_data_t;
 #endif /* LV_USE_LED */
 
 #define LV_USE_LINE 0
-#define LV_USE_LIST 1
+#define LV_USE_LIST 0
 
 #if LV_USE_LIST != 0
 #define LV_LIST_DEF_ANIM_TIME 100
@@ -303,9 +303,9 @@ typedef void * lv_obj_user_data_t;
 #define LV_ROLLER_INF_PAGES 7
 #endif /* LV_USE_ROLLER */
 
-#define LV_USE_SLIDER 0
+#define LV_USE_SLIDER 1
 #define LV_USE_SPINBOX 0
-#define LV_USE_SWITCH 0
+#define LV_USE_SWITCH 1
 #define LV_USE_TEXTAREA 0
 
 #if LV_USE_TEXTAREA != 0

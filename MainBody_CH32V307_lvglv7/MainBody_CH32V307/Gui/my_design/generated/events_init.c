@@ -78,7 +78,7 @@ static void screen_pwon_label_1_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_rtdata_del == true) {
 	          setup_scr_screen_rtdata(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 10, 10, true);
+	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
 	        guider_ui.screen_pwon_del = true;
 	    }
 		break;
@@ -285,9 +285,22 @@ static void screen_devicest_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
+static void screen_devicest_start_st_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		
+		break;
+	}
+	default:
+		break;
+	}
+}
 void events_init_screen_devicest(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_devicest_menu, screen_devicest_menu_event_handler);
+	lv_obj_set_event_cb(ui->screen_devicest_start_st, screen_devicest_start_st_event_handler);
 }
 
 static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
@@ -302,7 +315,7 @@ static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_NONE, 100, 100, false);
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 10, 10, false);
 	        guider_ui.screen_alarmst_del = false;
 	    }
 		break;
@@ -337,9 +350,22 @@ static void screen_network_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
+static void screen_network_btn_cnn_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		
+		break;
+	}
+	default:
+		break;
+	}
+}
 void events_init_screen_network(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_network_menu, screen_network_menu_event_handler);
+	lv_obj_set_event_cb(ui->screen_network_btn_cnn, screen_network_btn_cnn_event_handler);
 }
 
 static void screen_sub_device_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
@@ -363,9 +389,35 @@ static void screen_sub_device_menu_event_handler (lv_obj_t *obj, lv_event_t even
 		break;
 	}
 }
+static void screen_sub_device_btn_dcnn_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		
+		break;
+	}
+	default:
+		break;
+	}
+}
+static void screen_sub_device_btn_cnn_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	case LV_EVENT_CLICKED:
+	{
+		
+		break;
+	}
+	default:
+		break;
+	}
+}
 void events_init_screen_sub_device(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_sub_device_menu, screen_sub_device_menu_event_handler);
+	lv_obj_set_event_cb(ui->screen_sub_device_btn_dcnn, screen_sub_device_btn_dcnn_event_handler);
+	lv_obj_set_event_cb(ui->screen_sub_device_btn_cnn, screen_sub_device_btn_cnn_event_handler);
 }
 
 

@@ -7,18 +7,21 @@
 C_SRCS += \
 ../Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.c \
 ../Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_17.c \
+../Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_18.c \
 ../Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_32.c \
 ../Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_8.c 
 
 OBJS += \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.o \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_17.o \
+./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_18.o \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_32.o \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_8.o 
 
 C_DEPS += \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_12.d \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_17.d \
+./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_18.d \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_32.d \
 ./Gui/my_design/generated/guider_fonts/lv_font_montserratMedium_8.d 
 

@@ -99,6 +99,67 @@ void setup_scr_screen_alarmst(lv_ui *ui){
 	lv_obj_add_style(ui->screen_alarmst_menu, LV_BTN_PART_MAIN, &style_screen_alarmst_menu_main_default);
 
 
+	//Widget: screen_alarmst_silence_sw
+	ui->screen_alarmst_silence_sw = lv_switch_create(ui->screen_alarmst, NULL);
+	lv_obj_set_pos(ui->screen_alarmst_silence_sw, 260, 50);
+	lv_obj_set_size(ui->screen_alarmst_silence_sw, 40, 20);
+
+	//Set style for screen_alarmst_silence_sw. Part: LV_SWITCH_PART_BG, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_silence_sw_bg_default;
+	lv_style_reset(&style_screen_alarmst_silence_sw_bg_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
+	lv_style_set_border_width(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, 10);
+	lv_style_set_shadow_width(&style_screen_alarmst_silence_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_silence_sw, LV_SWITCH_PART_BG, &style_screen_alarmst_silence_sw_bg_default);
+
+	//Set style for screen_alarmst_silence_sw. Part: LV_SWITCH_PART_INDIC, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_silence_sw_indic_default;
+	lv_style_reset(&style_screen_alarmst_silence_sw_indic_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x00a1b5));
+	lv_style_set_border_width(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_silence_sw_indic_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_silence_sw, LV_SWITCH_PART_INDIC, &style_screen_alarmst_silence_sw_indic_default);
+
+	//Set style for screen_alarmst_silence_sw. Part: LV_SWITCH_PART_KNOB, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_silence_sw_knob_default;
+	lv_style_reset(&style_screen_alarmst_silence_sw_knob_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_silence_sw_knob_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_silence_sw_knob_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_radius(&style_screen_alarmst_silence_sw_knob_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_silence_sw, LV_SWITCH_PART_KNOB, &style_screen_alarmst_silence_sw_knob_default);
+
+
+	//Widget: screen_alarmst_label_2
+	ui->screen_alarmst_label_2 = lv_label_create(ui->screen_alarmst, NULL);
+	lv_label_set_text(ui->screen_alarmst_label_2, "Silence mode");
+	lv_label_set_align(ui->screen_alarmst_label_2, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_alarmst_label_2, 30, 50);
+	lv_obj_set_width(ui->screen_alarmst_label_2, 150);
+
+	//Set style for screen_alarmst_label_2. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_label_2_main_default;
+	lv_style_reset(&style_screen_alarmst_label_2_main_default);
+	lv_style_set_radius(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_text_letter_space(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_alarmst_label_2_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_label_2, LV_LABEL_PART_MAIN, &style_screen_alarmst_label_2_main_default);
+
+
 	//Init events for screen.
 	events_init_screen_alarmst(ui);
 }

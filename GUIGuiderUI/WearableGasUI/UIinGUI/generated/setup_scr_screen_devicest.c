@@ -99,6 +99,79 @@ void setup_scr_screen_devicest(lv_ui *ui){
 	lv_obj_add_style(ui->screen_devicest_menu, LV_BTN_PART_MAIN, &style_screen_devicest_menu_main_default);
 
 
+	//Widget: screen_devicest_start_st
+	ui->screen_devicest_start_st = lv_btn_create(ui->screen_devicest, NULL);
+	ui->screen_devicest_start_st_label = lv_label_create(ui->screen_devicest_start_st, NULL);
+	lv_label_set_text(ui->screen_devicest_start_st_label, "Start\nself-test");
+	lv_label_set_align(ui->screen_devicest_start_st_label, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_devicest_start_st, 110, 67);
+	lv_obj_set_size(ui->screen_devicest_start_st, 100, 50);
+
+	//Set style for screen_devicest_start_st. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_devicest_start_st_main_default;
+	lv_style_reset(&style_screen_devicest_start_st_main_default);
+	lv_style_set_text_color(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_bg_opa(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_border_width(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_border_opa(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_style_set_radius(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, 50);
+	lv_style_set_shadow_width(&style_screen_devicest_start_st_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_devicest_start_st, LV_BTN_PART_MAIN, &style_screen_devicest_start_st_main_default);
+
+
+	//Widget: screen_devicest_st_process
+	ui->screen_devicest_st_process = lv_bar_create(ui->screen_devicest, NULL);
+	lv_bar_set_anim_time(ui->screen_devicest_st_process, 1000);
+	lv_bar_set_range(ui->screen_devicest_st_process, 0, 100);
+	lv_bar_set_value(ui->screen_devicest_st_process, 50, LV_ANIM_OFF);
+	lv_obj_set_pos(ui->screen_devicest_st_process, 40, 149);
+	lv_obj_set_size(ui->screen_devicest_st_process, 240, 10);
+
+	//Set style for screen_devicest_st_process. Part: LV_BAR_PART_BG, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_devicest_st_process_bg_default;
+	lv_style_reset(&style_screen_devicest_st_process_bg_default);
+	lv_style_set_bg_opa(&style_screen_devicest_st_process_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_devicest_st_process_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
+	lv_style_set_radius(&style_screen_devicest_st_process_bg_default, LV_STATE_DEFAULT, 10);
+	lv_style_set_shadow_width(&style_screen_devicest_st_process_bg_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_devicest_st_process, LV_BAR_PART_BG, &style_screen_devicest_st_process_bg_default);
+
+	//Set style for screen_devicest_st_process. Part: LV_BAR_PART_INDIC, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_devicest_st_process_indic_default;
+	lv_style_reset(&style_screen_devicest_st_process_indic_default);
+	lv_style_set_bg_opa(&style_screen_devicest_st_process_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_devicest_st_process_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_style_set_radius(&style_screen_devicest_st_process_indic_default, LV_STATE_DEFAULT, 10);
+	lv_obj_add_style(ui->screen_devicest_st_process, LV_BAR_PART_INDIC, &style_screen_devicest_st_process_indic_default);
+
+
+	//Widget: screen_devicest_st_msg
+	ui->screen_devicest_st_msg = lv_label_create(ui->screen_devicest, NULL);
+	lv_label_set_text(ui->screen_devicest_st_msg, "msg:");
+	lv_label_set_align(ui->screen_devicest_st_msg, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_devicest_st_msg, 40, 180);
+	lv_obj_set_width(ui->screen_devicest_st_msg, 240);
+
+	//Set style for screen_devicest_st_msg. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_devicest_st_msg_main_default;
+	lv_style_reset(&style_screen_devicest_st_msg_main_default);
+	lv_style_set_radius(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_text_letter_space(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_devicest_st_msg_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_devicest_st_msg, LV_LABEL_PART_MAIN, &style_screen_devicest_st_msg_main_default);
+
+
 	//Init events for screen.
 	events_init_screen_devicest(ui);
 }
