@@ -1,6 +1,6 @@
 /*
 * Copyright 2025 NXP
-* NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
+* NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
 * comply with and are bound by, such license terms.  If you do not agree to be bound by the applicable license
@@ -13,56 +13,97 @@
 extern "C" {
 #endif
 
-#include "lvgl.h"
+#include "lvgl/lvgl.h"
 
 typedef struct
 {
   
-	lv_obj_t *screen;
-	bool screen_del;
-	lv_obj_t *screen_img_1;
-	lv_obj_t *screen_img_2;
-	lv_obj_t *screen_ta_1;
-	lv_obj_t *screen_textprogress_1;
-	lv_obj_t *screen_ta_2;
-	lv_obj_t *screen_ta_3;
-	lv_obj_t *screen_ta_4;
-	lv_obj_t *screen_1;
-	bool screen_1_del;
-	lv_obj_t *screen_1_img_1;
-	lv_obj_t *screen_2;
-	bool screen_2_del;
+	lv_obj_t *screen_none;
+	bool screen_none_del;
+	lv_obj_t *g_kb_screen_none;
+	lv_obj_t *screen_pwon;
+	bool screen_pwon_del;
+	lv_obj_t *g_kb_screen_pwon;
+	lv_obj_t *screen_pwon_cont_1;
+	lv_obj_t *screen_pwon_label_1;
+	lv_obj_t *screen_pwon_img_1;
+	lv_obj_t *screen_settings;
+	bool screen_settings_del;
+	lv_obj_t *g_kb_screen_settings;
+	lv_obj_t *screen_settings_page;
+	lv_obj_t *screen_settings_btn_sub_device;
+	lv_obj_t *screen_settings_btn_sub_device_label;
+	lv_obj_t *screen_settings_btn_network;
+	lv_obj_t *screen_settings_btn_network_label;
+	lv_obj_t *screen_settings_btn_rtdata;
+	lv_obj_t *screen_settings_btn_rtdata_label;
+	lv_obj_t *screen_settings_btn_devicest;
+	lv_obj_t *screen_settings_btn_devicest_label;
+	lv_obj_t *screen_settings_btn_alarmset;
+	lv_obj_t *screen_settings_btn_alarmset_label;
+	lv_obj_t *screen_settings_pwr_pic;
+	lv_obj_t *screen_settings_pwr;
+	lv_obj_t *screen_rtdata;
+	bool screen_rtdata_del;
+	lv_obj_t *g_kb_screen_rtdata;
+	lv_obj_t *screen_rtdata_temp_txt;
+	lv_obj_t *screen_rtdata_rh_txt;
+	lv_obj_t *screen_rtdata_pres_txt;
+	lv_obj_t *screen_rtdata_temp;
+	lv_obj_t *screen_rtdata_rhu;
+	lv_obj_t *screen_rtdata_menu;
+	lv_obj_t *screen_rtdata_menu_label;
+	lv_obj_t *screen_rtdata_pres;
+	lv_obj_t *screen_rtdata_pwr;
+	lv_obj_t *screen_rtdata_pwr_pic;
+	lv_obj_t *screen_devicest;
+	bool screen_devicest_del;
+	lv_obj_t *g_kb_screen_devicest;
+	lv_obj_t *screen_devicest_pwr_pic;
+	lv_obj_t *screen_devicest_pwr;
+	lv_obj_t *screen_devicest_menu;
+	lv_obj_t *screen_devicest_menu_label;
+	lv_obj_t *screen_alarmst;
+	bool screen_alarmst_del;
+	lv_obj_t *g_kb_screen_alarmst;
+	lv_obj_t *screen_alarmst_label_1;
+	lv_obj_t *screen_alarmst_bar_1;
+	lv_obj_t *screen_alarmst_menu;
+	lv_obj_t *screen_alarmst_menu_label;
+	lv_obj_t *screen_network;
+	bool screen_network_del;
+	lv_obj_t *g_kb_screen_network;
+	lv_obj_t *screen_network_label_1;
+	lv_obj_t *screen_network_bar_1;
+	lv_obj_t *screen_network_menu;
+	lv_obj_t *screen_network_menu_label;
+	lv_obj_t *screen_sub_device;
+	bool screen_sub_device_del;
+	lv_obj_t *g_kb_screen_sub_device;
+	lv_obj_t *screen_sub_device_label_1;
+	lv_obj_t *screen_sub_device_bar_1;
+	lv_obj_t *screen_sub_device_menu;
+	lv_obj_t *screen_sub_device_menu_label;
 }lv_ui;
 
-typedef void (*ui_setup_scr_t)(lv_ui * ui);
-
-void ui_init_style(lv_style_t * style);
-
-void ui_load_scr_animation(lv_ui *ui, lv_obj_t ** new_scr, bool new_scr_del, bool * old_scr_del, ui_setup_scr_t setup_scr,
-                           lv_scr_load_anim_t anim_type, uint32_t time, uint32_t delay, bool is_clean, bool auto_del);
-
-void ui_animation(void * var, int32_t duration, int32_t delay, int32_t start_value, int32_t end_value, lv_anim_path_cb_t path_cb,
-                       uint16_t repeat_cnt, uint32_t repeat_delay, uint32_t playback_time, uint32_t playback_delay,
-                       lv_anim_exec_xcb_t exec_cb, lv_anim_start_cb_t start_cb, lv_anim_ready_cb_t ready_cb, lv_anim_deleted_cb_t deleted_cb);
-
-
 void init_scr_del_flag(lv_ui *ui);
-
 void setup_ui(lv_ui *ui);
-
-
 extern lv_ui guider_ui;
 
-
-void setup_scr_screen(lv_ui *ui);
-void setup_scr_screen_1(lv_ui *ui);
-void setup_scr_screen_2(lv_ui *ui);
-LV_IMG_DECLARE(_1_alpha_320x240);
-LV_IMG_DECLARE(_58DC9A2F81E0F053C85B9185A7294362_alpha_213x102);
+void setup_scr_screen_none(lv_ui *ui);
+void setup_scr_screen_pwon(lv_ui *ui);
+void setup_scr_screen_settings(lv_ui *ui);
+void setup_scr_screen_rtdata(lv_ui *ui);
+void setup_scr_screen_devicest(lv_ui *ui);
+void setup_scr_screen_alarmst(lv_ui *ui);
+void setup_scr_screen_network(lv_ui *ui);
+void setup_scr_screen_sub_device(lv_ui *ui);
+LV_IMG_DECLARE(_wchlogo_alpha_142x35);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
-LV_FONT_DECLARE(lv_font_montserratMedium_13)
-LV_FONT_DECLARE(lv_font_montserratMedium_16)
+LV_FONT_DECLARE(lv_font_montserratMedium_32)
+LV_FONT_DECLARE(lv_font_montserratMedium_8)
+LV_FONT_DECLARE(lv_font_montserratMedium_17)
 
 
 #ifdef __cplusplus

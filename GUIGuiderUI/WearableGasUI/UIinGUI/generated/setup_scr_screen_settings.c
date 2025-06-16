@@ -39,11 +39,11 @@ void setup_scr_screen_settings(lv_ui *ui){
 	lv_style_reset(&style_screen_settings_page_main_default);
 	lv_style_set_bg_opa(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_bg_color(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_radius(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_border_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 1);
 	lv_style_set_border_opa(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, lv_color_hex(0x999999));
+	lv_style_set_radius(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_settings_page_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_settings_page, LV_CONT_PART_MAIN, &style_screen_settings_page_main_default);
 
 	//Widget: screen_settings_btn_sub_device

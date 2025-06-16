@@ -29,6 +29,8 @@
 
 extern _m_tp_dev tp_dev;
 lv_ui guider_ui;
+extern DataTab_TypeDef data;
+extern uint8_t lvgl_task_flag;
 
 void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str)
 {
@@ -70,7 +72,8 @@ int main(void)
 	lv_port_indev_init();
 	//修改setup_ui并一次性初始化完所有屏幕或者带变量的屏幕
 	setup_ui(&guider_ui);
-	events_init(&guider_ui);
+	lvgl_task_flag = 1;
+	//events_init(&guider_ui);
 
 #if CH9142_Config
 	GPIO_SetBits(GPIOA,GPIO_Pin_4);
@@ -97,10 +100,8 @@ int main(void)
 	GPIO_SetBits(GPIOA,GPIO_Pin_4);
 	GPIO_SetBits(GPIOA,GPIO_Pin_5);
 #endif
-	uint8_t cnt = 0;
+	//uint8_t cnt = 0;
     while(1){
-        cnt ++;
-        lv_label_set_text_fmt(guider_ui.screen_2_label_1, "tttt:%d",cnt);
         delay_ms(10);
         lv_tick_inc(10);
         lv_task_handler();

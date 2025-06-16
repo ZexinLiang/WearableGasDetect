@@ -24,8 +24,8 @@ static void screen_none_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_pwon_del == true) {
 	          setup_scr_screen_pwon(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_pwon, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_none_del = true;
+	        lv_scr_load_anim(guider_ui.screen_pwon, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_none_del = false;
 	    }
 		break;
 	}
@@ -50,8 +50,8 @@ static void screen_pwon_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_pwon_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_pwon_del = false;
 	    }
 		break;
 	}
@@ -99,8 +99,8 @@ static void screen_pwon_img_1_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_pwon_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_pwon_del = false;
 	    }
 		break;
 	}
@@ -126,7 +126,7 @@ static void screen_settings_page_event_handler (lv_obj_t *obj, lv_event_t event)
 static void screen_settings_btn_sub_device_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
-	case LV_EVENT_RELEASED:
+	case LV_EVENT_CLICKED:
 	{
 		//Write the load screen code.
 	    lv_obj_t * act_scr = lv_scr_act();
@@ -135,8 +135,8 @@ static void screen_settings_btn_sub_device_event_handler (lv_obj_t *obj, lv_even
 	        if (guider_ui.screen_sub_device_del == true) {
 	          setup_scr_screen_sub_device(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_sub_device, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_settings_del = true;
+	        lv_scr_load_anim(guider_ui.screen_sub_device, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_settings_del = false;
 	    }
 		break;
 	}
@@ -147,7 +147,7 @@ static void screen_settings_btn_sub_device_event_handler (lv_obj_t *obj, lv_even
 static void screen_settings_btn_network_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
-	case LV_EVENT_RELEASED:
+	case LV_EVENT_CLICKED:
 	{
 		//Write the load screen code.
 	    lv_obj_t * act_scr = lv_scr_act();
@@ -156,8 +156,8 @@ static void screen_settings_btn_network_event_handler (lv_obj_t *obj, lv_event_t
 	        if (guider_ui.screen_network_del == true) {
 	          setup_scr_screen_network(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_network, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_settings_del = true;
+	        lv_scr_load_anim(guider_ui.screen_network, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_settings_del = false;
 	    }
 		break;
 	}
@@ -168,7 +168,7 @@ static void screen_settings_btn_network_event_handler (lv_obj_t *obj, lv_event_t
 static void screen_settings_btn_rtdata_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
-	case LV_EVENT_RELEASED:
+	case LV_EVENT_CLICKED:
 	{
 		//Write the load screen code.
 	    lv_obj_t * act_scr = lv_scr_act();
@@ -177,8 +177,8 @@ static void screen_settings_btn_rtdata_event_handler (lv_obj_t *obj, lv_event_t 
 	        if (guider_ui.screen_rtdata_del == true) {
 	          setup_scr_screen_rtdata(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_settings_del = true;
+	        lv_scr_load_anim(guider_ui.screen_rtdata, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_settings_del = false;
 	    }
 		break;
 	}
@@ -198,8 +198,8 @@ static void screen_settings_btn_devicest_event_handler (lv_obj_t *obj, lv_event_
 	        if (guider_ui.screen_devicest_del == true) {
 	          setup_scr_screen_devicest(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_devicest, LV_SCR_LOAD_ANIM_NONE, 100, 100, true);
-	        guider_ui.screen_settings_del = true;
+	        lv_scr_load_anim(guider_ui.screen_devicest, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_settings_del = false;
 	    }
 		break;
 	}
@@ -219,8 +219,8 @@ static void screen_settings_btn_alarmset_event_handler (lv_obj_t *obj, lv_event_
 	        if (guider_ui.screen_alarmst_del == true) {
 	          setup_scr_screen_alarmst(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_alarmst, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_settings_del = true;
+	        lv_scr_load_anim(guider_ui.screen_alarmst, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_settings_del = false;
 	    }
 		break;
 	}
@@ -250,8 +250,8 @@ static void screen_rtdata_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_rtdata_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_rtdata_del = false;
 	    }
 		break;
 	}
@@ -276,8 +276,8 @@ static void screen_devicest_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_devicest_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_devicest_del = false;
 	    }
 		break;
 	}
@@ -302,8 +302,8 @@ static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_NONE, 100, 100, true);
-	        guider_ui.screen_alarmst_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_NONE, 100, 100, false);
+	        guider_ui.screen_alarmst_del = false;
 	    }
 		break;
 	}
@@ -328,8 +328,8 @@ static void screen_network_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_network_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_network_del = false;
 	    }
 		break;
 	}
@@ -354,8 +354,8 @@ static void screen_sub_device_menu_event_handler (lv_obj_t *obj, lv_event_t even
 	        if (guider_ui.screen_settings_del == true) {
 	          setup_scr_screen_settings(&guider_ui);
 	        }
-	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, true);
-	        guider_ui.screen_sub_device_del = true;
+	        lv_scr_load_anim(guider_ui.screen_settings, LV_SCR_LOAD_ANIM_FADE_ON, 100, 100, false);
+	        guider_ui.screen_sub_device_del = false;
 	    }
 		break;
 	}

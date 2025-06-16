@@ -68,15 +68,8 @@ Gui/lvgl/src/lv_widgets/lv_imgbtn.o: \
  ../Gui/lvgl/src/lv_widgets/../lv_themes/lv_theme_mono.h \
  ../Gui/lvgl/src/lv_widgets/lv_imgbtn.h \
  ../Gui/lvgl/src/lv_widgets/../lv_conf_internal.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h \
- ../Gui/lvgl/src/lv_widgets/lv_btn.h ../Gui/lvgl/src/lv_widgets/lv_cont.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/lv_indev.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/../lv_hal/lv_hal_indev.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/../lv_core/lv_group.h \
- ../Gui/lvgl/src/lv_widgets/../lv_core/../lv_core/lv_obj.h \
- ../Gui/lvgl/src/lv_widgets/../lv_draw/lv_draw_img.h \
  ../Gui/lvgl/src/lv_widgets/lv_label.h \
+ ../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h \
  ../Gui/lvgl/src/lv_widgets/../lv_font/lv_font.h \
  ../Gui/lvgl/src/lv_widgets/../lv_font/lv_symbol_def.h \
  ../Gui/lvgl/src/lv_widgets/../lv_misc/lv_txt.h \
@@ -230,25 +223,9 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl/src/lv_widgets/../lv_conf_internal.h:
 
-../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h:
-
-../Gui/lvgl/src/lv_widgets/lv_btn.h:
-
-../Gui/lvgl/src/lv_widgets/lv_cont.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_core/lv_indev.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_core/../lv_hal/lv_hal_indev.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_core/../lv_core/lv_group.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_core/../lv_core/lv_obj.h:
-
-../Gui/lvgl/src/lv_widgets/../lv_draw/lv_draw_img.h:
-
 ../Gui/lvgl/src/lv_widgets/lv_label.h:
+
+../Gui/lvgl/src/lv_widgets/../lv_core/lv_obj.h:
 
 ../Gui/lvgl/src/lv_widgets/../lv_font/lv_font.h:
 

@@ -21,6 +21,9 @@
 #include "m780eg.h"
 #include "periodicalTask.h"
 #include "powerManage.h"
+#include "gui_guider.h"
+
+lv_ui guider_ui;
 
 extern _m_tp_dev tp_dev;
 
@@ -45,8 +48,9 @@ int main(void)
 	POINT_COLOR=RED;
 	lv_init();
 	lv_port_disp_init();
-	lv_demo_widgets();
+	//lv_demo_widgets();
 	lv_port_indev_init();
+    setup_ui(&guider_ui);
 
     while(1)
     {

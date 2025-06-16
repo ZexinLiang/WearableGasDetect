@@ -92,8 +92,6 @@ Gui/lvgl_app/src/lv_demo_music/assets/img_lv_demo_music_btn_play.o: \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_core/lv_obj.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_core/lv_indev.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_imgbtn.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_btn.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_draw/lv_draw_img.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_img.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_misc/lv_fs.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_label.h \
@@ -119,14 +117,12 @@ Gui/lvgl_app/src/lv_demo_music/assets/img_lv_demo_music_btn_play.o: \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_misc/lv_anim.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_cont.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_list.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_page.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_img.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_chart.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_line.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_table.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_checkbox.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_cpicker.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_bar.h \
+ ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_btn.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_slider.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_bar.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_led.h \
@@ -134,29 +130,22 @@ Gui/lvgl_app/src/lv_demo_music/assets/img_lv_demo_music_btn_play.o: \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_keyboard.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_btnmatrix.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_dropdown.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_page.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_label.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_roller.h \
+ ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_page.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_textarea.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_canvas.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_img.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_win.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_tabview.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_win.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_tileview.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_msgbox.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_objmask.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_cont.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_gauge.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_linemeter.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_linemeter.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_switch.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_arc.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_spinner.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_arc.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_calendar.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_spinbox.h \
- ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_textarea.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_draw/lv_img_cache.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_draw/lv_img_decoder.h \
  ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_api_map.h \
@@ -357,10 +346,6 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_imgbtn.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_btn.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_draw/lv_draw_img.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_img.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_misc/lv_fs.h:
@@ -411,13 +396,7 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_list.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_page.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_img.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_chart.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_line.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_table.h:
 
@@ -426,6 +405,8 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_cpicker.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_bar.h:
+
+../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_btn.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_slider.h:
 
@@ -441,23 +422,17 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_dropdown.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_page.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_label.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_roller.h:
+
+../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_page.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_textarea.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_canvas.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_img.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_win.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_tabview.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_win.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_tileview.h:
 
@@ -465,11 +440,7 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_objmask.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_cont.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_gauge.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_linemeter.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_linemeter.h:
 
@@ -479,13 +450,9 @@ c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V3
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_spinner.h:
 
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_arc.h:
-
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_calendar.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/lv_spinbox.h:
-
-../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_widgets/../lv_widgets/lv_textarea.h:
 
 ../Gui/lvgl_app/src/lv_demo_music/assets/../../../../lvgl/src/lv_draw/lv_img_cache.h:
 

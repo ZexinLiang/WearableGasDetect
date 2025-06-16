@@ -28,7 +28,7 @@ typedef int16_t lv_coord_t;
 
 #if LV_MEM_CUSTOM == 0
 /* Size of the memory used by `lv_mem_alloc` in bytes (>= 2kB)*/
-#define LV_MEM_SIZE (320U * 1024U)
+#define LV_MEM_SIZE (140U * 1024U)
 #define LV_MEM_ATTR 
 #define LV_MEM_ADR 0
 #define LV_MEM_AUTO_DEFRAG 1

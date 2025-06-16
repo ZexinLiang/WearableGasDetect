@@ -42,17 +42,16 @@ typedef struct
 	lv_obj_t *screen_settings_pwr;
 	lv_obj_t *screen_rtdata;
 	bool screen_rtdata_del;
-	lv_obj_t *screen_rtdata_cont_1;
 	lv_obj_t *screen_rtdata_temp_txt;
 	lv_obj_t *screen_rtdata_rh_txt;
 	lv_obj_t *screen_rtdata_pres_txt;
 	lv_obj_t *screen_rtdata_temp;
 	lv_obj_t *screen_rtdata_rhu;
-	lv_obj_t *screen_rtdata_pres;
 	lv_obj_t *screen_rtdata_menu;
 	lv_obj_t *screen_rtdata_menu_label;
-	lv_obj_t *screen_rtdata_pwr_pic;
+	lv_obj_t *screen_rtdata_pres;
 	lv_obj_t *screen_rtdata_pwr;
+	lv_obj_t *screen_rtdata_pwr_pic;
 	lv_obj_t *screen_devicest;
 	bool screen_devicest_del;
 	lv_obj_t *screen_devicest_pwr_pic;
@@ -77,6 +76,8 @@ typedef struct
 	lv_obj_t *screen_sub_device_bar_1;
 	lv_obj_t *screen_sub_device_menu;
 	lv_obj_t *screen_sub_device_menu_label;
+	lv_obj_t *screen_sub_device_list_1;
+	lv_obj_t *screen_sub_device_list_1_item0;
 }lv_ui;
 
 void init_scr_del_flag(lv_ui *ui);

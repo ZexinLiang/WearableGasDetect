@@ -25,6 +25,10 @@ SECONDARY_SIZE :=
 SUBDIRS := \
 Core \
 Debug \
+Gui/custom \
+Gui/generated \
+Gui/generated/guider_fonts \
+Gui/generated/images \
 Gui/lvgl/examples/porting \
 Gui/lvgl/src/lv_core \
 Gui/lvgl/src/lv_draw \

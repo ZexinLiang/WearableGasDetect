@@ -115,16 +115,16 @@ all: MainBody_CH32V307.elf secondary-outputs
 
 # 工具调用
 MainBody_CH32V307.elf: $(OBJS) $(USER_OBJS)
-	@	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -T "C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"MainBody_CH32V307.map" --specs=nano.specs --specs=nosys.specs  -o "MainBody_CH32V307.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lprintfloat
+	@	@	riscv-none-elf-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -T "C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Ld\Link.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"MainBody_CH32V307.map" --specs=nano.specs --specs=nosys.specs  -o "MainBody_CH32V307.elf" $(OBJS) $(USER_OBJS) $(LIBS) -lprintfloat
 	@	@
 MainBody_CH32V307.hex: MainBody_CH32V307.elf
-	@	riscv-none-embed-objcopy -O ihex "MainBody_CH32V307.elf"  "MainBody_CH32V307.hex"
+	@	riscv-none-elf-objcopy -O ihex "MainBody_CH32V307.elf"  "MainBody_CH32V307.hex"
 	@	@
 MainBody_CH32V307.lst: MainBody_CH32V307.elf
-	@	riscv-none-embed-objdump --all-headers --demangle --disassemble -M xw "MainBody_CH32V307.elf" > "MainBody_CH32V307.lst"
+	@	riscv-none-elf-objdump --all-headers --demangle --disassemble -M xw "MainBody_CH32V307.elf" > "MainBody_CH32V307.lst"
 	@	@
 MainBody_CH32V307.siz: MainBody_CH32V307.elf
-	@	riscv-none-embed-size --format=berkeley "MainBody_CH32V307.elf"
+	@	riscv-none-elf-size --format=berkeley "MainBody_CH32V307.elf"
 	@	@
 # 其他目标
 clean:

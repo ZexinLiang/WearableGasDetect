@@ -14,10 +14,14 @@
 void init_scr_del_flag(lv_ui *ui)
 {
   
-	ui->screen_del = true;
-	ui->screen_1_del = true;
-	ui->screen_3_del = true;
-	ui->screen_2_del = true;
+	ui->screen_none_del = false;
+	ui->screen_pwon_del = false;
+	ui->screen_settings_del = false;
+	ui->screen_rtdata_del = false;
+	ui->screen_devicest_del = false;
+	ui->screen_alarmst_del = false;
+	ui->screen_network_del = false;
+	ui->screen_sub_device_del = false;
 }
 
 void setup_ui(lv_ui *ui)
@@ -26,12 +30,13 @@ void setup_ui(lv_ui *ui)
 		LV_THEME_MATERIAL_FLAG_LIGHT, LV_THEME_DEFAULT_FONT_SMALL,  LV_THEME_DEFAULT_FONT_NORMAL,
 		LV_THEME_DEFAULT_FONT_SUBTITLE, LV_THEME_DEFAULT_FONT_TITLE);
   init_scr_del_flag(ui);
-  setup_scr_screen_3(ui);
-  setup_scr_screen_2(ui);
-
-  setup_scr_screen_1(ui);
-
-  setup_scr_screen(ui);
-
-  lv_scr_load(ui->screen_3);
+  setup_scr_screen_pwon(ui);
+  setup_scr_screen_alarmst(ui);
+  setup_scr_screen_devicest(ui);
+  setup_scr_screen_network(ui);
+  setup_scr_screen_none(ui);
+  setup_scr_screen_rtdata(ui);
+  setup_scr_screen_settings(ui);
+  setup_scr_screen_sub_device(ui);
+  lv_scr_load(ui->screen_pwon);
 }

@@ -69,6 +69,10 @@ RM := rm -rf
 -include Gui/lvgl/src/lv_draw/subdir.mk
 -include Gui/lvgl/src/lv_core/subdir.mk
 -include Gui/lvgl/examples/porting/subdir.mk
+-include Gui/generated/images/subdir.mk
+-include Gui/generated/guider_fonts/subdir.mk
+-include Gui/generated/subdir.mk
+-include Gui/custom/subdir.mk
 -include Debug/subdir.mk
 -include Core/subdir.mk
 -include subdir.mk

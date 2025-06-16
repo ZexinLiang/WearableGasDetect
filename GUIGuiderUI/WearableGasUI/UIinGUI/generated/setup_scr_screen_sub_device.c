@@ -36,17 +36,17 @@ void setup_scr_screen_sub_device(lv_ui *ui){
 	//Set style for screen_sub_device_label_1. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_sub_device_label_1_main_default;
 	lv_style_reset(&style_screen_sub_device_label_1_main_default);
+	lv_style_set_bg_opa(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_radius(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_8);
 	lv_style_set_text_letter_space(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_bg_opa(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_top(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_right(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_bottom(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_left(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_sub_device_label_1_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_sub_device_label_1, LV_LABEL_PART_MAIN, &style_screen_sub_device_label_1_main_default);
 
 
@@ -87,16 +87,60 @@ void setup_scr_screen_sub_device(lv_ui *ui){
 	//Set style for screen_sub_device_menu. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_sub_device_menu_main_default;
 	lv_style_reset(&style_screen_sub_device_menu_main_default);
-	lv_style_set_text_color(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-	lv_style_set_text_font(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-	lv_style_set_bg_opa(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 255);
-	lv_style_set_bg_color(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
 	lv_style_set_border_width(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_border_opa(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
 	lv_style_set_radius(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 50);
 	lv_style_set_shadow_width(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_bg_opa(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_sub_device_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
 	lv_obj_add_style(ui->screen_sub_device_menu, LV_BTN_PART_MAIN, &style_screen_sub_device_menu_main_default);
+
+
+	//Widget: screen_sub_device_list_1
+	ui->screen_sub_device_list_1 = lv_list_create(ui->screen_sub_device, NULL);
+	ui->screen_sub_device_list_1_item0 = lv_list_add_btn(ui->screen_sub_device_list_1, LV_SYMBOL_SAVE, "save");
+	lv_obj_set_pos(ui->screen_sub_device_list_1, 65, 79);
+	lv_obj_set_size(ui->screen_sub_device_list_1, 175, 109);
+
+	//Set style for screen_sub_device_list_1. Part: LV_LIST_PART_BG, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_sub_device_list_1_bg_default;
+	lv_style_reset(&style_screen_sub_device_list_1_bg_default);
+	lv_style_set_border_width(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 1);
+	lv_style_set_border_opa(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xe1e6ee));
+	lv_style_set_pad_top(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 5);
+	lv_style_set_pad_bottom(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 5);
+	lv_style_set_radius(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 3);
+	lv_style_set_shadow_width(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 5);
+	lv_style_set_pad_right(&style_screen_sub_device_list_1_bg_default, LV_STATE_DEFAULT, 5);
+	lv_obj_add_style(ui->screen_sub_device_list_1, LV_LIST_PART_BG, &style_screen_sub_device_list_1_bg_default);
+
+	//Set style for screen_sub_device_list_1. Part: LV_LIST_PART_SCROLLABLE, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_sub_device_list_1_scrollable_default;
+	lv_style_reset(&style_screen_sub_device_list_1_scrollable_default);
+	lv_style_set_bg_opa(&style_screen_sub_device_list_1_scrollable_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_sub_device_list_1_scrollable_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_radius(&style_screen_sub_device_list_1_scrollable_default, LV_STATE_DEFAULT, 3);
+	lv_obj_add_style(ui->screen_sub_device_list_1, LV_LIST_PART_SCROLLABLE, &style_screen_sub_device_list_1_scrollable_default);
+
+	//Set style for screen_sub_device_list_1 child items. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_sub_device_list_1_main_default_child;
+	lv_style_reset(&style_screen_sub_device_list_1_main_default_child);
+	lv_style_set_text_color(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, lv_color_hex(0x0D3055));
+	lv_style_set_text_font(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
+	lv_style_set_radius(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 3);
+	lv_style_set_pad_top(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 5);
+	lv_style_set_pad_left(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 5);
+	lv_style_set_pad_right(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 5);
+	lv_style_set_pad_bottom(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 5);
+	lv_style_set_bg_opa(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_sub_device_list_1_main_default_child, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_obj_add_style(ui->screen_sub_device_list_1_item0, LV_BTN_PART_MAIN, &style_screen_sub_device_list_1_main_default_child);
+	
 
 
 	//Init events for screen.
