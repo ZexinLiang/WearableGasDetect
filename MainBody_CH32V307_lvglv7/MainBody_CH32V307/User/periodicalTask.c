@@ -65,8 +65,8 @@ void TIM2_IRQHandler()//50ms
         //屏幕数据修改
         if(lvgl_task_flag){
             lv_label_set_text_fmt(guider_ui.screen_rtdata_rhu, "%d%%",data.humi2);
-            lv_label_set_text_fmt(guider_ui.screen_rtdata_temp, "%d",data.temp1);
-            lv_label_set_text_fmt(guider_ui.screen_rtdata_pres, "%dkPa",data.pres1);
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_temp, "%d",(int32_t)data.temp2);
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_pres, "%dPa",(int32_t)data.pres1);
         }
         divInS = (divInS+1)%20;
         if(!divInS){//1s执行的任务

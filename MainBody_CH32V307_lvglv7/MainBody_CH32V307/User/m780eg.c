@@ -86,7 +86,7 @@ uint8_t m780eg_cnn_stat(void){
 //测试临时变量
 uint16_t temp1 = 543,temp2 = 326,temp3 = 2367;
 void m780eg_dataUpload(void){//按照约定通信上报数据
-    char uploadMsg[20] = {0};
+    char uploadMsg[200] = {0};
     //上报气体数据信息
     m780EGUpload(uploadMsg);
     USARTx_SendStr(USART3, uploadMsg);
@@ -118,20 +118,31 @@ void m780eg_perioTask(void){
 }
 
 
-uint8_t uploadCnt = 0;
+//uint8_t uploadCnt = 0;
 #define maxMsgNum 8
 void m780EGUpload(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环回传
-    switch(uploadCnt%maxMsgNum){
-    case 0 : sprintf(msg,"$temp1%06.2f*",data.temp1);break;
-    case 1 : sprintf(msg,"$pres1%09.2f*",data.pres1);break;
-    case 2 : sprintf(msg,"$humi1%06.2f*",data.humi1);break;
-    case 3 : sprintf(msg,"$gResi%09.2f*",data.gasRes);break;
-    case 4 : sprintf(msg,"$humi2%03d*",data.humi2);break;
-    case 5 : sprintf(msg,"$temp2%03d*",data.temp2);break;
-    case 6 : sprintf(msg,"$CO2pp%06d*",data.CO2);break;
-    case 7 : sprintf(msg,"$pgas1%06d*",data.gas1);break;
-    }
-    uploadCnt++;
+    sprintf(msg,"{ \"type\":\"Sensor\",\
+\"data\": { \
+\"Humidity1\": %f,\
+\"Humidity2\": %d,\
+\"Pressure\": %f, \
+\"Temperature1\": %f, \
+\"Temperature2\": %d, \
+\"GasRes\": %f, \
+\"PGas\": %d,\
+\"CO2\": %d\
+}}",data.humi1,data.humi2,data.pres1,data.temp1,data.temp2,data.gasRes,data.gas1,data.CO2);
+//    switch(uploadCnt%maxMsgNum){
+//    case 0 : sprintf(msg,"$temp1%06.2f*",data.temp1);break;
+//    case 1 : sprintf(msg,"$pres1%09.2f*",data.pres1);break;
+//    case 2 : sprintf(msg,"$humi1%06.2f*",data.humi1);break;
+//    case 3 : sprintf(msg,"$gResi%09.2f*",data.gasRes);break;
+//    case 4 : sprintf(msg,"$humi2%03d*",data.humi2);break;
+//    case 5 : sprintf(msg,"$temp2%03d*",data.temp2);break;
+//    case 6 : sprintf(msg,"$CO2pp%06d*",data.CO2);break;
+//    case 7 : sprintf(msg,"$pgas1%06d*",data.gas1);break;
+//    }
+//    uploadCnt++;
 }
 
 void m780eg_dataProcess(void){//处理接收到的服务器报文
