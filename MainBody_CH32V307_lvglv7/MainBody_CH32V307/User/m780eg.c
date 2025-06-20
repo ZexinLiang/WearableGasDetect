@@ -17,7 +17,7 @@ extern DataTab_TypeDef data;
 
 void USART3_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
-#define U3Rx_MAX_LEN 40
+#define U3Rx_MAX_LEN 100
 uint8_t U3Rx_Buff[U3Rx_MAX_LEN]={0};
 uint16_t U3Rx_Len = 0;
 
@@ -131,7 +131,7 @@ void m780EGUpload(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环
 \"GasRes\": %f, \
 \"PGas\": %d,\
 \"CO2\": %d\
-}}",data.humi1,data.humi2,data.pres1,data.temp1,data.temp2,data.gasRes,data.gas1,data.CO2);
+}}$$",data.humi1,data.humi2,data.pres1,data.temp1,data.temp2,data.gasRes,data.gas1,data.CO2);
 //    switch(uploadCnt%maxMsgNum){
 //    case 0 : sprintf(msg,"$temp1%06.2f*",data.temp1);break;
 //    case 1 : sprintf(msg,"$pres1%09.2f*",data.pres1);break;
@@ -151,6 +151,7 @@ void m780eg_dataProcess(void){//处理接收到的服务器报文
 
 void USART3_DataProcess(uint8_t* data, uint16_t len){
     //USART_SendData(USART3, len);
+    lv_label_set_text(guider_ui.screen_network_server_msg,data+2);
 }
 
 void USART3_IRQHandler(void){

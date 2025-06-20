@@ -171,11 +171,17 @@ void setup_scr_screen_network(lv_ui *ui){
 
 
 	//Widget: screen_network_server_msg
-	ui->screen_network_server_msg = lv_label_create(ui->screen_network, NULL);
-	lv_label_set_text(ui->screen_network_server_msg, "msg:hubei wuhan china");
-	lv_label_set_align(ui->screen_network_server_msg, LV_LABEL_ALIGN_CENTER);
-	lv_obj_set_pos(ui->screen_network_server_msg, 20, 180);
-	lv_obj_set_width(ui->screen_network_server_msg, 280);
+//	ui->screen_network_server_msg = lv_label_create(ui->screen_network, NULL);
+//	lv_label_set_text(ui->screen_network_server_msg, "msg:hubei wuhan china");
+//	lv_label_set_align(ui->screen_network_server_msg, LV_LABEL_ALIGN_CENTER);
+//	lv_obj_set_pos(ui->screen_network_server_msg, 20, 180);
+//	lv_obj_set_width(ui->screen_network_server_msg, 280);
+
+    ui->screen_network_server_msg = lv_label_create(ui->screen_network, NULL);
+    lv_label_set_text(ui->screen_network_server_msg, "msg:hubei wuhan china");
+    lv_label_set_long_mode(ui->screen_network_server_msg, LV_LABEL_LONG_SROLL_CIRC);
+    lv_obj_set_pos(ui->screen_network_server_msg, 20, 180);
+    lv_obj_set_width(ui->screen_network_server_msg, 280);
 
 	//Set style for screen_network_server_msg. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_server_msg_main_default;
