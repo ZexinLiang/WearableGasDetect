@@ -102,7 +102,7 @@ void setup_scr_screen_devicest(lv_ui *ui){
 	//Widget: screen_devicest_start_st
 	ui->screen_devicest_start_st = lv_btn_create(ui->screen_devicest, NULL);
 	ui->screen_devicest_start_st_label = lv_label_create(ui->screen_devicest_start_st, NULL);
-	lv_label_set_text(ui->screen_devicest_start_st_label, "Start\nself-test");
+	lv_label_set_text(ui->screen_devicest_start_st_label, "Power Off");
 	lv_label_set_align(ui->screen_devicest_start_st_label, LV_LABEL_ALIGN_CENTER);
 	lv_obj_set_pos(ui->screen_devicest_start_st, 110, 67);
 	lv_obj_set_size(ui->screen_devicest_start_st, 100, 50);

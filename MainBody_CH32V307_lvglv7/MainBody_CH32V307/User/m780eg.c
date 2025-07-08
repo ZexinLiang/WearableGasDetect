@@ -100,7 +100,7 @@ void m780eg_perioTask(void){
     cnnRstCnt++;
     if(m780eg_cnn_stat()){
         if(confirmFlag){
-            confirmFlag = !confirmFlag;
+            confirmFlag = 0;
             char loginMsg[200] = "{ \"type\":\"verify\",\
             \"data\": { \
             \"VerifyCode\": \"1037\",\
@@ -111,8 +111,10 @@ void m780eg_perioTask(void){
         m780eg_dataUpload();
         cnnRstCnt = 0;
     }
-    else
+    else{
+        confirmFlag = 1;
         lv_label_set_text(guider_ui.screen_network_cnn_state, "Disconnected");
+    }
     //配合cnnRstCnt起到reset下拉1s后自动复位
     if(reworkFlag){
         m780eg_work();
@@ -158,12 +160,12 @@ void m780eg_dataProcess(void){//处理接收到的服务器报文
 
 }
 extern uint8_t serverAlarm ;
-void USART3_DataProcess(uint8_t* data, uint16_t len){
+void USART3_DataProcess(uint8_t* rdata, uint16_t len){
     //USART_SendData(USART3, len);
-    if(data[1]=='b')
-        serverAlarm = data[2];
+    if(rdata[1]=='b')
+        serverAlarm = rdata[2];
     else
-    lv_label_set_text(guider_ui.screen_network_server_msg,data+2);
+        lv_label_set_text(guider_ui.screen_network_server_msg,rdata+2);
 }
 
 void USART3_IRQHandler(void){

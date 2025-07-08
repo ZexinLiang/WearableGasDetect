@@ -10,7 +10,8 @@
 #include "events_init.h"
 #include <stdio.h>
 #include "lvgl.h"
-
+#include "ch32v30x.h"
+#include "ch32v30x_conf.h"
 
 static void screen_none_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
@@ -290,7 +291,7 @@ static void screen_devicest_start_st_event_handler (lv_obj_t *obj, lv_event_t ev
 	switch (event) {
 	case LV_EVENT_CLICKED:
 	{
-		
+	    GPIO_ResetBits(GPIOB,GPIO_Pin_0);//IO拉高，维持开机状态
 		break;
 	}
 	default:
