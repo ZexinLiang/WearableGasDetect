@@ -9,7 +9,13 @@
 #include "ch582inn.h"
 #include <stdio.h>
 
-DataTab_TypeDef data;
+DataTab_TypeDef data = {
+        .CO2 = 800,
+        .gasRes = 300000,
+        .humi2 = 70,
+        .o2 = 20,
+        .temp2 = 25
+};
 
 void UART5_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 

@@ -1,34 +1,30 @@
 ################################################################################
-# MRS Version: 2.1.0
-# Automatically-generated file. Do not edit!
+# MRS Version: 1.9.2
+# 自动生成的文件。不要编辑！
 ################################################################################
 
-S_DEPS :=
-S_UPPER_DEPS :=
-ASM_DEPS :=
-ASM_UPPER_DEPS :=
-C_DEPS :=
-OBJS :=
-ELF_SRCS :=
-OBJ_SRCS :=
-O_SRCS :=
-S_SRCS :=
-S_UPPER_SRCS :=
-ASM_SRCS :=
-ASM_UPPER_SRCS :=
-C_SRCS :=
-SECONDARY_FLASH :=
-SECONDARY_LIST :=
-SECONDARY_SIZE :=
+ELF_SRCS := 
+OBJ_SRCS := 
+S_SRCS := 
+ASM_UPPER_SRCS := 
+ASM_SRCS := 
+C_SRCS := 
+S_UPPER_SRCS := 
+O_SRCS := 
+ASM_UPPER_DEPS := 
+OBJS := 
+SECONDARY_FLASH := 
+SECONDARY_LIST := 
+SECONDARY_SIZE := 
+ASM_DEPS := 
+S_DEPS := 
+S_UPPER_DEPS := 
+C_DEPS := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core \
 Debug \
-Gui/custom \
-Gui/generated \
-Gui/generated/guider_fonts \
-Gui/generated/images \
 Gui/lvgl/examples/porting \
 Gui/lvgl/src/lv_core \
 Gui/lvgl/src/lv_draw \
@@ -45,10 +41,10 @@ Gui/lvgl/tests/lv_test_widgets \
 Gui/lvgl_app/src/assets \
 Gui/lvgl_app/src/lv_demo_benchmark \
 Gui/lvgl_app/src/lv_demo_keypad_encoder \
-Gui/lvgl_app/src/lv_demo_music \
 Gui/lvgl_app/src/lv_demo_music/assets \
-Gui/lvgl_app/src/lv_demo_printer \
+Gui/lvgl_app/src/lv_demo_music \
 Gui/lvgl_app/src/lv_demo_printer/images \
+Gui/lvgl_app/src/lv_demo_printer \
 Gui/lvgl_app/src/lv_demo_stress \
 Gui/lvgl_app/src/lv_demo_widgets \
 Gui/lvgl_app/src/lv_ex_get_started \
@@ -87,6 +83,11 @@ Gui/lvgl_app/src/lv_ex_widgets/lv_ex_tabview \
 Gui/lvgl_app/src/lv_ex_widgets/lv_ex_textarea \
 Gui/lvgl_app/src/lv_ex_widgets/lv_ex_tileview \
 Gui/lvgl_app/src/lv_ex_widgets/lv_ex_win \
+Gui/my_design/custom \
+Gui/my_design/generated \
+Gui/my_design/generated/guider_fonts \
+Gui/my_design/generated/images \
 Peripheral/src \
 Startup \
 User \
+

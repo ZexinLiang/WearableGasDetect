@@ -5,6 +5,17 @@
  *      Author: 86135
  */
 #include "periodicalTask.h"
+#include "m780eg.h"
+#include "lvgl.h"
+#include "gui_guider.h"
+#include "ch582inn.h"
+
+uint8_t lvgl_task_flag = 0;
+extern lv_ui guider_ui;
+extern DataTab_TypeDef data;
+extern uint8_t volInPercent;
+extern uint8_t CH582IdleCnt;
+extern uint8_t CH582Cnned;
 
 void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 
@@ -42,11 +53,48 @@ void TIM2_Trigger_Init(u16 arr, u16 psc){
     TIM_Cmd(TIM2, ENABLE);
 }
 
-void TIM2_IRQHandler()
+uint8_t divInS = 0;
+uint8_t divIn5S = 0;
+void TIM2_IRQHandler()//50ms
 {
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
     {
-        //powerOffDetect();//关机检测
+        //关机检测
+        //powerOffDetect();
+
+        //屏幕数据修改
+        if(lvgl_task_flag){
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_rhu, "%d%%",data.humi2);
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_temp, "%d",(int32_t)data.temp2);
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_pres, "%dPa",(int32_t)data.pres1);
+        }
+        divInS = (divInS+1)%20;
+        if(!divInS){//1s执行的任务
+            //数据上报
+            m780eg_perioTask();
+            //判断是否连接从机
+            CH582IdleCnt = (CH582IdleCnt+1)%5;
+            if(CH582IdleCnt == 4){
+                CH582Cnned = 0;
+            }
+            if(CH582Cnned) lv_label_set_text(guider_ui.screen_sub_device_cnn_state, "Connected");
+            else lv_label_set_text(guider_ui.screen_sub_device_cnn_state, "Disconnected");
+        }
+        divIn5S = (divIn5S+1)%40;
+        if(!divIn5S){//2S任务
+            lv_label_set_text_fmt(guider_ui.screen_settings_pwr, "%3d%%",volInPercent);
+            lv_label_set_text_fmt(guider_ui.screen_devicest_pwr, "%3d%%",volInPercent);
+            lv_label_set_text_fmt(guider_ui.screen_alarmst_label_1, "%3d%%",volInPercent);
+            lv_label_set_text_fmt(guider_ui.screen_network_label_1, "%3d%%",volInPercent);
+            lv_label_set_text_fmt(guider_ui.screen_rtdata_pwr, "%3d%%",volInPercent);
+            lv_label_set_text_fmt(guider_ui.screen_sub_device_label_1, "%3d%%",volInPercent);
+            lv_bar_set_value(guider_ui.screen_settings_pwr_pic, volInPercent, LV_ANIM_OFF);
+            lv_bar_set_value(guider_ui.screen_devicest_pwr_pic, volInPercent, LV_ANIM_OFF);
+            lv_bar_set_value(guider_ui.screen_alarmst_bar_1, volInPercent, LV_ANIM_OFF);
+            lv_bar_set_value(guider_ui.screen_network_bar_1, volInPercent, LV_ANIM_OFF);
+            lv_bar_set_value(guider_ui.screen_rtdata_pwr_pic, volInPercent, LV_ANIM_OFF);
+            lv_bar_set_value(guider_ui.screen_sub_device_bar_1, volInPercent, LV_ANIM_OFF);
+        }
 
         TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
     }

@@ -20,13 +20,16 @@ typedef struct
   
 	lv_obj_t *screen_none;
 	bool screen_none_del;
+	lv_obj_t *g_kb_screen_none;
 	lv_obj_t *screen_pwon;
 	bool screen_pwon_del;
+	lv_obj_t *g_kb_screen_pwon;
 	lv_obj_t *screen_pwon_cont_1;
 	lv_obj_t *screen_pwon_label_1;
 	lv_obj_t *screen_pwon_img_1;
 	lv_obj_t *screen_settings;
 	bool screen_settings_del;
+	lv_obj_t *g_kb_screen_settings;
 	lv_obj_t *screen_settings_page;
 	lv_obj_t *screen_settings_btn_sub_device;
 	lv_obj_t *screen_settings_btn_sub_device_label;
@@ -42,6 +45,7 @@ typedef struct
 	lv_obj_t *screen_settings_pwr;
 	lv_obj_t *screen_rtdata;
 	bool screen_rtdata_del;
+	lv_obj_t *g_kb_screen_rtdata;
 	lv_obj_t *screen_rtdata_temp_txt;
 	lv_obj_t *screen_rtdata_rh_txt;
 	lv_obj_t *screen_rtdata_pres_txt;
@@ -52,8 +56,15 @@ typedef struct
 	lv_obj_t *screen_rtdata_pres;
 	lv_obj_t *screen_rtdata_pwr;
 	lv_obj_t *screen_rtdata_pwr_pic;
+	lv_obj_t *screen_rtdata_gasr_txt;
+	lv_obj_t *screen_rtdata_o2_txt;
+	lv_obj_t *screen_rtdata_oo2;
+	lv_obj_t *screen_rtdata_co2_txt;
+	lv_obj_t *screen_rtdata_co2;
+	lv_obj_t *screen_rtdata_gasr;
 	lv_obj_t *screen_devicest;
 	bool screen_devicest_del;
+	lv_obj_t *g_kb_screen_devicest;
 	lv_obj_t *screen_devicest_pwr_pic;
 	lv_obj_t *screen_devicest_pwr;
 	lv_obj_t *screen_devicest_menu;
@@ -64,6 +75,7 @@ typedef struct
 	lv_obj_t *screen_devicest_st_msg;
 	lv_obj_t *screen_alarmst;
 	bool screen_alarmst_del;
+	lv_obj_t *g_kb_screen_alarmst;
 	lv_obj_t *screen_alarmst_label_1;
 	lv_obj_t *screen_alarmst_bar_1;
 	lv_obj_t *screen_alarmst_menu;
@@ -72,6 +84,7 @@ typedef struct
 	lv_obj_t *screen_alarmst_label_2;
 	lv_obj_t *screen_network;
 	bool screen_network_del;
+	lv_obj_t *g_kb_screen_network;
 	lv_obj_t *screen_network_label_1;
 	lv_obj_t *screen_network_bar_1;
 	lv_obj_t *screen_network_menu;
@@ -83,6 +96,7 @@ typedef struct
 	lv_obj_t *screen_network_server_msg;
 	lv_obj_t *screen_sub_device;
 	bool screen_sub_device_del;
+	lv_obj_t *g_kb_screen_sub_device;
 	lv_obj_t *screen_sub_device_label_1;
 	lv_obj_t *screen_sub_device_bar_1;
 	lv_obj_t *screen_sub_device_menu;

@@ -1,6 +1,6 @@
 ################################################################################
-# MRS Version: 2.1.0
-# Automatically-generated file. Do not edit!
+# MRS Version: 1.9.2
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -32,34 +32,6 @@ C_SRCS += \
 ../Peripheral/src/ch32v30x_usart.c \
 ../Peripheral/src/ch32v30x_wwdg.c 
 
-C_DEPS += \
-./Peripheral/src/ch32v30x_adc.d \
-./Peripheral/src/ch32v30x_bkp.d \
-./Peripheral/src/ch32v30x_can.d \
-./Peripheral/src/ch32v30x_crc.d \
-./Peripheral/src/ch32v30x_dac.d \
-./Peripheral/src/ch32v30x_dbgmcu.d \
-./Peripheral/src/ch32v30x_dma.d \
-./Peripheral/src/ch32v30x_dvp.d \
-./Peripheral/src/ch32v30x_eth.d \
-./Peripheral/src/ch32v30x_exti.d \
-./Peripheral/src/ch32v30x_flash.d \
-./Peripheral/src/ch32v30x_fsmc.d \
-./Peripheral/src/ch32v30x_gpio.d \
-./Peripheral/src/ch32v30x_i2c.d \
-./Peripheral/src/ch32v30x_iwdg.d \
-./Peripheral/src/ch32v30x_misc.d \
-./Peripheral/src/ch32v30x_opa.d \
-./Peripheral/src/ch32v30x_pwr.d \
-./Peripheral/src/ch32v30x_rcc.d \
-./Peripheral/src/ch32v30x_rng.d \
-./Peripheral/src/ch32v30x_rtc.d \
-./Peripheral/src/ch32v30x_sdio.d \
-./Peripheral/src/ch32v30x_spi.d \
-./Peripheral/src/ch32v30x_tim.d \
-./Peripheral/src/ch32v30x_usart.d \
-./Peripheral/src/ch32v30x_wwdg.d 
-
 OBJS += \
 ./Peripheral/src/ch32v30x_adc.o \
 ./Peripheral/src/ch32v30x_bkp.o \
@@ -88,8 +60,37 @@ OBJS += \
 ./Peripheral/src/ch32v30x_usart.o \
 ./Peripheral/src/ch32v30x_wwdg.o 
 
+C_DEPS += \
+./Peripheral/src/ch32v30x_adc.d \
+./Peripheral/src/ch32v30x_bkp.d \
+./Peripheral/src/ch32v30x_can.d \
+./Peripheral/src/ch32v30x_crc.d \
+./Peripheral/src/ch32v30x_dac.d \
+./Peripheral/src/ch32v30x_dbgmcu.d \
+./Peripheral/src/ch32v30x_dma.d \
+./Peripheral/src/ch32v30x_dvp.d \
+./Peripheral/src/ch32v30x_eth.d \
+./Peripheral/src/ch32v30x_exti.d \
+./Peripheral/src/ch32v30x_flash.d \
+./Peripheral/src/ch32v30x_fsmc.d \
+./Peripheral/src/ch32v30x_gpio.d \
+./Peripheral/src/ch32v30x_i2c.d \
+./Peripheral/src/ch32v30x_iwdg.d \
+./Peripheral/src/ch32v30x_misc.d \
+./Peripheral/src/ch32v30x_opa.d \
+./Peripheral/src/ch32v30x_pwr.d \
+./Peripheral/src/ch32v30x_rcc.d \
+./Peripheral/src/ch32v30x_rng.d \
+./Peripheral/src/ch32v30x_rtc.d \
+./Peripheral/src/ch32v30x_sdio.d \
+./Peripheral/src/ch32v30x_spi.d \
+./Peripheral/src/ch32v30x_tim.d \
+./Peripheral/src/ch32v30x_usart.d \
+./Peripheral/src/ch32v30x_wwdg.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 Peripheral/src/%.o: ../Peripheral/src/%.c
-	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized -g -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Debug" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl_app/src/lv_demo_widgets" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl_app" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/examples/porting" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_core" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_draw" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_font" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_gpu" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_hal" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_misc" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_themes" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_widgets" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Core" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/User" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Peripheral/inc" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/custom" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/generated" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/generated/guider_customer_fonts" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@	@	riscv-none-elf-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated\guider_fonts" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl_app\src\lv_demo_widgets" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl_app" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\examples\porting" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_core" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_draw" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_font" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_gpu" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_hal" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_misc" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_themes" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_widgets" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Core" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\custom" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated\guider_customer_fonts" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@	@
+

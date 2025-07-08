@@ -95,9 +95,18 @@ void m780eg_dataUpload(void){//按照约定通信上报数据
 //放在定时器里的周期性任务,1000ms
 uint8_t cnnRstCnt = 0;
 uint8_t reworkFlag = 0;
+uint8_t confirmFlag = 1;//第一次连接上服务器的确认信息
 void m780eg_perioTask(void){
     cnnRstCnt++;
     if(m780eg_cnn_stat()){
+        if(confirmFlag){
+            confirmFlag = !confirmFlag;
+            char loginMsg[200] = "{ \"type\":\"verify\",\
+            \"data\": { \
+            \"VerifyCode\": \"1037\",\
+            \"DeviceID\":1}}$$";
+            USARTx_SendStr(USART3, loginMsg);
+        }
         lv_label_set_text(guider_ui.screen_network_cnn_state, "Connected");
         m780eg_dataUpload();
         cnnRstCnt = 0;
@@ -148,9 +157,12 @@ void m780EGUpload(char* msg){//BLE数据回传，分多个数据包，每个数据包20字节，循环
 void m780eg_dataProcess(void){//处理接收到的服务器报文
 
 }
-
+extern uint8_t serverAlarm ;
 void USART3_DataProcess(uint8_t* data, uint16_t len){
     //USART_SendData(USART3, len);
+    if(data[1]=='b')
+        serverAlarm = data[2];
+    else
     lv_label_set_text(guider_ui.screen_network_server_msg,data+2);
 }
 

@@ -219,7 +219,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_ARC 0
 #define LV_USE_BAR 1
 #define LV_USE_BTN 1
-#define LV_USE_BTNMATRIX 0
+#define LV_USE_BTNMATRIX 1
 #define LV_USE_CALENDAR 0
 
 #if LV_USE_CALENDAR
@@ -250,7 +250,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_IMGBTN_TILED 0
 #endif /* LV_USE_IMGBTN */
 
-#define LV_USE_KEYBOARD 0
+#define LV_USE_KEYBOARD 1
 #define LV_USE_LABEL 1
 
 #if LV_USE_LABEL != 0
@@ -306,7 +306,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_SLIDER 1
 #define LV_USE_SPINBOX 0
 #define LV_USE_SWITCH 1
-#define LV_USE_TEXTAREA 0
+#define LV_USE_TEXTAREA 1
 
 #if LV_USE_TEXTAREA != 0
 #define LV_TEXTAREA_DEF_CURSOR_BLINK_TIME 400

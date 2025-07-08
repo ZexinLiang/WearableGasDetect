@@ -18,48 +18,93 @@
 #include "lv_demo_widgets.h"
 #include "touch.h"
 #include "ch9142.h"
+#include "ch9142cmd.h"
 #include "m780eg.h"
 #include "periodicalTask.h"
 #include "powerManage.h"
+#include "events_init.h"
 #include "gui_guider.h"
-
-lv_ui guider_ui;
+#include "buzzer.h"
+#include "ch582inn.h"
 
 extern _m_tp_dev tp_dev;
+lv_ui guider_ui;
+extern DataTab_TypeDef data;
+extern uint8_t lvgl_task_flag;
 
+void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str)
+{
+    uint8_t i = 0;
+    do
+    {
+       while(USART_GetFlagStatus(pUSARTx, USART_FLAG_TC) == RESET);
+       USART_SendData(pUSARTx, *(str+i));
+       i++;
+    }while(*(str+i) != '\0');
+}
+
+
+#define CH9142_Config 0
 int main(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
 	SystemCoreClockUpdate();
 	Delay_Init();
 
-	//powerOn_Init_Execute();
+	powerOn_Init_Execute();
 
 	//device Init
     LCD_Init();
     ch9142_Init();
     m780eg_Init();
     powerMagage_Init();
+    CH582_Com_Init();
 
     //Software Init
     TIM2_Trigger_Init(50000-1, 96-1);//50ms
 
     //Lvgl Init
 	POINT_COLOR=RED;
+	TP_Init();
 	lv_init();
 	lv_port_disp_init();
 	//lv_demo_widgets();
 	lv_port_indev_init();
-    setup_ui(&guider_ui);
+	//修改setup_ui并一次性初始化完所有屏幕或者带变量的屏幕
+	setup_ui(&guider_ui);
+	lvgl_task_flag = 1;
+	//events_init(&guider_ui);
 
-    while(1)
-    {
-        USART_SendData(USART2, 0x78);
-        USART_SendData(USART1, 0x78);
-        lv_tick_inc(1);
+#if CH9142_Config
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);
+	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	delay_ms(1000);
+	GPIO_ResetBits(GPIOA,GPIO_Pin_4);
+	GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+	delay_ms(1000);
+	USARTx_SendStr(USART1,"AT...\r\n");
+	USARTx_SendStr(USART2,"AT...\r\n");
+	delay_ms(500);
+	USARTx_SendStr(USART1,"AT+BLEMODE=2\r\n");
+	USARTx_SendStr(USART2,"AT+BLEMODE=1\r\n");
+	delay_ms(500);
+    //USARTx_SendStr(USART1,"AT+UXMOD=0\r\n");
+    USARTx_SendStr(USART2,"AT+CONADD=E9:99:5F:72:AB:3C,000000\r\n");
+    delay_ms(500);
+    USARTx_SendStr(USART1,"AT+NAME=CH9142_UART0\r\n");
+    USARTx_SendStr(USART2,"AT+NAME=CH9142_UART1\r\n");
+    delay_ms(500);
+    USARTx_SendStr(USART1,"AT+UART=115200,8,1,0,50\r\n");
+    USARTx_SendStr(USART2,"AT+UART=115200,8,1,0,50\r\n");
+    delay_ms(500);
+	GPIO_SetBits(GPIOA,GPIO_Pin_4);
+	GPIO_SetBits(GPIOA,GPIO_Pin_5);
+#endif
+	//uint8_t cnt = 0;
+    while(1){
+        delay_ms(10);
+        lv_tick_inc(10);
         lv_task_handler();
         tp_dev.scan(0);
-        Delay_Ms(60);
     }
 }
-

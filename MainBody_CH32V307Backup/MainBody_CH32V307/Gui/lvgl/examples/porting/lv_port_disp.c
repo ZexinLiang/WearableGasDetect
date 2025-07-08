@@ -104,6 +104,9 @@ void lv_port_disp_init(void)
     /*Set the resolution of the display*/
     disp_drv.hor_res = 240;
     disp_drv.ver_res = 320;
+    /*rotate 90*/
+    disp_drv.sw_rotate = 1;
+    disp_drv.rotated = LV_DISP_ROT_90;
 
     /*Used to copy the buffer's content to the display*/
     disp_drv.flush_cb = disp_flush;

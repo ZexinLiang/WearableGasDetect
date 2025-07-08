@@ -47,20 +47,20 @@ u8 TP_Init(void){
     //这个应该后续配置成中断信号
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;            //B15 PENT
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;        //上拉输入
-    GPIO_Init(GPIOB, &GPIO_InitStructure);//PF10上拉输入
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
     GPIO_SetBits(GPIOB,GPIO_Pin_15);//上拉
 
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;             //A8->B4 MI
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;             //A8->B4 MI
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;        //上拉输入
     GPIO_Init(GPIOB, &GPIO_InitStructure);
-    GPIO_SetBits(GPIOB,GPIO_Pin_4);//上拉
+    GPIO_SetBits(GPIOB,GPIO_Pin_5);//上拉
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;                //B3->B5  MO
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;                //B3->B5  MO
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;         //推挽输出
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &GPIO_InitStructure);//B1推挽输出
-    GPIO_SetBits(GPIOB,GPIO_Pin_5);//上拉
+    GPIO_SetBits(GPIOB,GPIO_Pin_4);//上拉
 
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;                //C0->D7  TCS
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;         //推挽输出

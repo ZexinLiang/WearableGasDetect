@@ -1,6 +1,6 @@
 ################################################################################
-# MRS Version: 2.1.0
-# Automatically-generated file. Do not edit!
+# MRS Version: 1.9.2
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -30,32 +30,6 @@ C_SRCS += \
 ../Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_usb.c \
 ../Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_wave.c 
 
-C_DEPS += \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_bright.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_eco.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_hue.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_pc.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_tel.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_wifi.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_1.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_2.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_3.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_4.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_cloud.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_copy.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_internet.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_mobile.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_no_internet.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_phone.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_print.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_printer2.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_ready.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_scan.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_scan_example.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_setup.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_usb.d \
-./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_wave.d 
-
 OBJS += \
 ./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_bright.o \
 ./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_eco.o \
@@ -82,8 +56,35 @@ OBJS += \
 ./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_usb.o \
 ./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_wave.o 
 
+C_DEPS += \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_bright.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_eco.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_hue.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_pc.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_tel.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_icon_wifi.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_1.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_2.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_3.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_btn_bg_4.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_cloud.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_copy.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_internet.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_mobile.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_no_internet.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_phone.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_print.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_printer2.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_ready.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_scan.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_scan_example.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_setup.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_usb.d \
+./Gui/lvgl_app/src/lv_demo_printer/images/lv_demo_printer_img_wave.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 Gui/lvgl_app/src/lv_demo_printer/images/%.o: ../Gui/lvgl_app/src/lv_demo_printer/images/%.c
-	@	riscv-none-embed-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -fmax-errors=20 -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized -g -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Debug" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl_app/src/lv_demo_widgets" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl_app" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/examples/porting" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_core" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_draw" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_font" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_gpu" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_hal" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_misc" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_themes" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/lvgl/src/lv_widgets" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Core" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/User" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Peripheral/inc" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/custom" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/generated" -I"c:/Users/86135/Desktop/WearableGasDetect/MainBody_CH32V307Backup/MainBody_CH32V307/Gui/generated/guider_customer_fonts" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@	@	riscv-none-elf-gcc -march=rv32imacxw -mabi=ilp32 -msmall-data-limit=8 -msave-restore -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-common -Wunused -Wuninitialized  -g -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Debug" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl_app\src\lv_demo_widgets" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl_app" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\examples\porting" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_core" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_draw" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_font" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_gpu" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_hal" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_misc" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_themes" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\lvgl\src\lv_widgets" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Core" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\User" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated\guider_customer_fonts" -I"C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\custom" -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	@	@
+

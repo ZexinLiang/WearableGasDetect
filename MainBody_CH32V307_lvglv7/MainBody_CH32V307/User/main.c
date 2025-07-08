@@ -59,10 +59,6 @@ int main(void)
     m780eg_Init();
     powerMagage_Init();
     CH582_Com_Init();
-
-    //Software Init
-    TIM2_Trigger_Init(50000-1, 96-1);//50ms
-
     //Lvgl Init
 	POINT_COLOR=RED;
 	TP_Init();
@@ -73,6 +69,9 @@ int main(void)
 	//修改setup_ui并一次性初始化完所有屏幕或者带变量的屏幕
 	setup_ui(&guider_ui);
 	lvgl_task_flag = 1;
+
+    //Software Init
+    TIM2_Trigger_Init(50000-1, 96-1);//50ms
 	//events_init(&guider_ui);
 
 #if CH9142_Config

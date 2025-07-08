@@ -21,6 +21,7 @@ typedef struct DataTab{
     uint8_t temp2;
     uint16_t CO2;
     uint16_t gas1;
+    float o2;
 }DataTab_TypeDef;
 
 void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str);

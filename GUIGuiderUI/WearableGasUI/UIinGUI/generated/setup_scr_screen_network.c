@@ -13,10 +13,40 @@
 #include "events_init.h"
 #include "custom.h"
 
+#if LV_USE_KEYBOARD
+static lv_obj_t * kb;
+static void kb_event_cb(lv_obj_t * event_kb, lv_event_t event)
+{
+	lv_keyboard_def_event_cb(event_kb, event);
+	if(event == LV_EVENT_APPLY || event == LV_EVENT_CANCEL){
+		lv_obj_set_hidden(event_kb, true);
+	}
+}
+
+static void text_area_event_cb(lv_obj_t* ta, lv_event_t event)
+{
+	if (event == LV_EVENT_FOCUSED || event == LV_EVENT_CLICKED)
+	{
+		lv_keyboard_set_textarea(kb, ta);
+		lv_obj_move_foreground(kb);
+		lv_obj_set_hidden(kb, false);
+	}
+	if (event == LV_EVENT_CANCEL || event == LV_EVENT_DEFOCUSED)
+	{
+		lv_keyboard_set_textarea(kb, NULL);
+		lv_obj_move_background(kb);
+		lv_obj_set_hidden(kb, true);
+	}
+}
+#endif
+
 
 void setup_scr_screen_network(lv_ui *ui){
 	//Widget: screen_network
 	ui->screen_network = lv_obj_create(NULL, NULL);
+	kb = lv_keyboard_create(ui->screen_network, NULL);
+	lv_obj_set_event_cb(kb, kb_event_cb);
+	lv_obj_set_hidden(kb, true);
 	lv_obj_set_size(ui->screen_network, 320, 240);
 
 	//Set style for screen_network. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
@@ -87,15 +117,15 @@ void setup_scr_screen_network(lv_ui *ui){
 	//Set style for screen_network_menu. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_menu_main_default;
 	lv_style_reset(&style_screen_network_menu_main_default);
-	lv_style_set_radius(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 50);
 	lv_style_set_text_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
 	lv_style_set_bg_opa(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_bg_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_shadow_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_border_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_border_opa(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_style_set_radius(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 50);
+	lv_style_set_shadow_width(&style_screen_network_menu_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_network_menu, LV_BTN_PART_MAIN, &style_screen_network_menu_main_default);
 
 
@@ -109,17 +139,17 @@ void setup_scr_screen_network(lv_ui *ui){
 	//Set style for screen_network_cnn_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_cnn_txt_main_default;
 	lv_style_reset(&style_screen_network_cnn_txt_main_default);
-	lv_style_set_bg_opa(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_radius(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
 	lv_style_set_text_letter_space(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_top(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_right(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_bottom(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_left(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_network_cnn_txt_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_network_cnn_txt, LV_LABEL_PART_MAIN, &style_screen_network_cnn_txt_main_default);
 
 
@@ -133,17 +163,17 @@ void setup_scr_screen_network(lv_ui *ui){
 	//Set style for screen_network_cnn_state. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_cnn_state_main_default;
 	lv_style_reset(&style_screen_network_cnn_state_main_default);
+	lv_style_set_radius(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_text_color(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
 	lv_style_set_text_letter_space(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_text_line_space(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_bg_opa(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_radius(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
-	lv_style_set_shadow_width(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_top(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_right(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_bottom(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_pad_left(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_network_cnn_state_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_network_cnn_state, LV_LABEL_PART_MAIN, &style_screen_network_cnn_state_main_default);
 
 
@@ -158,15 +188,15 @@ void setup_scr_screen_network(lv_ui *ui){
 	//Set style for screen_network_btn_cnn. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
 	static lv_style_t style_screen_network_btn_cnn_main_default;
 	lv_style_reset(&style_screen_network_btn_cnn_main_default);
-	lv_style_set_radius(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 50);
 	lv_style_set_text_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
 	lv_style_set_text_font(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
 	lv_style_set_bg_opa(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_bg_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-	lv_style_set_shadow_width(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 0);
 	lv_style_set_border_width(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 2);
 	lv_style_set_border_opa(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 255);
 	lv_style_set_border_color(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_style_set_radius(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 50);
+	lv_style_set_shadow_width(&style_screen_network_btn_cnn_main_default, LV_STATE_DEFAULT, 0);
 	lv_obj_add_style(ui->screen_network_btn_cnn, LV_BTN_PART_MAIN, &style_screen_network_btn_cnn_main_default);
 
 

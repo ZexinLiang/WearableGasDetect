@@ -169,7 +169,7 @@ User/periodicalTask.o: ../User/periodicalTask.c ../User/periodicalTask.h \
  c:\users\86135\desktop\wearablegasdetect\mainbody_ch32v307_lvglv7\mainbody_ch32v307\gui\lvgl\lvgl.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h \
  C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui/lvgl/lvgl.h \
- ../User/ch582inn.h
+ ../User/ch582inn.h ../User/buzzer.h
 ../User/periodicalTask.h:
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Peripheral\inc/ch32v30x.h:
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Core/core_riscv.h:
@@ -344,3 +344,4 @@ c:\users\86135\desktop\wearablegasdetect\mainbody_ch32v307_lvglv7\mainbody_ch32v
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui\my_design\generated/gui_guider.h:
 C:\Users\86135\Desktop\WearableGasDetect\MainBody_CH32V307_lvglv7\MainBody_CH32V307\Gui/lvgl/lvgl.h:
 ../User/ch582inn.h:
+../User/buzzer.h:

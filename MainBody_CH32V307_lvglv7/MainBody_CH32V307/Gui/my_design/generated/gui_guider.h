@@ -52,6 +52,12 @@ typedef struct
 	lv_obj_t *screen_rtdata_pres;
 	lv_obj_t *screen_rtdata_pwr;
 	lv_obj_t *screen_rtdata_pwr_pic;
+    lv_obj_t *screen_rtdata_gasr_txt;
+    lv_obj_t *screen_rtdata_o2_txt;
+    lv_obj_t *screen_rtdata_oo2;
+    lv_obj_t *screen_rtdata_co2_txt;
+    lv_obj_t *screen_rtdata_co2;
+    lv_obj_t *screen_rtdata_gasr;
 	lv_obj_t *screen_devicest;
 	bool screen_devicest_del;
 	lv_obj_t *screen_devicest_pwr_pic;
