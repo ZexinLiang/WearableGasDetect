@@ -1,0 +1,2 @@
+asyncio
+requests  # 如果 amap_geocode 使用了 requests 库进行高德地图 API 调用

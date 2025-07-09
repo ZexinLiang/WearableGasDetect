@@ -1,0 +1,17 @@
+# build, output
+[Bb]uild/
+[Oo]ut/
+[Bb]in/
+__pycache__/
+
+
+# vscode and vs
+.vs/
+.vscode/
+
+# clion
+.idea/
+
+# data
+*.db
+cache/
