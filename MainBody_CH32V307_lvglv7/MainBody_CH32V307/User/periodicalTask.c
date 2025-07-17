@@ -55,12 +55,13 @@ void TIM2_Trigger_Init(u16 arr, u16 psc){
     TIM_Cmd(TIM2, ENABLE);
 }
 
-float tempT = 40,co2T = 5000,rhT = 20,gasrT = 20000,o2T = 19.4;
+float tempT = 40,co2T = 5000,rhT = 20,gasrT = 20000,o2T = 18.6;
 uint8_t serverAlarm = 0;
 uint8_t BzOnFlag = 0;
 void updateErrMsg(){
     errmsg.temperr = (data.temp2>tempT)||(serverAlarm&0x01)?1:0;
-    errmsg.co2err = (data.CO2>co2T)||(serverAlarm&0x02)?1:0;
+    //errmsg.co2err = (data.CO2>co2T)||(serverAlarm&0x02)?1:0;
+    errmsg.co2err = (data.CO2>co2T)?1:0;
     errmsg.rherr = (data.humi2<rhT)||(serverAlarm&0x04)?1:0;
     errmsg.gasrerr = (data.gasRes<gasrT)||(serverAlarm&0x08)?1:0;
     errmsg.o2err = (data.o2<o2T)?1:0;
@@ -80,6 +81,8 @@ void TIM2_IRQHandler()//50ms
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
     {//报警任务
         bool is_on = lv_switch_get_state(guider_ui.screen_alarmst_silence_sw);
+        bool is_datam_on = lv_switch_get_state(guider_ui.screen_alarmst_datam_sw);
+        bool is_data_update_on = lv_switch_get_state(guider_ui.screen_alarmst_esc_sw);
         if(!is_on)
         {
         if(BzOnFlag)
@@ -99,7 +102,7 @@ void TIM2_IRQHandler()//50ms
         //powerOffDetect();
 
         //屏幕数据修改
-        if(lvgl_task_flag){
+        if(lvgl_task_flag&&is_datam_on){
             if(errmsg.rherr)lv_label_set_text_fmt(guider_ui.screen_rtdata_rhu, "!%d%%",data.humi2);
             else lv_label_set_text_fmt(guider_ui.screen_rtdata_rhu, "%d%%",data.humi2);
             if(errmsg.temperr) lv_label_set_text_fmt(guider_ui.screen_rtdata_temp, "!%d*C",(int32_t)data.temp2);
@@ -116,7 +119,8 @@ void TIM2_IRQHandler()//50ms
         divInS = (divInS+1)%20;
         if(!divInS){//1s执行的任务
             //数据上报
-            m780eg_perioTask();
+            if(is_data_update_on)
+                m780eg_perioTask();
             //O2浓度估算
             data.o2 = 20.9 - 3.5f*((float)data.CO2/10000)+0.02f*(data.temp2)+0.005f*(1013-data.pres1/100);
             //判断是否到危险值

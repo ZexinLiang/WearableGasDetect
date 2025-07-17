@@ -13,239 +13,6 @@
 #include "events_init.h"
 #include "custom.h"
 
-
-//void setup_scr_screen_rtdata(lv_ui *ui){
-//	//Widget: screen_rtdata
-//	ui->screen_rtdata = lv_obj_create(NULL, NULL);
-//	lv_obj_set_size(ui->screen_rtdata, 320, 240);
-//
-//	//Set style for screen_rtdata. Part: LV_OBJ_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_main_default;
-//	lv_style_reset(&style_screen_rtdata_main_default);
-//	lv_style_set_bg_opa(&style_screen_rtdata_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata, LV_OBJ_PART_MAIN, &style_screen_rtdata_main_default);
-//
-//
-//	//Widget: screen_rtdata_temp_txt
-//	ui->screen_rtdata_temp_txt = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_temp_txt, "Temp:");
-//	lv_label_set_align(ui->screen_rtdata_temp_txt, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_temp_txt, 29, 42);
-//	lv_obj_set_width(ui->screen_rtdata_temp_txt, 70);
-//
-//	//Set style for screen_rtdata_temp_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_temp_txt_main_default;
-//	lv_style_reset(&style_screen_rtdata_temp_txt_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_temp_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_temp_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_temp_txt_main_default);
-//
-//
-//	//Widget: screen_rtdata_rh_txt
-//	ui->screen_rtdata_rh_txt = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_rh_txt, "RH:");
-//	lv_label_set_align(ui->screen_rtdata_rh_txt, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_rh_txt, 29, 73);
-//	lv_obj_set_width(ui->screen_rtdata_rh_txt, 70);
-//
-//	//Set style for screen_rtdata_rh_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_rh_txt_main_default;
-//	lv_style_reset(&style_screen_rtdata_rh_txt_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_rh_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_rh_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_rh_txt_main_default);
-//
-//
-//	//Widget: screen_rtdata_pres_txt
-//	ui->screen_rtdata_pres_txt = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_pres_txt, "Pres:");
-//	lv_label_set_align(ui->screen_rtdata_pres_txt, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_pres_txt, 29, 104);
-//	lv_obj_set_width(ui->screen_rtdata_pres_txt, 70);
-//
-//	//Set style for screen_rtdata_pres_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_pres_txt_main_default;
-//	lv_style_reset(&style_screen_rtdata_pres_txt_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_pres_txt_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_pres_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_pres_txt_main_default);
-//
-//
-//	//Widget: screen_rtdata_temp
-//	ui->screen_rtdata_temp = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_temp, "25.12");
-//	lv_label_set_align(ui->screen_rtdata_temp, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_temp, 110, 42);
-//	lv_obj_set_width(ui->screen_rtdata_temp, 100);
-//
-//	//Set style for screen_rtdata_temp. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_temp_main_default;
-//	lv_style_reset(&style_screen_rtdata_temp_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_temp_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_temp, LV_LABEL_PART_MAIN, &style_screen_rtdata_temp_main_default);
-//
-//
-//	//Widget: screen_rtdata_rhu
-//	ui->screen_rtdata_rhu = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_rhu, "60%");
-//	lv_label_set_align(ui->screen_rtdata_rhu, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_rhu, 110, 73);
-//	lv_obj_set_width(ui->screen_rtdata_rhu, 100);
-//
-//	//Set style for screen_rtdata_rhu. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_rhu_main_default;
-//	lv_style_reset(&style_screen_rtdata_rhu_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_rhu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_rhu, LV_LABEL_PART_MAIN, &style_screen_rtdata_rhu_main_default);
-//
-//
-//	//Widget: screen_rtdata_menu
-//	ui->screen_rtdata_menu = lv_btn_create(ui->screen_rtdata, NULL);
-//	ui->screen_rtdata_menu_label = lv_label_create(ui->screen_rtdata_menu, NULL);
-//	lv_label_set_text(ui->screen_rtdata_menu_label, "MENU");
-//	lv_label_set_align(ui->screen_rtdata_menu_label, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_menu, 8, 8);
-//	lv_obj_set_size(ui->screen_rtdata_menu, 45, 30);
-//
-//	//Set style for screen_rtdata_menu. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_menu_main_default;
-//	lv_style_reset(&style_screen_rtdata_menu_main_default);
-//	lv_style_set_text_color(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_12);
-//	lv_style_set_bg_opa(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, 255);
-//	lv_style_set_bg_color(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
-//	lv_style_set_border_width(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_border_opa(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, 255);
-//	lv_style_set_border_color(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-//	lv_style_set_radius(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, 50);
-//	lv_style_set_shadow_width(&style_screen_rtdata_menu_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_menu, LV_BTN_PART_MAIN, &style_screen_rtdata_menu_main_default);
-//
-//
-//	//Widget: screen_rtdata_pres
-//	ui->screen_rtdata_pres = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_pres, "101.99kPa");
-//	lv_label_set_align(ui->screen_rtdata_pres, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_pres, 110, 104);
-//	lv_obj_set_width(ui->screen_rtdata_pres, 100);
-//
-//	//Set style for screen_rtdata_pres. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_pres_main_default;
-//	lv_style_reset(&style_screen_rtdata_pres_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_pres, LV_LABEL_PART_MAIN, &style_screen_rtdata_pres_main_default);
-//
-//
-//	//Widget: screen_rtdata_pwr
-//	ui->screen_rtdata_pwr = lv_label_create(ui->screen_rtdata, NULL);
-//	lv_label_set_text(ui->screen_rtdata_pwr, "100%");
-//	lv_label_set_align(ui->screen_rtdata_pwr, LV_LABEL_ALIGN_CENTER);
-//	lv_obj_set_pos(ui->screen_rtdata_pwr, 290, 8);
-//	lv_obj_set_width(ui->screen_rtdata_pwr, 30);
-//
-//	//Set style for screen_rtdata_pwr. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_pwr_main_default;
-//	lv_style_reset(&style_screen_rtdata_pwr_main_default);
-//	lv_style_set_radius(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_text_color(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
-//	lv_style_set_text_font(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_8);
-//	lv_style_set_text_letter_space(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 2);
-//	lv_style_set_text_line_space(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_bg_opa(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_top(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_right(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_bottom(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_pad_left(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_style_set_shadow_width(&style_screen_rtdata_pwr_main_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_pwr, LV_LABEL_PART_MAIN, &style_screen_rtdata_pwr_main_default);
-//
-//
-//	//Widget: screen_rtdata_pwr_pic
-//	ui->screen_rtdata_pwr_pic = lv_bar_create(ui->screen_rtdata, NULL);
-//	lv_bar_set_anim_time(ui->screen_rtdata_pwr_pic, 1000);
-//	lv_bar_set_range(ui->screen_rtdata_pwr_pic, 0, 100);
-//	lv_bar_set_value(ui->screen_rtdata_pwr_pic, 50, LV_ANIM_OFF);
-//	lv_obj_set_pos(ui->screen_rtdata_pwr_pic, 265, 9);
-//	lv_obj_set_size(ui->screen_rtdata_pwr_pic, 20, 6);
-//
-//	//Set style for screen_rtdata_pwr_pic. Part: LV_BAR_PART_BG, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_pwr_pic_bg_default;
-//	lv_style_reset(&style_screen_rtdata_pwr_pic_bg_default);
-//	lv_style_set_bg_opa(&style_screen_rtdata_pwr_pic_bg_default, LV_STATE_DEFAULT, 255);
-//	lv_style_set_bg_color(&style_screen_rtdata_pwr_pic_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
-//	lv_style_set_radius(&style_screen_rtdata_pwr_pic_bg_default, LV_STATE_DEFAULT, 10);
-//	lv_style_set_shadow_width(&style_screen_rtdata_pwr_pic_bg_default, LV_STATE_DEFAULT, 0);
-//	lv_obj_add_style(ui->screen_rtdata_pwr_pic, LV_BAR_PART_BG, &style_screen_rtdata_pwr_pic_bg_default);
-//
-//	//Set style for screen_rtdata_pwr_pic. Part: LV_BAR_PART_INDIC, State: LV_STATE_DEFAULT
-//	static lv_style_t style_screen_rtdata_pwr_pic_indic_default;
-//	lv_style_reset(&style_screen_rtdata_pwr_pic_indic_default);
-//	lv_style_set_bg_opa(&style_screen_rtdata_pwr_pic_indic_default, LV_STATE_DEFAULT, 255);
-//	lv_style_set_bg_color(&style_screen_rtdata_pwr_pic_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
-//	lv_style_set_radius(&style_screen_rtdata_pwr_pic_indic_default, LV_STATE_DEFAULT, 10);
-//	lv_obj_add_style(ui->screen_rtdata_pwr_pic, LV_BAR_PART_INDIC, &style_screen_rtdata_pwr_pic_indic_default);
-//
-//
-//	//Init events for screen.
-//	events_init_screen_rtdata(ui);
-//}
 void setup_scr_screen_rtdata(lv_ui *ui){
     //Widget: screen_rtdata
     ui->screen_rtdata = lv_obj_create(NULL, NULL);
@@ -262,7 +29,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_temp_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_temp_txt, "Temp:");
     lv_label_set_align(ui->screen_rtdata_temp_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_temp_txt, 29, 42);
+    lv_obj_set_pos(ui->screen_rtdata_temp_txt, 10, 42);
     lv_obj_set_width(ui->screen_rtdata_temp_txt, 70);
 
     //Set style for screen_rtdata_temp_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -286,7 +53,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_rh_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_rh_txt, "RH:");
     lv_label_set_align(ui->screen_rtdata_rh_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_rh_txt, 29, 73);
+    lv_obj_set_pos(ui->screen_rtdata_rh_txt, 10, 78);
     lv_obj_set_width(ui->screen_rtdata_rh_txt, 70);
 
     //Set style for screen_rtdata_rh_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -310,7 +77,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_pres_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_pres_txt, "Pres:");
     lv_label_set_align(ui->screen_rtdata_pres_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_pres_txt, 29, 104);
+    lv_obj_set_pos(ui->screen_rtdata_pres_txt, 10, 114);
     lv_obj_set_width(ui->screen_rtdata_pres_txt, 70);
 
     //Set style for screen_rtdata_pres_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -334,7 +101,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_temp = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_temp, "25.12");
     lv_label_set_align(ui->screen_rtdata_temp, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_temp, 150, 42);
+    lv_obj_set_pos(ui->screen_rtdata_temp, 75, 42);
     lv_obj_set_width(ui->screen_rtdata_temp, 100);
 
     //Set style for screen_rtdata_temp. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -358,7 +125,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_rhu = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_rhu, "60%");
     lv_label_set_align(ui->screen_rtdata_rhu, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_rhu, 150, 73);
+    lv_obj_set_pos(ui->screen_rtdata_rhu, 75, 78);
     lv_obj_set_width(ui->screen_rtdata_rhu, 100);
 
     //Set style for screen_rtdata_rhu. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -405,7 +172,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_pres = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_pres, "101.99kPa");
     lv_label_set_align(ui->screen_rtdata_pres, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_pres, 150, 104);
+    lv_obj_set_pos(ui->screen_rtdata_pres, 75, 114);
     lv_obj_set_width(ui->screen_rtdata_pres, 100);
 
     //Set style for screen_rtdata_pres. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -417,11 +184,11 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     lv_style_set_text_letter_space(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 2);
     lv_style_set_text_line_space(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_bg_opa(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_top(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_right(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_bottom(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_left(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
-    lv_style_set_shadow_width(&style_screen_rtdata_pres_main_default, LV_STATE_DEFAULT, 0);
     lv_obj_add_style(ui->screen_rtdata_pres, LV_LABEL_PART_MAIN, &style_screen_rtdata_pres_main_default);
 
 
@@ -479,23 +246,23 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_gasr_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_gasr_txt, "GasR:");
     lv_label_set_align(ui->screen_rtdata_gasr_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_gasr_txt, 29, 135);
+    lv_obj_set_pos(ui->screen_rtdata_gasr_txt, 10, 150);
     lv_obj_set_width(ui->screen_rtdata_gasr_txt, 70);
 
     //Set style for screen_rtdata_gasr_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
     static lv_style_t style_screen_rtdata_gasr_txt_main_default;
     lv_style_reset(&style_screen_rtdata_gasr_txt_main_default);
     lv_style_set_radius(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_text_color(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
     lv_style_set_text_font(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
     lv_style_set_text_letter_space(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 2);
     lv_style_set_text_line_space(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
-    lv_style_set_bg_opa(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_top(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_right(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_bottom(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_pad_left(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
-    lv_style_set_shadow_width(&style_screen_rtdata_gasr_txt_main_default, LV_STATE_DEFAULT, 0);
     lv_obj_add_style(ui->screen_rtdata_gasr_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_gasr_txt_main_default);
 
 
@@ -503,7 +270,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_o2_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_o2_txt, "O2:");
     lv_label_set_align(ui->screen_rtdata_o2_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_o2_txt, 29, 166);
+    lv_obj_set_pos(ui->screen_rtdata_o2_txt, 170, 42);
     lv_obj_set_width(ui->screen_rtdata_o2_txt, 70);
 
     //Set style for screen_rtdata_o2_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -527,7 +294,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_oo2 = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_oo2, "5%");
     lv_label_set_align(ui->screen_rtdata_oo2, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_oo2, 150, 166);
+    lv_obj_set_pos(ui->screen_rtdata_oo2, 222, 42);
     lv_obj_set_width(ui->screen_rtdata_oo2, 70);
 
     //Set style for screen_rtdata_oo2. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -551,7 +318,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_co2_txt = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_co2_txt, "CO2:");
     lv_label_set_align(ui->screen_rtdata_co2_txt, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_co2_txt, 29, 197);
+    lv_obj_set_pos(ui->screen_rtdata_co2_txt, 170, 78);
     lv_obj_set_width(ui->screen_rtdata_co2_txt, 70);
 
     //Set style for screen_rtdata_co2_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -575,7 +342,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_co2 = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_co2, "20%");
     lv_label_set_align(ui->screen_rtdata_co2, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_co2, 150, 197);
+    lv_obj_set_pos(ui->screen_rtdata_co2, 222, 78);
     lv_obj_set_width(ui->screen_rtdata_co2, 70);
 
     //Set style for screen_rtdata_co2. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -599,7 +366,7 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     ui->screen_rtdata_gasr = lv_label_create(ui->screen_rtdata, NULL);
     lv_label_set_text(ui->screen_rtdata_gasr, "999K");
     lv_label_set_align(ui->screen_rtdata_gasr, LV_LABEL_ALIGN_CENTER);
-    lv_obj_set_pos(ui->screen_rtdata_gasr, 150, 135);
+    lv_obj_set_pos(ui->screen_rtdata_gasr, 75, 150);
     lv_obj_set_width(ui->screen_rtdata_gasr, 70);
 
     //Set style for screen_rtdata_gasr. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
@@ -617,6 +384,150 @@ void setup_scr_screen_rtdata(lv_ui *ui){
     lv_style_set_pad_left(&style_screen_rtdata_gasr_main_default, LV_STATE_DEFAULT, 0);
     lv_style_set_shadow_width(&style_screen_rtdata_gasr_main_default, LV_STATE_DEFAULT, 0);
     lv_obj_add_style(ui->screen_rtdata_gasr, LV_LABEL_PART_MAIN, &style_screen_rtdata_gasr_main_default);
+
+    //Widget: screen_rtdata_no2_txt
+    ui->screen_rtdata_no2_txt = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_no2_txt, "NO2:");
+    lv_label_set_align(ui->screen_rtdata_no2_txt, LV_LABEL_ALIGN_CENTER);
+    lv_obj_set_pos(ui->screen_rtdata_no2_txt, 170, 150);
+    lv_obj_set_width(ui->screen_rtdata_no2_txt, 70);
+
+    //Set style for screen_rtdata_no2_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_no2_txt_main_default;
+    lv_style_reset(&style_screen_rtdata_no2_txt_main_default);
+    lv_style_set_radius(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_no2_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_no2_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_no2_txt_main_default);
+
+
+    //Widget: screen_rtdata_co_txt
+    ui->screen_rtdata_co_txt = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_co_txt, "CO:");
+    lv_label_set_align(ui->screen_rtdata_co_txt, LV_LABEL_ALIGN_CENTER);
+    lv_obj_set_pos(ui->screen_rtdata_co_txt, 170, 114);
+    lv_obj_set_width(ui->screen_rtdata_co_txt, 70);
+
+    //Set style for screen_rtdata_co_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_co_txt_main_default;
+    lv_style_reset(&style_screen_rtdata_co_txt_main_default);
+    lv_style_set_radius(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_co_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_co_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_co_txt_main_default);
+
+
+    //Widget: screen_rtdata_coo
+    ui->screen_rtdata_coo = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_coo, "0ppm");
+    lv_label_set_align(ui->screen_rtdata_coo, LV_LABEL_ALIGN_CENTER);
+    lv_obj_set_pos(ui->screen_rtdata_coo, 222, 114);
+    lv_obj_set_width(ui->screen_rtdata_coo, 70);
+
+    //Set style for screen_rtdata_coo. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_coo_main_default;
+    lv_style_reset(&style_screen_rtdata_coo_main_default);
+    lv_style_set_radius(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_coo_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_coo, LV_LABEL_PART_MAIN, &style_screen_rtdata_coo_main_default);
+
+
+    //Widget: screen_rtdata_no2
+    ui->screen_rtdata_no2 = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_no2, "0ppm");
+    lv_label_set_align(ui->screen_rtdata_no2, LV_LABEL_ALIGN_CENTER);
+    lv_obj_set_pos(ui->screen_rtdata_no2, 222, 150);
+    lv_obj_set_width(ui->screen_rtdata_no2, 70);
+
+    //Set style for screen_rtdata_no2. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_no2_main_default;
+    lv_style_reset(&style_screen_rtdata_no2_main_default);
+    lv_style_set_radius(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_no2_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_no2, LV_LABEL_PART_MAIN, &style_screen_rtdata_no2_main_default);
+
+
+    //Widget: screen_rtdata_loc_txt
+    ui->screen_rtdata_loc_txt = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_loc_txt, "Loc:");
+    lv_label_set_align(ui->screen_rtdata_loc_txt, LV_LABEL_ALIGN_CENTER);
+    lv_obj_set_pos(ui->screen_rtdata_loc_txt, 10, 193);
+    lv_obj_set_width(ui->screen_rtdata_loc_txt, 50);
+
+    //Set style for screen_rtdata_loc_txt. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_loc_txt_main_default;
+    lv_style_reset(&style_screen_rtdata_loc_txt_main_default);
+    lv_style_set_radius(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_loc_txt_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_loc_txt, LV_LABEL_PART_MAIN, &style_screen_rtdata_loc_txt_main_default);
+
+
+    //Widget: screen_rtdata_loc
+    ui->screen_rtdata_loc = lv_label_create(ui->screen_rtdata, NULL);
+    lv_label_set_text(ui->screen_rtdata_loc, "none...");
+    lv_label_set_long_mode(ui->screen_rtdata_loc, LV_LABEL_LONG_SROLL_CIRC);
+    lv_obj_set_pos(ui->screen_rtdata_loc, 60, 193);
+    lv_obj_set_width(ui->screen_rtdata_loc, 250);
+
+    //Set style for screen_rtdata_loc. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+    static lv_style_t style_screen_rtdata_loc_main_default;
+    lv_style_reset(&style_screen_rtdata_loc_main_default);
+    lv_style_set_radius(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_bg_opa(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_shadow_width(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_text_color(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+    lv_style_set_text_font(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+    lv_style_set_text_letter_space(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 2);
+    lv_style_set_text_line_space(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_top(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_right(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_bottom(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_style_set_pad_left(&style_screen_rtdata_loc_main_default, LV_STATE_DEFAULT, 0);
+    lv_obj_add_style(ui->screen_rtdata_loc, LV_LABEL_PART_MAIN, &style_screen_rtdata_loc_main_default);
+
 
 
     //Init events for screen.

@@ -25,7 +25,6 @@
 #include "bme68x_defs.h"
 #include "bmelink.h"
 #include "data.h"
-#include "adc.h"
 //forDeBug
 uint8_t TxBuff[100] = "This is a tx exam\r\n";
 uint8_t RxBuff[100];
@@ -76,13 +75,13 @@ int main()
     PWR_DCDCCfg(ENABLE);//启动DC-DC低功耗
     SetSysClock(CLK_SOURCE_PLL_60MHz);//配置系统时钟
 
-//    GPIOA_SetBits(bTXD1);//PA9  配置串口1
-//    GPIOA_ModeCfg(bRXD1, GPIO_ModeIN_PU);      // RXD-PA8配置上拉输入
-//    GPIOA_ModeCfg(bTXD1, GPIO_ModeOut_PP_5mA); // TXD-PA9配置推挽输出，注意先让IO口输出高电平
-//    UART1_DefInit();//BaundRate 115200
-//    UART1_ByteTrigCfg(UART_7BYTE_TRIG);
-//    UART1_INTCfg(ENABLE, RB_IER_RECV_RDY | RB_IER_LINE_STAT);
-//    PFIC_EnableIRQ(UART1_IRQn);
+    GPIOA_SetBits(bTXD1);//PA9  配置串口1
+    GPIOA_ModeCfg(bRXD1, GPIO_ModeIN_PU);      // RXD-PA8配置上拉输入
+    GPIOA_ModeCfg(bTXD1, GPIO_ModeOut_PP_5mA); // TXD-PA9配置推挽输出，注意先让IO口输出高电平
+    UART1_DefInit();//BaundRate 115200
+    UART1_ByteTrigCfg(UART_7BYTE_TRIG);
+    UART1_INTCfg(ENABLE, RB_IER_RECV_RDY | RB_IER_LINE_STAT);
+    PFIC_EnableIRQ(UART1_IRQn);
 
     //蓝牙部分
     CH58X_BLEInit();
@@ -96,8 +95,6 @@ int main()
     GPIOB_ModeCfg(GPIO_Pin_7, GPIO_ModeOut_PP_20mA);//配置传感器加热电压芯片使能引脚
     GPIOB_ResetBits(GPIO_Pin_7);//默认不加热，降低功耗
     bme688devInit();
-    //其他气体传感器
-    Start_ADC12_13_Interrupt_Sampling();
     taskInit();
     while(1)
     {

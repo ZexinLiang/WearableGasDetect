@@ -13,6 +13,20 @@
 #include "ch32v30x.h"
 #include "ch32v30x_conf.h"
 
+static void screen_alarmst_mm_btn_event_handler (lv_obj_t *obj, lv_event_t event)
+{
+    switch (event) {
+    case LV_EVENT_CLICKED:
+        {
+            lv_switch_on(guider_ui.screen_alarmst_silence_sw, LV_ANIM_OFF);
+            break;
+        }
+
+    default:
+        break;
+    }
+}
+
 static void screen_none_event_handler (lv_obj_t *obj, lv_event_t event) 
 {
 	switch (event) {
@@ -328,6 +342,7 @@ static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 void events_init_screen_alarmst(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_alarmst_menu, screen_alarmst_menu_event_handler);
+    lv_obj_set_event_cb(ui->screen_alarmst_mm_btn, screen_alarmst_mm_btn_event_handler);
 }
 
 static void screen_network_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
@@ -368,6 +383,8 @@ void events_init_screen_network(lv_ui *ui)
 	lv_obj_set_event_cb(ui->screen_network_menu, screen_network_menu_event_handler);
 	lv_obj_set_event_cb(ui->screen_network_btn_cnn, screen_network_btn_cnn_event_handler);
 }
+
+
 
 static void screen_sub_device_menu_event_handler (lv_obj_t *obj, lv_event_t event) 
 {

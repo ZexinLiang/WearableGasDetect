@@ -38,5 +38,7 @@ void setup_ui(lv_ui *ui)
   setup_scr_screen_rtdata(ui);
   setup_scr_screen_settings(ui);
   setup_scr_screen_sub_device(ui);
+  lv_switch_on(ui->screen_alarmst_datam_sw, LV_ANIM_OFF);
+  lv_switch_on(ui->screen_alarmst_esc_sw, LV_ANIM_OFF);
   lv_scr_load(ui->screen_pwon);
 }

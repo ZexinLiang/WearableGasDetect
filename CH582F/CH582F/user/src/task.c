@@ -62,9 +62,12 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
         if(status)
         {
             read_measurement(&CO2,&Temperature,&Relative_humidity);
-            DataTab.CO2 = CO2;
-            DataTab.temp2 = Temperature;
-            DataTab.humi2 = Relative_humidity;
+            if(CO2-DataTab.CO2<3000&&DataTab.CO2-CO2<3000)
+                DataTab.CO2 = CO2;
+            if(Temperature-DataTab.temp2<50&&DataTab.temp2-Temperature<50)
+                DataTab.temp2 = Temperature;
+            if(Relative_humidity-DataTab.humi2<80&&DataTab.humi2-Relative_humidity<80)
+                DataTab.humi2 = Relative_humidity;
             printf("CO2:%d,T:%d,H:%d\r\n",CO2,Temperature,Relative_humidity);
         }
 
@@ -96,7 +99,7 @@ uint16_t ProcessEvent(uint8_t task_id, uint16_t events)
         if(SCD40Init(&SCD40TaskCtrlCnt))
             tmos_start_task(TASK_ID, SCD40_START_EVENT, 3200);
         else
-            tmos_start_task( TASK_ID, E5000MS_EVENT, 8000 );//启动完成后开启5s定时测量
+            tmos_start_task( TASK_ID, E5000MS_EVENT, 9000 );//启动完成后开启5s定时测量
         return (events ^ SCD40_START_EVENT);
     }
     return 0;

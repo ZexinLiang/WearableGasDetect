@@ -30,6 +30,6 @@ void setup_ui(lv_ui *ui)
 		LV_THEME_MATERIAL_FLAG_LIGHT, LV_THEME_DEFAULT_FONT_SMALL,  LV_THEME_DEFAULT_FONT_NORMAL,
 		LV_THEME_DEFAULT_FONT_SUBTITLE, LV_THEME_DEFAULT_FONT_TITLE);
   init_scr_del_flag(ui);
-  setup_scr_screen_none(ui);
-  lv_scr_load(ui->screen_none);
+  setup_scr_screen_alarmst(ui);
+  lv_scr_load(ui->screen_alarmst);
 }

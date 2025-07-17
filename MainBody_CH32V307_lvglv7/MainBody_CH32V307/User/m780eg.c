@@ -164,8 +164,11 @@ void USART3_DataProcess(uint8_t* rdata, uint16_t len){
     //USART_SendData(USART3, len);
     if(rdata[1]=='b')
         serverAlarm = rdata[2];
-    else
+    else if(rdata[1] == 'A')
+    {
         lv_label_set_text(guider_ui.screen_network_server_msg,rdata+2);
+        lv_label_set_text(guider_ui.screen_rtdata_loc,rdata+2);
+    }
 }
 
 void USART3_IRQHandler(void){

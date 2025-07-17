@@ -324,9 +324,17 @@ static void screen_alarmst_menu_event_handler (lv_obj_t *obj, lv_event_t event)
 		break;
 	}
 }
+static void screen_alarmst_mm_btn_event_handler (lv_obj_t *obj, lv_event_t event) 
+{
+	switch (event) {
+	default:
+		break;
+	}
+}
 void events_init_screen_alarmst(lv_ui *ui)
 {
 	lv_obj_set_event_cb(ui->screen_alarmst_menu, screen_alarmst_menu_event_handler);
+	lv_obj_set_event_cb(ui->screen_alarmst_mm_btn, screen_alarmst_mm_btn_event_handler);
 }
 
 static void screen_network_menu_event_handler (lv_obj_t *obj, lv_event_t event) 

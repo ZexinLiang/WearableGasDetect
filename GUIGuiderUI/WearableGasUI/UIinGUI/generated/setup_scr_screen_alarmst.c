@@ -190,6 +190,151 @@ void setup_scr_screen_alarmst(lv_ui *ui){
 	lv_obj_add_style(ui->screen_alarmst_label_2, LV_LABEL_PART_MAIN, &style_screen_alarmst_label_2_main_default);
 
 
+	//Widget: screen_alarmst_label_3
+	ui->screen_alarmst_label_3 = lv_label_create(ui->screen_alarmst, NULL);
+	lv_label_set_text(ui->screen_alarmst_label_3, "Escalate data");
+	lv_label_set_align(ui->screen_alarmst_label_3, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_alarmst_label_3, 30, 120);
+	lv_obj_set_width(ui->screen_alarmst_label_3, 150);
+
+	//Set style for screen_alarmst_label_3. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_label_3_main_default;
+	lv_style_reset(&style_screen_alarmst_label_3_main_default);
+	lv_style_set_radius(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_text_letter_space(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_alarmst_label_3_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_label_3, LV_LABEL_PART_MAIN, &style_screen_alarmst_label_3_main_default);
+
+
+	//Widget: screen_alarmst_esc_sw
+	ui->screen_alarmst_esc_sw = lv_switch_create(ui->screen_alarmst, NULL);
+	lv_obj_set_pos(ui->screen_alarmst_esc_sw, 260, 120);
+	lv_obj_set_size(ui->screen_alarmst_esc_sw, 40, 20);
+
+	//Set style for screen_alarmst_esc_sw. Part: LV_SWITCH_PART_BG, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_esc_sw_bg_default;
+	lv_style_reset(&style_screen_alarmst_esc_sw_bg_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
+	lv_style_set_border_width(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, 10);
+	lv_style_set_shadow_width(&style_screen_alarmst_esc_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_esc_sw, LV_SWITCH_PART_BG, &style_screen_alarmst_esc_sw_bg_default);
+
+	//Set style for screen_alarmst_esc_sw. Part: LV_SWITCH_PART_INDIC, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_esc_sw_indic_default;
+	lv_style_reset(&style_screen_alarmst_esc_sw_indic_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x00a1b5));
+	lv_style_set_border_width(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_esc_sw_indic_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_esc_sw, LV_SWITCH_PART_INDIC, &style_screen_alarmst_esc_sw_indic_default);
+
+	//Set style for screen_alarmst_esc_sw. Part: LV_SWITCH_PART_KNOB, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_esc_sw_knob_default;
+	lv_style_reset(&style_screen_alarmst_esc_sw_knob_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_esc_sw_knob_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_esc_sw_knob_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_radius(&style_screen_alarmst_esc_sw_knob_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_esc_sw, LV_SWITCH_PART_KNOB, &style_screen_alarmst_esc_sw_knob_default);
+
+
+	//Widget: screen_alarmst_mm_btn
+	ui->screen_alarmst_mm_btn = lv_btn_create(ui->screen_alarmst, NULL);
+	ui->screen_alarmst_mm_btn_label = lv_label_create(ui->screen_alarmst_mm_btn, NULL);
+	lv_label_set_text(ui->screen_alarmst_mm_btn_label, "Manual Alarming");
+	lv_label_set_align(ui->screen_alarmst_mm_btn_label, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_alarmst_mm_btn, 60, 165);
+	lv_obj_set_size(ui->screen_alarmst_mm_btn, 200, 50);
+
+	//Set style for screen_alarmst_mm_btn. Part: LV_BTN_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_mm_btn_main_default;
+	lv_style_reset(&style_screen_alarmst_mm_btn_main_default);
+	lv_style_set_text_color(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_bg_opa(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_border_width(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_border_opa(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, lv_color_hex(0x01a2b1));
+	lv_style_set_radius(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, 50);
+	lv_style_set_shadow_width(&style_screen_alarmst_mm_btn_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_mm_btn, LV_BTN_PART_MAIN, &style_screen_alarmst_mm_btn_main_default);
+
+
+	//Widget: screen_alarmst_datam_sw
+	ui->screen_alarmst_datam_sw = lv_switch_create(ui->screen_alarmst, NULL);
+	lv_obj_set_pos(ui->screen_alarmst_datam_sw, 260, 85);
+	lv_obj_set_size(ui->screen_alarmst_datam_sw, 40, 20);
+
+	//Set style for screen_alarmst_datam_sw. Part: LV_SWITCH_PART_BG, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_datam_sw_bg_default;
+	lv_style_reset(&style_screen_alarmst_datam_sw_bg_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0xd4d7d9));
+	lv_style_set_border_width(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, 10);
+	lv_style_set_shadow_width(&style_screen_alarmst_datam_sw_bg_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_datam_sw, LV_SWITCH_PART_BG, &style_screen_alarmst_datam_sw_bg_default);
+
+	//Set style for screen_alarmst_datam_sw. Part: LV_SWITCH_PART_INDIC, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_datam_sw_indic_default;
+	lv_style_reset(&style_screen_alarmst_datam_sw_indic_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x00a1b5));
+	lv_style_set_border_width(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_border_opa(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_border_color(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, lv_color_hex(0x2195f6));
+	lv_style_set_radius(&style_screen_alarmst_datam_sw_indic_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_datam_sw, LV_SWITCH_PART_INDIC, &style_screen_alarmst_datam_sw_indic_default);
+
+	//Set style for screen_alarmst_datam_sw. Part: LV_SWITCH_PART_KNOB, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_datam_sw_knob_default;
+	lv_style_reset(&style_screen_alarmst_datam_sw_knob_default);
+	lv_style_set_bg_opa(&style_screen_alarmst_datam_sw_knob_default, LV_STATE_DEFAULT, 255);
+	lv_style_set_bg_color(&style_screen_alarmst_datam_sw_knob_default, LV_STATE_DEFAULT, lv_color_hex(0xffffff));
+	lv_style_set_radius(&style_screen_alarmst_datam_sw_knob_default, LV_STATE_DEFAULT, 100);
+	lv_obj_add_style(ui->screen_alarmst_datam_sw, LV_SWITCH_PART_KNOB, &style_screen_alarmst_datam_sw_knob_default);
+
+
+	//Widget: screen_alarmst_label_4
+	ui->screen_alarmst_label_4 = lv_label_create(ui->screen_alarmst, NULL);
+	lv_label_set_text(ui->screen_alarmst_label_4, "Data monitoring");
+	lv_label_set_align(ui->screen_alarmst_label_4, LV_LABEL_ALIGN_CENTER);
+	lv_obj_set_pos(ui->screen_alarmst_label_4, 30, 85);
+	lv_obj_set_width(ui->screen_alarmst_label_4, 180);
+
+	//Set style for screen_alarmst_label_4. Part: LV_LABEL_PART_MAIN, State: LV_STATE_DEFAULT
+	static lv_style_t style_screen_alarmst_label_4_main_default;
+	lv_style_reset(&style_screen_alarmst_label_4_main_default);
+	lv_style_set_radius(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_text_color(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, lv_color_hex(0x000000));
+	lv_style_set_text_font(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, &lv_font_montserratMedium_17);
+	lv_style_set_text_letter_space(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 2);
+	lv_style_set_text_line_space(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_bg_opa(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_top(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_right(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_bottom(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_pad_left(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_style_set_shadow_width(&style_screen_alarmst_label_4_main_default, LV_STATE_DEFAULT, 0);
+	lv_obj_add_style(ui->screen_alarmst_label_4, LV_LABEL_PART_MAIN, &style_screen_alarmst_label_4_main_default);
+
+
 	//Init events for screen.
 	events_init_screen_alarmst(ui);
 }
