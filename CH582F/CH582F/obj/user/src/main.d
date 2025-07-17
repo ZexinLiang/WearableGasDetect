@@ -45,7 +45,8 @@ user/src/main.o: ../user/src/main.c \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmeInRegis.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h \
  C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h \
- C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h \
+ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/adc.h
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\StdPeriphDriver\inc/CH58x_common.h:
 
@@ -140,3 +141,5 @@ C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/scd40reg.h:
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bme68x.h:
 
 C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/bmelink.h:
+
+C:\Users\86135\Desktop\WearableGasDetect\CH582F\CH582F\user\inc/adc.h:
