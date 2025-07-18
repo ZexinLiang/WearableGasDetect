@@ -337,15 +337,19 @@ void LCD_Init(void)
     GPIO_Init(GPIOD, &GPIO_InitStructure);
     GPIO_ResetBits(GPIOD,GPIO_Pin_11);
 
-    readWriteTiming.FSMC_AddressSetupTime = 0x01;
+    //readWriteTiming.FSMC_AddressSetupTime = 0x01;
     readWriteTiming.FSMC_AddressHoldTime = 0x00;
-    readWriteTiming.FSMC_DataSetupTime = 0x0f;
+    //readWriteTiming.FSMC_DataSetupTime = 0x0f;
     readWriteTiming.FSMC_BusTurnAroundDuration = 0x00;
     readWriteTiming.FSMC_AccessMode = FSMC_AccessMode_A;
 
+    readWriteTiming.FSMC_AddressSetupTime = 0x02;  // 推荐值
+    readWriteTiming.FSMC_DataSetupTime = 0x05;     // 平衡读写时序
+    writeTiming.FSMC_DataSetupTime = 0x05;         // 保持读写一致
+
     writeTiming.FSMC_AddressSetupTime = 0x00;
     writeTiming.FSMC_AddressHoldTime = 0x00;
-    writeTiming.FSMC_DataSetupTime = 0x03;
+    //writeTiming.FSMC_DataSetupTime = 0x03;
     writeTiming.FSMC_BusTurnAroundDuration = 0x00;
     writeTiming.FSMC_CLKDivision = 0x00;
     writeTiming.FSMC_DataLatency = 0x00;
@@ -760,5 +764,73 @@ void LCD_DrawCircle_8(int xc, int yc, int x, int y, u16 c){
     LCD_Fast_DrawPoint(xc - y, yc + x, c);
     LCD_Fast_DrawPoint(xc + y, yc - x, c);
     LCD_Fast_DrawPoint(xc - y, yc - x, c);
+}
+
+//
+void LCD_FillRect(u16 x1, u16 y1, u16 x2, u16 y2, const u16* color_buf) {
+    u32 total = (x2 - x1 + 1) * (y2 - y1 + 1);
+
+    // 设置显示窗口
+    LCD_WR_REG(lcddev.setxcmd);
+    LCD_WR_DATA(x1 >> 8); LCD_WR_DATA(x1 & 0xFF);
+    LCD_WR_DATA(x2 >> 8); LCD_WR_DATA(x2 & 0xFF);
+
+    LCD_WR_REG(lcddev.setycmd);
+    LCD_WR_DATA(y1 >> 8); LCD_WR_DATA(y1 & 0xFF);
+    LCD_WR_DATA(y2 >> 8); LCD_WR_DATA(y2 & 0xFF);
+
+    // 启用FSMC突发写入
+    LCD_WriteRAM_Prepare();
+    volatile uint16_t *ram = &LCD->LCD_RAM;
+
+    // 32位总线优化写入（需确保color_buf是4字节对齐）
+    if((uint32_t)color_buf % 4 == 0) {
+        uint32_t *src = (uint32_t*)color_buf;
+        for(u32 i = 0; i < total/2; i++) {
+            *(__IO uint32_t*)ram = src[i];  // 一次写2像素
+        }
+        if(total % 2) {
+            *ram = color_buf[total-1];      // 处理奇数像素
+        }
+    } else {
+        // 非对齐情况下的安全写入
+        for(u32 i = 0; i < total; i++) {
+            *ram = color_buf[i];
+        }
+    }
+}
+//
+//void LCD_FillRect(u16 x1, u16 y1, u16 x2, u16 y2, const u16* color_buf) {
+//    u32 total = (x2 - x1 + 1) * (y2 - y1 + 1);
+//
+//    // 设置窗口
+//    LCD_WR_REG(lcddev.setxcmd);
+//    LCD_WR_DATA(x1 >> 8); LCD_WR_DATA(x1 & 0xFF);
+//    LCD_WR_DATA(x2 >> 8); LCD_WR_DATA(x2 & 0xFF);
+//
+//    LCD_WR_REG(lcddev.setycmd);
+//    LCD_WR_DATA(y1 >> 8); LCD_WR_DATA(y1 & 0xFF);
+//    LCD_WR_DATA(y2 >> 8); LCD_WR_DATA(y2 & 0xFF);
+//
+//    // 准备写RAM
+//    LCD_WR_REG(lcddev.wramcmd);
+//
+//    volatile uint16_t *ram = &LCD->LCD_RAM;
+//    for (u32 i = 0; i < total; i++) {
+//        *ram = color_buf[i];
+//    }
+//}
+
+
+void LCD_FillRect_MultiColor(u16 x1, u16 y1, u16 x2, u16 y2, const u16 *colors)
+{
+    u32 total = (x2 - x1 + 1) * (y2 - y1 + 1);
+
+    LCD_SetCursor(x1, y1);
+    LCD_WriteRAM_Prepare();  // 设置LCD为GRAM写入状态
+
+    for (u32 i = 0; i < total; i++) {
+        LCD_WR_DATA(colors[i]);
+    }
 }
 

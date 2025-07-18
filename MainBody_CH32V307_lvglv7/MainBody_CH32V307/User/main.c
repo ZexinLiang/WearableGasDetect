@@ -101,8 +101,8 @@ int main(void)
 #endif
 	//uint8_t cnt = 0;
     while(1){
-        delay_ms(10);
-        lv_tick_inc(10);
+        delay_ms(30);
+        lv_tick_inc(30);
         lv_task_handler();
         tp_dev.scan(0);
     }

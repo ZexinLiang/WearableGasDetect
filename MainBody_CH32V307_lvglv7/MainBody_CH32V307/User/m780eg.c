@@ -102,9 +102,9 @@ void m780eg_perioTask(void){
         if(confirmFlag){
             confirmFlag = 0;
             char loginMsg[200] = "{ \"type\":\"verify\",\
-            \"data\": { \
-            \"VerifyCode\": \"1037\",\
-            \"DeviceID\":1}}$$";
+\"data\": { \
+\"VerifyCode\": \"1037\",\
+\"DeviceID\":1}}$$";
             USARTx_SendStr(USART3, loginMsg);
         }
         lv_label_set_text(guider_ui.screen_network_cnn_state, "Connected");
@@ -162,11 +162,11 @@ void m780eg_dataProcess(void){//处理接收到的服务器报文
 extern uint8_t serverAlarm ;
 void USART3_DataProcess(uint8_t* rdata, uint16_t len){
     //USART_SendData(USART3, len);
+    lv_label_set_text(guider_ui.screen_network_server_msg,rdata+2);
     if(rdata[1]=='b')
         serverAlarm = rdata[2];
     else if(rdata[1] == 'A')
     {
-        lv_label_set_text(guider_ui.screen_network_server_msg,rdata+2);
         lv_label_set_text(guider_ui.screen_rtdata_loc,rdata+2);
     }
 }

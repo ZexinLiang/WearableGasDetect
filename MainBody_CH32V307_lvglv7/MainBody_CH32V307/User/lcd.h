@@ -104,6 +104,9 @@ void LCD_DrawLine(u16 x1, u16 y1, u16 x2, u16 y2);
 void LCD_DrawCircle(int xc, int yc,u16 c,int r, int fill);
 void LCD_DrawCircle_8(int xc, int yc, int x, int y, u16 c);
 
+void LCD_FillRect(u16 x1, u16 y1, u16 x2, u16 y2, const u16* color_buf);
+void LCD_FillRect_MultiColor(u16 x1, u16 y1, u16 x2, u16 y2, const u16 *colors);
+
 #endif
 
 

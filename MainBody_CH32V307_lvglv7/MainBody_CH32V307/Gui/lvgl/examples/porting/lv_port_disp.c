@@ -156,6 +156,18 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
         }
     }
 
+
+//    const u16* color16 = (const u16*)color_p;
+
+//        LCD_FillRect(area->x1, area->y1, area->x2, area->x2, color16);
+
+//        lv_disp_flush_ready(disp_drv); // 通知 LVGL 刷新完成
+
+
+//    LCD_FillRect_MultiColor(area->x1, area->y1, area->x2, area->y2, (u16*)color_p);
+//
+//        lv_disp_flush_ready(disp_drv);  // 告诉LVGL可以继续渲染
+
     /* IMPORTANT!!!
      * Inform the graphics library that you are ready with the flushing*/
     lv_disp_flush_ready(disp_drv);

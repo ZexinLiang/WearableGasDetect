@@ -48,7 +48,7 @@
 
 /* Default display refresh period.
  * Can be changed in the display driver (`lv_disp_drv_t`).*/
-#define LV_DISP_DEF_REFR_PERIOD      30      /*[ms]*/
+#define LV_DISP_DEF_REFR_PERIOD     16      /*[ms]*/
 
 /* Dot Per Inch: used to initialize default sizes.
  * E.g. a button with width = LV_DPI / 2 -> half inch wide
@@ -343,7 +343,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  * The behavior of asserts can be overwritten by redefining them here.
  * E.g. #define LV_ASSERT_MEM(p)  <my_assert_code>
  */
-#define LV_USE_DEBUG        1
+#define LV_USE_DEBUG        0
 #if LV_USE_DEBUG
 
 /*Check if the parameter is NULL. (Quite fast) */
@@ -689,7 +689,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_PAGE     1
 #if LV_USE_PAGE != 0
 /*Focus default animation time [ms] (0: no animation)*/
-#  define LV_PAGE_DEF_ANIM_TIME     100
+#  define LV_PAGE_DEF_ANIM_TIME     50
 #endif
 
 /*Preload (dependencies: lv_arc, lv_anim)*/
@@ -704,7 +704,7 @@ typedef void * lv_obj_user_data_t;
 #define LV_USE_ROLLER    1
 #if LV_USE_ROLLER != 0
 /*Focus animation time [ms] (0: no animation)*/
-#  define LV_ROLLER_DEF_ANIM_TIME     10
+#  define LV_ROLLER_DEF_ANIM_TIME     200
 
 /*Number of extra "pages" when the roller is infinite*/
 #  define LV_ROLLER_INF_PAGES         7

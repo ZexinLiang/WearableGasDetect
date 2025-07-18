@@ -61,7 +61,6 @@ uint8_t BzOnFlag = 0;
 void updateErrMsg(){
     errmsg.temperr = (data.temp2>tempT)||(serverAlarm&0x01)?1:0;
     errmsg.co2err = (data.CO2>co2T)||(serverAlarm&0x02)?1:0;
-    errmsg.co2err = (data.CO2>co2T)?1:0;
     errmsg.rherr = (data.humi2<rhT)||(serverAlarm&0x04)?1:0;
     //errmsg.gasrerr = (data.gasRes<gasrT)||(serverAlarm&0x08)?1:0;
     errmsg.o2err = (data.o2<o2T)?1:0;
