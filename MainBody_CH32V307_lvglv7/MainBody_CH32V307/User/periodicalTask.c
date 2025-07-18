@@ -60,12 +60,13 @@ uint8_t serverAlarm = 0;
 uint8_t BzOnFlag = 0;
 void updateErrMsg(){
     errmsg.temperr = (data.temp2>tempT)||(serverAlarm&0x01)?1:0;
-    //errmsg.co2err = (data.CO2>co2T)||(serverAlarm&0x02)?1:0;
+    errmsg.co2err = (data.CO2>co2T)||(serverAlarm&0x02)?1:0;
     errmsg.co2err = (data.CO2>co2T)?1:0;
     errmsg.rherr = (data.humi2<rhT)||(serverAlarm&0x04)?1:0;
-    errmsg.gasrerr = (data.gasRes<gasrT)||(serverAlarm&0x08)?1:0;
+    //errmsg.gasrerr = (data.gasRes<gasrT)||(serverAlarm&0x08)?1:0;
     errmsg.o2err = (data.o2<o2T)?1:0;
-    if(errmsg.co2err||errmsg.rherr||errmsg.gasrerr||errmsg.o2err)
+    errmsg.manualerr = (serverAlarm&0b10000000)?1:0;
+    if(errmsg.co2err||errmsg.rherr||errmsg.gasrerr||errmsg.o2err||errmsg.manualerr)
         BzOnFlag = 1;
     else BzOnFlag = 0;
 }
@@ -77,7 +78,6 @@ uint8_t divIn5S = 0;
 uint8_t bzOnOff = 0;
 void TIM2_IRQHandler()//50ms
 {
-
     if (TIM_GetITStatus(TIM2, TIM_IT_Update) != RESET)
     {//±¨¾¯ÈÎÎñ
         bool is_on = lv_switch_get_state(guider_ui.screen_alarmst_silence_sw);

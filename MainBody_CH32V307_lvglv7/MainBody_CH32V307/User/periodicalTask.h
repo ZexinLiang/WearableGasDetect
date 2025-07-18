@@ -20,6 +20,7 @@ typedef struct errmsg{
     uint8_t temperr;
     uint8_t gasrerr;
     uint8_t preserr;
+    uint8_t manualerr;
 }ERR_TypeDef;
 
 void TIM2_Trigger_Init(u16 arr, u16 psc);

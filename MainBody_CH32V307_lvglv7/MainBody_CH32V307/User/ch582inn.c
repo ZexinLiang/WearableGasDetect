@@ -184,10 +184,11 @@ void UART5_IRQHandler(void){
                     data.temp2 = (U5Rx_Buff[6]-'0')*100+(U5Rx_Buff[7]-'0')*10+(U5Rx_Buff[8]-'0');
                 }
                 else if(U5Rx_Buff[1]=='C'){
-//                    uint16_t tempco2   =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
-//                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
-//                    CO2Fliter(tempco2);
-                    data.CO2 =  (U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                    uint16_t tempco2   =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                 (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
+                    //CO2Fliter(tempco2);
+                    if(tempco2-data.CO2<3000&&tempco2-data.CO2>-3000)
+                        data.CO2 =  (U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
                                                              (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
                 }
                 else if(U5Rx_Buff[2]=='g'&&U5Rx_Buff[5]=='1'){

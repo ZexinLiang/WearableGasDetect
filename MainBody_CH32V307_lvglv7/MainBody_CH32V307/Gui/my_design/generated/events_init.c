@@ -13,12 +13,17 @@
 #include "ch32v30x.h"
 #include "ch32v30x_conf.h"
 
+void USARTx_SendStr(USART_TypeDef* pUSARTx, char *str);
+
 static void screen_alarmst_mm_btn_event_handler (lv_obj_t *obj, lv_event_t event)
 {
     switch (event) {
     case LV_EVENT_CLICKED:
         {
-            lv_switch_on(guider_ui.screen_alarmst_silence_sw, LV_ANIM_OFF);
+            char errmsg[200] = "{ \"type\":\"error\",\
+\"data\": { \
+\"manual\": \"1\"}}$$";
+                        USARTx_SendStr(USART3, errmsg);
             break;
         }
 
