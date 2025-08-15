@@ -13,6 +13,9 @@
 #include "stdlib.h"
 #include "font.h" 
 
+
+//#define change
+
 /* LCD brush and background colors */
 u16 POINT_COLOR=0x0000;
 u16 BACK_COLOR=0xFFFF;
@@ -483,8 +486,19 @@ void LCD_Init(void)
 		delay_ms(120);
 		LCD_WR_REG(0x29); //display on	
 	}
-	
-	LCD_Display_Dir(0);
+#ifdef change
+    LCD_WR_REG(0x36);
+    // 0x08: 0000 1000 -> 从左到右, 从上到下, RGB顺序
+    // 0x28: 0010 1000 -> 从左到右, 从上到下, BGR顺序
+    LCD_WR_DATA(0x08);  // 根据实际颜色选择0x08或0x28
+
+    // 更新lcddev结构体
+    lcddev.dir = 0;  // 匹配新方向
+    lcddev.width = 240;
+    lcddev.height = 320;
+#else
+	LCD_Display_Dir(1);
+#endif
 	GPIO_SetBits(GPIOB,GPIO_Pin_14);
 	LCD_Clear(WHITE);
 }  
@@ -821,16 +835,101 @@ void LCD_FillRect(u16 x1, u16 y1, u16 x2, u16 y2, const u16* color_buf) {
 //    }
 //}
 
+void LCD_SetWindow(u16 x1, u16 y1, u16 x2, u16 y2)
+{
+    // 发送设置X坐标命令 (具体命令值需查芯片手册)
+    LCD_WR_REG(0x2A);  // 通常是0x2A (ILI9341/ST7789等)
+    LCD_WR_DATA(x1 >> 8);
+    LCD_WR_DATA(x1 & 0xFF);
+    LCD_WR_DATA(x2 >> 8);
+    LCD_WR_DATA(x2 & 0xFF);
 
+    // 发送设置Y坐标命令 (通常是0x2B)
+    LCD_WR_REG(0x2B);
+    LCD_WR_DATA(y1 >> 8);
+    LCD_WR_DATA(y1 & 0xFF);
+    LCD_WR_DATA(y2 >> 8);
+    LCD_WR_DATA(y2 & 0xFF);
+}
+//void LCD_FillRect_MultiColor(u16 x1, u16 y1, u16 x2, u16 y2, const u16 *colors)
+//{
+//    u32 total = (x2 - x1+1) * (y2 - y1+1);
+//    LCD_SetWindow(x1, y1, x2, y2);
+//    LCD_SetCursor(x1, y1);
+//    LCD_WriteRAM_Prepare();  // 设置LCD为GRAM写入状态
+//
+//    for (u32 i = 0; i < total; i++) {
+//        LCD_WR_DATA(colors[i]);
+//    }
+//}
+// 删除现有的 LCD_SetWindow 函数，改为在填充函数中直接设置窗口
+//void LCD_FillRect_MultiColor(u16 x1, u16 y1, u16 x2, u16 y2, const u16 *colors)
+//{
+//    u16 w = x2 - x1 + 1;
+//    u16 h = y2 - y1 + 1;
+//    u32 total = w * h;
+//
+//    // 使用驱动内置的窗口设置方式 (关键修改)
+//    LCD_WR_REG(lcddev.setxcmd);  // 0x2A
+//    LCD_WR_DATA(x1 >> 8);
+//    LCD_WR_DATA(x1 & 0xFF);
+//    LCD_WR_DATA(x2 >> 8);
+//    LCD_WR_DATA(x2 & 0xFF);
+//
+//    LCD_WR_REG(lcddev.setycmd);  // 0x2B
+//    LCD_WR_DATA(y1 >> 8);
+//    LCD_WR_DATA(y1 & 0xFF);
+//    LCD_WR_DATA(y2 >> 8);
+//    LCD_WR_DATA(y2 & 0xFF);
+//
+//    // 准备GRAM写入
+//    LCD_WriteRAM_Prepare();
+//
+//    // 优化写入性能
+//    volatile uint16_t *ram = &LCD->LCD_RAM;
+//    for(u32 i = 0; i < total; i++) {
+//        *ram = colors[i];
+//    }
+//}
 void LCD_FillRect_MultiColor(u16 x1, u16 y1, u16 x2, u16 y2, const u16 *colors)
 {
-    u32 total = (x2 - x1 + 1) * (y2 - y1 + 1);
+    // 确保坐标有效性
+    if(x1 > x2) return;
+    if(y1 > y2) return;
 
-    LCD_SetCursor(x1, y1);
-    LCD_WriteRAM_Prepare();  // 设置LCD为GRAM写入状态
+    u16 w = x2 - x1 + 1;
+    u16 h = y2 - y1 + 1;
+    u32 total = w * h;
 
-    for (u32 i = 0; i < total; i++) {
-        LCD_WR_DATA(colors[i]);
+    // 根据当前方向调整坐标
+    if(lcddev.dir == 1) { // 横屏模式
+        // 交换 XY 坐标
+        u16 tmp = x1;
+        x1 = y1;
+        y1 = tmp;
+        tmp = x2;
+        x2 = y2;
+        y2 = tmp;
+    }
+
+    // 正确的 ILI9341 窗口设置序列
+    LCD_WR_REG(0x2A);  // 列地址设置
+    LCD_WR_DATA(x1 >> 8);
+    LCD_WR_DATA(x1 & 0xFF);
+    LCD_WR_DATA(x2 >> 8);
+    LCD_WR_DATA(x2 & 0xFF);
+
+    LCD_WR_REG(0x2B);  // 行地址设置
+    LCD_WR_DATA(y1 >> 8);
+    LCD_WR_DATA(y1 & 0xFF);
+    LCD_WR_DATA(y2 >> 8);
+    LCD_WR_DATA(y2 & 0xFF);
+
+    LCD_WR_REG(0x2C);  // 内存写入命令
+
+    // 优化数据写入
+    volatile uint16_t *ram = &(LCD->LCD_RAM);
+    for(u32 i = 0; i < total; i++) {
+        *ram = colors[i];
     }
 }
-

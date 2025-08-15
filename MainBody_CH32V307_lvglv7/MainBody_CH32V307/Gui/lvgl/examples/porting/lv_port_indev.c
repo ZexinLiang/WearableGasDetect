@@ -222,8 +222,8 @@ static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y)
 {
     /*Your code comes here*/
 
-    (*x) = tp_dev.x;     // 赋值x坐标
-    (*y) = tp_dev.y;     // 赋值y坐标
+    (*x) = 320-tp_dev.y;     // 赋值x坐标
+    (*y) = tp_dev.x;     // 赋值y坐标
 }
 
 /*------------------

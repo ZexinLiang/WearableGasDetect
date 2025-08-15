@@ -17,6 +17,7 @@ extern DataTab_TypeDef data;
 extern uint8_t volInPercent;
 extern uint8_t CH582IdleCnt;
 extern uint8_t CH582Cnned;
+extern uint16_t deltaCO2;
 ERR_TypeDef errmsg;
 
 void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
@@ -118,6 +119,7 @@ void TIM2_IRQHandler()//50ms
         divInS = (divInS+1)%20;
         if(!divInS){//1s执行的任务
             //数据上报
+            //data.CO2 = data.CO2+(deltaCO2/5);
             if(is_data_update_on)
                 m780eg_perioTask();
             //O2浓度估算

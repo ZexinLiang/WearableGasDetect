@@ -9,7 +9,7 @@
 * Attention: This software (modified or not) and binary are used for 
 * microcontroller manufactured by Nanjing Qinheng Microelectronics.
 *******************************************************************************/
-
+//LCD.c 205 lvgl_conf 36
 #include "debug.h"
 #include "lcd.h"
 #include "lvgl.h"

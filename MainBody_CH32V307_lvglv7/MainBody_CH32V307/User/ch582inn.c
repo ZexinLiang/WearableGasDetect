@@ -141,7 +141,9 @@ void RHGFilter(uint8_t rh){
     rhFilter[2] = rh;
        data.humi2 = find_median_uint8(rhFilter, 3);
 }
-
+uint16_t co2RealLast;
+uint16_t co2Real;
+uint16_t deltaCO2;
 void UART5_IRQHandler(void){
     if(USART_GetITStatus(UART5, USART_IT_RXNE) != RESET){//接收中断触发
         singleChar = USART_ReceiveData(UART5);
@@ -188,8 +190,13 @@ void UART5_IRQHandler(void){
                                  (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
                     //CO2Fliter(tempco2);
                     if(tempco2-data.CO2<3000&&tempco2-data.CO2>-3000)
-                        data.CO2 =  (U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
-                                                             (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
+                    {
+                        co2RealLast = co2Real;
+                        co2Real = (U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+
+                                (U5Rx_Buff[9]-'0')*100+(U5Rx_Buff[10]-'0')*10+(U5Rx_Buff[11]-'0');
+                        deltaCO2 = co2Real-co2RealLast;
+                        data.CO2 = co2Real;
+                    }
                 }
                 else if(U5Rx_Buff[2]=='g'&&U5Rx_Buff[5]=='1'){
                     data.gas1   =(U5Rx_Buff[6]-'0')*100000+(U5Rx_Buff[7]-'0')*10000+(U5Rx_Buff[8]-'0')*1000+

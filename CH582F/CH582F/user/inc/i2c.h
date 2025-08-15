@@ -2,7 +2,7 @@
  * i2c.h
  *
  *  Created on: 2025Äê2ÔÂ5ÈÕ
- *      Author: ÁºÔóĞÀ
+ *
  */
 
 #ifndef INC_I2C_H_

@@ -102,11 +102,13 @@ void lv_port_disp_init(void)
     /*Set up the functions to access to your display*/
 
     /*Set the resolution of the display*/
-    disp_drv.hor_res = 240;
-    disp_drv.ver_res = 320;
+    disp_drv.hor_res = 320;
+    disp_drv.ver_res = 240;
     /*rotate 90*/
-    disp_drv.sw_rotate = 1;
-    disp_drv.rotated = LV_DISP_ROT_90;
+//    disp_drv.sw_rotate = 1;
+//    disp_drv.rotated = LV_DISP_ROT_90;
+    disp_drv.sw_rotate = 0;
+    disp_drv.rotated = LV_DISP_ROT_NONE;
 
     /*Used to copy the buffer's content to the display*/
     disp_drv.flush_cb = disp_flush;
@@ -155,17 +157,24 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
             color_p++;
         }
     }
-
+//    for(x = area->x1; x <= area->x2; x++) {
+//        for(y = area->y1; y <= area->y2; y++) {
+//        /* Put a pixel to the display. For example: */
+//        /* put_px(x, y, *color_p)*/
+//        LCD_Fast_DrawPoint(x,y,color_p->full);
+//        color_p++;
+//    }
+//}
 
 //    const u16* color16 = (const u16*)color_p;
-
+//
 //        LCD_FillRect(area->x1, area->y1, area->x2, area->x2, color16);
 
 //        lv_disp_flush_ready(disp_drv); // 通知 LVGL 刷新完成
 
 
-//    LCD_FillRect_MultiColor(area->x1, area->y1, area->x2, area->y2, (u16*)color_p);
-//
+//   LCD_FillRect_MultiColor(area->x1, area->y1, area->x2, area->y2, (u16*)color_p);
+
 //        lv_disp_flush_ready(disp_drv);  // 告诉LVGL可以继续渲染
 
     /* IMPORTANT!!!
