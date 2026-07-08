@@ -1,0 +1,45 @@
+# ---- Build artifacts (regenerable by IDE) ----
+# Keil MDK-ARM / uVision
+Objects/
+Listings/
+DebugConfig/
+*.o
+*.d
+*.crf
+*.dep
+*.lnp
+*.axf
+*.hex
+*.map
+*.iex
+*.lst
+*.htm
+*.sct
+*.uvguix.*
+*.uvoptx
+*.dbgconf
+*.bak
+# IAR EWARM
+Debug/Obj/
+Debug/Exe/
+Debug/List/
+settings/
+*.dbgdt
+*.dnx
+*.wsdt
+# GCC / MounRiver (RISC-V) / Eclipse build output
+obj/
+*.elf
+# Python
+__pycache__/
+*.pyc
+*.pyo
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# ---- Vendor precompiled BLE stack ROM images (keep) ----
+!**/LIB/CH58xBLE_ROM*.hex
